@@ -130,7 +130,6 @@ class Main extends React.Component {
         const user = JSON.parse(localStorage.getItem('user'))
         document.title = title
         return <div className={classes.root}>
-            <CssBaseline />
             <AppBar
                 position="fixed"
                 className={classes.appBar}

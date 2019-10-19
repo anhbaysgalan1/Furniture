@@ -23,6 +23,7 @@ import {
     Toolbar,
 
 } from '@material-ui/core'
+import Header from '../Public/Header/Header'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -48,6 +49,7 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
+                <Header classes={classes} />
                 <p>Center</p>
             </div>
         )
