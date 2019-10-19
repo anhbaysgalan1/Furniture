@@ -36,13 +36,11 @@ import Home from './Components/Home'
 import { Link } from 'react-router-dom'
 import ButtonViews from './Components/ButtonViews'
 import CardActionArea from './Components/CardActionArea'
-import Header from '../Public/Header/Header'
 import Foggy from './Components/Foggy'
 import Job from './Components/Job'
 import TeamImg from './Components/TeamImg'
 import Advertise from './Components/Advertise'
 import News from './Components/News'
-import Circle from '../Public/Circle'
 import Skeleton from './Components/Skeleton'
 import _ from 'lodash'
 
@@ -72,7 +70,6 @@ class Index extends BaseView {
             <div>
                 <Card raised={true}>
                     <CardContent> 
-                        <Header classes={classes} />
                     </CardContent>
                     <Home classes={classes} />
                 </Card>
@@ -811,7 +808,6 @@ class Index extends BaseView {
                 <br></br> <br></br>
                 <ButtonViews classes={classes} />
                 <br></br> <br></br>
-                <Circle classes={classes} />
             </div>
         )
     }

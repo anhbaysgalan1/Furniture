@@ -2,53 +2,60 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { withRouter } from 'react-router-dom'
-import BaseView from '../../../views/BaseView'
+import BaseView from 'views/BaseView'
 import PaperFade from 'components/Main/PaperFade'
 import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
-import _ from 'lodash'
-import ExportExcel from 'components/ExportExcel/ExportExcel'
-import { Link } from 'react-router-dom'
-import MailIcon from '@material-ui/icons/MailOutline'
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import HomeIcon from '@material-ui/icons/Home'
-import PhoneIcon from '@material-ui/icons/LocalPhone'
+import FacebookIcon from '@material-ui/icons/Facebook';
 import {
     IconButton,
     Icon,
-    Grid,
     Tooltip,
     Button,
     Card,
-    Typography,
-    CardActions,
+    Grid,
     CardContent,
-} from '@material-ui/core'
+    CardActions,
+    Typography,
+    AppBar,
+    Toolbar,
 
+} from '@material-ui/core'
+import moment from 'moment'
+import _ from 'lodash'
 
 const styles = theme => ({
-    button: {
-        marginRight: '5px'
+    gridTable: {
+        height: "calc(100vh - 100px)"
+    },
+    marginConten: {
+        parding: '5px 5px 5px 5px'
     }
 })
 
-class Food extends BaseView {
+
+
+class Index extends BaseView {
     constructor(props) {
         super(props)
+        this.state = {
+        }
     }
 
     render() {
-        const { classes } = this.props
+        let { classes } = this.props
         return (
             <div>
-               Food
+                <p>Center</p>
             </div>
         )
     }
 }
 
-Food.propTypes = {
+Index.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(withRouter(Food))
+export default withStyles(styles)(withRouter(Index))
