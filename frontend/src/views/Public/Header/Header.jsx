@@ -24,8 +24,9 @@ import _ from 'lodash'
 import ExportExcel from 'components/ExportExcel/ExportExcel'
 import { Link } from 'react-router-dom'
 import Phone from '@material-ui/icons/Phone'
-import logoJS from "./logoJS.png"
+import EmailIcon from '@material-ui/icons/Email';
 import DD from './DD.png'
+import LogoDD from './logoDD.png'
 
 
 const styles = theme => ({
@@ -50,60 +51,37 @@ class Index extends BaseView {
     render() {
         const { classes } = this.props
         return (
-            <span>
-                <Grid container alignContent='flex-end' direction='row' spacing={32}>
-                    <Grid item xs={2}>
+            <Card>
+                <Grid container alignContent='flex-end' direction='row' spacing={0}>
+                    <Grid item xs={1}>
                         <img src={DD}
                             alt="Smiley face"
-                            height="70"
+                            height="80%"
+                            width="70%">
+                        </img>
+                    </Grid>
+                    <Grid item xs={5}>
+                        <img src={LogoDD}
+                            alt="Smiley face"
+                            height="100%"
                             width="100%">
                         </img>
                     </Grid>
-                    <Grid item xs={2}>
-                        <Grid container alignContent='flex-end' direction='row' spacing={32}>
-                            <Grid item xs={2}>
-                                <Phone color="primary" fontSize='large' />
-                            </Grid>
-                            <Grid item xs={10}>
-                            <Typography component='h6' variant='h6'>
-                                Hotline: <br></br>
-                                0945 577 008
-                            </Typography>
-                            </Grid>
-                        </Grid>
+                    <Grid item xs={3}>
+                        <IconButton  > 
+                            <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
+                            noithat.dodo@gmail.com
+                        </IconButton>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Button>
-                            <img src="https://appian.com/assets/sites/4/2018/01/blog-low-code-v2.jpg"
-                                alt="Smiley face"
-                                height="35"
-                                width="75">
-                            </img>
-                        </Button>
-                        <Button>
-                            <img src="https://cdn.webshopapp.com/shops/94414/files/54968390/vietnam-flag-icon-free-download.jpg"
-                                alt="Smiley face"
-                                height="35"
-                                width="75">
-                            </img>
-                        </Button>
-                        <Button>
-                            <img src="https://www.tedxrockcreekpark.com/image/thedarkglobe.files.wordpress.com/2012/03/japanese_flag.jpg"
-                                alt="Smiley face"
-                                height="35"
-                                width="75">
-                            </img>
-                        </Button>
-                        <Button>
-                            <img src="https://www.uwj.com.au/wp-content/uploads/2019/08/fb-1.png"
-                                alt="Smiley face"
-                                height="35"
-                                width="75">
-                            </img>
-                        </Button>
+                    <Grid item xs={3}>
+                        <IconButton>
+                            <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
+                            0377 535 717
+                        </IconButton>
                     </Grid>
+                    
                 </Grid>
-            </span>
+            </Card>
         )
     }
 }
