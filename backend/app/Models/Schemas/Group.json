@@ -1,0 +1,6 @@
+{
+  "_id": "objectid",
+  "name": "string",
+  "areaIds": ["objectid"],
+  "area": "function"
+}

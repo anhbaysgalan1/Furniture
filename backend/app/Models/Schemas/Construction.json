@@ -1,0 +1,13 @@
+{
+    "_id"               : "objectid",
+    "dateStart"         : "date",
+    "dateEnd"           : "date",
+    "code"              : "string",
+    "name"              : "string",
+    "address"           : "string",
+    "amount"            : "number",
+    "cost"              : "number",
+    "contructionProfit" : "number",
+    "workNight"         : "boolean",
+    "schedules"         :  ["object"]
+}

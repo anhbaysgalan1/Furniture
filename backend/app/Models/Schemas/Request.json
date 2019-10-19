@@ -1,0 +1,20 @@
+{
+    "_id"             : "objectid",
+    "date"            : "date", 
+    "dateOff"         : "date",
+    "constructionId"  : "objectid",
+    "status1"         : "boolean",
+    "status2"         : "boolean",
+    "userId"          : "objectid",
+    "manage1"         : "objectid",
+    "manage2"         : "objectid",
+    "content"         : "string", 
+    "typeRequest"     : "number",
+    "checkbox"        : "boolean",
+    "delByAdmin"      : "boolean",
+    "subtractHour"    : "number"
+}
+
+
+
+

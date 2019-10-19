@@ -1,0 +1,172 @@
+{
+    "Login_Failed": {
+      "message": "Username or password is incorrect",
+      "vi": "Tên đăng nhập hoặc mật khẩu không đúng."
+    },
+    "Access_Failed": {
+      "message": "You do not have ability to access this system",
+      "vi": "Bạn không có quyền truy cập vào hệ thống."
+    },
+    "No_Mana_User_Permission": {
+        "message": "You do not have permission to manage user",
+        "vi": "Bạn không có quyền quản lý người dùng."
+    },
+    "User_Not_Exist": {
+        "message": "User not exist in database",
+        "vi": "Không tồn tại người dùng trong hệ thống. \nVui lòng kiểm tra lại"
+    },
+    "User_Dont_Have_Positions": {
+        "message": "User do not have positions",
+        "vi": "Người dùng hiện tại không có chức vụ."
+    },
+    "User_Name_Or_Code_Exist": {
+        "message": "Username or code already existed",
+        "vi": "Tên đăng nhập hoặc mã nhân viên đã tồn tại. \nVui lòng nhập tên hoặc mã khác"
+    },
+    "User_Check_In_Once": {
+        "message": "User can only check in once a day ",
+        "vi": "Bạn chỉ được phép check in một lần trong ngày."
+    },
+    "User_Not_Check_In": {
+        "message": "User have not check in yet",
+        "vi": "Bạn chưa check in hôm nay."
+    },
+    "Input_Check_Out_And_Total_Time_Warning": {
+        "message": "Input time can not greater than total time",
+        "vi": "Thời gian nhập vào không được lớn hơn tổng thời gian làm. \nVui lòng nhập lại."
+    },
+    "Expired_Check_Out_Time_Warning": {
+        "message": "You can not update check out time anymore",
+        "vi": "Đã hết hạn sửa thời gian. \nVui lòng liên hệ quản lý để cập nhập thời gian của bạn."
+    },
+    "Input_Check_Out_And_Today_Time_Warning": {
+        "message": "Your check out time can not greater than today time",
+        "vi": "Bạn đang check out giờ lớn hơn giờ hiện tại. \nVui lòng nhập lại."
+    }, 
+    "Area_Code_Exist": {
+        "message": "Area code already existed",
+        "vi": "Mã khu vực đã tồn tại. \nVui lòng nhập mã khác."
+    },
+    "Area_Update_Warning": {
+        "message": "You can not update this area",
+        "vi": "Bạn không thể sửa khu vực này."
+    },
+    "Area_Delete_Warning": {
+        "message": "You can not delete this area",
+        "vi": "Bạn không thể xóa khu vực này."
+    },
+    "Constructions_Id_Not_Exist": {
+        "message": "Construction Id not exist in database",
+        "vi": "Không tồn tại công trường trong hệ thống. \nVui lòng kiểm tra lại"
+    },
+    "Constructions_Code_Exist": {
+        "message": "Construction code already existed",
+        "vi": "Mã công trường đã tồn tại. \nVui lòng nhập mã khác."
+    },
+    "No_Add_Construction_Permission": {
+        "message": "You do not have permission to add new construction",
+        "vi": "Bạn không có quyền thêm mới công trường."
+    },
+    "No_Delete_Construction_Permission": {
+        "message": "You do not have permission to delete construction",
+        "vi": "Bạn không có quyền xóa công trường."
+    },
+    "Delete_Construct_Warning": {
+        "message": "You can not delete this construction",
+        "vi": "Bạn không thể xóa công trường đang được sử dụng."
+    },
+    "No_Add_DayOff_Permission": {
+        "message": "You do not have permission to add new day off",
+        "vi": "Bạn không có quyền thêm ngày nghỉ."
+    },
+    "No_Delete_DayOff_Permission": {
+        "message": "You do not have permission to delete day off",
+        "vi": "Bạn không có quyền xóa ngày nghỉ."
+    },
+    "DayOff_Exist": {
+        "message": "DayOff already existed",
+        "vi": "Đã tồn tại ngày nghỉ. Vui lòng chọn ngày khác."
+    },
+    "Out_Of_DayOff": {
+        "message": "You are out of day off",
+        "vi": "Bạn đã hết ngày nghỉ có lương. \nVui lòng chọn loại ngày nghỉ khác"
+    },
+    "Out_Of_DayOff_By_Working_On_DayOff": {
+        "message": "You are out of day off by working on day off",
+        "vi": "Bạn đã hết ngày nghỉ bù. \nVui lòng chọn loại ngày nghỉ khác"
+    },
+    "DayOff_Warning": {
+        "message": "This day is already a day off. Please choose another",
+        "vi": "Ngày đã chọn trùng với ngày nghỉ trong/ngoài luật định. \nVui lòng chọn ngày khác"
+    },
+    "Holiday_Warning": {
+        "message": "This day is a holiday. Please choose another",
+        "vi": "Ngày đã chọn trùng với ngày nghỉ lễ. \nVui lòng chọn ngày khác"
+    },
+    "Expired_Update_History_Warning": {
+        "message": "You can not update history anymore",
+        "vi": "Đã hết hạn sửa lịch sử đi làm. \nVui lòng liên hệ quản lý của bạn."
+    },
+    "Input_Time_And_Work_Time_Warning": {
+        "message": "Your input time can not greater than worked time",
+        "vi": "Thời gian nhập vào không được lớn hơn tổng thời gian làm."
+    },
+    "Data_Constrution_Warning": {
+        "message": "Your construction data is missing",
+        "vi": "Dữ liệu gửi thiếu hoặc thừa công trường. \nVui lòng kiểm tra lại"
+    },
+    "No_Mana_Timekeeping_Permission": {
+        "message": "You do not have permission to manage timekeeping",
+        "vi": "Bạn không có quyền quản lý chấm công."
+    },
+   "Position_Code_Exist": {
+        "message": "Position code already existed",
+        "vi": "Mã chức vụ đã tồn tại. Vui lòng nhập mã khác."
+    },
+    "New_Request_In_The_Past": {
+        "message": "You can not make request in the past",
+        "vi": "Bạn không thể tạo xin phép trong quá khứ. \nVui lòng chọn lại ngày xin phép"
+    },
+    "Invalid_Request_Type": {
+        "vi": "Loại xin phép không hợp lệ. \nVui lòng kiểm tra lại"
+    },
+    "Request_DayOff_Warning": {
+        "vi": "Không thể xin nghỉ vào ngày nghỉ trong/ngoài luật định. \nVui lòng chọn ngày khác "
+    },
+    "Request_Holiday_Warning": {
+        "vi": "Không thể xin nghỉ vào ngày nghỉ lễ. \nVui lòng chọn ngày khác"
+    },
+    "Request_Replace_Date_Warning": {
+        "vi": "Không thể xin đi làm thay thế vào ngày đã được phân công đi làm. Vui lòng chọn ngày khác"
+    },
+    "Choose_Replace_Date_Warning": {
+        "vi": "Chỉ được chọn ngày nghỉ thay thế trong khoảng 1 tuần tính từ ngày đi làm thay thế."
+    },
+    "User_Request_Checking": {
+        "vi": "Bạn không phải là người xin phép."
+    },
+    "Role_Name_Exist": {
+        "message": "Role name already existed",
+        "vi": "Tên chức vụ đã tồn tại. \nVui lòng chọn tên khác."
+    },
+    "Id_required": {
+        "message": "Id is required",
+        "vi": "Dữ liệu gửi lên chưa có Id của bản ghi. \nVui lòng kiểm tra lại"
+    },
+    "Id_required_Expect_Array": {
+        "message": "ID is required. Expected: Array!",
+        "vi": "Dữ liệu gửi lên chưa có Id của bản ghi. \nCần gửi mảng các Id. Vui lòng kiểm tra lại"
+    },
+    "Invalid_Id_Or_Object_Not_Found": {
+        "message": "Object not found! id is incorrect",
+        "vi": "Không tìm thấy đối tượng cần tìm hoặc sai Id đối tượng. \nVui lòng kiểm tra lại"
+    },
+    "Invalid_Data_Type": {
+        "message": "Datatype of %0 is incorrect. Expected: %1 but got: %2",
+        "vi": "Kiểu dữ liệu gửi lên của %0 không đúng. \nMong muốn: %1 nhưng nhận được: %2"
+    },
+    "Data_Required": {
+        "message": "%0 is required. But not found.",
+        "vi": "Không tìm thấy dữ liệu của %0. \nVui lòng kiểm tra lại"
+    }
+}

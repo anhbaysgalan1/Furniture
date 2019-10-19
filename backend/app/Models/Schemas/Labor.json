@@ -1,0 +1,8 @@
+{
+    "_id"               : "objectid",
+    "constructionId"    : "objectid",
+    "workTime"          : "number",
+    "totalPersons"      : "number",
+    "totalDate"         : "number",
+    "totalMoney"        : "string"
+}

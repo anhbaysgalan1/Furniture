@@ -1,0 +1,21 @@
+.printTable, .printTh, .printTr {
+    border: 0.1px solid;
+    border-collapse: collapse;
+  }
+  /* thead, tbody {
+    margin-left: 16px;
+    margin-right: 16px
+  } */
+  
+   @page {
+    size: 'A4';
+    margin: 5mm 5mm 5mm 5mm;
+  }
+
+  @media print {
+    /* thead{
+      display: block;
+     min-height: 15mm !important;
+    } */
+  } 
+.no-print { display: none; }

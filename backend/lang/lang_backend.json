@@ -1,0 +1,135 @@
+{
+  "Login_Failed": {
+    "message": "email or password is incorrect",
+    "vi": "Email hoặc mật khẩu không đúng."
+  },
+  "Old_Pw_Not_Match": {
+    "message": "old password does not match",
+    "vi": "Mật khẩu cũ không đúng."
+  },
+  "Pw_Len_Warning": {
+    "message": "password length invalid",
+    "vi": "Mật khẩu phải từ %0 ~ %1 kí tự."
+  },
+  "New_Old_Pw_Must_Different": {
+    "message": "new password must be different from old password",
+    "vi": "Mật khẩu mới phải khác mật khẩu cũ."
+  },
+  "Email_Invalid": {
+    "message": "email invalid",
+    "vi": "Địa chỉ email không hợp lệ (%0)."
+  },
+  "Email_Existed": {
+    "message": "email already existed",
+    "vi": "Email %0 đã được dùng để đăng ký tài khoản khác rồi, bạn hãy nhập địa chỉ email khác đi."
+  },
+  "ForgotPw_Email_NotExisted": {
+    "message": "email not existed",
+    "vi": "Email %0 chưa đăng ký. Vui lòng nhập lại chính xác email mà bạn đã đăng ký."
+  },
+  "ForgotPw_Email_Sent": {
+    "message": "email already sent",
+    "vi": "Một đoạn mã gồm %0 chữ cái đã được gửi đến địa chỉ email %1. Vui lòng đăng nhập email của bạn để lấy mã, dùng mã ấy để đặt lại mật khẩu (chú ý: sau 1 giờ đồng hồ thì mã sẽ hết hạn, không dùng được nữa)."
+  },
+  "ForgotPw_Confirm_Code_Failure": {
+    "message": "Reset password code confirmation failed",
+    "vi": "Việc xác nhận mã đặt lại mật khẩu của bạn không thành công, vui lòng kiểm tra lại email và đặt lại mật khẩu."
+  },
+  "ForgotPw_Code_Expired": {
+    "message": "reset password code expired",
+    "vi": "Mã đặt lại mật khẩu đã hết hạn."
+  },
+  "ResetPw_Success": {
+    "message": "reset password success",
+    "vi": "Đặt lại mật khẩu mới thành công, bạn hãy dùng mật khẩu mới để tiếp tục đăng nhập."
+  },
+  "Role_Invalid": {
+    "message": "role invalid",
+    "vi": "Role không hợp lệ. (%0)"
+  },
+  "Permission_Denied": {
+    "message": "permission denied",
+    "vi": "Bạn không có quyền thực hiện thao tác này."
+  },
+  "User_Existed": {
+    "message": "user already existed",
+    "vi": "Account này đã tồn tại rồi (%0)."
+  },
+  "Require_Permission_Root": {
+    "message": "require root permission",
+    "vi": "Chỉ có quyền root mới thực hiện được."
+  },
+  "Activation_Not_Start": {
+    "message": "activation not start",
+    "vi": "Phải điền email, request mã kích hoạt trước rồi mới thực hiện kích hoạt được."
+  },
+  "Activation_Expired": {
+    "message": "activation expired",
+    "vi": "Mã kích hoạt đã hết hạn."
+  },
+  "Activation_Code_Invalid": {
+    "message": "activation code is invalid",
+    "vi": "Mã kích hoạt không hợp lệ."
+  },
+  "Account_Created_Mail_Sent": {
+    "message": "account creation success",
+    "vi": "Tài khoản %0 đã tạo xong, thông tin đăng nhập đã được gửi đến địa chỉ email %1."
+  },
+  "Account_Delete_Success": {
+    "vi": "Account %0 đã bị xóa"
+  },
+  "ImportOrder_Error_CellEmpty": {
+    "vi": "Import lỗi.\nFile: %0\nCell: %1\nKhông được để trống"
+  },
+  "ImportOrder_Error_DateFormatInvalid": {
+    "vi": "Import lỗi.\nFile: %0\nCell: %1\nNgày tháng phải có định dạng như sau: %2"
+  },
+  "ImportOrder_Error_DuplicateOrderNo": {
+    "vi": "Import lỗi.\nFile: %0\nSố đơn hàng %1 đã được import rồi."
+  },
+  "ImportOrder_Error_SheetNotFound": {
+    "vi": "Import lỗi.\nFile: %0\nKhông tìm thấy sheet「%1」trong file."
+  },
+  "ImportOrder_Error_OrderNo_Invalid": {
+    "vi": "Import lỗi.\nFile: %0\nSố đơn hàng chỉ được phép là chữ hoặc số."
+  },
+  "CreateProject_Error_DuplicateOrder": {
+    "vi": "",
+    "ja": ""
+  },
+  "Code_InvalidCharacters": {
+    "vi": "Mã chỉ được phép chứa các kí tự chữ cái, chữ số và dấu gạch dưới"
+  },
+  "Code_TooLong": {
+    "vi": "Mã quá dài, chỉ cho phép tối đa %0 kí tự"
+  },
+  "App_Need_Upgrade_Version": {
+    "vi": "Ứng dụng đã có phiên bản mới, link download dưới đây.\n\n%0\n\nẤn nút OK để mở địa chỉ bên trên, sau đó tải về và cài đặt."
+  },
+  "User_Actionvation_Required": {
+    "vi": "Bạn cần kích hoạt account trước đã."
+  }, 
+  "Degree_Existed": {
+    "vi": "%0 đã tồn tại, vui lòng thêm loại khác."
+  }, 
+  "AssetStatus_Existed": {
+    "vi": "%0 đã tồn tại, vui lòng thêm loại khác."
+  }, 
+  "ContractType_Existed": {
+    "vi": "%0 đã tồn tại, vui lòng thêm loại khác."
+  }, 
+  "Part_Existed": {
+    "vi": "Bộ phận %0 đã tồn tại, vui lòng chọn tên khác."
+  }, 
+  "Position_Existed": {
+    "vi": "Chức danh %0 đã tồn tại, vui lòng chọn tên khác."
+  }, 
+  "Room_Existed": {
+    "vi": "Phòng ban %0 đã tồn tại, vui lòng chọn tên khác."
+  }, 
+  "Cannot_Delete": {
+    "vi": "Không xóa được"
+  }
+  
+}
+
