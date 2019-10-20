@@ -64,6 +64,7 @@ class Sidebar extends React.Component {
             }
         }
     }
+    
     handleClick = () => {
         this.setState(state => ({ open: !state.open }));
     }

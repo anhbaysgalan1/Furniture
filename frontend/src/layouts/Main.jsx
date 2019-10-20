@@ -161,7 +161,7 @@ class Main extends React.Component {
                 </Suspense>
                 <br></br>
                 <br></br>
-                {/* <Footer/> */}
+                <Footer/>
             </main>
         </div>
     }

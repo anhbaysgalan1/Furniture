@@ -63,8 +63,18 @@ class Footer extends BaseView {
                                 label='Gmail'
                                 name="mail"
                             />
+                            <TextField
+                                fullWidth
+                                label='Địa chỉ'
+                                name="address"
+                            />
                         </Grid>
                     </Grid>
+                    <CardActions>
+                        <Button variant='contained' color='primary'>
+                            Gửi
+                        </Button>
+                    </CardActions>
                 </Form>
 
             </span>
@@ -74,15 +84,13 @@ class Footer extends BaseView {
     renderInfoCompany() {
         return (
             <span>
-                <i>
-                    <Typography variant='h5' component="h5">
-                        Thông tin công ty
-                    </Typography>
-                </i>
+                <Typography variant='h5' component="h5">
+                    Thông tin công ty
+                </Typography>
                 <hr></hr>
                 <Typography component="h6" >
                     <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
-                    &nbsp; CÔNG TY CỔ PHẦN JS GLOBAL.VN
+                    &nbsp; ĐỒ GỖ NỘI THẤT HOÀNG GIA DODO
                 </Typography>
                 <Typography component="h6" >
                     <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
@@ -90,22 +98,12 @@ class Footer extends BaseView {
                 </Typography>
                 <Typography component="h6" >
                     <i className="fa fa-envelope" style={{ fontSize: '35px', color: "#90caf9" }}></i>
-                    &nbsp; tuyendung.vn.@jsglobal.com.vn
+                    &nbsp; noithat.dodo@gmail.com
                 </Typography>
                 <Typography component="h6" >
                     <i className="fa fa-phone" style={{ fontSize: '40px', color: "#90caf9" }}></i>
-                    &nbsp; 0987654321
+                    &nbsp; 0377 535 717
                 </Typography>
-                <br></br>
-                <Typography variant='h6' component="h6" >
-                    Kết nối với chúng tôi
-                </Typography>
-                <Button>
-                    <Icon>facebook</Icon>
-                </Button>
-                <Button>
-                    <MailIcon color="error" fontSize='large' />
-                </Button>
             </span>
         )
     }
@@ -120,59 +118,32 @@ class Footer extends BaseView {
                 >
                     <CardContent>
                         <Grid container spacing={32}>
-                            <Grid item lg={12}>
-                                <marquee>
-                                    <Typography variant='h6' component='h6'>
-                                        JS Global luôn đồng hàng cùng bạn chắp cánh ước mơ, giúp bạn trở thành lao động xuất ngoại chuyên nghiệp, liên tục tuển dụng 24/7
-                                    </Typography>
-                                </marquee>
-                                <hr></hr>
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={32}>
                             <Grid item xs={4}>
                                 {
                                     this.renderInfoCompany()
                                 }
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={4}>
                                 <Typography variant='h6' component="h6" >
                                     Để lại thông tin chúng tôi sẽ liên hệ với bạn
                                 </Typography>
                                 {this.renderForm()}
-
                             </Grid>
-                            <Grid item xs={5}>
+                            <Grid item xs={4}>
                                 <Grid container spacing={8}>
-                                    <Grid item xs={6}>
-                                        <Typography variant='h6' component="h6" >
-                                            JS Global Hà Nội
-                                        </Typography>
-                                        <Map latitudeIn={20.979531} longitudeIn={105.785417} />
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <Typography variant='h6' component="h6" >
-                                            JS Global Hồ Chí Minh
-                                        </Typography>
-                                        <MapHCM />
-                                    </Grid>
+                                    <Typography variant='h6' component="h6" >
+                                        Nội thất hoàng gia Dodo
+                                    </Typography>
+                                    <Map latitudeIn={20.979531} longitudeIn={105.785417} />
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={32}>
-                            <Grid item lg={12}>
-                                <marquee>
-                                    <Typography variant='h6' component="h6" >
-                                        Cảm ơn bạn đã quan tâm tới dịch vụ của chúng tôi nếu cần giúp đỡn hãy để lại thông tin tôi sẽ liên lạc với bạn.
-                                    </Typography>
-                                </marquee>
-                            </Grid>
-                        </Grid>
                     </CardContent>
+                   
                 </div>
                 <Typography style={{ color: 'white', backgroundColor: '#9e9e9e' }} variant='h6'>
                     <span style={{ marginLeft: '10px', height: '50px' }}>
-                        Công ty cổ phần JS Global tuyendung.vn@js.global.com.vn
+                        Nội thất Hoàng Gia DoDo - noithat.dodo@gmail.com
                     </span>
                 </Typography>
             </div>

@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { withRouter } from 'react-router-dom'
-import { IconButton, Icon, Tooltip, Button, Card, CardActions, CardContent,CardActionArea, CardMedia } from '@material-ui/core'
+import { IconButton, Icon, Tooltip, Button, Card, CardActions, CardContent, CardActionArea, CardMedia } from '@material-ui/core'
 import BaseView from 'views/BaseView'
 import PaperFade from 'components/Main/PaperFade'
 import { I18n } from 'react-redux-i18n'
@@ -57,6 +57,7 @@ class ButtonViews extends BaseView {
                 </CardActions>
                 <br></br>
             </Card>
+        
         )
     }
 }

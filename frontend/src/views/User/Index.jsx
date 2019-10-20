@@ -208,7 +208,6 @@ class Index extends BaseView {
                 </CardContent>
                 <Grid container spacing={32}>
                     <Grid item xs={12}>
-                        
                         <CardActionArea classes={classes} />
                     </Grid>
                 </Grid>

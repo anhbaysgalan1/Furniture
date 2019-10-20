@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { withRouter } from 'react-router-dom'
-import BaseView from 'views/BaseView'
+import BaseView from '../../../views/BaseView'
 import PaperFade from 'components/Main/PaperFade'
 import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook'
 import {
     IconButton,
     Icon,
@@ -23,14 +23,6 @@ import {
     Toolbar,
 
 } from '@material-ui/core'
-import Header from '../Public/Header/Header'
-import Home from './Components/Home'
-import Circle from './Components/Circle'
-import ButtonViews from './Components/ButtonViews'
-import What from './Components/What'
-import NewHot from './Components/NewHot'
-import Footer from './Components/Footer'
-
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -43,7 +35,6 @@ const styles = theme => ({
     }
 })
 
-
 class Index extends BaseView {
     constructor(props) {
         super(props)
@@ -53,19 +44,20 @@ class Index extends BaseView {
 
     render() {
         let { classes } = this.props
-        let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
+        let img = "https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1"
+        let img1 = "http://sieuthimythuatpro.vn/wp-content/uploads/2018/10/MG_2546.jpg"
         return (
             <div>
-                <Header classes={classes} />
-                <Home classes={classes} />
-
-                <ButtonViews classes={classes} />
-                <br></br>
-                <Circle classes={classes} />
-                <What classes={classes} img={img} />
-                <br></br>
-                <NewHot classes={classes} />
-                <Footer classes={classes} />
+                <img 
+                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png" 
+                    // src={img}
+                    height="560" 
+                    width="1920" 
+                    title="slider" 
+                    alt="" 
+                    class="slider-133 slide-757" 
+                    // style="width: 1528px; visibility: hidden; display: inline;">
+                />
             </div>
         )
     }
