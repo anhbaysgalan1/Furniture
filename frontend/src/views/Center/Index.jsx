@@ -31,6 +31,9 @@ import What from './Components/What'
 import NewHot from './Components/NewHot'
 import Footer from './Components/Footer'
 import Bad from './Components/Bad'
+import TableEat from './Components/TableEat'
+import TableRestaurant from './Components/TableRestaurant'
+import DiningRoom from './Components/DiningRoom'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -51,18 +54,24 @@ class Index extends BaseView {
         return (
             <div>
                 <Header classes={classes} />
-                {/* <Home classes={classes} />
+                <Home classes={classes} />
                 <ButtonViews classes={classes} />
                 <br></br>
                 <Circle classes={classes} />
                 <What classes={classes} img={img} />
                 <br></br>
-                <NewHot classes={classes} /> */}
+                <NewHot classes={classes} />
                 <br></br>
                 <Grid container spacing={32}>
                     <Grid item lg={1}></Grid>
                     <Grid item lg={10}>
                         <Bad classes={classes}/>
+                        <br></br>
+                        <TableEat classes={classes} />
+                        <br></br>
+                        <DiningRoom classes={classes} />
+                        <br></br>
+                        <TableRestaurant classes={classes} />
                     </Grid>
                     <Grid item lg={1}></Grid>
                 </Grid>
