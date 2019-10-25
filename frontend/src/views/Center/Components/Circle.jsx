@@ -29,12 +29,6 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    },
-    marginConten: {
-        parding: '5px 5px 5px 5px'
-    },
     cssBorder: {
         margin: '50px',
         fontSize: '15px',

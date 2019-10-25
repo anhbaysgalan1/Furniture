@@ -122,13 +122,12 @@ class Sidebar extends React.Component {
         // )
         return (
             <Button
-                style={{ marginLeft: '5px', backgroundColor: '#00e676' }}
+                style={{ marginLeft: '10px'}}
                 size="small"
                 key={key}
                 to={path}
                 component={NavLink}
-                variant="contained"
-                // color="default"
+                color='inherit'
             >
                 {menu.title}
             </Button>

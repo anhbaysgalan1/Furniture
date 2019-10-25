@@ -1,9 +1,5 @@
 import React from "react";
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact"
-import { Item, ItemButon } from '@material-ui/core'
-import { MDBCarouselCaption, MDBMask } from "mdbreact"
-import { MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact"
-import { Component } from "react";
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { withRouter } from 'react-router-dom'
@@ -28,12 +24,6 @@ import _ from 'lodash'
 
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    },
-    marginConten: {
-        parding: '5px 5px 5px 5px'
-    }
 })
 
 
@@ -109,4 +99,5 @@ Index.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(withRouter(Index))
+export default withStyles(styles)(Index) 
+// export default withStyles(styles)(withRouter(Index))

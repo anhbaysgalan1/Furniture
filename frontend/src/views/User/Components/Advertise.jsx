@@ -9,12 +9,6 @@ import _ from 'lodash'
 
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    },
-    marginConten: {
-        parding: '5px 5px 5px 5px'
-    }
 })
 
 class Index extends BaseView {
@@ -55,7 +49,6 @@ class Index extends BaseView {
                         </MDBContainer>
                     </Grid>
                 </Grid>
-           
             </div>
         )
     }
@@ -65,4 +58,5 @@ Index.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(withRouter(Index))
+export default withStyles(styles)(Index) 
+// export default withStyles(styles)(withRouter(Index))

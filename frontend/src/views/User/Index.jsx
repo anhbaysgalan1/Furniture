@@ -25,13 +25,6 @@ import Brightness1Icon from '@material-ui/icons/Brightness1'
 import ExportExcel from 'components/ExportExcel/ExportExcel'
 import Fab from '@material-ui/core/Fab'
 import NavigationIcon from '@material-ui/icons/Navigation'
-import { 
-    MDBCarousel, 
-    MDBCarouselInner, 
-    MDBCarouselItem, 
-    MDBView, 
-    MDBContainer 
-} from "mdbreact"
 import Home from './Components/Home'
 import { Link } from 'react-router-dom'
 import ButtonViews from './Components/ButtonViews'
@@ -49,15 +42,6 @@ const styles = theme => ({
     button: {
         marginRight: '5px'
     },
-    cssBorder: {
-        margin: '50px',
-        fontSize: '20px',
-        width: '200px',
-        height: '200px',
-        border: 'solid 10px #039be5',
-        background: '#039be5',
-        borderRadius: '50%',
-    }
 })
 
 class Index extends BaseView {

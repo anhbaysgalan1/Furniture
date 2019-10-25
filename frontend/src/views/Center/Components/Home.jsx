@@ -21,18 +21,11 @@ import {
     Typography,
     AppBar,
     Toolbar,
-
 } from '@material-ui/core'
 import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    },
-    marginConten: {
-        parding: '5px 5px 5px 5px'
-    }
 })
 
 class Index extends BaseView {
@@ -55,7 +48,7 @@ class Index extends BaseView {
                     width="1920" 
                     title="slider" 
                     alt="" 
-                    class="slider-133 slide-757" 
+                    className="slider-133 slide-757" 
                     // style="width: 1528px; visibility: hidden; display: inline;">
                 />
             </div>

@@ -389,6 +389,7 @@ export default {
         distance_fuel: "Bảng lịch sử chấm công theo ngày"
     },
     Breadcrumb: {
+        centerIndex: 'Nội thất Dodo',
         contactIndex: 'Liên hệ',
         registrationIndex: "Đăng kí",
         partnerIndex: 'Đối tác',

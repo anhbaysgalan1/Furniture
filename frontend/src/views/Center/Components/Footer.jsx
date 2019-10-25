@@ -27,9 +27,6 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    marginConten: {
-        parding: '5px 5px 5px 5px'
-    }
 })
 
 class Index extends BaseView {
@@ -60,9 +57,9 @@ class Index extends BaseView {
         return (
             <span>
                 {
-                    img.map(item => {
+                    img.map((item, index) => {
                         return (
-                            <Grid container spacing={8}>
+                            <Grid container spacing={8} key={index}>
                                 <Grid item xs={4}>
                                     <img 
                                         src={item.img}

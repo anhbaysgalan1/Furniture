@@ -140,9 +140,8 @@ class Main extends React.Component {
                     {/* <DrawerMobileMenu route={route} /> */}
                 </Toolbar>
             </AppBar>
-            {/* Sidebar */}
             {/* <nav className={classes.drawer}>
-            <Hidden smDown implementation="css">
+                <Hidden smDown implementation="css">
                     <Drawer classes={{ paper: classes.drawerPaper, paperAnchorLeft: classes.paperAnchorLeft }}
                         variant="permanent" open
                     >
@@ -152,10 +151,8 @@ class Main extends React.Component {
                     </Drawer>
                 </Hidden>
             </nav> */}
-            {/* Nội dung  */}
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                {/* <Suspense fallback={<p>Loading footer...</p>}> */}
                 <Suspense fallback={this.renderLoading()}>
                     <Component route={route} />
                 </Suspense>

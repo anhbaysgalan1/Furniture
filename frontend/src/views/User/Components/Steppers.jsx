@@ -46,9 +46,6 @@ const tutorialSteps = [
 ];
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    }
 })
 
 class Index extends BaseView {

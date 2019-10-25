@@ -33,12 +33,6 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-  gridTable: {
-    height: "calc(100vh - 100px)"
-  },
-  marginConten: {
-    parding: '5px 5px 5px 5px'
-  },
   card: {
     maxWidth: 300,
   },
@@ -103,9 +97,9 @@ class Index extends BaseView {
         </Typography>
         <Grid container spacing={0}>
           {
-            img.map(item => {
+            img.map((item, index) => {
               return (
-                <Grid item xs={3}>
+                <Grid item xs={3} key={index}>
                   <img
                     src={item.img}
                     height='100%'
