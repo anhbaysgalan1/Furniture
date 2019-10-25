@@ -51,13 +51,13 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <center>
-                <Typography variant="h4" color='primary' style={{fontFamily: '', textShadow: "2px 2px #82b1ff"}}>
+                <Typography variant="h4" color='primary'>
                     Khi bạn đến với Nội thất Hoàng Gia DoDo
                 </Typography>
                 <Grid container spacing={32}>
                     <Grid item xs={4}></Grid>
                     <Grid item xs={4}>
-                        <hr style={{color: 'red'}}></hr>
+                        <hr></hr>
                     </Grid>
                     <Grid item xs={4}></Grid>
                 </Grid>

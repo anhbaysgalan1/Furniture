@@ -24,6 +24,7 @@ import {
 } from '@material-ui/core'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
+import Home from '../Public/Home'
 import Infomation from './Components/Infomation'
 import moment from 'moment'
 import _ from 'lodash'
@@ -41,11 +42,15 @@ class Index extends BaseView {
 
     render() {
         let { classes } = this.props
+        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
             <div>
                 <Header classes={classes} />
                 <br></br>
+                <Home classes={classes} img={img} />
+                <br></br>
                 <Infomation classes={classes} />
+                <br></br><br></br>
                 <What classes={classes} />
             </div>
         )

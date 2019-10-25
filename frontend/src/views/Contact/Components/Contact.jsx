@@ -116,12 +116,17 @@ class Index extends BaseView {
                     </Grid>
                     <Grid item xs={6}>
                         <Typography color='primary' variant='h5'>
-                            SIÊU THỊ ĐỒ GỖ THẠCH THẤT – ĐỒ GỖ NỘI THẤT
+                            CÔNG TY CỔ PHẦN NỘI THẤT HOÀNG GIA DODO – ĐỒ GỖ NỘI THẤT
                         </Typography>
-                    
-                            Địa chỉ: Tầng 2, Số 215 Giáp Nhất – Thanh Xuân – Hà Nội
-                            Hotline: 0961.594.123 – ĐT: 0248.5898.630
-                            Email: thachthat199@gmail.com – Website: thachthatdecor.com.vn
+                        <Typography color='primary'>
+                            Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội
+                        </Typography>
+                        <Typography color='primary'>
+                            Phone: 0377 535 717 
+                        </Typography>
+                        <Typography color='primary'>
+                            Email: noithat.hoanggia.dodo@gmail.com
+                        </Typography>
                     </Grid>
                 </Grid>
             </span>

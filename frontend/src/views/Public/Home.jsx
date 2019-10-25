@@ -44,8 +44,7 @@ class Index extends BaseView {
     }
 
     render() {
-        let { classes } = this.props
-        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_newsmedia.jpg')"
+        let { classes, img } = this.props
         return (
             <div>
                 <div className="row">

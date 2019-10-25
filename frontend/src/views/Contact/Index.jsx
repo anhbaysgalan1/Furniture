@@ -42,13 +42,17 @@ class Index extends BaseView {
 
     render() {
         let { classes } = this.props
+        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
             <div>
                 <Header classes={classes} />
                 <br></br>
-                <Home classes={classes} />
+                <Home classes={classes} img={img} />
+                <br></br>
                 <Contact classes={classes} />
+                <br></br><br></br>
                 <What classes={classes} />
+                <br></br>
             </div>
         )
     }

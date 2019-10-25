@@ -29,12 +29,22 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
+import StarRateIcon from '@material-ui/icons/StarRate';
 import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
   card: {
     maxWidth: 300,
+  },
+  title: {
+    color: 'white', 
+    marginTop: '30px', 
+    marginBottom: '15px'
+  },
+  cssIcon: {
+    color: 'white', 
+    fontSize: '30px'
   },
   imgZoom: {
     transition: "transform .5s, filter 3s ease-in-out",
@@ -78,7 +88,8 @@ class Index extends BaseView {
 
   render() {
     let { classes } = this.props
-    let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
+    // let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
+    let img = "url('https://c.wallhere.com/photos/c1/f2/lines_wavy_shiny_glitter-716443.jpg!d')"
     return (
       <div className="row">
         <div className="col-md-6 mb-4">
@@ -93,10 +104,17 @@ class Index extends BaseView {
             <div style={{ color: '#2196f3', textAlign: 'center' }} className={classes.fromCompany} >
               <Grid container spacing={32}>
                 <Grid item xs={12}>
-                  <Typography style={{ color: 'white', marginTop: '30px', marginBottom: '15px' }} variant='h4' component='h4'>
+                  <Typography className={classes.title} variant='h4' component='h4'>
                     BẠN NÊN LỰA CHỌN CHÚNG TÔI
                   </Typography>
-                  <Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon>
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
+                  <StarRateIcon className={classes.cssIcon} />
                 </Grid>
               </Grid>
               <br></br>
