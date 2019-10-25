@@ -60,25 +60,25 @@ let img='http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuon
 
 let arrImg = [
     {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://homeid.vn/wp-content/uploads/2018/10/13520/bo-ban-ghe-an-LG-BA001-13.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+        img: 'https://longquangwood.com/wp-content/uploads/2019/02/ban-an-go-8-ghe.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+        img: 'https://dogolegia.com/wp-content/uploads/2019/08/Ban-an-phong-cach-bac-au-go-tu-nhien-dep-tai-ha-noi-61.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'https://vietba.vn/wp-content/uploads/2019/06/giuong-ngu-co-ngan-keo.jpg',
+        img: 'https://noithatdailoi.com/wp-content/uploads/2018/07/bo-ban-ghe-an-cao-cap-moontrap-6-4.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
@@ -102,31 +102,31 @@ let arrImg = [
         money: '2.5 tr'
     },
     {
-        img: 'http://dongtrieunhatrang.com/wp-content/uploads/2019/05/Gi%C6%B0%E1%BB%9Dng-g%E1%BB%97-Xoan-01.jpg',
+        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/11/10/5be65aa53216d_1541823141.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'https://funismart.com/wp-content/uploads/giuong-go-2-trieu-theo-mau-fngn2m.jpg',
+        img: 'https://www.goxanh.vn/image/cache/data/go-xanh/bo-ban-an-mat-da-concorde-350x350.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'http://noithatamia.com/wp-content/uploads/anh-dai-dien-mau-giuong-ngu-go-mau-trang-dep-tai-amia-600x563.jpg',
+        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/04/13/5ad032e96df6c_1523593961.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'http://vilahome.com.vn/wp-content/uploads/2018/05/Mau-giuong-da-nang-thong-minh-hien-dai-1.jpg',
+        img: 'https://winchair.vn/wp-content/uploads/2019/06/B%E1%BB%99-b%C3%A0n-%C4%83n-4-gh%E1%BA%BF-Dexer-hi%E1%BB%87n-%C4%91%E1%BA%A1i-CB008.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'
     },
     {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://product.hstatic.net/1000240719/product/o1cn011t5dgvfcfy6urdf___2795882331_master.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.5 tr'

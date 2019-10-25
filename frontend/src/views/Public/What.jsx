@@ -36,6 +36,18 @@ const styles = theme => ({
   card: {
     maxWidth: 300,
   },
+  imgZoom: {
+    transition: "transform .5s, filter 3s ease-in-out",
+    filter: "grayscale(100%)",
+  },
+  imgZoom: {
+    "&:hover": {
+      filter: "grayscale(0)",
+      transform: "scale(1.1)",
+      transitionDuration: "1s",
+      transitionTimingFunction: "linear",
+    }
+  }
 })
 
 const arrImg = [
@@ -65,7 +77,8 @@ class Index extends BaseView {
   }
 
   render() {
-    let { classes, img } = this.props
+    let { classes } = this.props
+    let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
     return (
       <div className="row">
         <div className="col-md-6 mb-4">
@@ -80,40 +93,41 @@ class Index extends BaseView {
             <div style={{ color: '#2196f3', textAlign: 'center' }} className={classes.fromCompany} >
               <Grid container spacing={32}>
                 <Grid item xs={12}>
-                  <Typography style={{ color: 'white', marginTop: '30px', marginBottom: '15px'}} variant='h4' component='h4'>
+                  <Typography style={{ color: 'white', marginTop: '30px', marginBottom: '15px' }} variant='h4' component='h4'>
                     BẠN NÊN LỰA CHỌN CHÚNG TÔI
                   </Typography>
                   <Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon><Icon>favorite_border</Icon>
                 </Grid>
               </Grid>
               <br></br>
-              <center> 
-              <Grid container spacing={32}>
-                {
-                  arrImg.map((element, index) => {
-                    return (
-                      <Grid item xs={3} key={index}>
-                        <Card className={classes.card}>
-                          <CardActionArea>
-                            <CardMedia
-                              component="img"
-                              alt="Contemplative Reptile"
-                              height="200"
-                              image={element.image}
-                              title={element.title}
-                            />
-                            <CardContent>
-                              <Typography variant="body2" color="textSecondary" component="p">
-                                {element.title}
-                              </Typography>
-                            </CardContent>
-                          </CardActionArea>
-                        </Card>
-                      </Grid>
-                    )
-                  })
-                }
-              </Grid>
+              <center>
+                <Grid container spacing={32}>
+                  {
+                    arrImg.map((element, index) => {
+                      return (
+                        <Grid item xs={3} key={index}>
+                          <Card className={classes.card}>
+                            <CardActionArea>
+                              <CardMedia
+                                className={classes.imgZoom}
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="200"
+                                image={element.image}
+                                title={element.title}
+                              />
+                              <CardContent>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                  {element.title}
+                                </Typography>
+                              </CardContent>
+                            </CardActionArea>
+                          </Card>
+                        </Grid>
+                      )
+                    })
+                  }
+                </Grid>
               </center>
             </div>
           </div>

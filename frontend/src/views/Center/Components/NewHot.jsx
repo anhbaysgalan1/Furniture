@@ -36,6 +36,18 @@ const styles = theme => ({
   card: {
     maxWidth: 300,
   },
+  imgZoom: {
+    transition: "transform .5s, filter 3s ease-in-out",
+    filter: "grayscale(150%)",
+  },
+  imgZoom: {
+    "&:hover": {
+      filter: "grayscale(0)",
+      transform: "scale(1.1)",
+      transitionDuration: "1s",
+      transitionTimingFunction: "linear",
+    }
+  }
 })
 
 const img = [
@@ -95,12 +107,14 @@ class Index extends BaseView {
         <Typography variant='h4' color='primary' style={{ textAlign: 'center' }}>
           Sản phẩm nội thất tiêu biểu đậm chất hoàng gia
         </Typography>
+        <br></br>
         <Grid container spacing={0}>
           {
             img.map((item, index) => {
               return (
                 <Grid item xs={3} key={index}>
                   <img
+                    className={classes.imgZoom}
                     src={item.img}
                     height='100%'
                     width='100%'

@@ -26,6 +26,7 @@ import LogOut from './components/LogOut'
 import ProfileMenu from './components/ProfileMenu'
 import DrawerMobileMenu from './components/DrawerMobileMenu'
 import Footer from '../public/Footer'
+import HomeIcon from '@material-ui/icons/Home';
 import { I18n } from 'react-redux-i18n'
 import _ from 'lodash'
 
@@ -80,6 +81,14 @@ const styles = theme => ({
     Typography: {
         paddingRight: `${theme.spacing.unit * 3}px`,
         marginLeft: `${theme.spacing.unit * 2}px`
+    },
+    top_buttom_image: {
+        position: 'fixed',
+        bottom: '5px',
+        right: "5px",
+        clip: "inherit",
+        top: "expression(document.documentElement.scrollTop + document.documentElement.clientHeight-this.clientHeight)",
+        left: "expression(document.documentElement.scrollLeft + document.documentElement.clientWidth - offsetWidth)"
     }
 })
 
@@ -138,6 +147,14 @@ class Main extends React.Component {
                 <Toolbar>
                     <Sidebar route={route} />
                     {/* <DrawerMobileMenu route={route} /> */}
+                    <div id='top-buttom_image'>
+                        <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
+                            {/* <Icon className={classes.top_buttom_image} style={{ fontSize: '40px' }}>
+                                keyboard_arrow_up
+                            </Icon> */}
+                            <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
+                        </a><br />
+                    </div>
                 </Toolbar>
             </AppBar>
             {/* <nav className={classes.drawer}>

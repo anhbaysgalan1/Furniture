@@ -68,13 +68,13 @@ class Index extends BaseView {
                         </img>
                     </Grid>
                     <Grid item xs={3}>
-                        <IconButton  > 
+                        <IconButton color="primary"> 
                             <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
                             noithat.dodo@gmail.com
                         </IconButton>
                     </Grid>
                     <Grid item xs={3}>
-                        <IconButton>
+                        <IconButton color="primary">
                             <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
                             0377 535 717
                         </IconButton>

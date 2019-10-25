@@ -364,6 +364,8 @@ export default {
     Sidebar: {
         question: 'Câu hỏi thường gặp',
         contact: 'Liên hệ',
+        center: "Trang chủ",
+        info: 'Giới thiệu',
         registration: 'Đăng kí nhận tin tức',
         partner: 'Đối tác',
         new: 'Tin tức',
@@ -390,6 +392,7 @@ export default {
     },
     Breadcrumb: {
         centerIndex: 'Nội thất Dodo',
+        infoIndex: 'Giới thiệu',
         contactIndex: 'Liên hệ',
         registrationIndex: "Đăng kí",
         partnerIndex: 'Đối tác',
