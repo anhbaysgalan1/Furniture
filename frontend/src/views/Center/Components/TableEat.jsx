@@ -63,73 +63,73 @@ let arrImg = [
         img: 'https://homeid.vn/wp-content/uploads/2018/10/13520/bo-ban-ghe-an-LG-BA001-13.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://longquangwood.com/wp-content/uploads/2019/02/ban-an-go-8-ghe.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://dogolegia.com/wp-content/uploads/2019/08/Ban-an-phong-cach-bac-au-go-tu-nhien-dep-tai-ha-noi-61.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://noithatdailoi.com/wp-content/uploads/2018/07/bo-ban-ghe-an-cao-cap-moontrap-6-4.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'http://sofabella.vn/wp-content/uploads/2015/03/GIUONG-NGu-B1240.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/11/10/5be65aa53216d_1541823141.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://www.goxanh.vn/image/cache/data/go-xanh/bo-ban-an-mat-da-concorde-350x350.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/04/13/5ad032e96df6c_1523593961.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://winchair.vn/wp-content/uploads/2019/06/B%E1%BB%99-b%C3%A0n-%C4%83n-4-gh%E1%BA%BF-Dexer-hi%E1%BB%87n-%C4%91%E1%BA%A1i-CB008.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
     {
         img: 'https://product.hstatic.net/1000240719/product/o1cn011t5dgvfcfy6urdf___2795882331_master.jpg',
         code: 'S51',
         title: 'Bàn ăn S51',
-        money: '2.5 tr'
+        money: '2.500.000 đ'
     },
 ]
 
@@ -159,23 +159,20 @@ class Index extends BaseView {
                             arrImg.map((element, index) => {
                             return (
                                 <Grid item xs={3} key={index}>
-                                    <Card className={classes.card}>
-                                        <CardActionArea>
-                                            <CardMedia
-                                                className={classes.imgZoom}
-                                                component="img"
-                                                alt="Contemplative Reptile"
-                                                height="200"
-                                                image={element.img}
-                                                title={element.title}
-                                            />
-                                            <CardContent>
-                                                <Typography color="primary" component="p">
-                                                    {element.title} - {element.money}
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card>
+                                    <CardActionArea className={classes.imgZoom}>
+                                        <CardMedia
+                                            component="img"
+                                            alt="Contemplative Reptile"
+                                            height="200"
+                                            image={element.img}
+                                            title={element.title}
+                                        />
+                                        <CardContent>
+                                            <Typography color="primary" component="p">
+                                                {element.title} - {element.money}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
                                 </Grid>
                             )
                             })

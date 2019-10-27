@@ -51,7 +51,7 @@ const styles = theme => ({
             transitionDuration: "1s",
             transitionTimingFunction: "linear",
         }
-    }
+    },
 })
 
 
@@ -66,34 +66,9 @@ class Index extends BaseView {
     renderPhongThuy(classes) {
         let img = [
             {
-                img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
-                title: 'Kích thước giường ngủ theo lỗ ban hợp phong thủy',
-                content: 'Nếu muốn lựa chọn được chiếc giường ngủ hợp phong thủy thì ...'
-            },
-            {
                 img: 'https://gotrangtri.vn/wp-content/uploads/2016/03/ban-an-go-tu-nhien-phong-cach-hien-dai-GHS-4122-5-1.jpg',
                 title: 'Cách chọn vị trí đặt bàn ăn theo phong thủy',
                 content: 'Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong'
-            },
-            {
-                img: 'http://noithatphovip.com/file/giuong-ngu-go-xoan-nam-phi-1m8-x-2m-kieu-vay-ca-vat-phan-gnx292-2641f.jpg',
-                title: 'Cách hóa giải giường ngủ trên bếp để bảo vệ sức khỏe của bạn',
-                content: 'Các chuyên gia phong thủy cho biết rằng: một trong những yếu'
-            },
-            {
-                img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
-                title: 'Kích thước giường ngủ theo lỗ ban hợp phong thủy',
-                content: 'Nếu muốn lựa chọn được chiếc giường ngủ hợp phong thủy thì ...'
-            },
-            {
-                img: 'https://gotrangtri.vn/wp-content/uploads/2016/03/ban-an-go-tu-nhien-phong-cach-hien-dai-GHS-4122-5-1.jpg',
-                title: 'Cách chọn vị trí đặt bàn ăn theo phong thủy',
-                content: 'Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong'
-            },
-            {
-                img: 'http://noithatphovip.com/file/giuong-ngu-go-xoan-nam-phi-1m8-x-2m-kieu-vay-ca-vat-phan-gnx292-2641f.jpg',
-                title: 'Cách hóa giải giường ngủ trên bếp để bảo vệ sức khỏe của bạn',
-                content: 'Các chuyên gia phong thủy cho biết rằng: một trong những yếu'
             },
             {
                 img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
@@ -115,8 +90,8 @@ class Index extends BaseView {
                                         <img 
                                             className={classes.imgZoom}
                                             src={item.img}
-                                            height='100'
-                                            width='100%'
+                                            height='50'
+                                            width='50'
                                             alt="DODO"
                                         />
                                     </Grid>

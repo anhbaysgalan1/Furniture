@@ -35,12 +35,12 @@ import TableEat from './Components/TableEat'
 import TableRestaurant from './Components/TableRestaurant'
 import DiningRoom from './Components/DiningRoom'
 import ListGoods from './Components/ListGoods'
-import Promotion from './Components/Promotion'
 import Actions from '../Public/Actions'
 import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
+
 })
 
 
@@ -66,10 +66,8 @@ class Index extends BaseView {
                 <NewHot classes={classes} />
                 <br></br>
                 <Grid container spacing={8}>
-                    <Grid item lg={2} style={{marginLeft: '10px'}}>
-                        <ListGoods classes={classes} />
-                        <br></br>
-                        <Promotion classes={classes} />
+                    <Grid item lg={2} style={{marginLeft: '50px'}}>
+                        <ListGoods classes={classes}/>
                         <br></br>
                         <Actions classes={classes} />
                     </Grid>

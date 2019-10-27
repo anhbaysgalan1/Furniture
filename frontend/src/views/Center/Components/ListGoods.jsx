@@ -51,6 +51,12 @@ const styles = theme => ({
             transitionDuration: "1s",
             transitionTimingFunction: "linear",
         }
+    },
+    top_buttom_image: {
+        position: 'fixed',
+        bottom: '10px',
+        left: "5px",
+        clip: "inherit",
     }
 })
 
