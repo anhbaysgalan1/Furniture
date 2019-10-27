@@ -57,9 +57,33 @@ const styles = theme => ({
 
 })
 
-let img='http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
+let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
 
 let arrImg = [
+    {
+        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        code: 'S51',
+        title: 'Giường hiện đại S51',
+        money: '2.500.000 đ'
+    },
+    {
+        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        code: 'S51',
+        title: 'Giường hiện đại S51',
+        money: '2.500.000 đ'
+    },
+    {
+        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+        code: 'S51',
+        title: 'Giường hiện đại S51',
+        money: '2.500.000 đ'
+    },
+    {
+        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+        code: 'S51',
+        title: 'Giường hiện đại S51',
+        money: '2.500.000 đ'
+    },
     {
         img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
         code: 'S51',
@@ -137,74 +161,49 @@ let arrImg = [
 class Index extends BaseView {
     constructor(props) {
         super(props)
-        this.state = { 
+        this.state = {
             reload: false
         }
     }
 
-    renderBad(classes){
+    renderBad(classes) {
         return (
             <span>
-                <Grid container spacing={8}>
+                <Grid container spacing={16}>
                     <Grid item xs={6}>
-                        <Typography variant='h5' className={classes.title}> 
+                        <Typography variant='h5' className={classes.title}>
                             Giường ngủ
                         </Typography>
                     </Grid>
                     <Grid item xs={6}></Grid>
                 </Grid>
                 <Grid container spacing={16}>
-                  {
-                    arrImg.map((element, index) => {
-                      return (
-                        <Grid item xs={3} key={index}>
-                          <Card className={classes.card}>
-                            <CardActionArea>
-                              <CardMedia
-                                className={classes.imgZoom}
-                                component="img"
-                                alt="Contemplative Reptile"
-                                height="200"
-                                image={element.img}
-                                title={element.title}
-                              />
-                              <CardContent>
-                                <Typography variant="body2" color="textSecondary" component="p">
-                                  {element.title}
-                                </Typography>
-                              </CardContent>
-                            </CardActionArea>
-                          </Card>
-                        </Grid>
-                      )
-                    })
-                  }
-                </Grid>
-                {/* <Grid container spacing={8}>
                     {
                         arrImg.map((element, index) => {
                             return (
                                 <Grid item xs={3} key={index}>
-                                    <div className={classes.imgZoom} style={{textAlign: 'center', borderStyle: 'groove'}}>
-                                        <img 
-                                            src={element.img} 
-                                            height="180" 
-                                            width="230" 
-                                            style={{overflow: 'hidden'}}
+                                    <CardActionArea className={classes.imgZoom}>
+                                        <CardMedia
+                                            component="img"
+                                            alt="Contemplative Reptile"
+                                            height="200"
+                                            image={element.img}
+                                            title={element.title}
                                         />
-                                        <Typography color='primary' style={{padding: '10px'}}>
-                                            {element.title}
-                                        </Typography>
-                                        <Typography color='primary' style={{padding: '10px'}}>
-                                            {element.money}
-                                        </Typography>
-                                    </div>
+                                        <CardContent>
+                                            <Typography style={{textAlign: 'center'}} color="primary">
+                                                {element.title}
+                                            </Typography>
+                                            <Typography style={{textAlign: 'center', color: 'red'}}>
+                                                {element.money}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
                                 </Grid>
                             )
                         })
                     }
-                </Grid> */}
-               
+                </Grid>
             </span>
         )
     }
@@ -213,19 +212,19 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
-                    <Grid container spacing={32} >
-                        <Grid item lg={2}></Grid>
-                        <Grid item lg={9}>
-                            <Card>
-                                <CardContent> 
-                                    {
-                                        this.renderBad(classes)
-                                    }
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item lg={1}></Grid>
+                <Grid container spacing={8} >
+                    <Grid item lg={1}></Grid>
+                    <Grid item lg={10}>
+                        <Card>
+                            <CardContent>
+                                {
+                                    this.renderBad(classes)
+                                }
+                            </CardContent>
+                        </Card>
                     </Grid>
+                    <Grid item lg={1}></Grid>
+                </Grid>
             </div>
         )
     }

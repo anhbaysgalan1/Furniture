@@ -30,7 +30,6 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
-import Promotion from '../../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -133,7 +132,6 @@ class Index extends BaseView {
                             this.renderContent(classes)
                         }
                         <br></br>
-                        <Promotion classes={classes} />
                     </Grid>
                     <Grid item xs={1}></Grid>
                 </Grid>

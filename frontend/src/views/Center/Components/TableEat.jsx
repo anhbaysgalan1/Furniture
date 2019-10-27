@@ -168,8 +168,11 @@ class Index extends BaseView {
                                             title={element.title}
                                         />
                                         <CardContent>
-                                            <Typography color="primary" component="p">
-                                                {element.title} - {element.money}
+                                            <Typography style={{textAlign: 'center'}} color="primary">
+                                                {element.title}
+                                            </Typography>
+                                            <Typography style={{textAlign: 'center', color: 'red'}}>
+                                                {element.money}
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>

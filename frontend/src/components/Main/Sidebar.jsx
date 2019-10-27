@@ -122,7 +122,7 @@ class Sidebar extends React.Component {
         // )
         return (
             <Button
-                style={{ marginLeft: '10px'}}
+                style={{ marginLeft: '10px', fontSize: '15px'}}
                 size="small"
                 key={key}
                 to={path}

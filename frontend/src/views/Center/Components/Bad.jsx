@@ -146,7 +146,7 @@ class Index extends BaseView {
         return (
             <Card>
                 <CardContent> 
-                    <Grid container spacing={32} >
+                    <Grid container spacing={8} >
                         <Grid item lg={4}>
                             <Typography variant='h5' className={classes.title}> 
                                 Giường 
@@ -157,24 +157,27 @@ class Index extends BaseView {
                     <Grid container spacing={16}>
                         {
                             arrImg.map((element, index) => {
-                            return (
-                                <Grid item xs={3} key={index}>
-                                    <CardActionArea className={classes.imgZoom}>
-                                        <CardMedia
-                                            component="img"
-                                            alt="Contemplative Reptile"
-                                            height="200"
-                                            image={element.img}
-                                            title={element.title}
-                                        />
-                                        <CardContent>
-                                            <Typography color="primary" component="p">
-                                                {element.title} - {element.money}
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                </Grid>
-                            )
+                                return (
+                                    <Grid item xs={3} key={index}>
+                                        <CardActionArea className={classes.imgZoom}>
+                                            <CardMedia
+                                                component="img"
+                                                alt="Contemplative Reptile"
+                                                height="200"
+                                                image={element.img}
+                                                title={element.title}
+                                            />
+                                            <CardContent>
+                                                <Typography style={{textAlign: 'center'}} color="primary">
+                                                    {element.title}
+                                                </Typography>
+                                                <Typography style={{textAlign: 'center', color: 'red'}}>
+                                                    {element.money}
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Grid>
+                                )
                             })
                         }
                     </Grid>

@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import Pagination from "react-js-pagination";
+// import "bootstrap/less/bootstrap.less"
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { withRouter } from 'react-router-dom'
@@ -8,7 +11,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'  
+import FacebookIcon from '@material-ui/icons/Facebook'
 import {
     IconButton,
     Icon,
@@ -22,46 +25,46 @@ import {
     AppBar,
     Toolbar,
 } from '@material-ui/core'
-import What from '../Public/What'
-import Header from '../Public/Header/Header'
-import BadHot from './Components/BadHot'
-import Bad from './Components/Bad'
 import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    title: {
-        padding: '5px',
-        // backgroundColor: '#039be5',
-        color: 'white',
-    },
+    
 })
 
 
-class Index extends BaseView {
+class App extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-        }
+            activePage: 15
+        };
+    }
+
+    handlePageChange(pageNumber) {
+        this.setState({ activePage: pageNumber });
     }
 
     render() {
-        let { classes } = this.props
-        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
             <div>
-                <BadHot classes={classes} />
-                <br></br>
-                <Bad classes={classes} />
-                <br></br>
-                <What classes={classes} />
+                <p>Dai daiaashaddn Dai ca Dai ca</p>
+                <Pagination
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={10}
+                    totalItemsCount={450}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange}
+                />
             </div>
-        )
+        );
     }
 }
 
-Index.propTypes = {
+
+App.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(withRouter(Index))
+export default withStyles(styles)(withRouter(App))
+// ReactDOM.render(<App />, document.getElementById("root"));
