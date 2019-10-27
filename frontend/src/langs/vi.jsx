@@ -362,6 +362,10 @@ export default {
         unRound: "UnRound"
     },
     Sidebar: {
+        bad: 'Giường ngủ',
+        diningRoom: 'Phòng bếp',
+        tableEat: 'Bàn ăn',
+        tableRestaurant: 'Bàn nhà hàng',
         question: 'Câu hỏi thường gặp',
         contact: 'Liên hệ',
         center: "Trang chủ",
@@ -391,6 +395,10 @@ export default {
         distance_fuel: "Bảng lịch sử chấm công theo ngày"
     },
     Breadcrumb: {
+        badIndex: 'Giường ngủ',
+        diningRoomIndex: 'Phòng bếp',
+        tableEatIndex: 'Bàn ăn',
+        tableRestaurantIndex: 'Bàn nhà hàng',
         centerIndex: 'Nội thất Dodo',
         infoIndex: 'Giới thiệu',
         contactIndex: 'Liên hệ',

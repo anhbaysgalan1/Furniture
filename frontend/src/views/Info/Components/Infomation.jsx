@@ -134,8 +134,8 @@ class Index extends BaseView {
                         }
                         <br></br>
                         <Promotion classes={classes} />
-                        
                     </Grid>
+                    <Grid item xs={1}></Grid>
                 </Grid>
             </span>
         )

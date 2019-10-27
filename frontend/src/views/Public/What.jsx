@@ -90,6 +90,7 @@ class Index extends BaseView {
     let { classes } = this.props
     // let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
     let img = "url('https://c.wallhere.com/photos/c1/f2/lines_wavy_shiny_glitter-716443.jpg!d')"
+    // let img = "url('https://png.pngtree.com/58pic/32/49/67/20U58PICI9dWcd7X7yX8e_PIC2018.jpg')"
     return (
       <div className="row">
         <div className="col-md-6 mb-4">

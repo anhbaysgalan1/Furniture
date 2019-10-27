@@ -34,6 +34,9 @@ import Bad from './Components/Bad'
 import TableEat from './Components/TableEat'
 import TableRestaurant from './Components/TableRestaurant'
 import DiningRoom from './Components/DiningRoom'
+import ListGoods from './Components/ListGoods'
+import Promotion from './Components/Promotion'
+import Actions from '../Public/Actions'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -55,15 +58,22 @@ class Index extends BaseView {
                 <Header classes={classes} />
                 <Home classes={classes} />
                 <ButtonViews classes={classes} />
+                
                 <br></br>
                 <Circle classes={classes} />
                 <What classes={classes} />
                 <br></br>
                 <NewHot classes={classes} />
                 <br></br>
-                <Grid container spacing={32}>
-                    <Grid item lg={1}></Grid>
-                    <Grid item lg={10}>
+                <Grid container spacing={8}>
+                    <Grid item lg={2} style={{marginLeft: '10px'}}>
+                        <ListGoods classes={classes} />
+                        <br></br>
+                        <Promotion classes={classes} />
+                        <br></br>
+                        <Actions classes={classes} />
+                    </Grid>
+                    <Grid item lg={9}>
                         <Bad classes={classes}/>
                         <br></br>
                         <TableEat classes={classes} />
@@ -72,7 +82,7 @@ class Index extends BaseView {
                         <br></br>
                         <TableRestaurant classes={classes} />
                     </Grid>
-                    <Grid item lg={1}></Grid>
+                    {/* <Grid item lg={}></Grid> */}
                 </Grid>
                 <br></br>
                 <Footer classes={classes} />

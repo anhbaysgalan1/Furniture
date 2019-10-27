@@ -40,6 +40,18 @@ const styles = theme => ({
         color: 'white',
         textAlign: 'center'
     },
+    imgZoom: {
+        transition: "transform .5s, filter 3s ease-in-out",
+        filter: "grayscale(100%)",
+    },
+    imgZoom: {
+        "&:hover": {
+            filter: "grayscale(0)",
+            transform: "scale(1.1)",
+            transitionDuration: "1s",
+            transitionTimingFunction: "linear",
+        }
+    }
 })
 
 
@@ -101,6 +113,7 @@ class Index extends BaseView {
                                 <Grid container spacing={16} key={index}>
                                     <Grid item xs={4}>
                                         <img 
+                                            className={classes.imgZoom}
                                             src={item.img}
                                             height='100'
                                             width='100%'

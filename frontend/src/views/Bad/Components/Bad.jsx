@@ -53,7 +53,8 @@ const styles = theme => ({
             transitionDuration: "1s",
             transitionTimingFunction: "linear",
         }
-    }
+    },
+
 })
 
 let img='http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
@@ -141,48 +142,91 @@ class Index extends BaseView {
         }
     }
 
+    renderBad(classes){
+        return (
+            <span>
+                <Grid container spacing={8}>
+                    <Grid item xs={6}>
+                        <Typography variant='h5' className={classes.title}> 
+                            Giường ngủ
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={6}></Grid>
+                </Grid>
+                <Grid container spacing={16}>
+                  {
+                    arrImg.map((element, index) => {
+                      return (
+                        <Grid item xs={3} key={index}>
+                          <Card className={classes.card}>
+                            <CardActionArea>
+                              <CardMedia
+                                className={classes.imgZoom}
+                                component="img"
+                                alt="Contemplative Reptile"
+                                height="200"
+                                image={element.img}
+                                title={element.title}
+                              />
+                              <CardContent>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                  {element.title}
+                                </Typography>
+                              </CardContent>
+                            </CardActionArea>
+                          </Card>
+                        </Grid>
+                      )
+                    })
+                  }
+                </Grid>
+                {/* <Grid container spacing={8}>
+                    {
+                        arrImg.map((element, index) => {
+                            return (
+                                <Grid item xs={3} key={index}>
+                                    <div className={classes.imgZoom} style={{textAlign: 'center', borderStyle: 'groove'}}>
+                                        <img 
+                                            src={element.img} 
+                                            height="180" 
+                                            width="230" 
+                                            style={{overflow: 'hidden'}}
+                                        />
+                                        <Typography color='primary' style={{padding: '10px'}}>
+                                            {element.title}
+                                        </Typography>
+                                        <Typography color='primary' style={{padding: '10px'}}>
+                                            {element.money}
+                                        </Typography>
+                                    </div>
+                                </Grid>
+                            )
+                        })
+                    }
+                </Grid> */}
+               
+            </span>
+        )
+    }
+
     render() {
         let { classes } = this.props
         return (
-            <Card>
-                <CardContent> 
+            <div>
                     <Grid container spacing={32} >
-                        <Grid item lg={4}>
-                            <Typography variant='h5' className={classes.title}> 
-                                Bàn ăn nhà hàng
-                            </Typography>
+                        <Grid item lg={2}></Grid>
+                        <Grid item lg={9}>
+                            <Card>
+                                <CardContent> 
+                                    {
+                                        this.renderBad(classes)
+                                    }
+                                </CardContent>
+                            </Card>
                         </Grid>
+                        <Grid item lg={1}></Grid>
                     </Grid>
-                    <br></br>
-                    <Grid container spacing={16}>
-                        {
-                            arrImg.map((element, index) => {
-                                return (
-                                    <Grid item xs={3} key={index}>
-                                        <Card className={classes.card}>
-                                            <CardActionArea>
-                                                <CardMedia
-                                                    className={classes.imgZoom}
-                                                    component="img"
-                                                    alt="Contemplative Reptile"
-                                                    height="200"
-                                                    image={element.img}
-                                                    title={element.title}
-                                                />
-                                                <CardContent>
-                                                    <Typography color="primary" component="p">
-                                                        {element.title} - {element.money}
-                                                    </Typography>
-                                                </CardContent>
-                                            </CardActionArea>
-                                        </Card>
-                                    </Grid>
-                                )
-                            })
-                        }
-                    </Grid>
-                </CardContent>
-            </Card>
+            </div>
         )
     }
 }

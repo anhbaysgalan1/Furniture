@@ -114,6 +114,8 @@ class Footer extends BaseView {
                 <div
                     style={{
                         backgroundImage: 'url(https://img.thuthuatphanmem.vn/uploads/2018/10/01/anh-nen-dep-mau-hong_040306417.jpg)'
+                        // backgroundImage: "url('https://png.pngtree.com/58pic/32/49/67/20U58PICI9dWcd7X7yX8e_PIC2018.jpg')"
+
                     }}
                 >
                     <CardContent>
