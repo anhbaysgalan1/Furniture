@@ -51,7 +51,6 @@ class Index extends BaseView {
 
     render() {
         let { classes } = this.props
-        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
             <div>
                 <BadHot classes={classes} />

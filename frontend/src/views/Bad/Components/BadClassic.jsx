@@ -181,23 +181,7 @@ class Index extends BaseView {
 
     render() {
         let { classes } = this.props
-        return (
-            <div>
-                <Grid container spacing={8} >
-                    <Grid item lg={1}></Grid>
-                    <Grid item lg={10}>
-                        <Card>
-                            <CardContent>
-                                {
-                                    this.renderBad(classes)
-                                }
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item lg={1}></Grid>
-                </Grid>
-            </div>
-        )
+        return this.renderBad(classes)
     }
 }
 

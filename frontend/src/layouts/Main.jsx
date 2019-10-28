@@ -45,7 +45,7 @@ const styles = theme => ({
         },
     },
     appBar: {
-        marginLeft: theme.drawerWidth,
+        // marginLeft: theme.drawerWidth,
         [theme.breakpoints.up('md')]: {
             // width: `calc(100% - ${theme.drawerWidth}px)`,
         },
@@ -144,8 +144,8 @@ class Main extends React.Component {
                 className={classes.appBar}
                 color="primary"
             >
-                <Toolbar>
-                    <Sidebar route={route} />
+                <Toolbar variant='dense' style={{marginLeft: '100px'}} >
+                    <Sidebar route={route}/>
                     {/* <DrawerMobileMenu route={route} /> */}
                     <div id='top-buttom_image'>
                         <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>

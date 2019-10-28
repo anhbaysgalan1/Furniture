@@ -166,7 +166,9 @@ class Index extends BaseView {
         }
     }
 
-    renderBad(classes) {
+
+    render() {
+        let { classes } = this.props
         return (
             <span>
                 <Grid container spacing={16}>
@@ -204,29 +206,7 @@ class Index extends BaseView {
                         })
                     }
                 </Grid>
-               
             </span>
-        )
-    }
-
-    render() {
-        let { classes } = this.props
-        return (
-            <div>
-                <Grid container spacing={8} >
-                    <Grid item lg={1}></Grid>
-                    <Grid item lg={10}>
-                        <Card>
-                            <CardContent>
-                                {
-                                    this.renderBad(classes)
-                                }
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item lg={1}></Grid>
-                </Grid>
-            </div>
         )
     }
 }

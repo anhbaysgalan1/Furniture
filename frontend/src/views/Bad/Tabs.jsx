@@ -6,7 +6,7 @@ import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import { withRouter } from 'react-router-dom'
 import PaperFade from "components/Main/PaperFade"
-import { Tab, AppBar, Tabs, Typography, Button } from '@material-ui/core'
+import { Tab, AppBar, Tabs, Typography, Button, Grid, Card, CardActions, CardContent } from '@material-ui/core'
 import Bad from './Components/Bad'
 import BadIndustry from './Components/BadIndustry'
 import BadNature from './Components/BadNature'
@@ -51,12 +51,13 @@ function NavTabs(data) {
     let onSubmit = _.get(data, 'onSubmit', '')
     return (
         <div>
-            <AppBar position="static" color="default">
+            {/* position="sticky" khi két chuật lên trên cùng Tabs sẽ thay thế menu */}
+            <AppBar position="sticky" color="default"> 
                 <Tabs
                     textColor="inherit"
                     indicatorColor="secondary"
                     value={value}
-                    variant='standard'
+                    variant='fullWidth'
                     onChange={handleChange}
                 >
                     <LinkTab label={I18n.t("Worker.Tất cả")} href="/bad" />
@@ -67,7 +68,7 @@ function NavTabs(data) {
 
                 </Tabs>
             </AppBar>
-            <div style={{ padding: '-5px' }}>
+            <div>
                 {
                     value === 0 && <TabContainer> <Bad classes={classes} /> </TabContainer>
                 }
@@ -95,10 +96,16 @@ class Create extends BaseView {
         const { classes, onSubmit } = this.props
         return (
             <PaperFade >
-                <NavTabs
-                    classes={classes}
-                    onSubmit={onSubmit}
-                />
+                <Grid container spacing={32}>
+                    <Grid item lg={1}></Grid>
+                    <Grid item lg={10}>
+                        <NavTabs
+                            classes={classes}
+                            onSubmit={onSubmit}
+                        />
+                    </Grid>
+                    <Grid item lg={1}></Grid>
+                </Grid>
             </PaperFade>
         )
     }
