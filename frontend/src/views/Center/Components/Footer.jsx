@@ -27,6 +27,18 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
+    imgZoom: {
+        transition: "transform .5s, filter 3s ease-in-out",
+        filter: "grayscale(100%)",
+    },
+    imgZoom: {
+        "&:hover": {
+            filter: "grayscale(0)",
+            transform: "scale(1.1)",
+            transitionDuration: "1s",
+            transitionTimingFunction: "linear",
+        }
+    }
 })
 
 class Index extends BaseView {
@@ -48,38 +60,49 @@ class Index extends BaseView {
                 title: 'Cách chọn vị trí đặt bàn ăn theo phong thủy',
                 content: 'Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong'
             },
-            {
-                img: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_600/https://thachthatdecor.com.vn/wp-content/uploads/2019/05/cach-hoa-giai-giuong-ngu-tren-bep-1.jpg',
-                title: 'Cách hóa giải giường ngủ trên bếp để bảo vệ sức khỏe của bạn',
-                content: 'Các chuyên gia phong thủy cho biết rằng: một trong những yếu'
-            }
         ]
         return (
             <span>
-                {
-                    img.map((item, index) => {
-                        return (
-                            <Grid container spacing={8} key={index}>
-                                <Grid item xs={4}>
-                                    <img 
-                                        src={item.img}
-                                        height='100'
-                                        width='100%'
-                                        alt="DODO"
-                                    />
-                                </Grid>
-                                <Grid item xs={8}>
-                                    <Typography style={{fontWeight: 'bold'}}>
-                                        {item.title}
-                                    </Typography>
-                                    <Typography>
-                                        {item.content}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        )
-                    })
-                }
+                <Grid container spacing={8}>
+                    <Grid item xs={4}>
+                        <img
+                            className={classes.imgZoom}
+                            onClick={() => this.goto("/size-bad")} 
+                            src={img[0].img}
+                            height='100'
+                            width='100%'
+                            alt="DODO"
+                        />
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Typography style={{fontWeight: 'bold'}} onClick={() => this.goto("/size-bad")} >
+                            {img[0].title}
+                        </Typography>
+                        <Typography onClick={() => this.goto("/size-bad")} >
+                            {img[0].content}
+                        </Typography>
+                    </Grid>
+                </Grid>
+                <Grid container spacing={8}>
+                    <Grid item xs={4}>
+                        <img
+                            className={classes.imgZoom} 
+                            onClick={() => this.goto("/change-table")}
+                            src={img[1].img}
+                            height='100'
+                            width='100%'
+                            alt="DODO"
+                        />
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Typography style={{fontWeight: 'bold'}} onClick={() => this.goto("/change-table")}>
+                            {img[1].title}
+                        </Typography>
+                        <Typography onClick={() => this.goto("/change-table")}>
+                            {img[1].content}
+                        </Typography>
+                    </Grid>
+                </Grid>
             </span>
         )
     }
@@ -89,9 +112,7 @@ class Index extends BaseView {
         return (
             <div>
                 <Grid container spacing={32}>
-                    <Grid item xs={1}>
-
-                    </Grid>
+                    <Grid item xs={1}></Grid>
                     <Grid item xs={3}>
                         <Typography variant='h5' style={{textAlign: 'center'}} >
                             Phong Thủy
@@ -113,9 +134,7 @@ class Index extends BaseView {
                         </Typography>
                         <hr></hr>
                     </Grid>
-                    <Grid item xs={1}>
-
-                    </Grid>
+                    <Grid item xs={1}></Grid>
                 </Grid>
 
             </div>

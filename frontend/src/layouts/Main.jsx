@@ -166,10 +166,10 @@ class Main extends React.Component {
                 </Hidden>
             </nav> */}
             <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Suspense fallback={this.renderLoading()}>
-                    <Component route={route} />
-                </Suspense>
+                <div className={classes.toolbar} style={{marginTop: '-15px'}} />
+                    <Suspense fallback={this.renderLoading()}>
+                        <Component route={route} />
+                    </Suspense>
                 <br></br>
                 <br></br>
                 <Footer/>

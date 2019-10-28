@@ -10,6 +10,8 @@ const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
 const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
+const WindWaterChangeTable  = lazy(() => import('containers/WindWater/ChangeTable'))
+const WindWaterSizeBad      = lazy(() => import('containers/WindWater/SizeBad'))
 
 
 const routes = [
@@ -75,6 +77,22 @@ const routes = [
         sidebarName: 'contact'
     },
     {
+        path: "/size-bad",
+        name: 'sizebad',
+        title: () => I18n.t("Breadcrumb.windWaterIndex"),
+        component: () => <WindWaterSizeBad />,
+        exact: true,
+        sidebarName: 'windwater'
+    },
+    {
+        path: "/change-table",
+        name: 'changetable',
+        title: () => I18n.t("Breadcrumb.windWaterChangeTable"),
+        component: () => <WindWaterChangeTable />,
+        exact: true,
+        sidebarName: 'windwater'
+    },
+    {
         path: "/users",
         name: 'user',
         title: () => I18n.t("Breadcrumb.userIndex"),
@@ -82,6 +100,7 @@ const routes = [
         exact: true,
         sidebarName: 'user'
     },
+
 
 ]
 
