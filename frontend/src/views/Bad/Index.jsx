@@ -22,10 +22,14 @@ import {
     AppBar,
     Toolbar,
 } from '@material-ui/core'
+import Tabs from './Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
 import BadHot from './Components/BadHot'
 import Bad from './Components/Bad'
+import OwlCarousel from 'react-owl-carousel2'
+import 'react-owl-carousel2/lib/styles.css'
+import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -52,7 +56,10 @@ class Index extends BaseView {
             <div>
                 <BadHot classes={classes} />
                 <br></br>
-                <Bad classes={classes} />
+                <Promotion classes={classes} />  
+                <br></br>
+                <Tabs classes={classes} />
+                {/* <Bad classes={classes} /> */}
                 <br></br>
                 <What classes={classes} />
             </div>

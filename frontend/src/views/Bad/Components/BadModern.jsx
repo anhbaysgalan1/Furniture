@@ -61,97 +61,49 @@ let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thu
 
 let arrImg = [
     {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
     },
     {
-        img: 'https://vietba.vn/wp-content/uploads/2019/06/giuong-ngu-co-ngan-keo.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://sofabella.vn/wp-content/uploads/2015/03/GIUONG-NGu-B1240.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://dongtrieunhatrang.com/wp-content/uploads/2019/05/Gi%C6%B0%E1%BB%9Dng-g%E1%BB%97-Xoan-01.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://funismart.com/wp-content/uploads/giuong-go-2-trieu-theo-mau-fngn2m.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatamia.com/wp-content/uploads/anh-dai-dien-mau-giuong-ngu-go-mau-trang-dep-tai-amia-600x563.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://vilahome.com.vn/wp-content/uploads/2018/05/Mau-giuong-da-nang-thong-minh-hien-dai-1.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+        img: 'https://mekongwood.vn/wp-content/uploads/2019/08/giuong-ho-dep-mekongwood-1.jpg',
         code: 'S51',
         title: 'Giường hiện đại S51',
         money: '2.500.000 đ'
@@ -172,7 +124,7 @@ class Index extends BaseView {
                 <Grid container spacing={16}>
                     <Grid item xs={6}>
                         <Typography variant='h5' className={classes.title}>
-                            Giường ngủ
+                            Giường ngủ hiện đại
                         </Typography>
                     </Grid>
                     <Grid item xs={6}></Grid>

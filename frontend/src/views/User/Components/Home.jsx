@@ -26,17 +26,11 @@ import _ from 'lodash'
 const styles = theme => ({
 })
 
-
-
 class Index extends BaseView {
     constructor(props) {
         super(props)
         this.state = {
         }
-    }
-
-    testImg(value){
-        console.log('log', value)
     }
 
     render() {
@@ -100,4 +94,3 @@ Index.propTypes = {
 }
 
 export default withStyles(styles)(Index) 
-// export default withStyles(styles)(withRouter(Index))

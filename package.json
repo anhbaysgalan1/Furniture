@@ -32,6 +32,7 @@
     "react-draggable": "^3.3.0",
     "react-google-maps": "^9.4.5",
     "react-js-pagination": "^3.0.2",
+    "react-owl-carousel2": "^0.3.0",
     "react-router-dom": "^5.0.1",
     "recompose": "^0.30.0",
     "table-to-excel": "^1.0.6",
