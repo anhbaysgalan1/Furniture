@@ -30,6 +30,7 @@ import Bad from './Components/Bad'
 import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
+import IntroduceBad from './Components/IntroduceBad'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -53,6 +54,10 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
+                <Header classes={classes} />
+                <br></br>
+                <IntroduceBad classes={classes} />
+                <br></br>
                 <BadHot classes={classes} />
                 <br></br>
                 <Promotion classes={classes} />  
