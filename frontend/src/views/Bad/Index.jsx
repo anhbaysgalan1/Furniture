@@ -31,8 +31,11 @@ import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
 import IntroduceBad from './Components/IntroduceBad'
+import Page from './Components/Page'
+import Create from './Components/Create.form'
 import moment from 'moment'
 import _ from 'lodash'
+// import "bootstrap/less/bootstrap.less"
 
 const styles = theme => ({
     title: {
@@ -47,6 +50,7 @@ class Index extends BaseView {
     constructor(props) {
         super(props)
         this.state = {
+            activePage: 15
         }
     }
 
@@ -54,7 +58,10 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
-                <Header classes={classes} />
+                <Page classes={classes} />
+                <Create classes={classes} />
+                <br></br>
+                {/* <Header classes={classes} />
                 <br></br>
                 <IntroduceBad classes={classes} />
                 <br></br>
@@ -65,7 +72,7 @@ class Index extends BaseView {
                 <Tabs classes={classes} />
                 {/* <Bad classes={classes} /> */}
                 <br></br>
-                <What classes={classes} />
+                {/* <What classes={classes} /> */}
             </div>
         )
     }

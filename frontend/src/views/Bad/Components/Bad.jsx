@@ -26,11 +26,20 @@ import {
    Avatar,
    Dialog,
    DialogContent,
+   DialogActions, 
+   DialogContentText,
+   DialogTitle,
+
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import Skeleton from '@material-ui/lab/Skeleton'
-import moment from 'moment'
+import Skeleton   from '@material-ui/lab/Skeleton'
+import moment     from 'moment'
+import tunhien    from '../../../public/tunhien.png'
+import congnghiep from '../../../public/congnghiep.png'
+import hiendai    from '../../../public/hiendai.png'
+import codien     from '../../../public/codien.png'
+import ViewDetail from './ViewDetail'
 import _ from 'lodash'
 
 const styles = theme => ({
@@ -162,22 +171,31 @@ class Index extends BaseView {
    constructor(props) {
       super(props)
       this.state = {
-         reload: false
+         reload: false,
+         open: false,
+         index: 0,
       }
+      this.onCancel = this.onCancel.bind(this)
+      this.onHide = this.onHide.bind(this)
+      this.onShow = this.onShow.bind(this)
    }
 
-   render() {
-      let { classes } = this.props
+   onHide() {
+      this.setState({ open: false })
+   }
+
+   onShow(){
+      this.setState({open: true})
+   }
+
+   onCancel() {
+      this.onHide()
+   }
+
+   renderNature(classes) {
       return (
          <span>
-            <Grid container spacing={16}>
-               <Grid item xs={4}>
-                  <Typography variant='h5' className={classes.title} style={{backgroundColor:' #b3b300'}}>
-                     Giường gỗ tự nhiên
-                  </Typography>
-               </Grid>
-               <Grid item xs={6}></Grid>
-            </Grid>
+            <img src={tunhien} height='80' width='450' />
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -205,6 +223,132 @@ class Index extends BaseView {
                   })
                }
             </Grid>
+         </span>
+      )
+   }
+
+   renderIndustry(classes) {
+      return (
+         <span>
+            <img src={congnghiep} height='80' width='450' />
+            <Grid container spacing={16}>
+               {
+                  arrImg.map((element, index) => {
+                     return (
+                        <Grid item xs={3} key={index}>
+                           <CardActionArea className={classes.imgZoom}>
+                              <CardMedia
+                                 component="img"
+                                 alt="Contemplative Reptile"
+                                 height="200"
+                                 image={element.img}
+                                 title={element.title}
+                              />
+                              <CardContent>
+                                 <Typography style={{ textAlign: 'center' }} color="primary">
+                                    {element.title}
+                                 </Typography>
+                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                    {element.money}
+                                 </Typography>
+                              </CardContent>
+                           </CardActionArea>
+                        </Grid>
+                     )
+                  })
+               }
+            </Grid>
+         </span>
+      )
+   }
+
+   renderModern(classes) {
+      return (
+         <span>
+            <img src={hiendai} height='80' width='450' />
+            <Grid container spacing={16}>
+               {
+                  arrImg.map((element, index) => {
+                     return (
+                        <Grid item xs={3} key={index}>
+                           <CardActionArea className={classes.imgZoom}>
+                              <CardMedia
+                                 component="img"
+                                 alt="Contemplative Reptile"
+                                 height="200"
+                                 image={element.img}
+                                 title={element.title}
+                              />
+                              <CardContent>
+                                 <Typography style={{ textAlign: 'center' }} color="primary">
+                                    {element.title}
+                                 </Typography>
+                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                    {element.money}
+                                 </Typography>
+                              </CardContent>
+                           </CardActionArea>
+                        </Grid>
+                     )
+                  })
+               }
+            </Grid>
+         </span>
+      )
+   }
+
+   renderClassic(classes) {
+      return (
+         <span>
+            <img src={codien} height='80' width='450' />
+            <Grid container spacing={16}>
+               {
+                  arrImg.map((element, index) => {
+                     return (
+                        <Grid item xs={3} key={index}>
+                           <CardActionArea className={classes.imgZoom}>
+                              <CardMedia
+                                 component="img"
+                                 alt="Contemplative Reptile"
+                                 height="200"
+                                 image={element.img}
+                                 title={element.title}
+                              />
+                              <CardContent>
+                                 <Typography style={{ textAlign: 'center' }} color="primary">
+                                    {element.title}
+                                 </Typography>
+                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                    {element.money}
+                                 </Typography>
+                              </CardContent>
+                           </CardActionArea>
+                        </Grid>
+                     )
+                  })
+               }
+            </Grid>
+         </span>
+      )
+   }
+
+   render() {
+      let { classes } = this.props
+      return (
+         <span>
+            <ViewDetail classes={classes} />
+            {
+               this.renderNature(classes)
+            }
+            {
+               this.renderIndustry(classes)
+            }
+            {
+               this.renderModern(classes)
+            }
+            {
+               this.renderClassic(classes)
+            }
          </span>
       )
    }

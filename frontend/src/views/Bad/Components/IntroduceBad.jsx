@@ -30,6 +30,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
+import bad from '../../../public/bad.jpg'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -73,27 +74,21 @@ class Index extends BaseView {
                 <CardContent>
                     <Grid container spacing={16} >
                         <Grid item xs={7}>
-
-                            <i>
-                                <Typography>
-                                    Giường ngủ gỗ tự nhiên thương hiệu Nội Thất Đồ Gỗ Hoàng Gia Dodo làm 100%
-                                    từ các loại gỗ tự nhiên cao cấp. Với vân gỗ đẹp, màu sắc tự nhiên,
-                                    hương thơm nhẹ nhàng đặc trưng của từng loại gỗ được giữ nguyên một
-                                    cách tốt nhất. Là lựa chọn hàng đầu hiện nay được khách hàng tin tưởng
-                                    và lựa chọn trong không gian phòng ngủ gia đình.
-                                </Typography>
-                            </i>
                             <Typography>
                                 <ul>
                                     <li>
-                                        <Typography variant='h6'>
-                                            Giường ngủ cổ điển phong cách sang trọng, đẳng cấp hàng đầu với sự tinh tế trên từng chi tiết
-                                    </Typography>
+                                        <Typography>
+                                            <b>Giường ngủ gỗ tự nhiên:</b> thương hiệu Nội Thất Hoàng Gia Dodo làm 100%
+                                            từ các loại gỗ tự nhiên cao cấp. Với vân gỗ đẹp, màu sắc tự nhiên,
+                                            hương thơm nhẹ nhàng đặc trưng của từng loại gỗ được giữ nguyên một
+                                            cách tốt nhất. Là lựa chọn hàng đầu hiện nay được khách hàng tin tưởng
+                                            và lựa chọn trong không gian phòng ngủ gia đình.
+                                        </Typography>
                                     </li>
                                     <li>
                                         <b>Phong cách thiết kế:</b>
                                         đặc trưng với những họa tiết được đục, chạm, khắc kỳ công và khéo léo, các hình ảnh, chi tiết trên sản phẩm được trau chuốt một cách tỉ mỉ để nâng tầm đẳng cấp và phong cách riêng.
-                                </li>
+                                    </li>
                                     <li>
                                         <b>Kiểu dáng:</b>
                                         <ul>
@@ -117,7 +112,7 @@ class Index extends BaseView {
                                     <li>
                                         <b>Màu sắc sản phẩm:</b>
                                         đặc trưng của các loại gỗ tự nhiên như màu vàng xoan đào, màu đỏ vàng gỗ gõ đỏ, gỗ hương đỏ, vàng pơ mơ, nâu socola cẩm lai,…
-                                </li>
+                                    </li>
                                     <li>
                                         <b>Kích thước của giường ngủ gỗ tự nhiên:</b>
                                         Kích thước cơ bản từ 120 x 200cm, 140x200cm, 160x200cm cho đến
@@ -131,14 +126,15 @@ class Index extends BaseView {
                         </Grid>
                         <Grid item xs={5}>
                             <img
+                                style={{marginTop: '-15px'}}
                                 height='500'
-                                width='700'
-                                src='http://noithatgiadinhbinhduong.com/wp-content/uploads/2017/09/gi%C6%B0%E1%BB%9Dng-g%C3%B5-%C4%91%E1%BB%8F.jpg'
+                                width='650'
+                                // src='http://noithatgiadinhbinhduong.com/wp-content/uploads/2017/09/gi%C6%B0%E1%BB%9Dng-g%C3%B5-%C4%91%E1%BB%8F.jpg'
+                                src={bad}
                                 alt='Dodo'
                             />
                         </Grid>
                     </Grid>
-
                 </CardContent>
             </div>
         )

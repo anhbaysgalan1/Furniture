@@ -21,7 +21,6 @@ import {
     Typography,
     AppBar,
     Toolbar,
-
 } from '@material-ui/core'
 import moment from 'moment'
 import _ from 'lodash'
