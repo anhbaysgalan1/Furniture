@@ -362,6 +362,8 @@ export default {
         unRound: "UnRound"
     },
     Sidebar: {
+        manageOrder: "Quan ly don hang",
+        manageGoods: "Quan ly hang hoa",
         bad: 'Giường ngủ',
         diningRoom: 'Phòng bếp',
         tableEat: 'Bàn ăn',
@@ -395,6 +397,8 @@ export default {
         distance_fuel: "Bảng lịch sử chấm công theo ngày"
     },
     Breadcrumb: {
+        manageGoodsIndex: 'Quan ly hang hoa',
+        manageOrderIndex: 'Quan ly don hang',
         badIndex: 'Giường ngủ',
         diningRoomIndex: 'Phòng bếp',
         tableEatIndex: 'Bàn ăn',

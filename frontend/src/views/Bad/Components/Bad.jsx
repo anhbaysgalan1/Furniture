@@ -29,7 +29,6 @@ import {
    DialogActions, 
    DialogContentText,
    DialogTitle,
-
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
@@ -39,6 +38,7 @@ import tunhien    from '../../../public/tunhien.png'
 import congnghiep from '../../../public/congnghiep.png'
 import hiendai    from '../../../public/hiendai.png'
 import codien     from '../../../public/codien.png'
+import Page       from './Page'
 import ViewDetail from './ViewDetail'
 import _ from 'lodash'
 
@@ -173,35 +173,36 @@ class Index extends BaseView {
       this.state = {
          reload: false,
          open: false,
-         index: 0,
+         index: '',
+         itemDetail: {},
       }
       this.onCancel = this.onCancel.bind(this)
-      this.onHide = this.onHide.bind(this)
-      this.onShow = this.onShow.bind(this)
-   }
-
-   onHide() {
-      this.setState({ open: false })
-   }
-
-   onShow(){
-      this.setState({open: true})
    }
 
    onCancel() {
-      this.onHide()
+      this.setState({index: ''})
    }
+
+   setRenderDetail(index, element){
+      console.log("inex", index)
+      this.setState({ itemDetail: element, index: index })
+   }
+
 
    renderNature(classes) {
       return (
          <span>
             <img src={tunhien} height='80' width='450' />
+            <Page classes={classes} />
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
                      return (
                         <Grid item xs={3} key={index}>
-                           <CardActionArea className={classes.imgZoom}>
+                           <CardActionArea 
+                              className={classes.imgZoom} 
+                              onClick={() => this.setRenderDetail(index, element)}
+                           >
                               <CardMedia
                                  component="img"
                                  alt="Contemplative Reptile"
@@ -336,7 +337,9 @@ class Index extends BaseView {
       let { classes } = this.props
       return (
          <span>
-            <ViewDetail classes={classes} />
+            {
+               this.state.index ? <ViewDetail onCancel={this.onCancel} classes={classes} /> : ''
+            }
             {
                this.renderNature(classes)
             }

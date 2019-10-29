@@ -1,0 +1,10 @@
+{
+    "_id": "objectid",
+    "code": "string",
+    "name": "string",
+    "img": "string",
+    "monerOld": "string",
+    "moneyNew": "string",
+    "typeBad": "string",
+    "typeWoods": "string"
+}

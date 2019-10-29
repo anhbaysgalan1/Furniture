@@ -39,28 +39,11 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: true,
-            index: 0,
         }
-        this.onCancel = this.onCancel.bind(this)
-        this.onHide = this.onHide.bind(this)
-        this.onShow = this.onShow.bind(this)
     }
 
-    onHide(){
-        this.setState({ open: false })
-    }
-  
-    onShow(){
-        this.setState({ open: true })
-    }
-  
-    onCancel() {
-        this.onHide()
-    }
-
-    renderImg(index){
-        this.setState({index: index})
+    onCancel(){
+        this.props.onCancel()
     }
 
     renderDialog(classes){
@@ -75,13 +58,12 @@ class App extends Component {
                 img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg'
             }
         ]
-        let { index } = this.state 
         return (
            <Card>
                <Dialog
                     fullWidth={true}
-                    onClose={this.onCancel}
-                    open={this.state.open}
+                    // onClose={this.onCancel}
+                    open={true}
                     maxWidth='md'
                     aria-labelledby="draggable-dialog-title"
                 >
@@ -91,7 +73,7 @@ class App extends Component {
                         </Typography>
                         <Grid container spacing={8}>
                             <Grid item xs={5}>
-                                <img src={img[index].img} height='250' width='350'/>
+                                <img src={img[0].img} height='250' width='350'/>
                                 {
                                     img.map((item, index) => {
                                         return (
@@ -100,7 +82,6 @@ class App extends Component {
                                                 src={item.img} 
                                                 height='35' 
                                                 width='50'
-                                                onClick={() => this.renderImg(index)}
                                             />
                                         )
                                     })
@@ -111,10 +92,10 @@ class App extends Component {
                         </Grid>
                     </DialogContent>
                     <DialogActions>
-                        <Button color='primary'>
+                        <Button color='primary' onClick={() => this.onCancel()}>
                             Thoát
                         </Button>
-                        <Button color='primary'>
+                        <Button color='primary' onClick={() => this.onCancel()}>
                             Mua hàng
                         </Button>
                     </DialogActions>
