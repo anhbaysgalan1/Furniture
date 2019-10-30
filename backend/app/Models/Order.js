@@ -1,13 +1,12 @@
 const BaseModel = use("./BaseModel")
-class Bad extends BaseModel {
+class Order extends BaseModel {
     constructor() {
         super()
     }
     static get collectionName() {
-        return "bads"
+        return "order"
     }
     static get relationship() {
-       
         return {
             /* area: {
               relationType: "hasMany",
@@ -28,4 +27,4 @@ class Bad extends BaseModel {
 
 }
 
-module.exports = Bad
+module.exports = Order

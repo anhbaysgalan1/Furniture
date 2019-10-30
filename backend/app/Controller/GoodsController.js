@@ -1,5 +1,5 @@
 const BaseController = use("./BaseController")
-const BadModel = use("App/Models/Bad")
+const GoodsModel = use("App/Models/Goods")
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require('mongodb')
@@ -8,10 +8,10 @@ const Common = use("App/Common/common")
 /*
   Xem hàm mẫu BaseController nếu muốn viết lại các action
 */
-class BadController extends BaseController {
+class GoodsController extends BaseController {
     constructor() {
         super()
-        this.Model = new BadModel()
+        this.Model = new GoodsModel()
     }
 
     async index({ request, response }) {
@@ -151,4 +151,4 @@ class BadController extends BaseController {
     }
 }
 
-module.exports = BadController
+module.exports = GoodsController

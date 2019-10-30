@@ -9,8 +9,8 @@ import BadIndex from 'containers/Bad/Index'
 import DiningRoomIndex from 'containers/DiningRoom/Index'
 import TableEatIndex from 'containers/TableEat/Index'
 import TableRestaurantIndex from 'containers/TableRestaurant/Index'
-import ManageOrderIndex from 'containers/ManageOrder/Index'
-import ManageGoodsIndex from 'containers/ManageGoods/Index'
+import OrderIndex from 'containers/Order/Index'
+import GoodsIndex from 'containers/Goods/Index'
 
 const sidebar = [
     // {
@@ -62,19 +62,20 @@ const sidebar = [
         icon: <Icon>account_circle</Icon>,
         component: () => <ContactIndex />
     },
+
     {
-        path: "/manage-order", 
-        name: 'manageOrder',
-        title: <Translate value="Sidebar.manageOrder" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        path: "/order", 
+        name: 'order',
+        title: <Translate value="Sidebar.order" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
         icon: <Icon>account_circle</Icon>,
-        component: () => <ManageOrderIndex />
+        component: () => <OrderIndex />
     },
     {
-        path: "/manage-goods", 
-        name: 'manageGoods',
-        title: <Translate value="Sidebar.manageGoods" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        path: "/goods", 
+        name: 'goods',
+        title: <Translate value="Sidebar.goods" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
         icon: <Icon>account_circle</Icon>,
-        component: () => <ManageGoodsIndex />
+        component: () => <GoodsIndex />
     }
 
     

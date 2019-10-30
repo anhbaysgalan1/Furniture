@@ -1,32 +1,35 @@
-import React from 'react';
-import View from 'views/ManageGoods/Create'
-import BadAction from  '../../actions/BadAction'
+import React from 'react'
+import View from 'views/Goods/Edit'
+import OrderAction from '../../actions/OrderAction'
+// import RoleAction from '../../actions/RoleAction'
+// import PermissionAction from '../../actions/PermissionAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { I18n } from 'react-redux-i18n'
+import _ from "lodash"
 
-class Index extends BaseContainer {
+/**
+ * Files are automatically generated from the template.
+ * MQ Solutions 2019
+ */
+class Edit extends BaseContainer {
     constructor(props) {
         super(props)
-        this.state = {
-            permission: []
-        }
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-    }
-
     componentDidMount() {
+        this.id = this.props.match.params.id
+        this.props.dispatch(OrderAction.fetch({ _id: this.id }))
         // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
-        this.props.dispatch(BadAction.create(values))
+        this.props.dispatch(OrderAction.edit({ _id: this.id, ...values }))
             .then(data => {
                 if (!data.error) {
-                    this.notify(I18n.t('Message.createDataSuccess'))
+                    this.notify(I18n.t('Message.editDataSuccess'))
                     this.goto("/roles")
                 }
                 else {
@@ -54,18 +57,23 @@ class Index extends BaseContainer {
     render() {
         return (
             <View
+                data={this.props.data || {}}
                 onSubmit={this.onSubmit}
-                permission={this.props.permission}
+                permissions={this.props.permissions || []}
             />
         )
     }
 }
 
 const mapStateToProps = state => {
+
     return {
-        data: selector(state, "role.data", {}),
-        permission: selector(state, "permission.list.data", []),
+        //sử dụng selector để lấy state từ redux
+        lastType: selector(state, "role.lastType", {}),
+        error: selector(state, "role.error", ""),
+        data: selector(state, "role.item", {}),
+        permissions: selector(state, "permission.list.data", [])
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Index))
+export default withRouter(connect(mapStateToProps)(Edit))

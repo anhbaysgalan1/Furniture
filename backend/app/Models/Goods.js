@@ -1,10 +1,10 @@
 const BaseModel = use("./BaseModel")
-class Bad extends BaseModel {
+class Goods extends BaseModel {
     constructor() {
         super()
     }
     static get collectionName() {
-        return "bads"
+        return "goods"
     }
     static get relationship() {
        
@@ -28,4 +28,4 @@ class Bad extends BaseModel {
 
 }
 
-module.exports = Bad
+module.exports = Goods

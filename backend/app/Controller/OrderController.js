@@ -1,5 +1,5 @@
 const BaseController = use("./BaseController")
-const BadModel = use("App/Models/Bad")
+const OrderModel = use("App/Models/Order")
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require('mongodb')
@@ -8,10 +8,10 @@ const Common = use("App/Common/common")
 /*
   Xem hàm mẫu BaseController nếu muốn viết lại các action
 */
-class BadController extends BaseController {
+class OrderController extends BaseController {
     constructor() {
         super()
-        this.Model = new BadModel()
+        this.Model = new OrderModel()
     }
 
     async index({ request, response }) {
@@ -25,7 +25,7 @@ class BadController extends BaseController {
             image4: 1,
             moneyOld: 1,
             moneyNew: 1,
-            typeGoods: 1,
+            typeOrder: 1,
             typeWoods: 1,
             content: 1,
             insert: {
@@ -48,7 +48,7 @@ class BadController extends BaseController {
             image1: 1,
             moneyOld: 1,
             moneyNew: 1,
-            typeGoods: 1,
+            typeOrder: 1,
             typeWoods: 1,
             content: 1,
         }
@@ -67,7 +67,7 @@ class BadController extends BaseController {
             image4: "string!",
             moneyOld: "string!",
             moneyNew: "string!",
-            typeGoods: "string!",
+            typeOrder: "string!",
             typeWoods: "string!",
             content: "string!",
         }
@@ -104,7 +104,7 @@ class BadController extends BaseController {
             image4: "string!",
             moneyOld: "string!",
             moneyNew: "string!",
-            typeGoods: "string!",
+            typeOrder: "string!",
             typeWoods: "string!",
             content: "string!",
         }
@@ -151,4 +151,4 @@ class BadController extends BaseController {
     }
 }
 
-module.exports = BadController
+module.exports = OrderController

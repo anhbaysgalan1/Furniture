@@ -61,6 +61,13 @@ class Index extends BaseView {
                     }
                 },
                 {
+                    name: 'code',
+                    title: I18n.t('Table.header.role.code'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
                     name: 'name',
                     title: I18n.t('Table.header.role.name'),
                     style: {
@@ -68,8 +75,64 @@ class Index extends BaseView {
                     }
                 },
                 {
-                    name: 'code',
-                    title: I18n.t('Table.header.role.code'),
+                    name: 'image1',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'image2',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'image3',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'image4',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'monerOld',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'moneyNew',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'typeGoods',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'typeWoods',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'content',
+                    title: I18n.t('Table.header.role.name'),
                     style: {
                         textAlign: 'center',
                     }
@@ -91,10 +154,16 @@ class Index extends BaseView {
             tableColumnExtensions: [
                 { columnName: 'code', wordWrapEnabled: true },
                 { columnName: 'name', wordWrapEnabled: true },
+                { columnName: 'image1', wordWrapEnabled: true },
+                { columnName: 'image2', wordWrapEnabled: true },
+                { columnName: 'image3', wordWrapEnabled: true },
+                { columnName: 'image4', wordWrapEnabled: true },
+                { columnName: 'monerOld', wordWrapEnabled: true },
+                { columnName: 'monerOld', wordWrapEnabled: true },
+                { columnName: 'typeWoods', wordWrapEnabled: true },
+                { columnName: 'content', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },
-
                 // {columnName: 'name', align: 'center'}
-
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
             columnWidths: [
@@ -103,19 +172,55 @@ class Index extends BaseView {
                     width: 70
                 },
                 {
+                    name: 'code',
+                    width: 150
+                },
+                {
                     name: 'name',
                     width: 150
                 },
                 {
-                    name: 'code',
-                    width: 150
+                    name: 'image1',
+                    width: 70
                 },
+                {
+                    name: 'image2',
+                    width: 70
+                },
+                {
+                    name: 'image3',
+                    width: 70
+                },
+                {
+                    name: 'image4',
+                    width: 70
+                },
+                {
+                    name: 'monerOld',
+                    width: 70
+                },
+                {
+                    name: 'moneyNew',
+                    width: 70
+                },
+                {
+                    name: 'typeGoods',
+                    width: 70
+                },
+                {
+                    name: 'typeWoods',
+                    width: 70
+                },
+                {
+                    name: 'content',
+                    width: 70
+                },
+               
                 {
                     name: '_id',
                     width: 140
                 }
             ]
-
         }
         this.ConfirmDialog = null
         this.renderToolbarActions = this.renderToolbarActions.bind(this)
@@ -132,7 +237,7 @@ class Index extends BaseView {
         const { classes } = this.props;
         return (
             <div>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/roles/${_id}`)}>
+                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
                     {I18n.t("Button.edit")}
                 </Button>
                 <Button className={classes.button} variant='contained' color="primary" key="delete" onClick={() => this.ConfirmDialog.show([_id])}>
@@ -145,7 +250,7 @@ class Index extends BaseView {
     renderToolbarActions() {
         return [
             <Tooltip title={I18n.t("toolTip.new")} key="create">
-                <Button variant='contained' color='primary' onClick={() => this.goto("/manage-goods/create")}>
+                <Button variant='contained' color='primary' onClick={() => this.goto("/goods/create")}>
                     {I18n.t("Button.create")}
                 </Button>
             </Tooltip>,
@@ -179,10 +284,7 @@ class Index extends BaseView {
         return (
             <PaperFade showLoading={true}>
                 <Grid container spacing={32}>
-                    <Grid item xs={3}>
-
-                    </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={12}>
                         <GridTable
                             id="BadIndex"
                             estimatedRowHeight={100}

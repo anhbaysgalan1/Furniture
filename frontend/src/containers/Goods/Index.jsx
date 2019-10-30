@@ -1,6 +1,6 @@
 import React from 'react';
-import View from 'views/ManageGoods/Index'
-import BadAction from '../../actions/BadAction'
+import View from 'views/Goods/Index'
+import GoodsAction from '../../actions/GoodsAction'
 import UserAction from '../../actions/UserAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
@@ -17,10 +17,10 @@ class Index extends BaseContainer {
     }
 
     componentDidMount() {
-        this.props.dispatch(BadAction.fetchAll({ pageSize: -1 }))
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
     onFetchData(state) {
-        this.props.dispatch(BadAction.fetchAll(state))
+        this.props.dispatch(GoodsAction.fetchAll(state))
     }
 
     onRefTable(ref) {
@@ -28,7 +28,7 @@ class Index extends BaseContainer {
     }
 
     onDeleteData(selectedIds) {
-        this.props.dispatch(BadAction.delete({
+        this.props.dispatch(GoodsAction.delete({
             ids: selectedIds
         }))
             .then(result => {
@@ -83,9 +83,8 @@ class Index extends BaseContainer {
 }
 
 const mapStateToProps = state => {
-    console.log("state", state)
     return {
-        data: selector(state, "bads.list", {}),
+        data: selector(state, "goods.list", {}),
     }
 }
 

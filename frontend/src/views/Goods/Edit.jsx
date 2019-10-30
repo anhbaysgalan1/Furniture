@@ -115,7 +115,7 @@ class Create extends BaseView {
                         <br />
                     </Grid>
                     <CardActions>
-                        <Button variant="contained" color="primary" onClick={() => this.goto("/roles")}>
+                        <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
                             <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                         </Button>
                         <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>

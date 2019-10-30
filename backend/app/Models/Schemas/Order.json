@@ -8,7 +8,7 @@
     "image4": "string",
     "moneyOld": "string",
     "moneyNew": "string",
-    "typeGoods": "string",
+    "typeBad": "string",
     "typeWoods": "string",
     "content": "string"
 }
