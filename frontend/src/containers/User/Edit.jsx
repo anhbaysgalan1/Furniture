@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { I18n } from 'react-redux-i18n'
 import PositionAction from '../../actions/PositionAction'
 import AreaAction from '../../actions/AreaAction'
-import RoleAction from '../../actions/RoleAction'
+// import RoleAction from '../../actions/RoleAction'
 import _ from 'lodash'
 
 /**
@@ -27,7 +27,7 @@ class Edit extends BaseContainer {
         this.props.dispatch(UserAction.fetch({ _id: this.id }))
         this.props.dispatch(PositionAction.fetchAll({ pageSize: -1 }))
         this.props.dispatch(AreaAction.fetchAll({ pageSize: -1 }))
-        this.props.dispatch(RoleAction.fetchAll({ pageSize: -1 }))
+        // this.props.dispatch(RoleAction.fetchAll({ pageSize: -1 }))
         this.props.dispatch(UserAction.getTimeList())
     }
     

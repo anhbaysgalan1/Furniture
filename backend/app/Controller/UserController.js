@@ -60,28 +60,22 @@ class UserController extends BaseController {
     })
   }
   async index({ request, response }) {
-    const { mana_user } = request.permissions
     let allowFields = {
       code: 1,
       name: 1,
+      phone: 1,
+      username: 1,
+      Position: 1,
+      Area: 1,
+      Role: 1,
+      joiningDate: 1,
+      dayOffs: 1,
+      remainThisYear: 1,
+      remainLastYear: 1,
+      dayOffUsed: 1,
+      remainByWorkingOnDayOff: 1,
       insert: {
         when: 1
-      }
-    }
-    if (mana_user === true) {
-      allowFields = {
-        ...allowFields,
-        phone: 1,
-        username: 1,
-        Position: 1,
-        Area: 1,
-        Role: 1,
-        joiningDate: 1,
-        dayOffs: 1,
-        remainThisYear: 1,
-        remainLastYear: 1,
-        dayOffUsed: 1,
-        remainByWorkingOnDayOff: 1
       }
     }
     let result = await this.Model.aggregation([
@@ -159,8 +153,8 @@ class UserController extends BaseController {
   }
 
   async update({ request, response }) {
-    const { mana_user } = request.permissions
-    if (!mana_user) throw new ApiException(403, "No_User_Permission")
+    // const { mana_user } = request.permissions
+    // if (!mana_user) throw new ApiException(403, "No_User_Permission")
     let id = request.params.id
     if (!id) throw new ApiException(422, "Id_Required")
     let exist = await this.Model.getById(id)
@@ -229,8 +223,8 @@ class UserController extends BaseController {
   }
 
   async editPassword({ request, response }) {
-    const { mana_user } = request.permissions
-    if (!mana_user) throw new ApiException(403, "No_User_Permission")
+    // const { mana_user } = request.permissions
+    // if (!mana_user) throw new ApiException(403, "No_User_Permission")
     let id = request.params.id
     if (!id) throw new ApiException(422, "Id_Required")
 

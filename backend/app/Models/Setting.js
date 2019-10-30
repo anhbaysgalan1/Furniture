@@ -2,6 +2,7 @@ const BaseModel = use("./BaseModel")
 const moment = use("moment")
 const DatabaseException = use("App/Exceptions/DatabaseException")
 const Common = use("App/Common/common")
+const { ObjectId } = require('mongodb')
 class Setting extends BaseModel {
     constructor() {
         super()
@@ -52,6 +53,14 @@ class Setting extends BaseModel {
         if (result) return result.data
         return []
     }
+    /**
+     * 
+     * @param {*} settingTime : lịch setting
+     * @param {*} day : ngày
+     * @returns normalDays: đi làm ngày bình thường, 
+     * statutoryDays: đi làm ngày nghỉ theo luật định,
+     * nonStatutoryDays: đi làm ngày nghỉ ngoài luật định
+     */
 
     async getTypeOfDayInWeek(settingTime, day) {
         let dayInWeek = moment(day).day();
@@ -68,13 +77,13 @@ class Setting extends BaseModel {
         }
     }
 
-    async getTodayTimeSetting(checkInTime) {
-        let result = await this.getOne({ key: "time" }, { insert: 0, update: 0 })
+    async getTodayTimeSetting(checkInTime, timeId) {
+        let result = await this.getOne({ _id: ObjectId(timeId) }, { insert: 0, update: 0 })
         result = await this.convertToCheckInDay(result, checkInTime)
         return result
     }
-    async getTodayNightSetting(checkInTime) {
-        let result = await this.getOne({ key: "night" }, { insert: 0, update: 0 })
+    async getTodaySlideTimeSetting(checkInTime) {
+        let result = await this.getOne({ key: "slideTime" }, { insert: 0, update: 0 })
         result = await this.convertToCheckInDay(result, checkInTime)
         return result
     }
@@ -96,12 +105,11 @@ class Setting extends BaseModel {
                 "noonBreakEnd",
                 "noonBreakStart"]
         }
-        if (setting.key === "night") {
+        if (setting.key === "slideTime") {
             propsName = [
                 'startOfDay',
-                'overTimeStart',
                 'overTimeNightStart',
-                'endOfDay'
+                'overTimeNightEnd',
             ]
         }
         propsName.map(prop => {

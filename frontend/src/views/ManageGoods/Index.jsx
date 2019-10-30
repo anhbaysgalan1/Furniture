@@ -21,6 +21,7 @@ import {
     Typography,
     AppBar,
     Toolbar,
+    Chip,
 
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
@@ -29,8 +30,16 @@ import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
-const styles = theme => ({
 
+const GridTable = React.lazy(() => import('components/Table/GridTable'))
+
+const styles = theme => ({
+    gridTable: {
+        height: "calc(100vh - 100px)"
+    },
+    button: {
+        marginRight: '5px'
+    }
 })
 
 
@@ -39,14 +48,163 @@ class Index extends BaseView {
         super(props)
         this.state = {
         }
+        this.table = {
+            columns: [
+                {
+                    name: 'index',
+                    title: I18n.t("Table.header.user.index"),
+                    type: "text",
+                    filterable: false,
+                    sortable: false,
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'name',
+                    title: I18n.t('Table.header.role.name'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'code',
+                    title: I18n.t('Table.header.role.code'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: '_id',
+                    title: I18n.t('Table.header.action'),
+                    sortable: false,
+                    filterable: false,
+                    formatterComponent: (data) => {
+                        return this.customActionColumn(data)
+                    },
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+            ],
+            defaultSort: [],
+            tableColumnExtensions: [
+                { columnName: 'code', wordWrapEnabled: true },
+                { columnName: 'name', wordWrapEnabled: true },
+                { columnName: '_id', align: 'center' },
+
+                // {columnName: 'name', align: 'center'}
+
+            ],
+            //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
+            columnWidths: [
+                {
+                    name: 'index',
+                    width: 70
+                },
+                {
+                    name: 'name',
+                    width: 150
+                },
+                {
+                    name: 'code',
+                    width: 150
+                },
+                {
+                    name: '_id',
+                    width: 140
+                }
+            ]
+
+        }
+        this.ConfirmDialog = null
+        this.renderToolbarActions = this.renderToolbarActions.bind(this)
+        this.renderSelectedActions = this.renderSelectedActions.bind(this)
     }
 
-    render() {
-        let { classes } = this.props
+    customUserColumn(data) {
+        data = this.getData(data, "value", [])
+        return data.length
+    }
+
+    customActionColumn(data) {
+        let _id = this.getData(data, "value", '')
+        const { classes } = this.props;
         return (
             <div>
-                <p>Quản lý hàng hóa</p>
+                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/roles/${_id}`)}>
+                    {I18n.t("Button.edit")}
+                </Button>
+                <Button className={classes.button} variant='contained' color="primary" key="delete" onClick={() => this.ConfirmDialog.show([_id])}>
+                    {I18n.t('Button.delete')}
+                </Button>
             </div>
+        )
+    }
+
+    renderToolbarActions() {
+        return [
+            <Tooltip title={I18n.t("toolTip.new")} key="create">
+                <Button variant='contained' color='primary' onClick={() => this.goto("/manage-goods/create")}>
+                    {I18n.t("Button.create")}
+                </Button>
+            </Tooltip>,
+        ]
+    }
+
+    renderSelectedActions(selectedIds) {
+        return [
+            <Tooltip title={I18n.t("toolTip.delete")} key="create">
+                <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
+                    <Icon>delete</Icon>
+                </IconButton>
+            </Tooltip>
+        ]
+    }
+
+    renderDialogConfirmDelete() {
+        return (
+            <ConfirmDialog
+                ref={(ref) => this.ConfirmDialog = ref}
+                title={I18n.t('Message.deleteDialogTitle')}
+                content={I18n.t('Message.deleteDialogContent')}
+                onSubmit={this.props.onDeleteData}
+            />
+        )
+    }
+
+
+    render() {
+        const { data, classes } = this.props
+        return (
+            <PaperFade showLoading={true}>
+                <Grid container spacing={32}>
+                    <Grid item xs={3}>
+
+                    </Grid>
+                    <Grid item xs={9}>
+                        <GridTable
+                            id="BadIndex"
+                            estimatedRowHeight={100}
+                            className={classes.gridTable}
+                            onFetchData={this.props.onFetchData}
+                            onRefTable={this.props.onRefTable}
+                            columns={this.table.columns}
+                            rows={data.data}
+                            totalCount={data.total}
+                            pageSize={data.pageSize}
+                            defaultSort={this.table.defaultSort}
+                            showCheckboxColumn={true}
+                            height="auto"
+                            selectedActions={this.renderSelectedActions}
+                            tableActions={this.renderToolbarActions}
+                            tableColumnExtensions={this.table.tableColumnExtensions}
+                            defaultColumnWidths={this.table.columnWidths}
+                        />
+                    </Grid>
+                </Grid>
+                {this.renderDialogConfirmDelete()}
+            </PaperFade>
         )
     }
 }

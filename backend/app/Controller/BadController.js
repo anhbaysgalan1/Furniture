@@ -11,12 +11,10 @@ const Common = use("App/Common/common")
 class BadController extends BaseController {
     constructor() {
         super()
-
         this.Model = new BadModel()
     }
 
     async index({ request, response }) {
-        console.log("Chui vao day")
         let allowFields = {
             _id: 1,
             code: 1,

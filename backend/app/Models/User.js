@@ -94,6 +94,23 @@ class User extends BaseModel {
     if (error) throw new DatabaseException(error);
     return result;
   }
+
+  //lấy all user trừ những user nghỉ 
+  async removeUserOff(id) {
+    let [error, result] = await to(this.collection.find(
+      {
+        _id: {
+          $nin: id
+        }
+      },
+      {
+        name: 1,
+        code: 1
+      }).sort({ $natural: 1 }).toArray());
+    if (error) throw new DatabaseException(error);
+    return result;
+  }
+  
   // lay ra user da den ngay de update ngay nghi
   async getUpdateDayOffUser(today, allowfields) {
     let [error, result] = await to(this.collection.aggregate([

@@ -147,11 +147,11 @@ class Main extends React.Component {
                 <Toolbar variant='dense' style={{marginLeft: '100px'}} >
                     <Sidebar route={route}/>
                     {/* <DrawerMobileMenu route={route} /> */}
-                    <div id='top-buttom_image'>
+                    {/* <div id='top-buttom_image'>
                         <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
                             <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
                         </a><br />
-                    </div>
+                    </div> */}
                 </Toolbar>
             </AppBar>
             {/* <nav className={classes.drawer}>
@@ -172,7 +172,7 @@ class Main extends React.Component {
                     </Suspense>
                 <br></br>
                 <br></br>
-                <Footer/>
+                {/* <Footer/> */}
             </main>
         </div>
     }

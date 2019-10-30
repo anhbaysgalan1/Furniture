@@ -1,6 +1,10 @@
 module.exports.permits = {
     in_out: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/contents",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
@@ -8,7 +12,6 @@ module.exports.permits = {
             resources: "/hours",
             methods: ['GET']
         },
-
         {
             resources: "/workers",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
@@ -65,6 +68,10 @@ module.exports.permits = {
     ],
     mana_construction: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/users",
             methods: ['GET']
         },
@@ -108,6 +115,10 @@ module.exports.permits = {
     ],
     sort_user: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/constructions",
             methods: ['GET', 'PUT']
         },
@@ -145,7 +156,15 @@ module.exports.permits = {
             methods: ['GET']
         },
     ],
-    mana_user: [
+    mana_user: [ 
+        {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
         {
             resources: "/users",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
@@ -202,11 +221,23 @@ module.exports.permits = {
     ],
     setting_time: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/setting",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         }
     ],
     history: [
+        {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
         {
             resources: "/histories",
             methods: ['GET']
@@ -242,6 +273,14 @@ module.exports.permits = {
     ],
     mana_money: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/labors",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
@@ -275,6 +314,14 @@ module.exports.permits = {
         },
     ],
     mana_timekeeping: [
+        {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
         {
             resources: "/hours",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
@@ -318,6 +365,10 @@ module.exports.permits = {
     ],
     mana_holiday: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/dayoffs",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
@@ -347,6 +398,14 @@ module.exports.permits = {
         },
     ],
     allow_level_1: [
+        {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
         {
             resources: "/workers",
             methods: ['POST', 'GET']
@@ -408,6 +467,14 @@ module.exports.permits = {
     ],
     allow_level_2: [
         {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
+            resources: "/totalWorkingHour",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
+        {
             resources: "/workers",
             methods: ['POST', 'GET']
         },
@@ -466,6 +533,10 @@ module.exports.permits = {
         },
     ],
     profit: [
+        {
+            resources: "/bads",
+            methods: ['POST', 'GET', 'PUT', 'DELETE']
+        },
         {
             resources: "/constructions",
             methods: ['POST', 'GET', 'PUT']

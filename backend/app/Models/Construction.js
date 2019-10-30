@@ -29,14 +29,38 @@ class Construction extends BaseModel {
     }
   }
 
-  async getValidList(allowFields = {}) {
-    let list = await this.findByCondition(
+  async getValidList(allowFields = {}, date) {
+    let slideTimeList = await this.findByCondition(
       {
-        dateEnd: {
-          $gte: new Date()
+        $or: [
+          { dateEnd: { $gte: new Date(date) } },
+          { dateEnd: { $eq: null } }
+        ],
+        "schedules.start": date,
+        "schedules.slideTime": true
+      },
+      allowFields)
+    let slideTimeIds = slideTimeList.map(item => ObjectId(item._id))
+    let normalList = await this.findByCondition(
+      {
+        _id: {
+          $nin: slideTimeIds
         }
-      }, allowFields)
-      return list
+      },
+      allowFields)
+    slideTimeList = slideTimeList.map(item => {
+      return {
+        ...item,
+        slideTime: true
+      }
+    })
+    normalList = normalList.map(item => {
+      return {
+        ...item,
+        slideTime: false
+      }
+    })
+    return slideTimeList.concat(normalList)
   }
 
   async isExist(ids, length) {
@@ -126,30 +150,77 @@ class Construction extends BaseModel {
     return result;
   }
 
-  async getByUserId(id, start) {
+  async isSlideTime(id, date) {
     let [error, result] = await to(this.collection.find({
       "schedules": {
         $elemMatch: {
-          "start": start,
+          "start": date,
           "$or": [
             { "employees.value": ObjectId(id) },
             { "manage.value": ObjectId(id) },
           ]
 
         }
+      },
+      dateEnd: {
+        $gte: new Date(date)
       }
     }, {
       code: 1,
       name: 1,
-      address: 1,
-      cost: 1,
-      amount: 1,
-      workNight: 1,
-      contructionProfit: 1
+      address: 1
     }).toArray());
     if (error) throw new DatabaseException(error);
+    result = result.map(item => {
+      return {
+        ...item,
+        canNotDelete: true  //không cho xóa công trường đã được xếp lịch
+      }
+    })
     return result;
   }
+
+
+  async getByUserId(id, date) {
+    let [error, result] = await to(this.collection.find({
+      "schedules": {
+        $elemMatch: {
+          "start": date,
+          "$or": [
+            { "employees.value": ObjectId(id) },
+            { "manage.value": ObjectId(id) },
+          ]
+        }
+      },
+      $or: [{ dateEnd: { $gte: new Date(date) } }, { dateEnd: { $eq: null } }]
+    }, {
+      code: 1,
+      name: 1,
+      address: 1
+    }).toArray());
+    if (error) throw new DatabaseException(error);
+    //thêm slide time vào list
+    let slideTime = false
+    if (result.length) {
+      let { schedules = [] } = await this.getById(result[0]._id, { schedules: 1 }) || {}
+      schedules.find(schedule => {
+        if(schedule.start === date){
+          slideTime = schedule.slideTime;
+        }
+      })
+    }
+
+    result = result.map(item => {
+      return {
+        ...item,
+        canNotDelete: true,  //không cho xóa công trường đã được xếp lịch
+        slideTime: slideTime,
+        constructionId: item._id
+      }
+    })
+    return result;
+  }
+
   async getByConstructionIds(ids) {
     let promise = []
     let result
@@ -205,6 +276,48 @@ class Construction extends BaseModel {
           schedules: 1
         }
       }
+    ]).toArray());
+    if (error) throw new DatabaseException(error);
+    return result;
+  }
+
+  async listUserBySlideTime(requestDay, isSLideTime) {
+    let [error, result] = await to(this.collection.aggregate([
+      { $unwind: "$schedules" },
+      {
+        "$match": {
+          "schedules.slideTime": isSLideTime,
+          "schedules.start": requestDay
+        }
+      },
+      {
+        $group: {
+          _id: "$schedules.start",
+          employees: {
+            $push: "$schedules.employees.value"
+          },
+          manage: {
+            $push: "$schedules.manage.value"
+          }
+        }
+      },
+      {
+        $project: {
+          listUser: {
+            $reduce: {
+              input: {
+                $concatArrays: ["$employees", "$manage"]
+              },
+              initialValue: [],
+              in: {
+                $setUnion: ["$$this", "$$value"]
+              }
+            }
+          },
+
+        }
+      }
+
     ]).toArray());
     if (error) throw new DatabaseException(error);
     return result;

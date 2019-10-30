@@ -27,7 +27,7 @@ class Worker extends BaseModel {
     }
 
     async getLastOnlyCheckIn(userId) {
-        let result = await this.getLastDocument(
+        let [result] = await this.getLastDocument(
             {
                 userId: ObjectId(userId),
                 checkInStatus: true,
@@ -110,6 +110,11 @@ class Worker extends BaseModel {
         return result
     }
 
+    /***
+     * constructions: công trường theo kế hoạch,
+     * _constructions: công trường đã checkout
+     */
+
     async mergeConstructions(constructions, _constructions) {
         if (constructions.length !== 0) {
             for (let i in constructions) {
@@ -125,7 +130,6 @@ class Worker extends BaseModel {
         }
         return _constructions
     }
-
 }
 
 module.exports = Worker

@@ -2,6 +2,12 @@ const moment = use("moment")
 const Auth = use('Auth')
 const ApiException = use("App/Exceptions/ApiException")
 module.exports = {
+    /**
+         * @param root : Mốc để làm tròn, mặc định nên để thời gian bắt đầu của ngày,
+         * @param range : số phút làm tròn
+         * @param time : thời gian làm tròn
+         * @param type : loại làm tròn (làm tròn lên hoặc làm tròn xuống)
+         */
     roundingTime: function (timeObj) {
         let { root, range = 15, time, type } = timeObj
 

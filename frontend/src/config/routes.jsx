@@ -9,6 +9,7 @@ const ContactIndex  = lazy(() => import('containers/Contact/Index'))
 const ManageOrderIndex  = lazy(() => import('containers/ManageOrder/Index'))
 const ManageGoodsIndex  = lazy(() => import('containers/ManageGoods/Index'))
 const ManageGoodsCreate = lazy(() => import('containers/ManageGoods/Create'))
+const ManageGoodsEdit   =  lazy(() => import('containers/ManageGoods/Edit'))
 
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
@@ -106,28 +107,36 @@ const routes = [
     },
     {
         path: "/manage-order",
-        name: 'manageorder',
+        name: 'manage.order',
         title: () => I18n.t("Breadcrumb.manageOrderIndex"),
         component: () => <ManageOrderIndex />,
         exact: true,
-        sidebarName: 'manageorder'
+        sidebarName: 'manageOrder'
     },
     {
         path: "/manage-goods",
-        name: 'managegoods',
+        name: 'manage.goods',
         title: () => I18n.t("Breadcrumb.manageGoodsIndex"),
         component: () => <ManageGoodsIndex />,
         exact: true,
-        sidebarName: 'managegoods'
+        sidebarName: 'manageGoods'
     },
     {
         path: "/manage-goods/create",
-        name: 'manageGoodsCreate',
+        name: 'manage.goods.create',
         title: () => I18n.t("Breadcrumb.manageGoodsCreate"),
         component: () => <ManageGoodsCreate />,
         exact: true,
-        sidebarName: 'managegoods'
+        sidebarName: 'manageGoods'
     },
+    {
+        path: "/manage-goods/:id",
+        name: 'manage.goods.edit',
+        title: () => I18n.t("Breadcrumb.manageGoodsEdit"),
+        component: () => <ManageGoodsEdit />,
+        exact: true,
+        sidebarName: 'manageGoods'
+      },
 
     // 
 

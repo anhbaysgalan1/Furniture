@@ -30,76 +30,94 @@ class WorkerController extends BaseController {
     async initCheckTime({ request, response }) {
         let input = request.query
         let allowFields = {
-            start: "string!",
-            currentTime: "date!",
-            startDate: "string!",
-            endDate: "string!"
+            date: 'string!'
         }
 
+        input.date = Common.checkFormatDate(input.date)
         let data = this.validate(input, allowFields, { removeNotAllow: true })
-        let result = {}
-        //if exist one document that user check in but did not check out, then return that result
-        let [lastOnlyCheckIn] = await this.Model.getLastOnlyCheckIn(Auth.user._id)
-        if (lastOnlyCheckIn) {
-            result = {
-                ...lastOnlyCheckIn,
-                _id: lastOnlyCheckIn.startTime,
-                label: "only checkin",
-                day: lastOnlyCheckIn.date
-            }
-        } else {
-            let yesterday = moment(data.start).subtract(1, "day").format('YYYY-MM-DD')
-            let today = data.start
 
-            //get constructions
-            let constructions = {
-                yesterday: await this.ConstructionModel.getByUserId(Auth.user._id, yesterday),
-                today: await this.ConstructionModel.getByUserId(Auth.user._id, today),
-            }
-
-            // return constructions
-            //get the root of the day in nomal and night day
-            let rootDay = {
-                nomal: (await this.SetTimeModel.getTodayTimeSetting(data.currentTime) || {})[this.config.nomalRoot],
-                night: (await this.SetTimeModel.getTodayNightSetting(data.currentTime) || {})[this.config.nightRoot]
-            }
-            // get the result
-            result = await this.Model.getInitCheckTime(data, constructions, rootDay)
+        let result = {
+            date: data.date,
+            constructionDropdown: await this.ConstructionModel.getValidList({ name: 1, code: 1, address: 1 }, data.date)
         }
-        let constructions = result.constructions
-        let Promises = constructions.map(con => {
-            if (con._id && !con.constructionId) con.constructionId = con._id
-            let project = {
-                name: 1, code: 1, _id: 1, content: 1, address: 1
-            }
-            if (request.permissions.profit) {
-                project = {
-                    ...project,
-                    contructionProfit: 1, amount: 1, cost: 1
-                }
-            }
-            return this.ConstructionModel.getById(con.constructionId, project)
+
+        //lấy lịch của ngày hiện tại
+        let schedules = await this.ConstructionModel.getByUserId(Auth.user._id, data.date)
+        // let schedule_constructions = schedules.map(item => item._id)
+
+        //lấy bản ghi check in nhưng chưa check out
+        let lastOnlyCheckIn = await this.Model.getLastOnlyCheckIn(Auth.user._id)
+        if (lastOnlyCheckIn) return {
+            ...result,
+            ...lastOnlyCheckIn,
+            constructions: await this.getInitConstructions(lastOnlyCheckIn.constructions, schedules)
+        }
+
+        //lấy bản ghi đã check out
+        let checkoutRecord = await this.Model.getOne({
+            userId: ObjectId(Auth.user._id),
+            checkOutStatus: true,
+            date: data.date
         })
 
-        constructions = await Promise.all(Promises)
-        constructions = constructions.filter(construction => construction)
-        
-        result.constructions = await this.Model.mergeConstructions(constructions, result.constructions)
-        result.constructionDropdown = await this.ConstructionModel.getValidList({name: 1, code: 1, address: 1})
+        if (checkoutRecord) return {
+            ...result,
+            ...checkoutRecord,
+            constructions: await this.getInitConstructions(checkoutRecord.constructions, schedules)
+        }
+
+        return { ...result, constructions: schedules, slideTime: this.getSlideTime(schedules) }
+    }
+
+    async getInitConstructions(constructions = [], schedule_constructions = []) {
+        let _constructions = await Promise.all(constructions.map(item => this.ConstructionModel.getById(item.constructionId, { address: 1, name: 1, code: 1 })));
+        _constructions = _constructions.map((item, index) => {
+            return ({
+                ...item,
+                workTime: constructions[index].workTime,
+                constructionId: String(item._id),
+            })
+        })
+        schedule_constructions = schedule_constructions.map((item, index) => {
+            return ({
+                ...item,
+                workTime: schedule_constructions[index].workTime,
+                constructionId: String(item._id),
+                canNotDelete: true
+            })
+        })
+
+        let result = _.unionBy(schedule_constructions, _constructions, "constructionId");
         return result
+    }
+    //lấy slide time gửi lên frontend để lọc dropdown
+    async getSlideTime(constructions = [], date) {
+        let slideTime = null
+        if (constructions.length) {
+            slideTime = false
+            let id = constructions[0].constructionId || constructions[0]._id;
+            let { schedules = [] } = await this.ConstructionModel.getById(id, { schedules: 1 }) || {};
+            schedules.find(schedule => {
+                if (schedule.start === date) {
+                    slideTime = schedule.slideTime;
+                }
+            })
+        }
+        return slideTime
     }
 
     async checkIn({ request, response }) {
         let input = request.body
-
         input.isoDate = Common.string_to_ISO(input.date)
         input.startTime = Common.getOnlyHoursMinutes(new Date())
+        input.date = Common.checkFormatDate(input.date)
         let allowFields = {
             latitudeIn: "number!",
             longitudeIn: "number!",
             startTime: "date!",
             date: "string!",
-            isoDate: "date!"
+            isoDate: "date!",
+            isBefore5h: "boolean"
         }
 
         let data = this.validate(input, allowFields, { removeNotAllow: true })
@@ -107,7 +125,7 @@ class WorkerController extends BaseController {
         let exist = await this.Model.getOne({
             userId: ObjectId(Auth.user._id),
             date: data.date,
-            checkInStatus: true,
+            checkInStatus: true
         })
 
         if (exist) throw new ApiException(400, "Check_In_Once")
@@ -125,20 +143,22 @@ class WorkerController extends BaseController {
         // })
 
         // data.isNormalDay = await this.ConstructionModel.isNormalDay(data.constructions)
-        data.isNormalDay = true
-        data.constructions = []
-        //add setting time and night to history
-        let settingTime = await this.SetTimeModel.getTodayTimeSetting(data.startTime);
-        let settingNight = await this.SetTimeModel.getTodayNightSetting(data.startTime);
+        // data.isNormalDay = true
+
+        //lấy lịch của setting time ra
+        let user = await this.UserModel.getById(Auth.user._id) || {};
+        let { timeId = '' } = user;
+        if (!timeId) throw new ApiException(400, "Người dùng chưa được gán pattern ca ngày!");
+        let settingTime = await this.SetTimeModel.getTodayTimeSetting(data.startTime, timeId);
+        // let settingNight = await this.SetTimeModel.getTodayNightSetting(data.startTime);
 
         let RoundTime = {
             roundStart: settingTime.roundStart,
-            roundStartType: settingTime.roundStartType,
-            roundEnd: settingTime.roundEnd,
-            roundEndType: settingTime.roundEndType
+            roundStartType: settingTime.roundStartType
         }
 
         //làm tròn thời gian bắt đầu
+        
         data._startTime = Common.roundingTime({
             root: settingTime.startOfDay,
             time: data.startTime,
@@ -150,22 +170,6 @@ class WorkerController extends BaseController {
 
         //check loại ngày đi làm trong tuần
         data.typeOfDayInWeek = await this.SetTimeModel.getTypeOfDayInWeek(settingTime, data.date)
-
-        //lấy ra setting dựa vào loại ngày và lưu vào bảng history để tính lương
-        if (data.isNormalDay) {
-            let delete_props = ["workingDay", "holidayInProvision", "holidayOutProvision"]
-            data.setting = {}
-            Object.keys(settingTime).map(prop => {
-                if (!delete_props.includes(prop)) {
-                    data.setting[prop] = settingTime[prop]
-                }
-            })
-        } else {
-            data.setting = {
-                ...settingNight,
-                ...RoundTime
-            }
-        }
 
         //add salary to current user
         let userInfo = await this.UserModel.getById(Auth.user._id, { name: 1, code: 1, positionId: 1 });
@@ -201,14 +205,63 @@ class WorkerController extends BaseController {
             checkOutStatus: false
         }
 
-        
+        let schedules = await this.ConstructionModel.getByUserId(Auth.user._id, data.date)
+        data.constructions = []
+        if (schedules.length) {
+            data.slideTime = await this.getSlideTime(schedules, data.date);
+            data.constructions = schedules.map(item => {
+                return {
+                    constructionId: ObjectId(item._id)
+                }
+            })
+        }
+
+        // kiểm tra xem check in có trong khoảng 0h-5h k để xác định khung tgian của slide time
+        let today5h, todayStart 
+        today5h = new Date().setHours(5,0,0,0)
+        todayStart = new Date().setHours(0,0,0,0)
+        if(data.slideTime){
+            if(moment(data._startTime) > moment(todayStart) && moment(data._startTime) < moment(today5h)){
+                data.isBefore5h = true
+            }else data.isBefore5h = false
+        }
+
         let result = await this.Model.insertOne(data)
         return result
     }
 
+    // async getSettingTime() {
+    //     //add setting time and night to history
+    //     let user = await this.UserModel.getById(Auth.user._id) || {};
+    //     let { timeId = '' } = user;
+    //     if (!timeId) throw new ApiException(400, "Người dùng chưa được gán pattern ca ngày!");
+    //     let settingTime = await this.SetTimeModel.getTodayTimeSetting(data.startTime);
+    //     let settingSlide = await this.SetTimeModel.getTodaySlideTimeSetting(data.startTime, timeId);
+
+    //     //lấy ra setting dựa vào loại ngày và lưu vào bảng history để tính lương
+    //     if (existCheckIn.slideTime === false) {
+    //         let delete_props = ["workingDay", "holidayInProvision", "holidayOutProvision"]
+    //         data.setting = {}
+    //         Object.keys(settingTime).map(prop => {
+    //             if (!delete_props.includes(prop)) {
+    //                 data.setting[prop] = settingTime[prop];
+    //             }
+    //         })
+    //     } else if (existCheckIn.slideTime === true) {
+    //         data.setting = {
+    //             ...settingSlide
+    //         }
+    //     } else {
+    //         throw new ApiException(400, "slidetime không hợp lệ");
+    //     }
+    // }
+    /**
+     * 
+     * API này gọi cả khi checkout lần đầu và khi update checkout
+     */
     async checkOut({ request, response }) {
-        let input = request.body   
-        input.date = Common.checkFormatDate(input.date)
+        let input = request.body
+        input.date = Common.checkFormatDate(input.date);
         let allowFields = {
             date: "string!",
             totalTime: "number!",
@@ -218,7 +271,7 @@ class WorkerController extends BaseController {
             userId: ObjectId(Auth.user._id),
             checkInStatus: true,
             date: input.date,
-            checkInStatus: true
+            endTime: { $exists: true }
         })
         if (!existCheckIn) throw new ApiException(400, "Not_Check_In");
 
@@ -228,38 +281,39 @@ class WorkerController extends BaseController {
                 ...allowFields,
                 latitudeOut: "number!",
                 longitudeOut: "number!",
-                endTime: "date!",
                 workOnDayOff: "boolean"
             }
         };
 
         let data = this.validate(input, allowFields, { removeNotAllow: true });
-
-        //nếu có endTime thì làm tròn luôn endTime
-        if (data.endTime) {
-            let { startOfDay, roundEnd, roundEndType } = existCheckIn.setting
-            data._endTime = Common.roundingTime({
-                root: startOfDay,
-                time: data.endTime,
-                range: roundEnd,
-                type: roundEndType
-            })
-            data._endTime = new Date(data._endTime)
-        }
-
         //check construction exist in DB
         let promise = data.constructions.map(construction => {
             return this.ConstructionModel.getById(construction.constructionId);
         });
         let constructions = await Promise.all(promise)
 
+        //mảng lưu trữ slide time của công trường để check có công trường nào khác slide time không
+        let slideTimes = []
         data.constructions = data.constructions.filter((construction, index) => {
             if (constructions[index]) {
+                //check xem công trường có phải slide time hay không
+                const { schedules } = constructions[index]
+                if (Array.isArray(schedules)) {
+                    const todaySchedule = schedules.find(schedule => schedule.start === data.date);
+                    if (todaySchedule) {
+                        slideTimes.push(Boolean(todaySchedule.slideTime));
+                    }
+                    else {
+                        slideTimes.push(false);
+                    }
+                }
                 return construction
             }
         })
 
-        data.constructions = await this.ConstructionModel.insertWorkNightProps(data.constructions);
+        let slideTimeObj = {}
+        slideTimes.map(item => slideTimeObj[item] = true)
+        if (Object.keys(slideTimeObj).length > 1) throw new ApiException(400, "không thể chọn công trường ngày và slidetime trong cùng 1 ngày");
 
         //validate thời gian làm tại công trường
         let total_workTime = 0
@@ -278,10 +332,6 @@ class WorkerController extends BaseController {
             if (offset > 1 && existCheckIn.checkOutStatus) {
                 throw new ApiException(400, "Expired_Update_Warning");
             }
-        } else {
-            if (data.endTime > new Date()) {
-                throw new ApiException(400, "Bạn đang check out giờ lớn hơn giờ hiện tại!");
-            }
         }
 
         data = {
@@ -290,9 +340,110 @@ class WorkerController extends BaseController {
             total_workTime: total_workTime
         }
 
+        //nếu mà chưa check out thì thêm setting time vào để tính lương
+        //add setting time and night to history
+        let user = await this.UserModel.getById(Auth.user._id) || {};
+        let { timeId = '' } = user;
+        if (!timeId) throw new ApiException(400, "Người dùng chưa được gán pattern ca ngày!");
+        let settingTime = await this.SetTimeModel.getTodayTimeSetting(existCheckIn.startTime, timeId);
+        let settingSlide = await this.SetTimeModel.getTodaySlideTimeSetting(existCheckIn.startTime);
+     
+        //lấy ra setting dựa vào loại ngày và lưu vào bảng history để tính lương
+        if (existCheckIn.slideTime === false) {
+            let delete_props = ["workingDay", "holidayInProvision", "holidayOutProvision"]
+            data.setting = {}
+            Object.keys(settingTime).map(prop => {
+                if (!delete_props.includes(prop)) {
+                    data.setting[prop] = settingTime[prop]
+                }
+            })
+        } else if (existCheckIn.slideTime === true) {
+            data.setting = {
+                ...settingSlide
+            }
+        } else {
+            throw new ApiException(400, "slidetime không hợp lệ");
+        }
+
         let result = await this.Model.update(existCheckIn._id, data);
         return result;
 
+    }
+    /**
+     * 
+     * API dùng để lưu thời gian checkout khi công nhân nhấn vào nút checkout
+     */
+    async setCheckoutTime({ request, response }) {
+        let input = request.body;
+        input.date = Common.checkFormatDate(input.date)
+        let allowFields = {
+            date: 'string!'
+        }
+        let data = this.validate(input, allowFields, { removeNotAllow: true });
+
+        let existCheckIn = await this.Model.getOne({
+            userId: ObjectId(Auth.user._id),
+            checkInStatus: true,
+            date: data.date,
+            endTime: { $exists: false }
+        })
+        if (!existCheckIn) throw new ApiException(400, "không thể update giờ checkout!");
+        let user = await this.UserModel.getById(Auth.user._id) || {};
+        let { timeId = '' } = user;
+        if (!timeId) throw new ApiException(400, "Người dùng chưa được gán pattern ca ngày!");
+        let settingTime = await this.SetTimeModel.getTodayTimeSetting(existCheckIn.startTime, timeId);
+        let { roundEnd, roundEndType } = settingTime
+        data.endTime = new Date()
+        
+        data.totalTime = Common.getOnlyHoursMinutes(new Date()) - new Date(existCheckIn.startTime)
+        //tính thời gian kết thúc làm tròn
+        data._endTime = Common.roundingTime({
+            root: moment().startOf('day').toISOString(),
+            time: data.endTime,
+            range: roundEnd,
+            type: roundEndType
+        })
+        data._endTime = new Date(data._endTime)
+
+        let result = await this.Model.update(existCheckIn._id, data);
+        return result;
+    }
+    /**
+     * 
+     * API dùng để cập nhật công trường lúc mà người dùng chọn thêm hoặc xóa công trường
+     * - hỗ trợ tính lại slide time khi người dùng thay đổi list công trường checkin
+     */
+    async updateConstructions({ request, response }) {
+        let input = request.body;
+        input.date = Common.checkFormatDate(input.date)
+        let allowFields = {
+            date: 'string!',
+            constructions: [{ constructionId: "objectid", workTime: "number" }]
+        }
+        let data = this.validate(input, allowFields, { removeNotAllow: true });
+
+        let existCheckIn = await this.Model.getOne({
+            userId: ObjectId(Auth.user._id),
+            checkInStatus: true,
+            date: data.date,
+        });
+
+        //xét nếu lúc checkin chưa chó slide time thì lấy slidetime từ list
+        // if (existCheckIn.slideTime == null) {
+        //nếu công nhân đã chọn công trường thì gán slidetime phần từ thứ nhất
+        if (data.constructions.length) {
+            data.slideTime = await this.getSlideTime(data.constructions, data.date);
+        } else {
+            //không chọn thì gán slidetime === null
+            data.slideTime = null
+            data.checkOutStatus = false;
+        }
+        // }
+        console.log("data.slideTime ", data.slideTime)
+        if (!existCheckIn) throw new ApiException(400, "Không có checkin thì sao thêm công trường!");
+
+        let result = await this.Model.update(existCheckIn._id, data);
+        return result;
     }
 }
 

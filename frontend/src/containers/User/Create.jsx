@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import UserAction from '../../actions/UserAction'
 import PositionAction from '../../actions/PositionAction'
 import AreaAction from '../../actions/AreaAction'
-import RoleAction from '../../actions/RoleAction'
+// import RoleAction from '../../actions/RoleAction'
 import { I18n } from 'react-redux-i18n'
 import { number } from 'prop-types'
 import _ from 'lodash'
@@ -21,7 +21,7 @@ class Create extends BaseContainer {
     componentDidMount() {
         this.props.dispatch(PositionAction.fetchAll({ pageSize: -1 }))
         this.props.dispatch(AreaAction.fetchAll({ pageSize: -1 }))
-        this.props.dispatch(RoleAction.fetchAll({ pageSize: -1 }))
+        // this.props.dispatch(RoleAction.fetchAll({ pageSize: -1 }))
         this.props.dispatch(UserAction.getTimeList())
     }
 

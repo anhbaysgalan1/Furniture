@@ -67,7 +67,7 @@ class HourController extends BaseController {
                 }
             })
         }
-
+        //phân quyền (unique là chỉ 2 màn check cho 1 người dùng: màn tình hình chấm công và chấm công nhân viên)
         if (unique) {
             //nếu có quyền quản lý chấm công và check cho màn chấm công nhân viên
             if (mana_timekeeping && time_keeping) {
@@ -104,9 +104,7 @@ class HourController extends BaseController {
                 userId: ObjectId(user._id),
                 ...dateCondition,
                 checkInStatus: true,
-                checkOutStatus: true,
-
-
+                checkOutStatus: true
             }, {
                     startTime: 1,
                     endTime: 1,

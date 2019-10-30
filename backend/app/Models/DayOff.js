@@ -157,6 +157,27 @@ class DayOff extends BaseModel {
     return result
   }
 
+  //lay ra danh sach user nghi trong thang
+  async getListScheduleUser(date){
+    let [error, result] = await to(this.collection.aggregate(
+      [
+        {
+          $match: {
+            date: date
+          }
+        },
+        {
+          $group: {
+            "_id": "$date",
+            "listUser": { "$push": "$userId" }
+          }
+        }
+      ]
+    ).toArray());
+    if (error) throw new DatabaseException(error);
+    return result
+  }
+
   // //đếm số ngày nghỉ
   // async countDayOffOfUser(userId, type, dateRange) {
   //   let [error, result] = await to(this.collection.aggregate(

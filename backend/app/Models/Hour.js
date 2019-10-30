@@ -17,24 +17,15 @@ class Hour extends BaseModel {
         }
     }
     async getHourPerDay(history, requests, holidayObj, _isRound) {
-        let { date, setting, startTime,
-            _startTime, endTime, _endTime
+        let { date, setting, _startTime, _endTime
         } = history
         let { lateReq, overTimeReq, replaceDateReq } = requests
         let inOutTime = {}
 
-        //xét giờ check in out theo làm tròn
-        // if (_isRound === "true") {
         inOutTime = {
             startTime: _startTime,
             endTime: _endTime
         }
-        // } else {
-        //     inOutTime = {
-        //         startTime: startTime,
-        //         endTime: endTime
-        //     }
-        // }
 
         // tìm loại ngày
         let typeOfDay = holidayObj[date] || history.typeOfDayInWeek
@@ -258,6 +249,11 @@ class Hour extends BaseModel {
     }
 
     //đưa một mảng array các thời gian vào và trả về tổng số thời gian giao nhau của mảng thời gian đó
+    /**
+     * 
+     * @param {*} intervals là mảng theo cú pháp [{startTime, endTime},{startTime, endTime}]
+     * @returns khoảng thời gian giao nhau giữa các khung thời gian trong mảng
+     */
     async getIntersectionTime(intervals) {
         let left = intervals[0].startTime
         let right = intervals[0].endTime

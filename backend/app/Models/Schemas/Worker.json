@@ -10,5 +10,7 @@
     "startTime"         : "string",
     "endTime"           : "string",
     "checkInStatus"     : "boolean",
-    "checkOutStatus"    : "boolean"
+    "checkOutStatus"    : "boolean",
+    "slideTime"         : "boolean",
+    "isBefore5h"        : "boolean"
 } 
