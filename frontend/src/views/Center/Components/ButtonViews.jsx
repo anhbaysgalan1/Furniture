@@ -10,6 +10,7 @@ import BaseView from 'views/BaseView'
 import PaperFade from 'components/Main/PaperFade'
 import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
+import bad from '../../../public/bad.jpg'
 import _ from 'lodash'
 import ExportExcel from 'components/ExportExcel/ExportExcel'
 

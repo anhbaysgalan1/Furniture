@@ -90,13 +90,74 @@ class App extends Component {
                             <Grid item xs={7}>
                             </Grid>
                         </Grid>
+                        <Grid container spacing={32}>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.Tên người mua")}
+                                    onChange={(value) => this.onHandleChange(value, 'code')}
+                                    name="code"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.Số lượng")}
+                                    onChange={(value) => this.onHandleChange(value, 'code')}
+                                    name="code"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.SDT")}
+                                    onChange={(value) => this.onHandleChange(value, 'name')}
+                                    name="phone"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.Dia chi giao hang")}
+                                    onChange={(value) => this.onHandleChange(value, 'name')}
+                                    name="name"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.Số tiền hàng")}
+                                    onChange={(value) => this.onHandleChange(value, 'name')}
+                                    name="name"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.Phí vận chuyển")}
+                                    onChange={(value) => this.onHandleChange(value, 'name')}
+                                    name="name"
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.hinh thuc thanh toan")}
+                                    onChange={(value) => this.onHandleChange(value, 'name')}
+                                    name="name"
+                                />
+                            </Grid>
+                            <CardActions>
+                                <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+                            </CardActions>
+                        </Grid>
                     </DialogContent>
                     <DialogActions>
                         <Button color='primary' onClick={() => this.onCancel()}>
                             Thoát
                         </Button>
                         <Button color='primary' onClick={() => this.onCancel()}>
-                            Mua hàng
+                            Mua Hang
                         </Button>
                     </DialogActions>
                   </Dialog>

@@ -1,5 +1,5 @@
 import React from 'react';
-import View from 'views/Goods/Index'
+import View from 'views/Order/Index'
 import OrderAction from '../../actions/OrderAction'
 import UserAction from '../../actions/UserAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'

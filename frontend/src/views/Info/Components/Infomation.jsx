@@ -40,6 +40,18 @@ const styles = theme => ({
         color: 'white',
         textAlign: 'center'
     },
+    imgZoom: {
+        transition: "transform .5s, filter 3s ease-in-out",
+        filter: "grayscale(100%)",
+    },
+    imgZoom: {
+        "&:hover": {
+            filter: "grayscale(0)",
+            transform: "scale(1.1)",
+            transitionDuration: "1s",
+            transitionTimingFunction: "linear",
+        }
+    },
 })
 
 
@@ -56,7 +68,7 @@ class Index extends BaseView {
             <Card>
                 <CardContent>
                     <div class="entry-content">
-                        <p>Siêu Thị&nbsp;Đồ Gỗ Thạch Thất gửi tới quý khách hàng lời giới thiệu, giúp quý khách hàng hiểu hơn và tin tưởng hơn về sản phẩm, dịch vụ của chúng tôi.</p>
+                        <p>Nội thất Hoàng Gia Dodo gửi tới quý khách hàng lời giới thiệu, giúp quý khách hàng hiểu hơn và tin tưởng hơn về sản phẩm, dịch vụ của chúng tôi.</p>
                         <p><strong>SỨ MỆNH:</strong></p>
                         <p><strong>Đối với thị trường: NHÀ BÁN LẺ NỘI THẤT GỖ HÀNG ĐẦU</strong></p>
                         <p>Chúng tôi – Tập thể những nhân sự chuyên nghiệp và ưu tú với sứ mệnh trở thành NHÀ BÁN LẺ NỘI THẤT GỖ HÀNG ĐẦU, Chúng tôi luôn nỗ lực để cung cấp đến người sử dụng những giá trị cốt lõi nhất của sản phẩm, mang lại sự tiện nghi trong từng phút giây sử dụng.</p>
@@ -66,8 +78,8 @@ class Index extends BaseView {
                         <p>Nhân sự của chúng tôi được làm việc trong môi trường chuyên nghiệp và đậm chất nhân văn, Chúng tôi có nghĩa vụ đền đáp xứng đáng cho những đóng góp sức lao động to lớn của họ.</p>
                         <p><strong>Đối với đối tác: LỢI NHUẬN LUÔN ĐỒNG HÀNH CÙNG CHẤT LƯỢNG</strong></p>
                         <p>Chất lượng sản phẩm của từng đối tác sẽ là thước đo để mang lợi nhuận về, Chúng tôi có trách nhiệm kiểm soát chất lượng cùng đối tác và chịu trách nhiệm đến cùng đối với từng sản phẩm bán ra.</p>
-                        <p><strong>TẦM NHÌN:&nbsp;ĐẠI NỘI THẤT HOÀNG GIA ĐÔ DÔ</strong></p>
-                        <p>Chúng tôi khát vọng trở thành Đại NỘI THẤT HOÀNG GIA ĐÔ DÔ để có thể cung cấp sỉ và lẻ cho thị trường các tỉnh từ miền bắc đến miền trung.</p>
+                        <p><strong>TẦM NHÌN:&nbsp;NỘI THẤT HOÀNG GIA ĐÔ DÔ</strong></p>
+                        <p>Chúng tôi khát vọng trở thành NỘI THẤT HOÀNG GIA ĐÔ DÔ để có thể cung cấp sỉ và lẻ cho thị trường các tỉnh từ miền bắc đến miền trung.</p>
                         <p><strong>GIÁ TRỊ CỐT LÕI:</strong></p>
                         <p>Tín: Chúng tôi đặt chữ tín lên hàng đầu từ chất lượng sản phẩn, dịch vụ đến các chính sách hậu mãi.</p>
                         <p>Tâm: Tất cả các hành động đều phải thượng tôn pháp luật, luôn bồi dưỡng, trau dồi và rèn luyện đạo đức nghề nghiệp. Mỗi sản phẩm sản xuất ra là được trau chuốt tỷ mỷ từng cm và đảm bảo công năng sử dụng lâu dài.</p>
@@ -76,13 +88,39 @@ class Index extends BaseView {
                         <p><strong>GIỚI THIỆU CHUNG:</strong></p>
                         <p>Chúng tôi là đơn vị trực tiếp sản xuất ra sản phẩm đồ gỗ nội ngoại thất từ những năm 1980, đã cung cấp hàng triệu sản phẩm đồ gỗ nội ngoại thất từ Cao Bằng tới các tỉnh Miền Nam. Trên chặng đường hơn 30 năm xây dựng và trưởng thành, Chúng tôi đã tích lũy được nhiều bài học quý giá về thành công cũng như thất bại và chúng tôi luôn tự hào đã phát triễn vững chắc mặc dù đã vượt qua biết bao sóng gió thương trường. Nay, Chúng tôi đang xây dựng một thương hiệu cho giai đoạn phát triển mới: “NỘI THẤT HOÀNG GIA ĐÔ DÔ”</p>
                         <p>Được thành lập năm 2012, NỘI THẤT HOÀNG GIA ĐÔ DÔ cung cấp hơn 300 mẫu sản phẩm đồ gỗ nội thất cho phòng khách, phòng ngủ, phòng bếp, phòng ăn, phòng làm việc, trường học, phòng trưng bày, thư viện, phòng tiếp tân, cửa đi, cửa sổ, vách ngăn, ốp vách trang trí tường, trần, sàn… Vật liệu chủ yếu gồm: gỗ tự nhiên, gỗ công nghiệp, inox, nhôm, kính, đá tự nhiên, đá nhân tạo…</p>
-                        <p>Với hệ thống dây truyền sản xuất được nhập khẩu từ các nước phát triển và hệ thống nhà xưởng đồng bộ hơn 2000m2, Chúng tôi trực tiếp sản xuất sản phẩm, song son đó chúng tôi còn thuê các đơn vị khác gia công theo yêu cầu và nhập sản phẩm từ các đơn vị sản xuất đồ gỗ uy tín chất lượng cao tại địa phương để cung cấp cho thị trường sản phẩm đa dạng phong phú hơn.</p>
+                        <p>Với hệ thống dây truyền sản xuất được nhập khẩu từ các nước phát triển và hệ thống nhà xưởng đồng bộ hơn 2000m2, Chúng tôi trực tiếp sản xuất sản phẩm, song song đó chúng tôi còn thuê các đơn vị khác gia công theo yêu cầu và nhập sản phẩm từ các đơn vị sản xuất đồ gỗ uy tín chất lượng cao tại địa phương để cung cấp cho thị trường sản phẩm đa dạng phong phú hơn.</p>
                         <p>Tất các các sản phẩm bán ra đều được chúng tôi kiểm tra chất lượng rất khắt khe từ khâu nhập gỗ, tẩm sấy cho đến công đoạn sơn PU hoàn thiện, Quý khách hoàn toàn có thể yên tâm về chất lượng sản phẩm do Siêu Thị cung cấp và Chúng tôi là đơn vị chịu trách nhiệm tới cùng về chất lượng sản phẩm, cũng như các chính sách bảo hành, hậu mãi sau này.</p>
                     </div>
                 </CardContent>
             </Card>
         )
     }
+
+    renderImageInfo(classes) {
+        return (
+            <span>
+                <img
+                    className={classes.imgZoom}
+                    src='http://dogomyduc.vn/uploads/Slider1.JPG'
+                    height='300'
+                    width='100%'
+                />
+                <img
+                    className={classes.imgZoom}
+                    src='https://nhatdoland.com/uploads/images//1571636760_top4.PNG'
+                    height='300'
+                    width='100%'
+                />
+                <img
+                    className={classes.imgZoom}
+                    src="http://tubepgoviet.vn/media/plugins/images/xuong-go-2(2).jpg"
+                    height='300'
+                    width='100%'
+                />
+            </span>
+        )
+    }
+
 
     renderContent(classes) {
         return (
@@ -107,7 +145,7 @@ class Index extends BaseView {
                     </Typography>
                     <hr></hr>
                     <Typography color='inherit' component='h5' style={{ fontStyle: 'italic', textAlign: 'center' }} >
-                        Nếu có câu hỏi hãy liên hệ với chúng tôi 
+                        Nếu có câu hỏi hãy liên hệ với chúng tôi
                     </Typography>
                 </CardContent>
             </Card>
@@ -128,6 +166,9 @@ class Index extends BaseView {
                     <Grid item xs={3}>
                         {
                             this.renderContent(classes)
+                        }
+                        {
+                            this.renderImageInfo(classes)
                         }
                         <br></br>
                     </Grid>

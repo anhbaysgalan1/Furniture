@@ -56,20 +56,20 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
-                <Header classes={classes} />
+                {/* <Header classes={classes} />
                 <Home classes={classes} />
-                <ButtonViews classes={classes} />
+                <ButtonViews classes={classes} /> */}
                 <br></br>
-                <Circle classes={classes} />
                 <What classes={classes} />
+                {/* <Circle classes={classes} />
                 <br></br>
                 <NewHot classes={classes} />
                 <br></br>
-                <Promotion classes={classes} />
+                <Promotion classes={classes} /> */}
                 <br></br>
                 {/* <ListGoods classes={classes}/> */}
                 <br></br>
-                <Grid container spacing={8}>
+                {/* <Grid container spacing={8}>
                     <Grid item lg={1}></Grid>
                     <Grid item lg={10}>
                         <Bad classes={classes}/>
@@ -84,7 +84,7 @@ class Index extends BaseView {
                 </Grid>
                 <br></br>
                 <List classes={classes} />
-                <Footer classes={classes} />
+                <Footer classes={classes} /> */}
             </div>
         )
     }

@@ -286,7 +286,7 @@ class Index extends BaseView {
                 <Grid container spacing={32}>
                     <Grid item xs={12}>
                         <GridTable
-                            id="BadIndex"
+                            id="GoodsIndex"
                             estimatedRowHeight={100}
                             className={classes.gridTable}
                             onFetchData={this.props.onFetchData}

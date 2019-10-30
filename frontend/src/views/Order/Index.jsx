@@ -8,7 +8,8 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook'
+import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import {
     IconButton,
     Icon,
@@ -62,77 +63,49 @@ class Index extends BaseView {
                 },
                 {
                     name: 'code',
-                    title: I18n.t('Table.header.role.code'),
+                    title: I18n.t('Table.header.role.code.Mã đơn hàng'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
                     name: 'name',
-                    title: I18n.t('Table.header.role.name'),
+                    title: I18n.t('Table.header.role.name.Tên khách hàng'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
                     name: 'image1',
-                    title: I18n.t('Table.header.role.name'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'image2',
-                    title: I18n.t('Table.header.role.name'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'image3',
-                    title: I18n.t('Table.header.role.name'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'image4',
-                    title: I18n.t('Table.header.role.name'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'monerOld',
-                    title: I18n.t('Table.header.role.name'),
+                    title: I18n.t('Table.header.role.name.Số lượng'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
                     name: 'moneyNew',
-                    title: I18n.t('Table.header.role.name'),
+                    title: I18n.t('Table.header.role.name.Số tiền hàng'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeGoods',
-                    title: I18n.t('Table.header.role.name'),
+                    name: 'image2',
+                    title: I18n.t('Table.header.role.name.Địa chỉ giao hàng'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeWoods',
-                    title: I18n.t('Table.header.role.name'),
+                    name: 'image3',
+                    title: I18n.t('Table.header.role.name.Hình thức thanh toán'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'content',
-                    title: I18n.t('Table.header.role.name'),
+                    name: 'image4',
+                    title: I18n.t('Table.header.role.Trạng thái đơn hàng'),
                     style: {
                         textAlign: 'center',
                     }
@@ -154,16 +127,10 @@ class Index extends BaseView {
             tableColumnExtensions: [
                 { columnName: 'code', wordWrapEnabled: true },
                 { columnName: 'name', wordWrapEnabled: true },
-                { columnName: 'image1', wordWrapEnabled: true },
-                { columnName: 'image2', wordWrapEnabled: true },
-                { columnName: 'image3', wordWrapEnabled: true },
-                { columnName: 'image4', wordWrapEnabled: true },
                 { columnName: 'monerOld', wordWrapEnabled: true },
-                { columnName: 'monerOld', wordWrapEnabled: true },
-                { columnName: 'typeWoods', wordWrapEnabled: true },
+                { columnName: 'monerNew', wordWrapEnabled: true },
                 { columnName: 'content', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },
-                // {columnName: 'name', align: 'center'}
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
             columnWidths: [
@@ -181,6 +148,10 @@ class Index extends BaseView {
                 },
                 {
                     name: 'image1',
+                    width: 150
+                },
+                {
+                    name: 'moneyNew',
                     width: 70
                 },
                 {
@@ -196,26 +167,9 @@ class Index extends BaseView {
                     width: 70
                 },
                 {
-                    name: 'monerOld',
-                    width: 70
-                },
-                {
-                    name: 'moneyNew',
-                    width: 70
-                },
-                {
-                    name: 'typeGoods',
-                    width: 70
-                },
-                {
-                    name: 'typeWoods',
-                    width: 70
-                },
-                {
                     name: 'content',
                     width: 70
                 },
-               
                 {
                     name: '_id',
                     width: 140
@@ -250,7 +204,7 @@ class Index extends BaseView {
     renderToolbarActions() {
         return [
             <Tooltip title={I18n.t("toolTip.new")} key="create">
-                <Button variant='contained' color='primary' onClick={() => this.goto("/goods/create")}>
+                <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
                     {I18n.t("Button.create")}
                 </Button>
             </Tooltip>,
@@ -281,12 +235,59 @@ class Index extends BaseView {
 
     render() {
         const { data, classes } = this.props
+        let copyPermission = [
+            {
+                name: "Giường gỗ tự nhiên",
+                code: 'GG1',
+                _id: 'hdjffngjgihghjh'
+            },
+            {
+                name: "Giường gỗ công nghiệp",
+                code: 'GG1',
+                _id: 'hdjffngjgihghjh'
+            },
+            {
+                name: "Giường gỗ cổ điển",
+                code: 'GG1',
+                _id: 'hdjffngjgihghjh'
+            },
+            {
+                name: "Giường gỗ hiện đại",
+                code: 'GG1',
+                _id: 'hdjffngjgihghjh'
+            }
+        ]
         return (
             <PaperFade showLoading={true}>
+                <CardContent>
+                <Grid container spacing={32}>
+                    <Grid item xs={4}>
+                    <AutoCompleteField
+                        key="1"
+                        fullWidth
+                        select
+                        label={I18n.t("Input.bad.Chọn loại hàng")}
+                        // onChange={(value) => this.onHandleChange(value, 'typeBad')}
+                        name="typeBad"
+                        isMulti={false}
+                        isClearable={false}
+                    >
+                        {
+                            copyPermission.map(item => (
+                                <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
+                                    {item.name}
+                                </OptionAuto>
+                            ))
+                        }
+                    </AutoCompleteField>
+                    </Grid>
+                </Grid>
+                    
+                </CardContent>
                 <Grid container spacing={32}>
                     <Grid item xs={12}>
                         <GridTable
-                            id="BadIndex"
+                            id="OrderIndex"
                             estimatedRowHeight={100}
                             className={classes.gridTable}
                             onFetchData={this.props.onFetchData}

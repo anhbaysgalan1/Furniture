@@ -1,5 +1,5 @@
 import React from 'react';
-import View from 'views/Goods/Create'
+import View from 'views/Order/Create'
 import OrderAction from  '../../actions/OrderAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'

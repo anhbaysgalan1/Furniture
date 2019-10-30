@@ -4,12 +4,12 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import { Form, TextField, Validation } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
-import { 
+import {
     Grid,
     Typography,
-    IconButton, 
-    Icon, 
-    Tooltip, 
+    IconButton,
+    Icon,
+    Tooltip,
     Card,
     Button,
     CardActionArea,
@@ -24,18 +24,25 @@ import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCo
 
 const styles = theme => ({
     paper: {
+        // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
+    },
+    card: {
         padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
+    },
+    form: {
+        padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
+        // padding: '10px 10px 10px 10px'
     },
     imgZoom: {
         transition: "transform .5s, filter 3s ease-in-out",
         filter: "grayscale(100%)",
-     },
-     imgZoom: {
+    },
+    imgZoom: {
         "&:hover": {
-           filter: "grayscale(0)",
-           transform: "scale(1.1)",
-           transitionDuration: "1s",
-           transitionTimingFunction: "linear",
+            filter: "grayscale(0)",
+            transform: "scale(1.1)",
+            transitionDuration: "1s",
+            transitionTimingFunction: "linear",
         }
     },
 })
@@ -70,9 +77,9 @@ class Create extends BaseView {
         }
     }
 
-    onHandleChange(value, name){
+    onHandleChange(value, name) {
         let { data } = this.state
-        this.setState({ 
+        this.setState({
             data: { ...this.state.data, [name]: value }
         })
     }
@@ -103,164 +110,172 @@ class Create extends BaseView {
             }
         ]
         return (
-            <PaperFade className={classes.paper}>
-                <Form className={classes.form} onSubmit={onSubmit}>
-                        <CardContent>
-                            <Grid container spacing={32}>
-                                <Grid item xs={3} lg={3}>
-                                    <Typography color='primary'>
-                                        Xem bài đăng
-                                    </Typography>
-                                    <CardActionArea className={classes.imgZoom}>
-                                        {
-                                            data.img && data.name && data.code
-                                            ?
-                                                <CardMedia
-                                                    component="img"
-                                                    alt="Contemplative Reptile"
-                                                    height="200"
-                                                    width="250"
-                                                    image={data.img}
-                                                    title={`${data.name} - ${data.code}`}
-                                                />
-                                            :   ''
-                                        }
-                                        {
-                                            data.moneyOld && data.moneyNew
-                                            ?
-                                                <CardContent>
-                                                    <Typography style={{textAlign: 'center', color: 'red'}}>
-                                                        {data.moneyOld} - {data.moneyNew}
-                                                    </Typography>
-                                                </CardContent>
-                                            :   ''
-                                        }
-                                        
-                                    </CardActionArea>
-                                </Grid>
-                                <Grid item xs={9}>
-                                    <Grid container spacing={16}>
-                                        <Grid item xs={6}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.img.link1")}
-                                                onChange={(value) => this.onHandleChange(value, 'img')}
-                                                name="image1"
+            // <PaperFade className={classes.paper}>
+            <Form className={classes.form} onSubmit={onSubmit}>
+                <Grid container spacing={32}>
+                    <Grid item xs={3} lg={3}>
+                        <Card>
+                            <CardContent>
+                                <Typography color='primary'>
+                                    Xem bài đăng
+                                </Typography>
+                                <CardActionArea className={classes.imgZoom}>
+                                    {
+                                        data.img && data.name && data.code
+                                        ?
+                                            <CardMedia
+                                                component="img"
+                                                alt="Contemplative Reptile"
+                                                height="200"
+                                                width="250"
+                                                image={data.img}
+                                                title={`${data.name} - ${data.code}`}
                                             />
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.img.link1")}
-                                                onChange={(value) => this.onHandleChange(value, 'img')}
-                                                name="image2"
-                                            />
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.img.link1")}
-                                                onChange={(value) => this.onHandleChange(value, 'img')}
-                                                name="image3"
-                                            />
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.img.link1")}
-                                                onChange={(value) => this.onHandleChange(value, 'img')}
-                                                name="image4"
-                                            />
-                                        </Grid>
+                                        : ''
+                                    }
+                                    {
+                                        data.moneyOld && data.moneyNew
+                                        ?
+                                            <CardContent>
+                                                <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                                    {data.moneyOld} - {data.moneyNew}
+                                                </Typography>
+                                            </CardContent>
+                                        : ''
+                                    }
+
+                                </CardActionArea>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Card className={classes.card}>
+                            <CardContent>
+                                <Typography variant='h5' color='primary'>
+                                    Them hang hoa
+                                </Typography>
+                                <Grid container spacing={32}>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.img.link1")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="image1"
+                                        />
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.img.link1")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="image2"
+                                        />
                                     </Grid>
-                                    <Grid container spacing={16}>
-                                        <Grid item xs={3}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.bad.code")}
-                                                onChange={(value) => this.onHandleChange(value, 'code')}
-                                                name="code"
-                                            />
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <AutoCompleteField
-                                                key="1"
-                                                fullWidth
-                                                select
-                                                label={I18n.t("Input.bad.typeGoods")}
-                                                onChange={(value) => this.onHandleChange(value, 'typeGoods')}
-                                                name="typeGoods"
-                                                validate={this.validate.area}
-                                                isMulti={false}
-                                                isClearable={false}
-                                            >
-                                                {
-                                                    copyPermission.map(item => (
-                                                        <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                                            {item.name}
-                                                        </OptionAuto>
-                                                    ))
-                                                }
-                                            </AutoCompleteField>
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.bad.name")}
-                                                onChange={(value) => this.onHandleChange(value, 'name')}
-                                                name="name"
-                                            />
-                                        </Grid>
-                                    </Grid>
-                                    <Grid container spacing={16}>
-                                        <Grid item xs={3}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.bad.moneyOld")}
-                                                onChange={(value) => this.onHandleChange(value, 'moneyOld')}
-                                                name="moneyOld"
-                                            />
-                                        </Grid>
-                                        <Grid item xs={3}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.bad.moneyNew")}
-                                                onChange={(value) => this.onHandleChange(value, 'moneyNew')}
-                                                name="moneyNew"
-                                            />
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <TextField
-                                                fullWidth
-                                                label={I18n.t("Input.bad.typeWoods")}
-                                                onChange={(value) => this.onHandleChange(value, 'typeWoods')}
-                                                name="typeWoods"
-                                            />
-                                        </Grid>
-                                    </Grid>
-                                
-                                    <Grid container spacing={16}>
-                                        <Grid item xs={12}>
-                                            <TextField
-                                                multiline
-                                                rows={4}
-                                                rowsMax={8}
-                                                variant="outlined"
-                                                fullWidth
-                                                label={I18n.t("Input.bad.content.Nội dung miêu tả")}
-                                                onChange={(value) => this.onHandleChange(value, 'content')}
-                                                name="content"
-                                            />
-                                        </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.img.link1")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="image3"
+                                        />
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.img.link1")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="image4"
+                                        />
                                     </Grid>
                                 </Grid>
-                                <br />
-                            </Grid>
-                        </CardContent>
-                        <CardActions>
-                            <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
-                                <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                            </Button>
-                            <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                        </CardActions>
-                </Form>
-            </PaperFade>
+                                <Grid container spacing={32}>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.bad.code")}
+                                            onChange={(value) => this.onHandleChange(value, 'code')}
+                                            name="code"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <AutoCompleteField
+                                            key="1"
+                                            fullWidth
+                                            select
+                                            label={I18n.t("Input.bad.typeGoods")}
+                                            onChange={(value) => this.onHandleChange(value, 'typeGoods')}
+                                            name="typeGoods"
+                                            validate={this.validate.area}
+                                            isMulti={false}
+                                            isClearable={false}
+                                        >
+                                            {
+                                                copyPermission.map(item => (
+                                                    <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
+                                                        {item.name}
+                                                    </OptionAuto>
+                                                ))
+                                            }
+                                        </AutoCompleteField>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.bad.name")}
+                                            onChange={(value) => this.onHandleChange(value, 'name')}
+                                            name="name"
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <Grid container spacing={32}>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.bad.moneyOld")}
+                                            onChange={(value) => this.onHandleChange(value, 'moneyOld')}
+                                            name="moneyOld"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.bad.moneyNew")}
+                                            onChange={(value) => this.onHandleChange(value, 'moneyNew')}
+                                            name="moneyNew"
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.bad.typeWoods")}
+                                            onChange={(value) => this.onHandleChange(value, 'typeWoods')}
+                                            name="typeWoods"
+                                        />
+                                    </Grid>
+                                </Grid>
+                                <Grid container spacing={32}>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            multiline
+                                            rows={4}
+                                            rowsMax={8}
+                                            variant="outlined"
+                                            fullWidth
+                                            label={I18n.t("Input.bad.content.Nội dung miêu tả")}
+                                            onChange={(value) => this.onHandleChange(value, 'content')}
+                                            name="content"
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </CardContent>
+                            <CardActions>
+                                <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
+                                    <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                                </Button>
+                                <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    <br />
+                </Grid>
+            </Form>
+            // </PaperFade>
         )
     }
 }

@@ -75,7 +75,7 @@ const arrImg = [
   },
   {
     image: "https://www.thietkekientrucgroup.com/public/upload/images/noi-that-go-phong-khach%20(76).jpg",
-    title: 'Bảo hành tận nhà',
+    title: 'Bảo hành tận nhà, chu đáo',
   }
 ]
 

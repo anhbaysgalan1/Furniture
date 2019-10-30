@@ -52,42 +52,28 @@ class Index extends BaseView {
         return (
             <center>
                 <Typography variant="h4" color='primary'>
-                    Khi bạn đến với Nội thất Hoàng Gia DoDo
+                    Phương trâm làm việc của chúng tôi
                 </Typography>
                 <Grid container spacing={32}>
-                    <Grid item xs={4}></Grid>
                     <Grid item xs={4}>
-                        <hr></hr>
-                    </Grid>
-                    <Grid item xs={4}></Grid>
-                </Grid>
-                <Grid container spacing={32}>
-                    <Grid item xs={3}>
                         <Button className={classes.cssBorder} 
                             // onClick={() => this.goto(`/contact`)} 
                         >
-                            Uy tín hàng đầu
+                            Khách hàng là số 1 
                         </Button>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <Button className={classes.cssBorder} 
                             // onClick={() => this.goto(`/question`)} 
                         >
                             Phục vụ chuyên nghiệp
                         </Button>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <Button className={classes.cssBorder} 
                             // onClick={() => this.goto(`/registration`)} 
                         >
-                            Bảo hành, hậu mãi chu đáo
-                        </Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button className={classes.cssBorder} 
-                            // onClick={() => this.goto(`/registration`)} 
-                        >
-                            Chất lượng vượt trội
+                            Uy tín hàng đầu
                         </Button>
                     </Grid>
                 </Grid>

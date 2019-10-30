@@ -57,8 +57,6 @@ class Index extends BaseView {
         return (
             <div>
                 <Header classes={classes} />
-                <br></br>
-                <br></br>
                 <IntroduceBad classes={classes} />
                 <br></br>
                 <BadHot classes={classes} />
@@ -66,7 +64,6 @@ class Index extends BaseView {
                 <Promotion classes={classes} />  
                 <br></br>
                 <Tabs classes={classes} />
-                <Bad classes={classes} />
                 <br></br>
                 <What classes={classes} />
             </div>

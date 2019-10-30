@@ -131,7 +131,7 @@ class Index extends BaseView {
                                     Nhà vệ sinh là nơi sinh ra các khí độc, vì vậy nếu kê bàn ghế ăn đối diện với nhà vệ sinh sẽ mang tới tinh thần không tốt khi ăn. Điều này gây ảnh hưởng không nhỏ tới sức khỏe của mọi người. Nếu bạn không thể rời đi thì có thể đặt giữa bàn 1 chậu nước nhỏ hoặc chậy trúc khai vận để hóa giải.
                                 </Typography>
                                 <Typography color='primary'>
-                                    Trên đây là một số thông tin hữu ích dành cho bạn trong quá trình lựa chọn vị trí đặt bàn ăn theo phong thủy. Hãy tới ngay siêu thị Đồ Gỗ Thạch Thất để lựa chọn những mẫu bàn ghế ăn đẹp, giá thành hợp lý. Đồng thời được các nhân viên tư vấn về vị trí đặt bàn ăn phù hợp trong gia đình.
+                                    Trên đây là một số thông tin hữu ích dành cho bạn trong quá trình lựa chọn vị trí đặt bàn ăn theo phong thủy. Hãy tới ngay Nội thất Hoàng Gia Dodo để lựa chọn những mẫu bàn ghế ăn đẹp, giá thành hợp lý. Đồng thời được các nhân viên tư vấn về vị trí đặt bàn ăn phù hợp trong gia đình.
                                 </Typography>
                             </CardContent>
                         </Card>

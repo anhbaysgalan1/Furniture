@@ -1,5 +1,5 @@
 import React from 'react'
-import View from 'views/Goods/Edit'
+import View from 'views/Order/Edit'
 import OrderAction from '../../actions/OrderAction'
 // import RoleAction from '../../actions/RoleAction'
 // import PermissionAction from '../../actions/PermissionAction'
