@@ -53,7 +53,7 @@ class Create extends BaseView {
                 image4: '',
                 moneyOld: '',
                 moneyNew: '',
-                typeBad: '',
+                typeGoods: '',
                 typeWoods: '',
                 content: ''
             }
@@ -183,9 +183,9 @@ class Create extends BaseView {
                                                 key="1"
                                                 fullWidth
                                                 select
-                                                label={I18n.t("Input.bad.typeBad")}
-                                                onChange={(value) => this.onHandleChange(value, 'typeBad')}
-                                                name="typeBad"
+                                                label={I18n.t("Input.bad.typeGoods")}
+                                                onChange={(value) => this.onHandleChange(value, 'typeGoods')}
+                                                name="typeGoods"
                                                 validate={this.validate.area}
                                                 isMulti={false}
                                                 isClearable={false}
