@@ -60,102 +60,102 @@ const styles = theme => ({
 let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
 
 let arrImg = [
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
 ]
 
 class Index extends BaseView {

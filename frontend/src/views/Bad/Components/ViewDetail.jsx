@@ -9,6 +9,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
+import RadioGroupField, { Radio } from 'components/Forms/RadioGroupField'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import {
     IconButton,
@@ -32,47 +33,63 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    
+    form: {
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
+    },
 })
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        }
-    }
-
-    onCancel(){
-        this.props.onCancel()
-    }
-
-    renderDialog(classes){
-        let img = [
-            {
-                img: 'http://vilahome.com.vn/wp-content/uploads/2018/05/Mau-giuong-da-nang-thong-minh-hien-dai-1.jpg'
-            },
-            {
-                img: 'http://sofabella.vn/wp-content/uploads/2015/03/GIUONG-NGu-B1240.jpg'
-            },
-            {
-                img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg'
+            dataInput: {
+                name: '',
+                phone: '',
+                address: '',
+                count: '',
+                pay: '',
+                transportFee: '',
             }
+        }
+        this.onHandleChange = this.onHandleChange.bind(this)
+    }
+
+    onHandleChange(value, name) {
+        let { dataInput } = this.state
+        this.setState({
+            dataInput: { ...this.state.dataInput, [name]: value }
+        })
+    }
+
+    renderDialog(classes, dataGoods, onSubmit){
+        let img = [
+            // {
+            //     img: 'http://vilahome.com.vn/wp-content/uploads/2018/05/Mau-giuong-da-nang-thong-minh-hien-dai-1.jpg'
+            // },
+            // {
+            //     img: 'http://sofabella.vn/wp-content/uploads/2015/03/GIUONG-NGu-B1240.jpg'
+            // },
+            // {
+            //     img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg'
+            // }
         ]
+        let _id   = _.get(dataGoods, '_id', '5d06eb5af621c229e0cfcd97')
+        let money = _.get(dataGoods, 'moneyNew', '1000')
         return (
-           <Card>
-               <Dialog
-                    fullWidth={true}
-                    // onClose={this.onCancel}
-                    open={true}
-                    maxWidth='md'
-                    aria-labelledby="draggable-dialog-title"
-                >
+            <Dialog
+                fullWidth={true}
+                // onClose={this.onCancel}
+                open={true}
+                maxWidth='md'
+                aria-labelledby="draggable-dialog-title"
+            >
+                <Form className={classes.form} onSubmit={onSubmit}>
                     <DialogContent>
                         <Typography variant="h6"> 
                             Giường gỗ GG22 - 2.000.000đ
                         </Typography>
                         <Grid container spacing={8}>
-                            <Grid item xs={5}>
+                            {/* <Grid item xs={5}>
                                 <img src={img[0].img} height='250' width='350'/>
                                 {
                                     img.map((item, index) => {
@@ -86,90 +103,93 @@ class App extends Component {
                                         )
                                     })
                                 }
-                            </Grid>
+                            </Grid> */}
                             <Grid item xs={7}>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={32}>
+                        <Grid container spacing={16} direction="row" justify="center" alignItems="center">
                             <Grid item xs={6}>
                                 <TextField
-                                    fullWidth
-                                    label={I18n.t("Input.bad.Tên người mua")}
-                                    onChange={(value) => this.onHandleChange(value, 'code')}
-                                    name="code"
+                                    type="hidden"
+                                    name="goodsId"
+                                    value={_id}
                                 />
-                            </Grid>
-                            <Grid item xs={6}>
                                 <TextField
-                                    fullWidth
-                                    label={I18n.t("Input.bad.Số lượng")}
-                                    onChange={(value) => this.onHandleChange(value, 'code')}
-                                    name="code"
+                                    type="hidden"
+                                    name="money"
+                                    value={money}
                                 />
-                            </Grid>
-                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
-                                    label={I18n.t("Input.bad.SDT")}
+                                    label={I18n.t("Input.bad.Tên của bạn")}
+                                    onChange={(value) => this.onHandleChange(value, 'code')}
+                                    name="name"
+                                />
+                                <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.bad.SĐT")}
                                     onChange={(value) => this.onHandleChange(value, 'name')}
                                     name="phone"
                                 />
-                            </Grid>
-                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label={I18n.t("Input.bad.Dia chi giao hang")}
                                     onChange={(value) => this.onHandleChange(value, 'name')}
-                                    name="name"
+                                    name="address"
                                 />
-                            </Grid>
-                            <Grid item xs={6}>
                                 <TextField
                                     fullWidth
-                                    label={I18n.t("Input.bad.Số tiền hàng")}
-                                    onChange={(value) => this.onHandleChange(value, 'name')}
-                                    name="name"
+                                    label={I18n.t("Input.bad.Số lượng")}
+                                    onChange={(value) => this.onHandleChange(value, 'code')}
+                                    name="count"
                                 />
                             </Grid>
                             <Grid item xs={6}>
                                 <TextField
                                     fullWidth
                                     label={I18n.t("Input.bad.Phí vận chuyển")}
+                                    value="Miễn phí vận chuyển cho đơn hàng trên 5tr"
                                     onChange={(value) => this.onHandleChange(value, 'name')}
-                                    name="name"
+                                    name="transportFee"
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
                                 />
+                                <RadioGroupField name="pay" label={I18n.t("Input.bad.hinh thuc thanh toan")} value="1" fullWidth>
+                                    <Radio
+                                        label="Thanh toán khi nhận hàng"
+                                        value="1"
+                                    />
+                                    <Radio
+                                        label="Chuyển khoản Tbbank (0178 53658 8698)"
+                                        value="2"
+                                    />
+                                    <Radio
+                                        label="Ví điện tử"
+                                        value="3"
+                                    />
+                                </RadioGroupField>
                             </Grid>
-                            <Grid item xs={6}>
-                                <TextField
-                                    fullWidth
-                                    label={I18n.t("Input.bad.hinh thuc thanh toan")}
-                                    onChange={(value) => this.onHandleChange(value, 'name')}
-                                    name="name"
-                                />
-                            </Grid>
-                            <CardActions>
-                                <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                            </CardActions>
                         </Grid>
                     </DialogContent>
                     <DialogActions>
-                        <Button color='primary' onClick={() => this.onCancel()}>
-                            Thoát
+                        <Button color='primary'>
+                            Hủy bỏ
                         </Button>
-                        <Button color='primary' onClick={() => this.onCancel()}>
-                            Mua Hang
+                        <Button color='primary' type='submit' autoFocus >
+                            Gửi
                         </Button>
                     </DialogActions>
-                  </Dialog>
-           </Card>
+                </Form>
+            </Dialog>
         )
     }
 
     render() {
-        let { classes } = this.props
+        let { classes, onSubmit, dataGoods } = this.props
         return (
             <div>
-                {this.renderDialog(classes)}
+                {this.renderDialog(classes, dataGoods, onSubmit)}
             </div>
         );
     }

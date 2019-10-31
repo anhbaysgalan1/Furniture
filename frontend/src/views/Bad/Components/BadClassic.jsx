@@ -60,72 +60,72 @@ const styles = theme => ({
 let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
 
 let arrImg = [
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'https://cdn.muabannhanh.com/asset/frontend/img/gallery/2018/06/27/5b32f66be6299_1530066539.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
 ]
 
 class Index extends BaseView {

@@ -31,89 +31,89 @@ const styles = theme => ({
     
 })
 
-const arrImg = [
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    },
-    {
-        img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-        title: 'Giường gỗ tự nhiên',
-        code: 'GG1',
-        moneyOld: '2000000',
-        moneyNew: '1500000',
-    }
-]
+// const arrImg = [
+//     {
+//         img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     },
+//     {
+//         img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
+//         title: 'Giường gỗ tự nhiên',
+//         code: 'GG1',
+//         moneyOld: '2000000',
+//         moneyNew: '1500000',
+//     }
+// ]
 
-let imgChar = [
-    {
-       code: 'GG1',
-       imgGG1: ["http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg", "http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg"]
-    },
-    {
-       code: 'GG2',
-       imgGG2: ["http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg", "http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg"]
-    },
-]
+// let imgChar = [
+//     {
+//        code: 'GG1',
+//        imgGG1: ["http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg", "http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg"]
+//     },
+//     {
+//        code: 'GG2',
+//        imgGG2: ["http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg", "http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg"]
+//     },
+// ]
 
 
 class App extends Component {
@@ -124,17 +124,7 @@ class App extends Component {
         }
     }
 
-    renderImg(){
-        return (
-            <span>
-                
-            </span>
-        )
-    }
-
     render() {
-        let numberPage = Math.ceil(arrImg.length/3)
-    
         return (
             <div>
                 <Button color='primary' variant='outlined'> Trước </Button>

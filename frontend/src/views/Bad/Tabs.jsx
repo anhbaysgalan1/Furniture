@@ -70,19 +70,26 @@ function NavTabs(data) {
             </AppBar>
             <div>
                 {
-                    value === 0 && <TabContainer> <Bad classes={classes} /> </TabContainer>
+                    value === 0 && 
+                    // <TabContainer> 
+                    //     <Bad classes={classes} onSubmit={onSubmit}/> 
+                    // </TabContainer>
+                    <Typography component="div" >
+                        <Bad classes={classes} onSubmit={onSubmit}/> 
+                    </Typography>
+
                 }
                 {
-                    value === 1 && <TabContainer> <BadNature classes={classes} /> </TabContainer>
+                    value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} /> </TabContainer>
                 }
                 {
-                    value === 2 && <TabContainer> <BadIndustry classes={classes} /> </TabContainer>
+                    value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} /> </TabContainer>
                 }
                 {
-                    value === 3 && <TabContainer> <BadModern classes={classes} /> </TabContainer>
+                    value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} /> </TabContainer>
                 }
                 {
-                    value === 4 && <TabContainer> <BadClassic classes={classes} /> </TabContainer>
+                    value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} /> </TabContainer>
                 }
             </div>
         </div>

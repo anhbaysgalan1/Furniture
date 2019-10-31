@@ -51,7 +51,7 @@ class Create extends BaseView {
     constructor(props) {
         super(props)
         this.state = {
-            data: {
+            dataInput: {
                 name: '',
                 code: '',
                 image1: '',
@@ -78,15 +78,15 @@ class Create extends BaseView {
     }
 
     onHandleChange(value, name) {
-        let { data } = this.state
+        let { dataInput } = this.state
         this.setState({
-            data: { ...this.state.data, [name]: value }
+            dataInput: { ...this.state.dataInput, [name]: value }
         })
     }
 
     render() {
         const { classes, onSubmit } = this.props
-        let { data } = this.state
+        let { dataInput } = this.state
         let copyPermission = [
             {
                 name: "Giường gỗ tự nhiên",
@@ -121,24 +121,24 @@ class Create extends BaseView {
                                 </Typography>
                                 <CardActionArea className={classes.imgZoom}>
                                     {
-                                        data.img && data.name && data.code
+                                        dataInput.img && dataInput.name && dataInput.code
                                         ?
                                             <CardMedia
                                                 component="img"
                                                 alt="Contemplative Reptile"
                                                 height="200"
                                                 width="250"
-                                                image={data.img}
-                                                title={`${data.name} - ${data.code}`}
+                                                image={dataInput.img}
+                                                title={`${dataInput.name} - ${dataInput.code}`}
                                             />
                                         : ''
                                     }
                                     {
-                                        data.moneyOld && data.moneyNew
+                                        dataInput.moneyOld && dataInput.moneyNew
                                         ?
                                             <CardContent>
                                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                                    {data.moneyOld} - {data.moneyNew}
+                                                    {dataInput.moneyOld} - {dataInput.moneyNew}
                                                 </Typography>
                                             </CardContent>
                                         : ''
@@ -158,13 +158,13 @@ class Create extends BaseView {
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.img.link1")}
+                                            label={I18n.t("Input.goods.image1")}
                                             onChange={(value) => this.onHandleChange(value, 'img')}
                                             name="image1"
                                         />
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.img.link1")}
+                                            label={I18n.t("Input.goods.image2")}
                                             onChange={(value) => this.onHandleChange(value, 'img')}
                                             name="image2"
                                         />
@@ -172,13 +172,13 @@ class Create extends BaseView {
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.img.link1")}
+                                            label={I18n.t("Input.goods.image3")}
                                             onChange={(value) => this.onHandleChange(value, 'img')}
                                             name="image3"
                                         />
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.img.link1")}
+                                            label={I18n.t("Input.goods.image4")}
                                             onChange={(value) => this.onHandleChange(value, 'img')}
                                             name="image4"
                                         />
@@ -188,7 +188,7 @@ class Create extends BaseView {
                                     <Grid item xs={3}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.bad.code")}
+                                            label={I18n.t("Input.goods.code")}
                                             onChange={(value) => this.onHandleChange(value, 'code')}
                                             name="code"
                                         />
@@ -198,7 +198,7 @@ class Create extends BaseView {
                                             key="1"
                                             fullWidth
                                             select
-                                            label={I18n.t("Input.bad.typeGoods")}
+                                            label={I18n.t("Input.goods.typeGoods")}
                                             onChange={(value) => this.onHandleChange(value, 'typeGoods')}
                                             name="typeGoods"
                                             validate={this.validate.area}
@@ -217,7 +217,7 @@ class Create extends BaseView {
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.bad.name")}
+                                            label={I18n.t("Input.goods.name")}
                                             onChange={(value) => this.onHandleChange(value, 'name')}
                                             name="name"
                                         />
@@ -227,7 +227,7 @@ class Create extends BaseView {
                                     <Grid item xs={3}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.bad.moneyOld")}
+                                            label={I18n.t("Input.goods.moneyOld")}
                                             onChange={(value) => this.onHandleChange(value, 'moneyOld')}
                                             name="moneyOld"
                                         />
@@ -235,7 +235,7 @@ class Create extends BaseView {
                                     <Grid item xs={3}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.bad.moneyNew")}
+                                            label={I18n.t("Input.goods.moneyNew")}
                                             onChange={(value) => this.onHandleChange(value, 'moneyNew')}
                                             name="moneyNew"
                                         />
@@ -243,7 +243,7 @@ class Create extends BaseView {
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.bad.typeWoods")}
+                                            label={I18n.t("Input.goods.typeWoods")}
                                             onChange={(value) => this.onHandleChange(value, 'typeWoods')}
                                             name="typeWoods"
                                         />
@@ -257,7 +257,7 @@ class Create extends BaseView {
                                             rowsMax={8}
                                             variant="outlined"
                                             fullWidth
-                                            label={I18n.t("Input.bad.content.Nội dung miêu tả")}
+                                            label={I18n.t("Input.goods.content.Nội dung miêu tả")}
                                             onChange={(value) => this.onHandleChange(value, 'content')}
                                             name="content"
                                         />

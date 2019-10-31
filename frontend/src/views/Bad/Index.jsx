@@ -36,11 +36,6 @@ import _ from 'lodash'
 // import "bootstrap/less/bootstrap.less"
 
 const styles = theme => ({
-    title: {
-        padding: '5px',
-        // backgroundColor: '#039be5',
-        color: 'white',
-    },
 })
 
 
@@ -53,19 +48,19 @@ class Index extends BaseView {
     }
 
     render() {
-        let { classes } = this.props
+        let { classes, onSubmit } = this.props
         return (
             <div>
-                <Header classes={classes} />
-                <IntroduceBad classes={classes} />
+                {/* <Header classes={classes} /> */}
+                {/* <IntroduceBad classes={classes} /> */}
                 <br></br>
-                <BadHot classes={classes} />
+                {/* <BadHot classes={classes} /> */}
                 <br></br>
-                <Promotion classes={classes} />  
+                {/* <Promotion classes={classes} />   */}
                 <br></br>
-                <Tabs classes={classes} />
+                <Tabs classes={classes} onSubmit={onSubmit} />
                 <br></br>
-                <What classes={classes} />
+                {/* <What classes={classes} /> */}
             </div>
         )
     }

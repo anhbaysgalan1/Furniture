@@ -46,6 +46,9 @@ class GoodsController extends BaseController {
             code: 1,
             name: 1,
             image1: 1,
+            image2: 1,
+            image3: 1,
+            image4: 1,
             moneyOld: 1,
             moneyNew: 1,
             typeGoods: 1,
@@ -87,7 +90,6 @@ class GoodsController extends BaseController {
     async update({ request, response }) {
         let id = request.params.id
         if (!id) throw new ApiException(422, "Id_Required")
-
         let exist = await this.Model.getById(id)
         if (!exist) throw new ApiException(404, "No_Object")
         if (exist.code == "All") {

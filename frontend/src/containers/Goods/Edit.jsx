@@ -1,18 +1,13 @@
 import React from 'react'
 import View from 'views/Goods/Edit'
 import GoodsAction from '../../actions/GoodsAction'
-// import RoleAction from '../../actions/RoleAction'
-// import PermissionAction from '../../actions/PermissionAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { I18n } from 'react-redux-i18n'
 import _ from "lodash"
 
-/**
- * Files are automatically generated from the template.
- * MQ Solutions 2019
- */
+
 class Edit extends BaseContainer {
     constructor(props) {
         super(props)
@@ -22,7 +17,6 @@ class Edit extends BaseContainer {
     componentDidMount() {
         this.id = this.props.match.params.id
         this.props.dispatch(GoodsAction.fetch({ _id: this.id }))
-        // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
@@ -30,7 +24,7 @@ class Edit extends BaseContainer {
             .then(data => {
                 if (!data.error) {
                     this.notify(I18n.t('Message.editDataSuccess'))
-                    this.goto("/roles")
+                    this.goto("/goods")
                 }
                 else {
                     let err = data.error
@@ -59,20 +53,18 @@ class Edit extends BaseContainer {
             <View
                 data={this.props.data || {}}
                 onSubmit={this.onSubmit}
-                permissions={this.props.permissions || []}
             />
         )
     }
 }
 
 const mapStateToProps = state => {
-
+    console.log("state", state)
     return {
         //sử dụng selector để lấy state từ redux
-        lastType: selector(state, "role.lastType", {}),
-        error: selector(state, "role.error", ""),
-        data: selector(state, "role.item", {}),
-        permissions: selector(state, "permission.list.data", [])
+        lastType: selector(state, "goods.lastType", {}),
+        error: selector(state, "goods.error", ""),
+        data: selector(state, "goods.item", {}),
     }
 }
 

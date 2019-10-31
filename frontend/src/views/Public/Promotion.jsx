@@ -193,7 +193,7 @@ class Actions extends BaseView {
                     {
                         tileData.map((element, index) => {
                             return (
-                                <div style={{backgroundColor: 'white'}} className={classes.imgZoom}>
+                                <div key={index} style={{backgroundColor: 'white'}} className={classes.imgZoom}>
                                     {/* <Card> */}
                                         <CardContent>
                                             <img height='100' width='500' src={element.img} alt="Nội thất Dodo"/>

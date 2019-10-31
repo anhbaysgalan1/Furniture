@@ -56,9 +56,9 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
-                {/* <Header classes={classes} />
+                {/* <Header classes={classes} /> */}
                 <Home classes={classes} />
-                <ButtonViews classes={classes} /> */}
+                {/* <ButtonViews classes={classes} /> */}
                 <br></br>
                 <What classes={classes} />
                 {/* <Circle classes={classes} />

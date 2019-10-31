@@ -74,59 +74,90 @@ class Index extends BaseView {
                 <CardContent>
                     <Grid container spacing={16} >
                         <Grid item xs={7}>
-                            <Typography>
-                                <ul>
-                                    <li>
-                                        <Typography>
-                                            <b>Giường ngủ gỗ tự nhiên:</b> thương hiệu Nội Thất Hoàng Gia Dodo làm 100%
-                                            từ các loại gỗ tự nhiên cao cấp. Với vân gỗ đẹp, màu sắc tự nhiên,
-                                            hương thơm nhẹ nhàng đặc trưng của từng loại gỗ được giữ nguyên một
-                                            cách tốt nhất. Là lựa chọn hàng đầu hiện nay được khách hàng tin tưởng
-                                            và lựa chọn trong không gian phòng ngủ gia đình.
-                                        </Typography>
-                                    </li>
-                                    <li>
-                                        <b>Phong cách thiết kế:</b>
-                                        đặc trưng với những họa tiết được đục, chạm, khắc kỳ công và khéo léo, các hình ảnh, chi tiết trên sản phẩm được trau chuốt một cách tỉ mỉ để nâng tầm đẳng cấp và phong cách riêng.
-                                    </li>
-                                    <li>
-                                        <b>Kiểu dáng:</b>
-                                        <ul>
-                                            <li>
-                                                kiểu Trung Hoa cổ điển đặc trưng với phong cách hoàng tộc, vuông vắn, chạm long phụng  xa hoa, kiểu cách.
+                            <ul>
+                                <li>
+                                    <Typography>
+                                        Giường ngủ gỗ tự nhiên:
+                                    </Typography>
+                                    <Typography>
+                                        Thương hiệu Nội Thất Hoàng Gia Dodo làm 100%
+                                        từ các loại gỗ tự nhiên cao cấp. Với vân gỗ đẹp, màu sắc tự nhiên,
+                                        hương thơm nhẹ nhàng đặc trưng của từng loại gỗ được giữ nguyên một
+                                        cách tốt nhất. Là lựa chọn hàng đầu hiện nay được khách hàng tin tưởng
+                                        và lựa chọn trong không gian phòng ngủ gia đình.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography>
+                                        Phong cách thiết kế:
+                                    </Typography>
+                                    <Typography>
+                                        Đặc trưng với những họa tiết được đục, chạm, khắc kỳ công và khéo léo,
+                                        các hình ảnh, chi tiết trên sản phẩm được trau chuốt một cách tỉ mỉ để
+                                        nâng tầm đẳng cấp và phong cách riêng.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography>
+                                        Kiểu dáng:
+                                    </Typography>
+                                    <ul>
+                                        <li>
+                                            <Typography>
+                                                Kiểu Trung Hoa cổ điển đặc trưng với phong cách hoàng tộc, vuông vắn,
+                                                chạm long phụng  xa hoa, kiểu cách.
+                                            </Typography>
                                         </li>
-                                            <li>
-                                                kiểu châu Âu: chạm khắc tinh xảo, tinh tế trên những đường nét, những đường cong, tròn, sang trọng, ấn tượng.
+                                        <li>
+                                            <Typography>
+                                                Kiểu châu Âu: chạm khắc tinh xảo, tinh tế trên những đường nét,
+                                                những đường cong, tròn, sang trọng, ấn tượng.
+                                            </Typography>
                                         </li>
-                                            <li>
-                                                kiểu thuyền buồm :độc đáo với những đường nét uốn lượn trên sản phẩm,hoa văn bắt mắt, đuôi cong đầu đối xứng.
+                                        <li>
+                                            <Typography>
+                                                Kiểu thuyền buồm :độc đáo với những đường nét uốn lượn trên sản phẩm,
+                                                hoa văn bắt mắt, đuôi cong đầu đối xứng.
+                                            </Typography>
                                         </li>
-                                            <li>
-                                                kiểu chân cao: sang trọng, rộng rãi, chân cao, vai rộng, thoáng đãng, gọn gàng.
+                                        <li>
+                                            <Typography>
+                                                Kiểu chân cao: sang trọng, rộng rãi, chân cao, vai rộng, thoáng đãng, gọn gàng.
+                                            </Typography>
                                         </li>
-                                            <li>
-                                                kiểu chân bệt: chân thấp, vuông vắn, hoa văn hình khối, đơn giản, tiện lợi.
+                                        <li>
+                                            <Typography>
+                                                Kiểu chân bệt: chân thấp, vuông vắn, hoa văn hình khối, đơn giản, tiện lợi.
+                                            </Typography>
                                         </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <b>Màu sắc sản phẩm:</b>
-                                        đặc trưng của các loại gỗ tự nhiên như màu vàng xoan đào, màu đỏ vàng gỗ gõ đỏ, gỗ hương đỏ, vàng pơ mơ, nâu socola cẩm lai,…
-                                    </li>
-                                    <li>
-                                        <b>Kích thước của giường ngủ gỗ tự nhiên:</b>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <Typography>
+                                        Màu sắc sản phẩm:
+                                    </Typography>
+                                    <Typography>
+                                        Đặc trưng của các loại gỗ tự nhiên như màu vàng xoan đào,
+                                        màu đỏ vàng gỗ gõ đỏ, gỗ hương đỏ, vàng pơ mơ, nâu socola cẩm lai,…
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography>
+                                        Kích thước của giường ngủ gỗ tự nhiên:
+                                    </Typography>
+                                    <Typography>
                                         Kích thước cơ bản từ 120 x 200cm, 140x200cm, 160x200cm cho đến
                                         180 x 200, 200x 200cm phù hợp với hầu hết diện tích không gian
                                         phòng ngủ hiện nay của khách hàng. Ngoài ra nếu bạn muốn đặt
                                         thêm các kích thước khác theo yêu cầu của mình hãy liên hệ qua
                                         Hotline 0377 535 717 để được tư vấn và báo giá tốt nhất.
-                                    </li>
-                                </ul>
-                            </Typography>
+                                    </Typography>
+                                </li>
+                            </ul>
                         </Grid>
                         <Grid item xs={5}>
                             <img
-                                style={{marginTop: '-15px'}}
+                                style={{ marginTop: '-15px' }}
                                 height='500'
                                 width='650'
                                 // src='http://noithatgiadinhbinhduong.com/wp-content/uploads/2017/09/gi%C6%B0%E1%BB%9Dng-g%C3%B5-%C4%91%E1%BB%8F.jpg'

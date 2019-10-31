@@ -2,6 +2,7 @@ import React, { lazy } from 'react'
 import _ from 'lodash'
 import { I18n } from 'react-redux-i18n'
 import { Redirect } from 'react-router'
+const NotFound = lazy(() => import('../layouts/NotFound'))
 const UserIndex     = lazy(() => import('containers/User/Index'))
 const CenterIndex   = lazy(() => import('containers/Center/Index'))
 const InfoIndex     = lazy(() => import('containers/Info/Index'))
@@ -12,8 +13,8 @@ const GoodsCreate = lazy(() => import('containers/Goods/Create'))
 const GoodsEdit   = lazy(() => import('containers/Goods/Edit'))
 
 const OrderIndex   = lazy(() => import('containers/Order/Index'))
-const OrderCreate  = lazy(() => import('containers/Order/Create'))
-const OrderEdit    = lazy(() => import('containers/Order/Edit'))
+// const OrderCreate  = lazy(() => import('containers/Order/Create'))
+// const OrderEdit    = lazy(() => import('containers/Order/Edit'))
 
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
@@ -29,6 +30,20 @@ const routes = [
     //     component: () => <CenterIndex to="/center" />,
     //     exact: true
     // },
+    // {
+    //     path: "/",
+    //     component: () => {
+    //       return <Redirect to={'./not-found'} />
+    //     },
+    //     exact: true,
+    //     name: 'dashboard'
+    //   },
+    {
+        path: "/not-found",
+        component: () => <NotFound />,
+        exact: true,
+        name: 'dashboard'
+    },
     {
         path: "/center",
         name: 'center',
@@ -141,22 +156,30 @@ const routes = [
         exact: true,
         sidebarName: 'order'
     },
-    {
-        path: "/order/create",
-        name: 'order.create',
-        title: () => I18n.t("Breadcrumb.orderCreate"),
-        component: () => <OrderCreate />,
-        exact: true,
-        sidebarName: 'order'
-    },
-    {
-        path: "/order/:id",
-        name: 'order.edit',
-        title: () => I18n.t("Breadcrumb.orderEdit"),
-        component: () => <OrderEdit />,
-        exact: true,
-        sidebarName: 'order'
-    }
+    // {
+    //     path: "/order/create",
+    //     name: 'order.create',
+    //     title: () => I18n.t("Breadcrumb.orderCreate"),
+    //     component: () => <OrderCreate />,
+    //     exact: true,
+    //     sidebarName: 'order'
+    // },
+    // {
+    //     path: "/order/:id",
+    //     name: 'order.edit',
+    //     title: () => I18n.t("Breadcrumb.orderEdit"),
+    //     component: () => <OrderEdit />,
+    //     exact: true,
+    //     sidebarName: 'order'
+    // }
+    // {
+    //     path: "/",
+    //     title: () => I18n.t("Breadcrumb.notFound"),
+    //     component: () => {
+    //       return <Redirect to="/not-found" />
+    //     },
+    //     name: 'dashboard'
+    // },
 ]
 
 export default routes

@@ -23,6 +23,7 @@ import {
     Toolbar,
 } from '@material-ui/core'
 import moment from 'moment'
+import home from '../../../public/images/home.png'
 import _ from 'lodash'
 
 const styles = theme => ({
@@ -43,7 +44,7 @@ class Index extends BaseView {
             <div>
                 <img 
                     src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png" 
-                    // src={img}
+                    src={home}
                     height="560" 
                     width="1920" 
                     title="slider" 

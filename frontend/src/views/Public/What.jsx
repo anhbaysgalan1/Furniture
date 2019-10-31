@@ -30,6 +30,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
 import StarRateIcon from '@material-ui/icons/StarRate';
+import what2 from '../../public/images/what2.jpg'
+import what3 from '../../public/images/what3.jpg'
+import what4 from '../../public/images/what4.jpg'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -66,15 +69,15 @@ const arrImg = [
     title: 'Mua hàng tiện lợi',
   },
   {
-    image: "https://www.noithathoanmy.com.vn/blog/wp-content/uploads/2018/11/noi-that-go-phong-khach-dep.jpg",
+    image: what2, //"https://www.noithathoanmy.com.vn/blog/wp-content/uploads/2018/11/noi-that-go-phong-khach-dep.jpg",
     title: 'Đạt tiêu chuẩn xuất khẩu',
   },
   {
-    image: "https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1",
+    image:  what3, //"https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1",
     title: 'Chất lượng hoàng gia',
   },
   {
-    image: "https://www.thietkekientrucgroup.com/public/upload/images/noi-that-go-phong-khach%20(76).jpg",
+    image: what4, //"https://www.thietkekientrucgroup.com/public/upload/images/noi-that-go-phong-khach%20(76).jpg",
     title: 'Bảo hành tận nhà, chu đáo',
   }
 ]

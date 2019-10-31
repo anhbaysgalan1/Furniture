@@ -60,102 +60,102 @@ const styles = theme => ({
 let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
 
 let arrImg = [
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
-    {
-        img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-        code: 'S51',
-        title: 'Giường hiện đại S51',
-        money: '2.500.000 đ'
-    },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
+    // {
+    //     img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+    //     code: 'S51',
+    //     title: 'Giường hiện đại S51',
+    //     money: '2.500.000 đ'
+    // },
 ]
 
 class Index extends BaseView {
