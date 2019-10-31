@@ -7,15 +7,12 @@ const UserIndex     = lazy(() => import('containers/User/Index'))
 const CenterIndex   = lazy(() => import('containers/Center/Index'))
 const InfoIndex     = lazy(() => import('containers/Info/Index'))
 const ContactIndex  = lazy(() => import('containers/Contact/Index'))
-
 const GoodsIndex  = lazy(() => import('containers/Goods/Index'))
 const GoodsCreate = lazy(() => import('containers/Goods/Create'))
 const GoodsEdit   = lazy(() => import('containers/Goods/Edit'))
-
 const OrderIndex   = lazy(() => import('containers/Order/Index'))
 // const OrderCreate  = lazy(() => import('containers/Order/Create'))
 // const OrderEdit    = lazy(() => import('containers/Order/Edit'))
-
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
@@ -23,21 +20,16 @@ const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Inde
 const WindWaterChangeTable  = lazy(() => import('containers/WindWater/ChangeTable'))
 const WindWaterSizeBad      = lazy(() => import('containers/WindWater/SizeBad'))
 
-
 const routes = [
-    // {
-    //     path: "/",
-    //     component: () => <CenterIndex to="/center" />,
-    //     exact: true
-    // },
-    // {
-    //     path: "/",
-    //     component: () => {
-    //       return <Redirect to={'./not-found'} />
-    //     },
-    //     exact: true,
-    //     name: 'dashboard'
-    //   },
+    {
+        path: "/",
+        component: () => {
+          let link = '/center'
+          return <CenterIndex to={link ? link : './not-found'} />
+        },
+        exact: true,
+        name: 'dashboard'
+      },
     {
         path: "/not-found",
         component: () => <NotFound />,
@@ -172,14 +164,6 @@ const routes = [
     //     exact: true,
     //     sidebarName: 'order'
     // }
-    // {
-    //     path: "/",
-    //     title: () => I18n.t("Breadcrumb.notFound"),
-    //     component: () => {
-    //       return <Redirect to="/not-found" />
-    //     },
-    //     name: 'dashboard'
-    // },
 ]
 
 export default routes

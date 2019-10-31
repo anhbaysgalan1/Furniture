@@ -102,7 +102,6 @@ class Sidebar extends React.Component {
             return
         }
         const path = menuRoute.path || menu.path
-        // debugger
         // return (
         //     <ListItem
         //         button
