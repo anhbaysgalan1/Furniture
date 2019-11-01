@@ -56,89 +56,85 @@ class Index extends BaseView {
                     <Grid item xs={8}>
                         <Card>
                             <CardContent>
-                                <Typography color='primary' variant='h6'>
-                                    Cách chọn vị trí đặt bàn ăn theo phong thủy
+                                <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
+                                    Bảo hành, hậu mãi chu đáo nhất
                                 </Typography>
                                 <hr></hr>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong gia đình.
-                                    Bạn cần phải lựa chọn được mẫu bàn ăn đẹp và phù hợp với không gian. Tuy
-                                    nhiên, cũng phải lựa chọn được vị trí đặt bàn ăn theo phong thủy để bày trí.
-                                    Điều này giúp mang lại nhiều điều may mắn cho gia chủ.
+                                <ul>
+                               <li>
+                                    <Typography>
+                                        Chính sách bảo hành sản phẩm là một trong những yếu tố giúp
+                                        các doanh nghiệp “ghi điểm” đối với khách hàng của mình.
+                                        Rất nhiều khách hàng lựa chọn sử dụng sản phẩm của Siêu Thị
+                                        Đồ Gỗ Thạch Thất từ những năm 90 của thế kỷ trước giờ vẫn sự
+                                        dụng tốt và cũng làm vật kỷ niệm.
+                                    </Typography>
+                               </li>
+                               <li>
+                                    <Typography>
+                                        Đây cũng là điều mà Nội Thất Dodo đã làm được. Chúng tôi
+                                        không ngừng tiếp thu những ý kiến đóng góp của khách hàng và
+                                        cải thiện chính sách bảo hành, bảo trì sản phẩm sau bán hàng.
+                                        Nhằm mang tới sự hài lòng nhất cho khách hàng khi sử dụng sản
+                                        phẩm và dịch vụ của chúng tôi.
+                                    </Typography>
+                               </li>
+                                <Typography variant='h6'>
+                                    Chế độ bảo hành sản phẩm dài hạn
                                 </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Cách lựa chọn vị trí đặt bàn ăn theo phong thủy trong nhà
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn trong gia đình phải lựa chọn được hướng tốt để đặt chúng. Đồng thời cũng phải kiêng kỵ một số điều trong việc lựa chọn vị trí đặt bàn ăn thì mới mang tới nhiều khí vượng cho ngôi nhà. Dưới đây là cách chọn vị trí đặt bàn ăn theo phong thủy.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Lựa chọn hướng tối để đặt bàn ăn
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn gia đình không được đặt ở vị trí hung. Có nghĩa là phải lựa chọn phương hướng hợp với ngũ hành của ngôi nhà. Để lựa chọn được phương hướng tốt đặt bàn ăn cần dựa vào quẻ mệnh và quẻ trạch.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <ol>
-                                        <li>
-                                            Quẻ mệnh có Đông tứ mệnh và Tây tứ mệnh.
+                                    <li>
+                                        <Typography>
+                                            Nhằm bảo vệ quyền lợi chính đáng của người tiêu dùng nội thất,
+                                            Nội Thất Dodo áp dụng chính sách bảo hành sản phẩm dài hạn.
+                                            Mỗi dòng sản phẩm của chúng tôi áp dụng chính sách bảo hành khác
+                                            nhau. Tuy nhiên thời gian bảo hành trung bình sản phẩm của chúng
+                                            tôi đều cao hơn so với nhiều đơn vị khác trên thị trường hiện nay.
+                                        </Typography>
                                     </li>
-                                        <ul>
-                                            <li>Nếu gia chủ thuộc mạng Thổ, Kim thì thuộc Tây tứ mệnh.</li>
-                                            <li>Nếu gia chủ thuộc mệnh Thủy, Hỏa, Mộc thì thuộc Đông tứ mệnh.</li>
-                                        </ul>
-                                        <li>
-                                            Quẻ trạch được phân theo hướng vị Đông tứ trạch và Tây tứ trạch.
-                                    </li>
-                                        <ul>
-                                            <li>Nhà ở hướng Tây, Tây Bắc, Tây Nam, Đông Nam thì thuộc Tây tứ trạch.</li>
-                                            <li>Nhà ở hướng Nam, Đông Nam, Đông hoặc Bắc thù thuộc Đông tứ trạch.</li>
-                                        </ul>
-                                    </ol>
+                                <Typography variant='h6' >
+                                    Bảo trì sản phẩm trọn đời
                                 </Typography>
-                                <Typography color='primary'>
-                                    Gia chủ mệnh Đông tứ mệnh thì nên kê bàn ghế ăn ở Đông tứ trách. Còn người Tây tứ mệnh thì nên kê bàn ghế ở hướng thuộc Tây tứ trạch. Lựa chọn vị trí đặt bàn ăn theo phong thủy như vậy sẽ là tốt nhất.
+                                <li>
+                                    <Typography>
+                                        Khách hàng sử dụng sản phẩm của Nội Thất Dodo được bảo trì
+                                        sản phẩm trọn đời. Trong quá trình sử dụng sản phẩm bạn gặp
+                                        bất cứ vấn đề, sự cố nào hãy liên hệ ngay với chúng tôi để được
+                                        hỗ trợ, khắc phục trong thời gian sớm nhất.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography>
+                                        Sản phẩm được bảo hành, bảo chỉ tại xưởng sản xuất cho nên tiết
+                                        kiệm thời gian tối đa. Chúng tôi khắc phục sự cố trong thời
+                                        gian sớm nhất, không làm ảnh hưởng tới cuộc sống sinh hoạt
+                                        của gia đình bạn.
+                                    </Typography>
+                                </li>
+                                <Typography variant='h6'>
+                                    Thường xuyên có chương trình khuyến mãi, ưu đãi
                                 </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Không đặt bàn ăn đối diện với bàn thờ
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary' >
-                                    Với những gia đình có thờ tượng Phật hoặc tượng Quan Âm thì không nên đặt bàn ăn đối diện với bàn thờ. Bởi bữa ăn mặn của gia đình đẽ mộ phạm tới thần thánh vì họ là người tu hành, ăn chay. Nên cố gắng giữ khoảng cách với bàn thờ nhằm đảm bảo sự tôn nghiêm, tĩnh lặng cho nơi thờ cúng. Đồng thời tạo cảm giác thoải mái tự do cho người ăn.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Không đặt bàn ăn thẳng với cửa lớn
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary' >
-                                    Theo quan niệm phong thủy: hỉ hồi toàn, kỵ trực xung” tác là thích vòng quanh, kỵ thẳng. Nếu bàn ăn phạm phải nguyên tắc phong thủy này sẽ khiến cho khí tốt trong nhà dễ dàng thoát ra ngoài.
-                                </Typography>
-                                <Typography color='primary'>
-                                    Nếu bàn ăn đặt thẳng với cửa lớn, người ngoài có thể nhìn thấy thành viên trong gia đình đang dùng bữa sẽ rất mất mỹ quan. Nên lựa chọn vị trí khác để đặt bàn ăn hoặc sử dụng bình phong để ngăn lại.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Bàn ăn không đặt đối diện với nhà vệ sinh
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Nhà vệ sinh là nơi sinh ra các khí độc, vì vậy nếu kê bàn ghế ăn đối diện với nhà vệ sinh sẽ mang tới tinh thần không tốt khi ăn. Điều này gây ảnh hưởng không nhỏ tới sức khỏe của mọi người. Nếu bạn không thể rời đi thì có thể đặt giữa bàn 1 chậu nước nhỏ hoặc chậy trúc khai vận để hóa giải.
-                                </Typography>
-                                <Typography color='primary'>
-                                    Trên đây là một số thông tin hữu ích dành cho bạn trong quá trình lựa chọn vị trí đặt bàn ăn theo phong thủy. Hãy tới ngay Nội thất Hoàng Gia Dodo để lựa chọn những mẫu bàn ghế ăn đẹp, giá thành hợp lý. Đồng thời được các nhân viên tư vấn về vị trí đặt bàn ăn phù hợp trong gia đình.
-                                </Typography>
+                               <li>
+                                    <Typography>
+                                        Để khách hàng có cơ hội sở hữu sản phẩm nội thất chất lượng cao với
+                                        giá ưu đãi, chúng tôi cũng thường xuyên áp dụng chương trình khuyến
+                                        mãi. Điều này giúp khách hàng tiết kiệm tối đa chi phí trong quá
+                                        trình đầu tư nội thất cho tổ ấm của mình.
+                                    </Typography>
+                               </li>
+                                <li>
+                                    <Typography>
+                                        Chính sách chăm sóc khách hàng của Nội Thất Dodo luôn hướng tới
+                                        việc đảm bảo quyền lợi của người tiêu dùng. Bởi vậy lựa chọn sử dụng
+                                        sản phẩm của chúng tôi là sự lựa chọn sáng suốt nhất của bạn!
+                                    </Typography>
+                                </li>
+                                </ul>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={2}></Grid>
                 </Grid>
-                <br></br> <br></br>
+                <br></br> 
                 <What classes={classes} />
             </div>
         )

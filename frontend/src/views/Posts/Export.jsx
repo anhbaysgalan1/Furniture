@@ -51,94 +51,169 @@ class Index extends BaseView {
                 <br></br>
                 <Home classes={classes} img={img} />
                 <br></br>
-                <Grid container spacing={32} >
-                    <Grid item xs={2}></Grid>
+                <Grid container spacing={32}>
+                    <Grid item xs={2}> </Grid>
                     <Grid item xs={8}>
                         <Card>
                             <CardContent>
-                                <Typography color='primary' variant='h6'>
-                                    Cách chọn vị trí đặt bàn ăn theo phong thủy
+                                <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
+                                    Đồ gỗ nội thất – tiêu chuẩn xuất khẩu
                                 </Typography>
                                 <hr></hr>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong gia đình.
-                                    Bạn cần phải lựa chọn được mẫu bàn ăn đẹp và phù hợp với không gian. Tuy
-                                    nhiên, cũng phải lựa chọn được vị trí đặt bàn ăn theo phong thủy để bày trí.
-                                    Điều này giúp mang lại nhiều điều may mắn cho gia chủ.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Cách lựa chọn vị trí đặt bàn ăn theo phong thủy trong nhà
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn trong gia đình phải lựa chọn được hướng tốt để đặt chúng. Đồng thời cũng phải kiêng kỵ một số điều trong việc lựa chọn vị trí đặt bàn ăn thì mới mang tới nhiều khí vượng cho ngôi nhà. Dưới đây là cách chọn vị trí đặt bàn ăn theo phong thủy.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Lựa chọn hướng tối để đặt bàn ăn
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Bàn ghế ăn gia đình không được đặt ở vị trí hung. Có nghĩa là phải lựa chọn phương hướng hợp với ngũ hành của ngôi nhà. Để lựa chọn được phương hướng tốt đặt bàn ăn cần dựa vào quẻ mệnh và quẻ trạch.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <ol>
-                                        <li>
-                                            Quẻ mệnh có Đông tứ mệnh và Tây tứ mệnh.
+                                <ul>
+                                    <Typography variant='h6'>
+                                        Chất Lượng Gỗ:
+                                    </Typography>
+                                    <li>
+                                        <Typography>
+                                            Sản phẩm được tuyển chọn và chọn lọc kỹ lưỡng ( lọc
+                                            sạch giác và gỗ gỗ không đạt chất lượng).
+                                        </Typography>
                                     </li>
-                                        <ul>
-                                            <li>Nếu gia chủ thuộc mạng Thổ, Kim thì thuộc Tây tứ mệnh.</li>
-                                            <li>Nếu gia chủ thuộc mệnh Thủy, Hỏa, Mộc thì thuộc Đông tứ mệnh.</li>
-                                        </ul>
-                                        <li>
-                                            Quẻ trạch được phân theo hướng vị Đông tứ trạch và Tây tứ trạch.
+                                    <li>
+                                        <Typography>
+                                            Ngay từ khâu nguyên liệu đầu vào vẫn được chú trọng và
+                                            kiểm định nghiêm ngoặt để đảm bảo được chất lượng sản
+                                            phẩm bền vững theo thời gian.
+                                        </Typography>
                                     </li>
-                                        <ul>
-                                            <li>Nhà ở hướng Tây, Tây Bắc, Tây Nam, Đông Nam thì thuộc Tây tứ trạch.</li>
-                                            <li>Nhà ở hướng Nam, Đông Nam, Đông hoặc Bắc thù thuộc Đông tứ trạch.</li>
-                                        </ul>
-                                    </ol>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Gia chủ mệnh Đông tứ mệnh thì nên kê bàn ghế ăn ở Đông tứ trách. Còn người Tây tứ mệnh thì nên kê bàn ghế ở hướng thuộc Tây tứ trạch. Lựa chọn vị trí đặt bàn ăn theo phong thủy như vậy sẽ là tốt nhất.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Không đặt bàn ăn đối diện với bàn thờ
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary' >
-                                    Với những gia đình có thờ tượng Phật hoặc tượng Quan Âm thì không nên đặt bàn ăn đối diện với bàn thờ. Bởi bữa ăn mặn của gia đình đẽ mộ phạm tới thần thánh vì họ là người tu hành, ăn chay. Nên cố gắng giữ khoảng cách với bàn thờ nhằm đảm bảo sự tôn nghiêm, tĩnh lặng cho nơi thờ cúng. Đồng thời tạo cảm giác thoải mái tự do cho người ăn.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Không đặt bàn ăn thẳng với cửa lớn
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary' >
-                                    Theo quan niệm phong thủy: hỉ hồi toàn, kỵ trực xung” tác là thích vòng quanh, kỵ thẳng. Nếu bàn ăn phạm phải nguyên tắc phong thủy này sẽ khiến cho khí tốt trong nhà dễ dàng thoát ra ngoài.
-                                </Typography>
-                                <Typography color='primary'>
-                                    Nếu bàn ăn đặt thẳng với cửa lớn, người ngoài có thể nhìn thấy thành viên trong gia đình đang dùng bữa sẽ rất mất mỹ quan. Nên lựa chọn vị trí khác để đặt bàn ăn hoặc sử dụng bình phong để ngăn lại.
-                                </Typography>
-                                <Typography color='primary'>
-                                    <li><b>
-                                        Bàn ăn không đặt đối diện với nhà vệ sinh
-                                    </b></li>
-                                </Typography>
-                                <Typography color='primary'>
-                                    Nhà vệ sinh là nơi sinh ra các khí độc, vì vậy nếu kê bàn ghế ăn đối diện với nhà vệ sinh sẽ mang tới tinh thần không tốt khi ăn. Điều này gây ảnh hưởng không nhỏ tới sức khỏe của mọi người. Nếu bạn không thể rời đi thì có thể đặt giữa bàn 1 chậu nước nhỏ hoặc chậy trúc khai vận để hóa giải.
-                                </Typography>
-                                <Typography color='primary'>
-                                    Trên đây là một số thông tin hữu ích dành cho bạn trong quá trình lựa chọn vị trí đặt bàn ăn theo phong thủy. Hãy tới ngay Nội thất Hoàng Gia Dodo để lựa chọn những mẫu bàn ghế ăn đẹp, giá thành hợp lý. Đồng thời được các nhân viên tư vấn về vị trí đặt bàn ăn phù hợp trong gia đình.
-                                </Typography>
+                                    <Typography variant='h6'>
+                                        Chất Lượng Gia Công:
+                                    </Typography>
+                                    <li>
+                                        <Typography>
+                                            Để sản phẩm đồ gỗ Việt Nam có thể xâm nhập vào các thị trường
+                                            quốc tế khó tính như Hoa Kỳ, châu Âu, Nhật Bản… việc tuân thủ
+                                            những quy định khắt khe về chất lượng sản phẩm là yêu cầu bắt
+                                            buộc với các doanh nghiệp.
+                                        </Typography>
+                                    </li>
+                                    <Typography variant='h6'>
+                                        Hàng được tẩm sấy kỹ càng đạt độ ẩm từ 8% – 12%
+                                    </Typography>
+                                    <Typography style={{ fontStyle: 'italic' }} >
+                                        Tại sao lại cần phải sấy gỗ?
+                                    </Typography>
+                                    <li> 
+                                        <Typography>
+                                            Kích thước ổn định: Sấy sẽ làm cho các tấm gỗ có
+                                            kích thước ổn định hơn. Nếu gỗ không được sấy khô
+                                            đúng cách, đúng tiêu chuẩn thì sẽ không duy trì được
+                                            kích thước của nó. Như thế sẽ ảnh hưởng đến quá trình
+                                            thi gia công.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Hạn chế mối mọt ăn hại: Gỗ sấy sẽ không bị mối mọt
+                                            ăn hại một cách dễ dàng. Dễ bảo quản, quá trình hoàn
+                                            thiệt và đóng các sản phẩm đồ gỗ dễ dàng hơn.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Giảm trong lượng: Khi gỗ đã được sấy khô, trọng lượng
+                                            của nó cũng giảm đáng kể. Giúp quá trình vận chuyển sẽ trở
+                                            nên dễ dàng hơn. Chi phí vận chuyển thấp hơn.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <i>
+                                            <Typography>
+                                                Ngoài ra khi gỗ được xử lý tẩm sấy xong sẽ cải
+                                                thiện được nhiều mặt về tính chất. Gỗ sẽ hạn chế
+                                                được cong vênh, mối mọt ăn hại. Gỗ sẽ tốt hơn,
+                                                chất lượng hơn, chất lượng sản phẩm đồ gỗ cũng tốt hơn,
+                                                tuổi thọ được kéo dài và hiệu quả sử dụng được cải thiện đáng kể.
+                                            </Typography>
+                                        </i>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <Typography variant='h6'>
+                                        Các khớp nối và mộng đinh chốt, mộng âm đảm bảo bền vững theo thời gian.
+                                    </Typography>
+                                    <Typography style={{fontStyle: 'italic'}}>
+                                        Mộng đinh chốt hay mộng đinh âm là gì?
+                                    </Typography>
+                                    <li>
+                                        <Typography>
+                                            Nó là những thứ nằm bên trong sản phẩm và thông thường
+                                            chúng ta không nhìn thấy được, nó dùng để làm cho mối nối
+                                            giữa các chi tiết với nhau được chắc chắn, bền lâu và các chi tiết
+                                            không bị rời ra theo thời gian khi sử dụng sản phẩm.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Vì 1 sản phẩm không có mộng sẽ có tuổi thọ cực kì thấp, các chi
+                                            tiết sẽ bị rụng rời va bung ra trong quá trình sử dụng hoặc chỉ
+                                            cần tác động nhẹ thì nó sẽ bung ra và hư hỏng (thông thường hàng
+                                            chợ hoặc những địa chỉ kém chất lượng sẽ bỏ qua khâu này để nhanh,
+                                            hạn chế công thợ và giá thành rất rẻ).
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Ngoài ra, sản phẩm được gia công cẩn thận, sử dụng mộng đinh chốt
+                                            mộng âm thì còn có kỹ thuật lắp ráp rất hoàn hảo. Thợ chạm trổ tỉ
+                                            mỉ, kỹ lưỡng và sắc nét làm cho sản phẩm đẹp và có hồn,cái này cần
+                                            phải đòi hỏi người thợ phải có kinh nghiệm xử lí gỗ rất lâu năm.
+                                            Đến khâu hoàn thiện cũng phải cần nhân lực tỉ mỉ, cẩn thận từng
+                                            chút một, từ trong ra ngoài, ngay cả sản phẩm nhỏ nhất hay những
+                                            khe kẽ ngóc ngách rất khó thi công.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Vì vậy Nội Thất Dodo là công ty có thương hiệu lớn với bề dày
+                                            và uy tín lâu năm trong ngành, chất lượng, tay nghề cao luôn luôn
+                                            đảm bảo đầy đủ về mặt kỹ thuật gia công và chất lượng sản phẩm và
+                                            gây tiếng vang lớn trên thị trường đồ gỗ.
+                                        </Typography>
+                                    </li>
+                                    <Typography variant='h6'>
+                                        Quá trình hoàn thiện sản phẩm cũng như sơn PU.
+                                    </Typography>
+                                    <li>
+                                        <Typography>
+                                            Vai trò của sơn gỗ đối với các đồ nội thất và đồ gỗ hiện nay
+                                            đóng vai trò rất quan trọng. Nếu các đồ nội thất không có sự
+                                            đa dạng về màu sắc thì sự lựa chọn của khách hàng sẽ bị giảm
+                                            đi nhiều. Mỗi khách hàng sẽ có nhu cầu về màu sắc sản phẩm
+                                            khác nhau. Do vậy, sự có mặt trên thị trường của sơn PU gỗ
+                                            là sự trợ giúp đắc lực không thể bỏ qua cho những người thợ
+                                            cũng như người sản xuất. Những sản phẩm nội thất gỗ ngày nay
+                                            đã khoác lên mình rộng rãi màu sắc khác nhau, vô cùng sinh
+                                            động. Người sử dụng cũng dễ dàng tự do lựa tìm cho mình các
+                                            món đồ nội thất có màu sắc ưng ý với màu sơn căn phòng, ngôi
+                                            nhà mình.
+                                        </Typography>
+                                    </li>
+                                    <li>
+                                        <Typography>
+                                            Ngoài tác dung giúp các sản phẩm gỗ có vẻ đẹp bên ngoài sinh
+                                            động hơn thì sơn gỗ cũng góp phần giữ độ bền cho sản phẩm,
+                                            tránh độ cong vênh của sản phẩm. Vốn dĩ các sản phẩm gỗ thường
+                                            hay bị cong vênh khi thời tiết bên ngoài thay đổi nhưng nhờ
+                                            lớp sơn gỗ phủ lên trên sản phẩm gỗ không những che bớt những
+                                            “khuyết điểm” của bề mặt gỗ sau khi gia công, chế tác. Nó giúp
+                                            bề mặt sản phẩm sơn đều, bóng hơn với thời gian tiêu dùng dài,
+                                            mặt sơn không bị rạn nứt.Tại Nội Thất Dodo thì chúng tôi sử
+                                            dụng tất cả 5 nước với 3 nước lót, 1 phun PU màu và 1 nước bóng.
+                                            Với tỉ lệ pha trộn từ bóng mờ 50, 70 và 100. Được đội ngũ kĩ thuật
+                                            chuyên sâu nghiên cứu thời gian lâu và cho ra đời với những thành
+                                            quả tuyệt vời và đọc nhất trên thị trường hiện nay!
+                                        </Typography>
+                                    </li>
+                                </ul>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item xs={2}></Grid>
+                    <Grid item xs={2}> </Grid>
                 </Grid>
-                <br></br> <br></br>
+                <br></br> 
                 <What classes={classes} />
             </div>
         )

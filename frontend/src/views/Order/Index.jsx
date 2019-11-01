@@ -46,10 +46,10 @@ const styles = theme => ({
         marginRight: '5px'
     },
     form: {
-        padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
+        padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
     },
     card: {
-        padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,  
+        padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,  
     }
 })
 

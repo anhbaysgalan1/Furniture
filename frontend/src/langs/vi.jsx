@@ -362,6 +362,7 @@ export default {
         unRound: "UnRound"
     },
     Sidebar: {
+        
         order: "Quan ly don hang",
         goods: "Quan ly hang hoa",
         bad: 'Giường ngủ',
@@ -397,6 +398,12 @@ export default {
         distance_fuel: "Bảng lịch sử chấm công theo ngày"
     },
     Breadcrumb: {
+        postsChangeTable: 'Chọn vị trí bàn ăn',
+        postsSizebad: 'Chọn kích thước giường',
+        postsExport: 'Đạt tiêu chuẩn xuất khẩu',
+        postsQuality: 'Tiêu chuẩn xuất khẩu',
+        postsGuarantee: 'Bảo hành chu đáo',
+        postsQuality: 'Tiêu chuẩn xuất khẩu',
         goodsIndex: 'Quan ly hang hoa',
         orderIndex: 'Quan ly don hang',
         badIndex: 'Giường ngủ',

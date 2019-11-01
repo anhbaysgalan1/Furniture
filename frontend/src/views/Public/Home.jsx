@@ -55,6 +55,7 @@ class Index extends BaseView {
                                 backgroundImage: img,
                                 height: '100%',
                                 width: '100%',
+                                backgroundSize:"100% 100%",
                             }}
                         >
                             <div style={{ color: '#2196f3' }} className={classes.fromCompany}>

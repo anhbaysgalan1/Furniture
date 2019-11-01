@@ -22,7 +22,7 @@ const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
 const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
 const PostsExport           = lazy(() => import('containers/Posts/Export'))
 const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
-const Posts                 = lazy(() => import('containers/Posts/SizeBad'))
+const PostsQuality          = lazy(() => import('containers/Posts/Quality') )
 
 const routes = [
     {
@@ -145,7 +145,16 @@ const routes = [
         exact: true,
         sidebarName: 'posts'
     },
+    {
+        path: "/quality",
+        name: 'quality',
+        title: () => I18n.t("Breadcrumb.postsQuality"),
+        component: () => <PostsQuality />,
+        exact: true,
+        sidebarName: 'posts'
+    },
     //--------------------------------------
+    
     {
         path: "/users",
         name: 'user',

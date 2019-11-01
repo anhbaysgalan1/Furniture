@@ -41,12 +41,12 @@ const styles = theme => ({
     maxWidth: 300,
   },
   title: {
-    color: 'white', 
-    marginTop: '30px', 
+    color: 'white',
+    marginTop: '30px',
     marginBottom: '15px'
   },
   cssIcon: {
-    color: 'white', 
+    color: 'white',
     fontSize: '30px'
   },
   imgZoom: {
@@ -73,7 +73,7 @@ const arrImg = [
     title: 'Đạt tiêu chuẩn xuất khẩu',
   },
   {
-    image:  what3, //"https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1",
+    image: what3, //"https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1",
     title: 'Chất lượng hoàng gia',
   },
   {
@@ -126,10 +126,23 @@ class Index extends BaseView {
                 <Grid container spacing={32}>
                   {
                     arrImg.map((element, index) => {
+                      let link = '/convenient'
+                      switch (index) {
+                        case 1:
+                          link = './export'
+                          break
+                        case 2:
+                          link = './quality'
+                          break
+                        case 3:
+                          link = './guarantee'
+                      }
                       return (
                         <Grid item xs={3} key={index}>
                           <Card className={classes.card}>
-                            <CardActionArea>
+                            <CardActionArea
+                            onClick={() => this.goto(link)}
+                            >
                               <CardMedia
                                 className={classes.imgZoom}
                                 component="img"

@@ -55,23 +55,24 @@ class Index extends BaseView {
                     <Grid item xs={8}>
                         <Card>
                             <CardContent>
-                                <Typography color='primary' variant='h6'>
+                                <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
                                     Kích thước giường ngủ theo lỗ ban hợp phong thủy
                                 </Typography>
                                 <hr></hr>
-                                <Typography color='primary'>
+                                <ul>
+                                <Typography>
                                     Nếu muốn lựa chọn được chiếc giường ngủ hợp phong thủy thì bạn cần phải chú ý
                                     tới kích thước giường ngủ theo lỗ ban. Dưới đây là cách chọn kích thước 
                                     giường ngủ theo thước lỗ ban cho từng loại giường. Bạn hãy tham khảo ngay nhé!
                                 </Typography>
                                 
-                                    <Typography color='primary'>
+                                    <Typography>
                                         <b><li>
                                             Thước lỗ ban là gì?
                                         </li></b>
                                     </Typography>
                                
-                                <Typography color='primary'>
+                                <Typography>
                                     Thước lỗ ban 42,9 cm có 8 cung lớn, mỗi cung lớn lại được chia thành 4 cung nhỏ và
                                     chúng có ý nghĩa khác nhau. Dưới đây là một số ý nghĩa các cung trong thước lỗ ban.
                                 </Typography>
@@ -79,17 +80,17 @@ class Index extends BaseView {
                                     src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_750,h_246/http://thachthatdecor.com.vn/wp-content/uploads/2019/06/kich-thuoc-giuong-ngu-theo-lo-ban-1.jpg"
                                     alt="Dodo"
                                 />
-                                <Typography color='primary'>
+                                <Typography>
                                     <b><li>
                                         Tìm hiểu một số các cung trong thước lỗ ban 42,9 cm
                                     </li></b>
                                 </Typography>
-                                <Typography color='primary'>
+                                <Typography>
                                     Thước lỗ ban 42,9 cm có 8 cung lớn, mỗi cung lớn lại được chia 
                                     thành 4 cung nhỏ và chúng có ý nghĩa khác nhau. 
                                     Dưới đây là một số ý nghĩa các cung trong thước lỗ ban.
                                 </Typography>
-                                <Typography color='primary'> 
+                                <Typography> 
                                     Một chu kỳ của thước lỗ ban 42,9 cm có 8 cung theo thứ tự từ tráng sang phải đó là: 
                                     Tài – Bệnh – Ly – Nghĩa – Quan – Kiếp – Hại – Bản. Cứ sau 42,9 cm thì chu kỳ này 
                                     lại lặp lại. Dựa theo nguyên tắc này bạn sẽ dễ tính toán kích thước giường ngủ 
@@ -97,52 +98,52 @@ class Index extends BaseView {
                                     được cung nào cung xấu và cung nào cung tốt. Do đó lựa chọn kích thước giường ngủ 
                                     theo lỗ ban nên nằm trong những cung tốt để mang tới nhiều điều may mắn, tốt lành cho gia chủ.
                                 </Typography>
-                                <Typography color='primary'>
+                                <Typography>
                                     <b><li>
                                         Hướng dẫn cách đo kích thước giường ngủ theo lỗ ban
                                     </li></b>
                                 </Typography>
-                                <Typography color='primary'> 
+                                <Typography> 
                                     Khi sử dụng thước lỗ ban 42,9 cm bạn có thể nhìn thấy rõ khoảng tốt có màu đỏ và 
                                     khoảng xấu có màu đen để giúp bạn biết được giường ngủ có kích thước hợp phong thủy hay không.
                                 </Typography>
-                                <Typography color='primary'> 
+                                <Typography> 
                                     Nguyên tắc để đo kích thước giường ngủ theo lỗ ban đó là đo kích thước phủ bì dài, rộng, cao 
                                     hoặc đo đường kính. Do đó rất đơn giản để sử dụng thước lỗ ban để đo kích thước cho giường ngủ. 
                                     Phải đo kích thước phủ bì của giừng ngủ, lựa chọn kích thước rơi và cung tốt là những cung 
                                     có màu đỏ.
                                 </Typography>
-                                <Typography color='primary'>
+                                <Typography>
                                     <b><li>
                                         Một số kích thước giường ngủ theo lỗ ban cho từng loại giường ngủ
                                     </li></b>
                                 </Typography>
-                                <Typography color='primary'>
+                                <Typography>
                                     Mỗi loại giường ngủ lại có kích thước khác nhau. Dưới đây là một số gợi ý lựa 
                                     chọn kích thước giường ngủ hợp phong thủy cho bạn tham khảo.
                                 </Typography>
-                                <Typography color='primary'>
+                                <Typography>
                                     Kích thước giường đơn
                                 </Typography>
                                 <img 
                                     src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_600,h_600/http://thachthatdecor.com.vn/wp-content/uploads/2019/06/kich-thuoc-giuong-ngu-theo-lo-ban-2.jpg'
                                     alt='Dodo'
                                 />
-                                <Typography color='primary'>
+                                <Typography>
                                     Kích thước giường ngủ trung bình
                                 </Typography>
                                 <img 
                                     src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_600,h_377/http://thachthatdecor.com.vn/wp-content/uploads/2019/06/kich-thuoc-giuong-ngu-theo-lo-ban-3.jpg"
                                     alt='Dodo'
                                 />
-                                <Typography color='primary'>
+                                <Typography>
                                     Kích thức giường ngủ đôi – King size
                                 </Typography>
                                 <img 
                                     src='https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_600,h_349/http://thachthatdecor.com.vn/wp-content/uploads/2019/06/kich-thuoc-giuong-ngu-theo-lo-ban-4.jpg'
                                     alt='Dodo'
                                 />
-                                <Typography color='primary'>
+                                <Typography>
                                     Kích thước giường ngủ Super King
                                 </Typography>
                                 <img 
@@ -156,13 +157,13 @@ class Index extends BaseView {
                                     Hãy tới ngay showroom Đồ Gỗ Thạch Thất để được tư vấn và lựa 
                                     chọn những mẫu giường ngủ đẹp, hợp phong thủy.
                                 </Typography>
-                                <br></br>
+                                </ul>
                             </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={2}> </Grid>
                 </Grid>
-                <br></br> <br></br>
+                <br></br>
                 <What classes={classes} />
             </div>
         )
