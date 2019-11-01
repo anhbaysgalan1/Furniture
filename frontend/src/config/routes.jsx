@@ -2,23 +2,23 @@ import React, { lazy } from 'react'
 import _ from 'lodash'
 import { I18n } from 'react-redux-i18n'
 import { Redirect } from 'react-router'
-const NotFound = lazy(() => import('../layouts/NotFound'))
+const NotFound      = lazy(() => import('../layouts/NotFound'))
 const UserIndex     = lazy(() => import('containers/User/Index'))
 const CenterIndex   = lazy(() => import('containers/Center/Index'))
 const InfoIndex     = lazy(() => import('containers/Info/Index'))
 const ContactIndex  = lazy(() => import('containers/Contact/Index'))
-const GoodsIndex  = lazy(() => import('containers/Goods/Index'))
-const GoodsCreate = lazy(() => import('containers/Goods/Create'))
-const GoodsEdit   = lazy(() => import('containers/Goods/Edit'))
-const OrderIndex   = lazy(() => import('containers/Order/Index'))
+const GoodsIndex    = lazy(() => import('containers/Goods/Index'))
+const GoodsCreate   = lazy(() => import('containers/Goods/Create'))
+const GoodsEdit     = lazy(() => import('containers/Goods/Edit'))
+const OrderIndex    = lazy(() => import('containers/Order/Index'))
 // const OrderCreate  = lazy(() => import('containers/Order/Create'))
 // const OrderEdit    = lazy(() => import('containers/Order/Edit'))
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
 const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
-const WindWaterChangeTable  = lazy(() => import('containers/WindWater/ChangeTable'))
-const WindWaterSizeBad      = lazy(() => import('containers/WindWater/SizeBad'))
+const PostsChangeTable  = lazy(() => import('containers/Posts/ChangeTable'))
+const PostsSizeBad      = lazy(() => import('containers/Posts/SizeBad'))
 
 const routes = [
     {
@@ -95,18 +95,18 @@ const routes = [
     {
         path: "/size-bad",
         name: 'sizebad',
-        title: () => I18n.t("Breadcrumb.windWaterIndex"),
-        component: () => <WindWaterSizeBad />,
+        title: () => I18n.t("Breadcrumb.postsSizebad"),
+        component: () => <PostsSizeBad />,
         exact: true,
-        sidebarName: 'windwater'
+        sidebarName: 'posts'
     },
     {
         path: "/change-table",
         name: 'changetable',
-        title: () => I18n.t("Breadcrumb.windWaterChangeTable"),
-        component: () => <WindWaterChangeTable />,
+        title: () => I18n.t("Breadcrumb.postsChangeTable"),
+        component: () => <PostsChangeTable />,
         exact: true,
-        sidebarName: 'windwater'
+        sidebarName: 'posts'
     },
     {
         path: "/users",

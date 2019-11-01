@@ -43,23 +43,23 @@ import ViewDetail from './ViewDetail'
 import _ from 'lodash'
 
 const styles = theme => ({
-   // title: {
-   //    padding: '5px',
-   //    backgroundColor: '#039be5',
-   //    color: 'white',
-   // },
-   // imgZoom: {
-   //    transition: "transform .5s, filter 3s ease-in-out",
-   //    filter: "grayscale(100%)",
-   // },
-   // imgZoom: {
-   //    "&:hover": {
-   //       filter: "grayscale(0)",
-   //       transform: "scale(1.1)",
-   //       transitionDuration: "1s",
-   //       transitionTimingFunction: "linear",
-   //    }
-   // },
+   title: {
+      padding: '5px',
+      backgroundColor: '#039be5',
+      color: 'white',
+   },
+   imgZoom: {
+      transition: "transform .5s, filter 3s ease-in-out",
+      filter: "grayscale(100%)",
+   },
+   imgZoom: {
+      "&:hover": {
+         filter: "grayscale(0)",
+         transform: "scale(1.1)",
+         transitionDuration: "1s",
+         transitionTimingFunction: "linear",
+      }
+   },
 })
 
 let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
@@ -67,14 +67,63 @@ let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thu
 let arrImg = [
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR28pOith5LbKoktDLiSdWaybeWgdp2hBsGPw60JraXejYmcoyQ&s',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR28pOith5LbKoktDLiSdWaybeWgdp2hBsGPw60JraXejYmcoyQ&s',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
@@ -342,16 +391,11 @@ class Index extends BaseView {
                      classes={classes} 
                      onSubmit={onSubmit} 
                   /> 
-               :  <ViewDetail
-                     onCancel={this.onCancel} 
-                     dataGoods={dataGoods} 
-                     classes={classes} 
-                     onSubmit={onSubmit} 
-                  />
+               :  ""
             }
-            {/* {
+            {
                this.renderNature(classes)
-            } */}
+            }
             {/* {
                this.renderIndustry(classes)
             }

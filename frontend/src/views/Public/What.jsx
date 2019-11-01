@@ -109,7 +109,7 @@ class Index extends BaseView {
               <Grid container spacing={32}>
                 <Grid item xs={12}>
                   <Typography className={classes.title} variant='h4' component='h4'>
-                    BẠN NÊN LỰA CHỌN CHÚNG TÔI
+                    HÃY ĐẾN VỚI CHÚNG TÔI
                   </Typography>
                   <StarRateIcon className={classes.cssIcon} />
                   <StarRateIcon className={classes.cssIcon} />

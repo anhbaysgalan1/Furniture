@@ -52,6 +52,11 @@ class App extends Component {
             }
         }
         this.onHandleChange = this.onHandleChange.bind(this)
+        this.onCancel = this.onCancel.bind(this)
+    }
+
+    onCancel(classes) {
+        this.props.onCancel()
     }
 
     onHandleChange(value, name) {
@@ -78,7 +83,7 @@ class App extends Component {
         return (
             <Dialog
                 fullWidth={true}
-                // onClose={this.onCancel}
+                onClose={this.onCancel}
                 open={true}
                 maxWidth='md'
                 aria-labelledby="draggable-dialog-title"
@@ -173,10 +178,10 @@ class App extends Component {
                         </Grid>
                     </DialogContent>
                     <DialogActions>
-                        <Button color='primary'>
+                        <Button color='primary' onClick={() => this.onCancel()}>
                             Hủy bỏ
                         </Button>
-                        <Button color='primary' type='submit' autoFocus >
+                        <Button color='primary' type='submit' autoFocus>
                             Gửi
                         </Button>
                     </DialogActions>

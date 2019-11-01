@@ -242,11 +242,11 @@ class Index extends BaseView {
 
     renderToolbarActions() {
         return [
-            <Tooltip title={I18n.t("toolTip.new")} key="create">
-                <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
-                    {I18n.t("Button.create")}
-                </Button>
-            </Tooltip>,
+            // <Tooltip title={I18n.t("toolTip.new")} key="create">
+            //     <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
+            //         {I18n.t("Button.create")}
+            //     </Button>
+            // </Tooltip>,
         ]
     }
 

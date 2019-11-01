@@ -144,7 +144,8 @@ class Main extends React.Component {
                 className={classes.appBar}
                 color="primary"
             >
-                <Toolbar variant='dense' style={{marginLeft: '100px'}} >
+                <Toolbar variant='dense' style={{marginLeft: '100px'}} > 
+                {/* variant='regular' */}
                     <Sidebar route={route}/>
                     {/* <DrawerMobileMenu route={route} /> */}
                     {/* <div id='top-buttom_image'>

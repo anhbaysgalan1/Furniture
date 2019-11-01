@@ -6,13 +6,33 @@ import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import { withRouter } from 'react-router-dom'
 import PaperFade from "components/Main/PaperFade"
-import { Tab, AppBar, Tabs, Typography, Button, Grid, Card, CardActions, CardContent } from '@material-ui/core'
+import { 
+    Tab, 
+    AppBar, 
+    Paper, 
+    Icon, 
+    IconButton,
+    Tabs, 
+    Typography, 
+    Button, 
+    Grid, 
+    Toolbar, 
+    Card, 
+    CardActions, 
+    CardContent
+} from '@material-ui/core'
 import Bad from './Components/Bad'
 import BadIndustry from './Components/BadIndustry'
 import BadNature from './Components/BadNature'
+
 import BadModern from './Components/BadModern'
 import BadClassic from './Components/BadClassic'
 import BadHot from './Components/BadHot'
+
+import PhoneIcon from '@material-ui/icons/Phone';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import PersonPinIcon from '@material-ui/icons/PersonPin'
+
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -51,46 +71,30 @@ function NavTabs(data) {
     let onSubmit = _.get(data, 'onSubmit', '')
     return (
         <div>
-            {/* position="sticky" khi két chuật lên trên cùng Tabs sẽ thay thế menu */}
-            <AppBar position="sticky" color="default"> 
+            <AppBar position="static" color="default"> 
+                <Paper square component='div'>
                 <Tabs
-                    textColor="inherit"
-                    indicatorColor="secondary"
+                    textColor="primary"
+                    indicatorColor="primary"
                     value={value}
                     variant='fullWidth'
                     onChange={handleChange}
+                    aria-label="icon tabs example"
                 >
-                    <LinkTab label={I18n.t("Worker.Tất cả")} href="/bad" />
-                    <LinkTab label={I18n.t("Worker.Giường gỗ tự tiên")} href="/bad1" />
-                    <LinkTab label={I18n.t("Worker.Giường gỗ công nghiệp")} href="/bad2" />
-                    <LinkTab label={I18n.t("Worker.Giường gỗ hiện đại")} href="/bad2" />
-                    <LinkTab label={I18n.t("Worker.Giường gỗ cổ điển")} href="/bad2" />
-
+                    <Tab label={I18n.t("Worker.Tất cả")} />
+                    <Tab label={I18n.t("Worker.Giường gỗ tự tiên")} />
+                    <Tab label={I18n.t("Worker.Giường gỗ công nghiệp")} />
+                    <Tab label={I18n.t("Worker.Giường gỗ hiện đại")} />
+                    <Tab label={I18n.t("Worker.Giường gỗ cổ điển")} />
                 </Tabs>
+                </Paper>
             </AppBar>
             <div>
-                {
-                    value === 0 && 
-                    // <TabContainer> 
-                    //     <Bad classes={classes} onSubmit={onSubmit}/> 
-                    // </TabContainer>
-                    <Typography component="div" >
-                        <Bad classes={classes} onSubmit={onSubmit}/> 
-                    </Typography>
-
-                }
-                {
-                    value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} /> </TabContainer>
-                }
-                {
-                    value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} /> </TabContainer>
-                }
-                {
-                    value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} /> </TabContainer>
-                }
-                {
-                    value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} /> </TabContainer>
-                }
+                { value === 0 && <TabContainer> <Bad classes={classes} onSubmit={onSubmit}/> </TabContainer> }
+                { value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} /> </TabContainer> }
+                { value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} /> </TabContainer> }
+                { value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} /> </TabContainer> }
+                { value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} /> </TabContainer> }
             </div>
         </div>
     )
