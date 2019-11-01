@@ -115,7 +115,7 @@ class Index extends BaseView {
                     </Grid>
                     <Grid item xs={6}>
                         <Typography color='primary' variant='h5'>
-                            CÔNG TY CỔ PHẦN NỘI THẤT HOÀNG GIA DODO – ĐỒ GỖ NỘI THẤT
+                            CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
                         </Typography>
                         <Typography color='primary'>
                             Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội

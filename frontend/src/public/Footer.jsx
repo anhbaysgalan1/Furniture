@@ -90,7 +90,7 @@ class Footer extends BaseView {
                 <hr></hr>
                 <Typography component="h6" >
                     <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
-                    &nbsp; ĐỒ GỖ NỘI THẤT HOÀNG GIA DODO
+                    &nbsp; ĐỒ GỖ NỘI THẤT DODO
                 </Typography>
                 <Typography component="h6" >
                     <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
@@ -134,7 +134,7 @@ class Footer extends BaseView {
                             <Grid item xs={4}>
                                 <Grid container spacing={8}>
                                     <Typography variant='h6' component="h6" >
-                                        Nội thất hoàng gia Dodo
+                                        Đồ gỗ nội thất Hoàng gia Dodo
                                     </Typography>
                                     <Map latitudeIn={20.979531} longitudeIn={105.785417} />
                                 </Grid>
@@ -145,7 +145,7 @@ class Footer extends BaseView {
                 </div>
                 <Typography style={{ color: 'white', backgroundColor: '#9e9e9e' }} variant='h6'>
                     <span style={{ marginLeft: '10px', height: '50px' }}>
-                        Nội thất Hoàng Gia DoDo - noithat.dodo@gmail.com
+                        Đồ gỗ nội thất Hoàng gia DoDo - noithat.dodo@gmail.com
                     </span>
                 </Typography>
             </div>

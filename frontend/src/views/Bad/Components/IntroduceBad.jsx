@@ -80,7 +80,7 @@ class Index extends BaseView {
                                         Giường ngủ gỗ tự nhiên:
                                     </Typography>
                                     <Typography>
-                                        Thương hiệu Nội Thất Hoàng Gia Dodo làm 100%
+                                        Thương hiệu  Đồ gỗ nội thất Hoàng gia Dodo làm 100%
                                         từ các loại gỗ tự nhiên cao cấp. Với vân gỗ đẹp, màu sắc tự nhiên,
                                         hương thơm nhẹ nhàng đặc trưng của từng loại gỗ được giữ nguyên một
                                         cách tốt nhất. Là lựa chọn hàng đầu hiện nay được khách hàng tin tưởng

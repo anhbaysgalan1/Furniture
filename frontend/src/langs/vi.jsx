@@ -410,7 +410,7 @@ export default {
         diningRoomIndex: 'Phòng bếp',
         tableEatIndex: 'Bàn ăn',
         tableRestaurantIndex: 'Bàn nhà hàng',
-        centerIndex: 'Nội thất Dodo',
+        centerIndex: 'Đồ gỗ nội thất Dodo',
         infoIndex: 'Giới thiệu',
         contactIndex: 'Liên hệ',
         registrationIndex: "Đăng kí",

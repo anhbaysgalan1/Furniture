@@ -30,11 +30,7 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    titleContent: {
-        padding: '5px',
-        backgroundColor: '#039be5',
-        color: 'white',
-    },
+
 })
 
 
@@ -50,7 +46,7 @@ class Index extends BaseView {
             <Grid container spacing={16}>
                 <Grid item lg={2}></Grid>
                 <Grid item lg={9}>
-                    <Typography variant='h5' className={classes.titleContent}> 
+                    <Typography variant='h5'> 
                         Đạt tiêu chuẩn chất lượng xuất khẩu 
                     </Typography>
                     <br></br>
@@ -174,7 +170,7 @@ class Index extends BaseView {
         let { classes } = this.props
         let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
-            <div>
+            <span>
                 <Header classes={classes} />
                 <br></br>
                 <Home classes={classes} img={img} />
@@ -186,7 +182,7 @@ class Index extends BaseView {
                 }
                 <br></br>
                 <What classes={classes} />
-            </div>
+            </span>
         )
     }
 }
