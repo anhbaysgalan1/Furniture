@@ -17,8 +17,12 @@ const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
 const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
-const PostsChangeTable  = lazy(() => import('containers/Posts/ChangeTable'))
-const PostsSizeBad      = lazy(() => import('containers/Posts/SizeBad'))
+const PostsChangeTable      = lazy(() => import('containers/Posts/ChangeTable'))
+const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
+const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
+const PostsExport           = lazy(() => import('containers/Posts/Export'))
+const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
+const Posts                 = lazy(() => import('containers/Posts/SizeBad'))
 
 const routes = [
     {
@@ -29,13 +33,15 @@ const routes = [
         },
         exact: true,
         name: 'dashboard'
-      },
+    },
+    //--------------------------------------
     {
         path: "/not-found",
         component: () => <NotFound />,
         exact: true,
         name: 'dashboard'
     },
+    //--------------------------------------
     {
         path: "/center",
         name: 'center',
@@ -44,6 +50,7 @@ const routes = [
         exact: true,
         sidebarName: 'center'
     },
+    //--------------------------------------
     {
         path: "/info",
         name: 'info',
@@ -52,6 +59,7 @@ const routes = [
         exact: true,
         sidebarName: 'info'
     },
+    //--------------------------------------
     {
         path: "/bad",
         name: 'bad',
@@ -60,6 +68,7 @@ const routes = [
         exact: true,
         sidebarName: 'bad'
     },
+    //--------------------------------------
     {
         path: "/dining-room",
         name: 'diningRoom',
@@ -68,6 +77,7 @@ const routes = [
         exact: true,
         sidebarName: 'diningRoom'
     },
+    //--------------------------------------
     {
         path: "/table-eat",
         name: 'tableEat',
@@ -76,7 +86,8 @@ const routes = [
         exact: true,
         sidebarName: 'tableEat'
     },
-        {
+    //--------------------------------------
+    {
         path: "/table-restaurant",
         name: 'tableRestaurant',
         title: () => I18n.t("Breadcrumb.TableRestaurantIndex"),
@@ -84,6 +95,7 @@ const routes = [
         exact: true,
         sidebarName: 'tableRestaurant'
     },
+    //--------------------------------------
     {
         path: "/contact",
         name: 'contact',
@@ -91,6 +103,15 @@ const routes = [
         component: () => <ContactIndex />,
         exact: true,
         sidebarName: 'contact'
+    },
+    //--------------------------------------
+    {
+        path: "/change-table",
+        name: 'changetable',
+        title: () => I18n.t("Breadcrumb.postsChangeTable"),
+        component: () => <PostsChangeTable />,
+        exact: true,
+        sidebarName: 'posts'
     },
     {
         path: "/size-bad",
@@ -101,13 +122,30 @@ const routes = [
         sidebarName: 'posts'
     },
     {
-        path: "/change-table",
-        name: 'changetable',
-        title: () => I18n.t("Breadcrumb.postsChangeTable"),
-        component: () => <PostsChangeTable />,
+        path: "/convenient",
+        name: 'Convenient',
+        title: () => I18n.t("Breadcrumb.postsConvenient"),
+        component: () => <PostsConvenient />,
         exact: true,
         sidebarName: 'posts'
     },
+    {
+        path: "/export",
+        name: 'export',
+        title: () => I18n.t("Breadcrumb.postsExport"),
+        component: () => <PostsExport />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    {
+        path: "/guarantee",
+        name: 'guarantee',
+        title: () => I18n.t("Breadcrumb.postsGuarantee"),
+        component: () => <PostsGuarantee />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    //--------------------------------------
     {
         path: "/users",
         name: 'user',
@@ -116,6 +154,7 @@ const routes = [
         exact: true,
         sidebarName: 'user'
     },
+    //--------------------------------------
     {
         path: "/goods",
         name: 'goods',
@@ -140,6 +179,7 @@ const routes = [
         exact: true,
         sidebarName: 'goods'
     },
+    //--------------------------------------
     {
         path: "/order",
         name: 'order',
