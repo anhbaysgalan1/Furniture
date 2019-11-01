@@ -54,7 +54,7 @@ class Index extends BaseView {
                             style={{
                                 backgroundImage: img,
                                 height: '100%',
-                                width: '100%',
+                                width: '100%', 
                                 backgroundSize:"100% 100%",
                             }}
                         >
