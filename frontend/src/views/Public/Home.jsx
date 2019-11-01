@@ -73,7 +73,7 @@ class Index extends BaseView {
                                         <Typography color='primary' component='h4'>
                                             Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội <br></br>
                                             Phone: 0377 535 717<br></br>
-                                            Email: noithat.hoanggia.dodo@gmail.com <br></br>
+                                            Email: noithat.dodo@gmail.com<br></br>
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={5}>

@@ -52,7 +52,7 @@ class Index extends BaseView {
         const { classes } = this.props
         return (
             <Card>
-                <Grid container alignContent='flex-end' direction='row' spacing={0}>
+                <Grid container direction="row" justify="center" alignItems="center" spacing={0}>
                     <Grid item xs={1}>
                         <img src={DD}
                             alt="Smiley face"

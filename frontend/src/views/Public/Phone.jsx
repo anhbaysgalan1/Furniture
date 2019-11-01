@@ -72,7 +72,7 @@ class Index extends BaseView {
                         <hr></hr>
                         <Typography color='primary' component='h5'>
                             <Icon fontSize='large' color='primary'>email</Icon><br></br>
-                            Gmail: noithat.hoanggia.dodo@gmail.com
+                            Gmail: noithat.dodo@gmail.com
                         </Typography>
                         <hr></hr>
                         <Typography color='inherit' component='h5' style={{ fontStyle: 'italic', textAlign: 'center' }} >

@@ -124,7 +124,7 @@ class Index extends BaseView {
                             Phone: 0377 535 717 
                         </Typography>
                         <Typography color='primary'>
-                            Email: noithat.hoanggia.dodo@gmail.com
+                            Email: noithat.dodo@gmail.com
                         </Typography>
                     </Grid>
                 </Grid>
