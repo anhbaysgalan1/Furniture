@@ -54,7 +54,7 @@ class Index extends BaseContainer {
 
     onRefTable(ref) {
         this.refTable = ref
-    } 
+    }
 
     onDeleteData(selectedIds) {
         this.props.dispatch(OrderAction.delete({
