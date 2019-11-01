@@ -39,19 +39,19 @@ const styles = theme => ({
         backgroundColor: '#039be5',
         color: 'white',
     },
-    imgZoom: {
-        transition: "transform .5s, filter 3s ease-in-out",
-        filter: "grayscale(100%)",
-    },
-    imgZoom: {
-        "&:hover": {
-            filter: "grayscale(0)",
-            backgroundColor: 'red',
-            transform: "scale(1.1)",
-            transitionDuration: "1s",
-            transitionTimingFunction: "linear",
-        }
-    },
+    // imgZoom: {
+    //     transition: "transform .5s, filter 3s ease-in-out",
+    //     filter: "grayscale(100%)",
+    // },
+    // imgZoom: {
+    //     "&:hover": {
+    //         filter: "grayscale(0)",
+    //         backgroundColor: 'red',
+    //         transform: "scale(1.1)",
+    //         transitionDuration: "1s",
+    //         transitionTimingFunction: "linear",
+    //     }
+    // },
     top_buttom_image: {
         position: 'fixed',
         bottom: '10px',

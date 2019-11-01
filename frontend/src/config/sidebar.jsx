@@ -13,56 +13,55 @@ import OrderIndex from 'containers/Order/Index'
 import GoodsIndex from 'containers/Goods/Index'
 
 const sidebar = [
-    // {
-    //     path: "/center", // trang chủ
-    //     name: 'center',
-    //     title: <Translate value="Sidebar.center" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <CenterIndex />
-    // },
-    // {
-    //     path: "/info", 
-    //     name: 'info',
-    //     title: <Translate value="Sidebar.info" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <InfoIndex />
-    // },
-    // {
-    //     path: "/bad", 
-    //     name: 'bad',
-    //     title: <Translate value="Sidebar.bad" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <BadIndex />
-    // },
-    // {
-    //     path: "/dining-room", 
-    //     name: 'diningRoom',
-    //     title: <Translate value="Sidebar.diningRoom" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <DiningRoomIndex />
-    // },
-    // {
-    //     path: "/table-eat", 
-    //     name: 'tableEat',
-    //     title: <Translate value="Sidebar.tableEat" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <TableEatIndex />
-    // },
-    // {
-    //     path: "/table-restaurant", 
-    //     name: 'tableRestaurant',
-    //     title: <Translate value="Sidebar.tableRestaurant" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <TableRestaurantIndex />
-    // },
-    // {
-    //     path: "/contact", 
-    //     name: 'contact',
-    //     title: <Translate value="Sidebar.contact" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <ContactIndex />
-    // },
-
+    {
+        path: "/center", // trang chủ
+        name: 'center',
+        title: <Translate value="Sidebar.center" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <CenterIndex />
+    },
+    {
+        path: "/info", 
+        name: 'info',
+        title: <Translate value="Sidebar.info" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <InfoIndex />
+    },
+    {
+        path: "/bad", 
+        name: 'bad',
+        title: <Translate value="Sidebar.bad" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <BadIndex />
+    },
+    {
+        path: "/dining-room", 
+        name: 'diningRoom',
+        title: <Translate value="Sidebar.diningRoom" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <DiningRoomIndex />
+    },
+    {
+        path: "/table-eat", 
+        name: 'tableEat',
+        title: <Translate value="Sidebar.tableEat" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableEatIndex />
+    },
+    {
+        path: "/table-restaurant", 
+        name: 'tableRestaurant',
+        title: <Translate value="Sidebar.tableRestaurant" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableRestaurantIndex />
+    },
+    {
+        path: "/contact", 
+        name: 'contact',
+        title: <Translate value="Sidebar.contact" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <ContactIndex />
+    },
     {
         path: "/order", 
         name: 'order',

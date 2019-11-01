@@ -28,7 +28,11 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    
+    title: {
+        padding: '5px',
+        backgroundColor: '#039be5',
+        color: 'white',
+     },
 })
 
 // const arrImg = [

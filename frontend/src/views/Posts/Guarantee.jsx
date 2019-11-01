@@ -55,7 +55,7 @@ class Index extends BaseView {
                     <Grid item xs={2}></Grid>
                     <Grid item xs={8}>
                         <Card>
-                            <CardContent>
+                            <CardContent style={{textAlign: 'justify'}} >
                                 <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
                                     Bảo hành, hậu mãi chu đáo nhất
                                 </Typography>
