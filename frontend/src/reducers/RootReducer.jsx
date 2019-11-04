@@ -6,6 +6,7 @@ import UserReducer from './UserReducer';
 import BadReducer from './BadReducer';
 import GroupReducer from './GroupReducer';
 import GoodsReducer from './GoodsReducer'
+import ClientReducer from './ClientReducer'
 import OrderReducer from './OrderReducer'
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
     bads: BadReducer,
     group: GroupReducer,
     goods: GoodsReducer,
+    client: ClientReducer,
     order: OrderReducer,
 })

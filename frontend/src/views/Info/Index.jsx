@@ -32,10 +32,7 @@ import _ from 'lodash'
 
 const styles = theme => ({
     paddingIndex: {
-        [theme.breakpoints.up('xs')]: {
-            padding: '8px',
-        },
-        [theme.breakpoints.up('md')]: {
+        [theme.breakpoints.down('sm')]: {
             padding: '8px',
         },
     }

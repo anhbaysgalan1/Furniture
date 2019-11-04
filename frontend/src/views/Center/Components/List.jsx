@@ -23,6 +23,7 @@ import {
     Typography,
     AppBar,
     Toolbar,
+    Hidden,
 
 } from '@material-ui/core'
 import StarBorderIcon from '@material-ui/icons/StarBorder'
@@ -127,25 +128,71 @@ class Actions extends BaseView {
         ]
         return (
             <div className={classes.root}>
-                <GridList className={classes.gridList} cols={8}>
-                    {tileData.map(tile => (
-                        <GridListTile key={tile.img}>
-                            <img src={tile.img} alt={tile.title}/>
-                            <GridListTileBar
-                                title={tile.title}
-                                classes={{
-                                    root: classes.titleBar,
-                                    title: classes.title,
-                                }}
-                                actionIcon={
-                                    <IconButton aria-label={`star ${tile.title}`}>
-                                        <StarBorderIcon className={classes.title} />
-                                    </IconButton>
-                                }
-                            />
-                        </GridListTile>
-                    ))}
-                </GridList>
+                <Hidden smUp>
+                    <GridList className={classes.gridList} cols={2}>
+                        {tileData.map(tile => (
+                            <GridListTile key={tile.img}>
+                                <img src={tile.img} alt={tile.title}/>
+                                <GridListTileBar
+                                    title={tile.title}
+                                    classes={{
+                                        root: classes.titleBar,
+                                        title: classes.title,
+                                    }}
+                                    actionIcon={
+                                        <IconButton aria-label={`star ${tile.title}`}>
+                                            <StarBorderIcon className={classes.title} />
+                                        </IconButton>
+                                    }
+                                />
+                            </GridListTile>
+                        ))}
+                    </GridList>
+                </Hidden>
+                <Hidden xsDown >
+                    <Hidden mdUp>
+                        <GridList className={classes.gridList} cols={4}>
+                            {tileData.map(tile => (
+                                <GridListTile key={tile.img}>
+                                    <img src={tile.img} alt={tile.title}/>
+                                    <GridListTileBar
+                                        title={tile.title}
+                                        classes={{
+                                            root: classes.titleBar,
+                                            title: classes.title,
+                                        }}
+                                        actionIcon={
+                                            <IconButton aria-label={`star ${tile.title}`}>
+                                                <StarBorderIcon className={classes.title} />
+                                            </IconButton>
+                                        }
+                                    />
+                                </GridListTile>
+                            ))}
+                        </GridList>
+                    </Hidden>
+                    <Hidden smDown>
+                        <GridList className={classes.gridList} cols={8}>
+                            {tileData.map(tile => (
+                                <GridListTile key={tile.img}>
+                                    <img src={tile.img} alt={tile.title}/>
+                                    <GridListTileBar
+                                        title={tile.title}
+                                        classes={{
+                                            root: classes.titleBar,
+                                            title: classes.title,
+                                        }}
+                                        actionIcon={
+                                            <IconButton aria-label={`star ${tile.title}`}>
+                                                <StarBorderIcon className={classes.title} />
+                                            </IconButton>
+                                        }
+                                    />
+                                </GridListTile>
+                            ))}
+                        </GridList>
+                    </Hidden>
+                </Hidden>
             </div>
         )
 

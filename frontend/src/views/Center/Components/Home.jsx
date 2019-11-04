@@ -55,7 +55,7 @@ class Index extends BaseView {
                     // style="width: 1528px; visibility: hidden; display: inline;">
                     />
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     <img
                         src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png"
                         src={home}

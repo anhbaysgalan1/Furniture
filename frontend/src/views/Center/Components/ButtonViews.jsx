@@ -141,7 +141,7 @@ class ButtonViews extends BaseView {
                         })  
                     }
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     {
                         images.map(image => {
                             return (

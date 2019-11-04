@@ -11,6 +11,7 @@ import TableEatIndex from 'containers/TableEat/Index'
 import TableRestaurantIndex from 'containers/TableRestaurant/Index'
 import OrderIndex from 'containers/Order/Index'
 import GoodsIndex from 'containers/Goods/Index'
+import ClientIndex from 'containers/Client/Index'
 
 const sidebar = [
     {
@@ -75,6 +76,13 @@ const sidebar = [
         title: <Translate value="Sidebar.goods" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
         icon: <Icon>account_circle</Icon>,
         component: () => <GoodsIndex />
+    },
+    {
+        path: "/client", 
+        name: 'client',
+        title: <Translate value="Sidebar.client" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <ClientIndex />
     },
     // {
     //     path: "/users", 

@@ -2,7 +2,6 @@
     "_id": "objectid",
     "code": "string",
     "name": "string",
-    "status": "string",
     "image1": "string",
     "image2": "string",
     "image3": "string",

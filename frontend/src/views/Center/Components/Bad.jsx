@@ -26,6 +26,7 @@ import {
     Avatar,
     Dialog,
     DialogContent,
+    Hidden,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
@@ -56,7 +57,7 @@ const styles = theme => ({
     }
 })
 
-let img='http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
+let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg'
 
 let arrImg = [
     {
@@ -136,7 +137,7 @@ let arrImg = [
 class Index extends BaseView {
     constructor(props) {
         super(props)
-        this.state = { 
+        this.state = {
             reload: false
         }
     }
@@ -145,41 +146,99 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <Card>
-                <CardContent> 
+                <CardContent>
                     <Grid container spacing={8} >
                         <Grid item lg={4}>
-                            <Typography variant='h5' className={classes.title}> 
-                                Giường 
+                            <Typography variant='h5' className={classes.title}>
+                                Giường
                             </Typography>
                         </Grid>
                     </Grid>
                     <br></br>
                     <Grid container spacing={16}>
-                        {
-                            arrImg.map((element, index) => {
-                                return (
-                                    <Grid item xs={3} key={index}>
-                                        <CardActionArea className={classes.imgZoom}>
-                                            <CardMedia
-                                                component="img"
-                                                alt="Contemplative Reptile"
-                                                height="200"
-                                                image={element.img}
-                                                title={element.title}
-                                            />
-                                            <CardContent>
-                                                <Typography style={{textAlign: 'center'}} color="primary">
-                                                    {element.title}
-                                                </Typography>
-                                                <Typography style={{textAlign: 'center', color: 'red'}}>
-                                                    {element.money}
-                                                </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Grid>
-                                )
-                            })
-                        }
+                        <Hidden smUp>
+                            {
+                                arrImg.map((element, index) => {
+                                    return (
+                                        <Grid item xs={6} key={index}>
+                                            <CardActionArea className={classes.imgZoom}>
+                                                <CardMedia
+                                                    component="img"
+                                                    alt="Contemplative Reptile"
+                                                    height="100"
+                                                    image={element.img}
+                                                    title={element.title}
+                                                />
+                                                <CardContent>
+                                                    <Typography style={{ textAlign: 'center' }} color="primary">
+                                                        {element.title}
+                                                    </Typography>
+                                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                                        {element.money}
+                                                    </Typography>
+                                                </CardContent>
+                                            </CardActionArea>
+                                        </Grid>
+                                    )
+                                })
+                            }
+                        </Hidden>
+                        <Hidden xsDown>
+                            <Hidden mdUp>
+                                {
+                                    arrImg.map((element, index) => {
+                                        return (
+                                            <Grid item xs={4} key={index}>
+                                                <CardActionArea className={classes.imgZoom}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        alt="Contemplative Reptile"
+                                                        height="150"
+                                                        image={element.img}
+                                                        title={element.title}
+                                                    />
+                                                    <CardContent>
+                                                        <Typography style={{ textAlign: 'center' }} color="primary">
+                                                            {element.title}
+                                                        </Typography>
+                                                        <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                                            {element.money}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                            </Grid>
+                                        )
+                                    })
+                                }
+                            </Hidden>
+                            <Hidden smDown>
+                                {
+                                    arrImg.map((element, index) => {
+                                        return (
+                                            <Grid item xs={3} key={index}>
+                                                <CardActionArea className={classes.imgZoom}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        alt="Contemplative Reptile"
+                                                        height="150"
+                                                        image={element.img}
+                                                        title={element.title}
+                                                    />
+                                                    <CardContent>
+                                                        <Typography style={{ textAlign: 'center' }} color="primary">
+                                                            {element.title}
+                                                        </Typography>
+                                                        <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                                            {element.money}
+                                                        </Typography>
+                                                    </CardContent>
+                                                </CardActionArea>
+                                            </Grid>
+                                        )
+                                    })
+                                }
+                            </Hidden>
+                        </Hidden>
                     </Grid>
                 </CardContent>
             </Card>

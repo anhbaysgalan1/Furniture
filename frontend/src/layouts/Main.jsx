@@ -39,6 +39,13 @@ const styles = theme => ({
     grow: {
         flexGrow: 1,
     },
+    toolbarMenu: {
+        marginLeft: '100px',
+        [theme.breakpoints.down('md')]: {
+            marginLeft: '0px',
+        },
+        
+    },
     drawer: {
         [theme.breakpoints.up('md')]: {
             width: theme.drawerWidth,
@@ -155,21 +162,21 @@ class Main extends React.Component {
                         </div>
                     </Toolbar>
                 </Hidden>
-                <Hidden smDown>
-                <Toolbar variant='dense' style={{marginLeft: '100px'}} > 
+                <Hidden xsDown>
+                <Toolbar variant='dense' className={classes.toolbarMenu}> 
                     <Sidebar route={route}/>
-                    <DrawerMobileMenu route={route} />
+                    {/* <DrawerMobileMenu route={route} />
                     <div id='top-buttom_image'>
                         <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
                             <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
                         </a><br />
-                    </div>
+                    </div> */}
                 </Toolbar>
                 </Hidden>
                 
             </AppBar>
             {/* <nav className={classes.drawer}>
-                <Hidden smDown implementation="css">
+                <Hidden xsDown implementation="css">
                     <Drawer classes={{ paper: classes.drawerPaper, paperAnchorLeft: classes.paperAnchorLeft }}
                         variant="permanent" open
                     >
@@ -186,7 +193,7 @@ class Main extends React.Component {
                     </Suspense>
                 <br></br>
                 <br></br>
-                <Footer/>
+                {/* <Footer/> */}
             </main>
         </div>
     }

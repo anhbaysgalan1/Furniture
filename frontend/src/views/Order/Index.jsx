@@ -53,6 +53,36 @@ const styles = theme => ({
     }
 })
 
+let statusArr = [
+    {
+        value: '0',
+        title: 'Mới'                
+    },
+    {
+        value: '1',
+        title: 'Đang giao'                
+    },
+    {
+        value: '2',
+        title: 'Đã giao'                
+    },
+    {
+        value: '3',
+        title: 'Hoàn thành'                
+    },
+    {
+        value: '4',
+        title: 'Thất bại'                
+    },
+    {
+        value: '5',
+        title: 'Đổi hàng'                
+    },
+    {
+        value: '6',
+        title: 'Đã hủy'                
+    },
+]
 
 class Index extends BaseView {
     constructor(props) {
@@ -105,7 +135,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'address',
-                    title: I18n.t('Table.header.role.name.Phone'),
+                    title: I18n.t('Table.header.role.name.Địa chỉ'),
                     style: {
                         textAlign: 'center',
                     }
@@ -139,6 +169,19 @@ class Index extends BaseView {
                     }
                 },
                 {
+                    name: 'status',
+                    title: I18n.t('Table.header.Trạng thái đơn hàng'),
+                    sortable: false,
+                    filterable: false,
+                    formatterComponent: (data) => {
+                        let status = _.get(data, 'row.status', '')
+                        return this.formatStatus(status)
+                    },
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
                     name: '_id',
                     title: I18n.t('Table.header.action'),
                     sortable: false,
@@ -150,6 +193,7 @@ class Index extends BaseView {
                         textAlign: 'center',
                     }
                 },
+
             ],
             defaultSort: [],
             tableColumnExtensions: [
@@ -161,6 +205,7 @@ class Index extends BaseView {
                 { columnName: 'count', wordWrapEnabled: true },
                 { columnName: 'pay', wordWrapEnabled: true },
                 { columnName: 'transportFee', wordWrapEnabled: true },
+                { columnName: 'status', status: true },
                 { columnName: '_id', align: 'center' },
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
@@ -202,6 +247,10 @@ class Index extends BaseView {
                     width: 100
                 },
                 {
+                    name: 'status',
+                    width: 100
+                },
+                {
                     name: '_id',
                     width: 100
                 }
@@ -214,6 +263,27 @@ class Index extends BaseView {
         this.onHide = this.onHide.bind(this)
         this.onCancel = this.onCancel.bind(this)
         this.onHandleChange = this.onHandleChange.bind(this)
+    }
+
+    formatStatus(status){
+        switch (status){
+            case '0':
+                return <Button color="primary" variant='contained'>Mới</Button>
+            case '1':
+                return <Button color="primary" variant='contained'>Đang giao</Button>
+            case '2':
+                return <Button color="primary" variant='contained'>Đã giao</Button>
+            case '3':
+                return <Button color="primary" variant='contained'>Hoàn thành</Button>
+            case '4':
+                return <Button color="primary" variant='contained'>Thất bại</Button>
+            case '5':
+                return <Button color="primary" variant='contained'>Đổi hàng</Button>
+            case '6':
+                return <Button color="primary" variant='contained'>Đã hủy</Button>
+            default: 
+                return ''
+        }
     }
 
     customUserColumn(data) {
@@ -300,7 +370,7 @@ class Index extends BaseView {
         let count = _.get(dataRow, 'count', '')
         let transportFee = _.get(dataRow, 'transportFee', '')
         let pay = _.get(dataRow, 'pay', '')
-
+        let status = _.get(dataRow, 'status', '')
         let money = _.get(dataRow, 'money', '1000')
         let goodsId = _.get(dataRow, 'goodsId', '_id')
         return (
@@ -355,7 +425,7 @@ class Index extends BaseView {
                                     />
                                     <TextField
                                         fullWidth
-                                        label={I18n.t("Input.bad.Tên của bạn")}
+                                        label={I18n.t("Input.bad.Tên khách hàng")}
                                         onChange={(value) => this.onHandleChange(value, 'code')}
                                         name="name"
                                         value={name}
@@ -369,7 +439,7 @@ class Index extends BaseView {
                                     />
                                     <TextField
                                         fullWidth
-                                        label={I18n.t("Input.bad.Dia chi giao hang")}
+                                        label={I18n.t("Input.bad.Địa chỉ giao hàng")}
                                         onChange={(value) => this.onHandleChange(value, 'name')}
                                         name="address"
                                         value={address}
@@ -383,6 +453,25 @@ class Index extends BaseView {
                                     />
                                 </Grid>
                                 <Grid item xs={6}>
+                                    <AutoCompleteField
+                                        key="4"
+                                        fullWidth
+                                        select
+                                        label={I18n.t("Input.bad.Trạng thái đơn hàng")}
+                                        // onChange={(value) => this.onHandleChange(value, 'typeBad')}
+                                        name="status"
+                                        value={status}
+                                        isMulti={false}
+                                        isClearable={false}
+                                    >
+                                        {
+                                            statusArr.map(item => (
+                                                <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                                    {item.title}
+                                                </OptionAuto>
+                                            ))
+                                        }
+                                    </AutoCompleteField>
                                     <TextField
                                         fullWidth
                                         label={I18n.t("Input.bad.Phí vận chuyển")}
@@ -462,6 +551,7 @@ class Index extends BaseView {
                 _id: 'hdjffngjgihghjh'
             }
         ]
+
         return (
             <Grid container spacing={32}  className={classes.card} >
                 <Grid item xs={12}>
@@ -492,7 +582,27 @@ class Index extends BaseView {
                                     }
                                 </AutoCompleteField>
                             </Grid>
-                            <Grid item xs={8}></Grid>
+                            <Grid item xs={4}>
+                                <AutoCompleteField
+                                    key="3"
+                                    fullWidth
+                                    select
+                                    label={I18n.t("Input.bad.Trạng thái đơn hàng")}
+                                    // onChange={(value) => this.onHandleChange(value, 'typeBad')}
+                                    name="status"
+                                    isMulti={false}
+                                    isClearable={false}
+                                >
+                                    {
+                                        statusArr.map(item => (
+                                            <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                                {item.title}
+                                            </OptionAuto>
+                                        ))
+                                    }
+                                </AutoCompleteField>
+                            </Grid>
+                            <Grid item xs={4}></Grid>
                         </Grid>
                         <GridTable
                             id="OrderIndex"

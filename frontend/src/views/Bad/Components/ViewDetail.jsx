@@ -121,6 +121,11 @@ class App extends Component {
                                 />
                                 <TextField
                                     type="hidden"
+                                    name="status"
+                                    value='0'
+                                />
+                                <TextField
+                                    type="hidden"
                                     name="money"
                                     value={money}
                                 />

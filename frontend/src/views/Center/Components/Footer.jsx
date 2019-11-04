@@ -21,6 +21,7 @@ import {
     Typography,
     AppBar,
     Toolbar,
+    Hidden,
 } from '@material-ui/core'
 import moment from 'moment'
 import _ from 'lodash'
@@ -62,46 +63,38 @@ class Index extends BaseView {
         ]
         return (
             <span>
-                <Grid container spacing={8}>
-                    <Grid item xs={4}>
-                        <img
-                            className={classes.imgZoom}
-                            onClick={() => this.goto("/size-bad")} 
-                            src={img[0].img}
-                            height='100'
-                            width='100%'
-                            alt="DODO"
-                        />
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Typography style={{fontWeight: 'bold'}} onClick={() => this.goto("/size-bad")} >
-                            {img[0].title}
-                        </Typography>
-                        <Typography onClick={() => this.goto("/size-bad")} >
-                            {img[0].content}
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={8}>
-                    <Grid item xs={4}>
-                        <img
-                            className={classes.imgZoom} 
-                            onClick={() => this.goto("/change-table")}
-                            src={img[1].img}
-                            height='100'
-                            width='100%'
-                            alt="DODO"
-                        />
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Typography style={{fontWeight: 'bold'}} onClick={() => this.goto("/change-table")}>
-                            {img[1].title}
-                        </Typography>
-                        <Typography onClick={() => this.goto("/change-table")}>
-                            {img[1].content}
-                        </Typography>
-                    </Grid>
-                </Grid>
+                {
+                    img.map((element, index) => {
+                        let link = '/size-bad'
+                        switch (index) {
+                            case 1:
+                                link = '/change-table'
+                                break
+                        }
+                        return (
+                            <Grid container spacing={8}>
+                                <Grid item xs={4} md={4}>
+                                    <img
+                                        className={classes.imgZoom}
+                                        onClick={() => this.goto(link)}
+                                        src={element.img}
+                                        height='100'
+                                        width='100%'
+                                        alt="DODO"
+                                    />
+                                </Grid>
+                                <Grid item xs={8} md={8}>
+                                    <Typography style={{ fontWeight: 'bold' }} onClick={() => this.goto(link)} >
+                                        {element.title}
+                                    </Typography>
+                                    <Typography onClick={() => this.goto(link)} >
+                                        {element.content}
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                        )
+                    })
+                }
             </span>
         )
     }
@@ -110,32 +103,55 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div>
-                <Grid container spacing={32}>
+                <Grid container spacing={16}>
                     <Grid item xs={1}></Grid>
-                    <Grid item xs={3}>
-                        <Typography variant='h5' style={{textAlign: 'center'}} >
-                            Phong Thủy
-                        </Typography>
-                        <hr></hr>
+                    <Grid item xs={12} md={3}>
+                        <Hidden smUp>
+                            <Typography variant='h5' >
+                                Phong Thủy
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
+                        <Hidden xsDown>
+                            <Typography variant='h5' style={{ textAlign: 'center' }} >
+                                Phong Thủy
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
                         {
                             this.renderPhongThuy(classes)
                         }
                     </Grid>
-                    <Grid item xs={4}>
-                        <Typography variant='h5' style={{textAlign: 'center'}} >
-                            Xu hướng
-                        </Typography>
-                        <hr></hr>
+                    <Grid item xs={12} md={4}>
+                        <Hidden smUp>
+                            <Typography variant='h5'>
+                                Xu hướng
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
+                        <Hidden xsDown>
+                            <Typography variant='h5' style={{ textAlign: 'center' }} >
+                                Xu hướng
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Typography variant='h5' style={{textAlign: 'center'}} >
-                            Kết nối tư vấn
-                        </Typography>
-                        <hr></hr>
+                    <Grid item xs={12} md={3}>
+                        <Hidden smUp>
+                            <Typography variant='h5'>
+                                Kết nối tư vấn
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
+                        <Hidden xsDown>
+                            <Typography variant='h5' style={{ textAlign: 'center' }} >
+                                Kết nối tư vấn
+                            </Typography>
+                            <hr></hr>
+                        </Hidden>
                     </Grid>
                     <Grid item xs={1}></Grid>
                 </Grid>
-
             </div>
         )
     }

@@ -47,7 +47,16 @@ const styles = theme => ({
             background: '#039be5',
             // borderRadius: '50%',
         },
-    }
+    },
+    titleCircle: {
+        fontSize: '25px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '20px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '15px',
+        },
+    },
 })
 
 class Index extends BaseView {
@@ -62,7 +71,8 @@ class Index extends BaseView {
         return (
             <center>
                 <Hidden mdUp>
-                    <Typography color='primary'>
+                    <p>HHHHHHH</p>
+                    <Typography color='primary' className={classes.titleCircle}>
                         Phương trâm làm việc của chúng tôi
                     </Typography>
                     <Grid container spacing={32}>
@@ -83,29 +93,23 @@ class Index extends BaseView {
                         </Grid>
                     </Grid>
                 </Hidden>
-                <Hidden mdDown>
+                <Hidden smDown>
                     <Typography variant="h4" color='primary'>
                         Phương trâm làm việc của chúng tôi
                     </Typography>
                     <Grid container spacing={32}>
                         <Grid item xs={4}>
-                            <Button className={classes.cssBorder}
-                            // onClick={() => this.goto(`/contact`)} 
-                            >
+                            <Button className={classes.cssBorder} >
                                 Khách hàng là số 1
                         </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button className={classes.cssBorder}
-                            // onClick={() => this.goto(`/question`)} 
-                            >
+                            <Button className={classes.cssBorder} >
                                 Phục vụ chuyên nghiệp
                         </Button>
                         </Grid>
                         <Grid item xs={4}>
-                            <Button className={classes.cssBorder}
-                            // onClick={() => this.goto(`/registration`)} 
-                            >
+                            <Button className={classes.cssBorder} >
                                 Uy tín hàng đầu
                         </Button>
                         </Grid>

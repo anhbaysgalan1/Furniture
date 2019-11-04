@@ -25,6 +25,7 @@ import {
     CardMedia,
     Avatar,
     Dialog,
+    Hidden,
     DialogContent,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -42,8 +43,6 @@ const styles = theme => ({
         textAlign: 'center',
     },
     viewsInfo: {
-        // overflowX: 'hidden',
-        // overflowY: 'hidden',
         overflow: 'hidden'
     },
     imgZoom: {
@@ -56,6 +55,16 @@ const styles = theme => ({
             transform: "scale(1.1)",
             transitionDuration: "1s",
             transitionTimingFunction: "linear",
+        },
+        height: '300px',
+        width: '100%',
+        [theme.breakpoints.down('sm')]: {
+            height: '500px',
+            width: '100%',
+        },
+        [theme.breakpoints.down('xs')]: {
+            height: '400px',
+            width: '100%',
         }
     },
 })
@@ -244,20 +253,20 @@ class Index extends BaseView {
                 <img
                     className={classes.imgZoom}
                     src='http://dogomyduc.vn/uploads/Slider1.JPG'
-                    height='300'
-                    width='100%'
+                    // height='300'
+                    // width='100%'
                 />
                 <img
                     className={classes.imgZoom}
                     src='https://nhatdoland.com/uploads/images//1571636760_top4.PNG'
-                    height='300'
-                    width='100%'
+                    // height='300'
+                    // width='100%'
                 />
                 <img
                     className={classes.imgZoom}
                     src="http://tubepgoviet.vn/media/plugins/images/xuong-go-2(2).jpg"
-                    height='300'
-                    width='100%'
+                    // height='300'
+                    // width='100%'
                 />
             </div>
         )
@@ -268,13 +277,13 @@ class Index extends BaseView {
         return (
             <div className={classes.viewsInfo}>
                 <Grid container spacing={8}>
-                    <Grid item xs={12} md={2}></Grid>
-                    <Grid item xs={12} md={6}>
+                    <Grid item xs={12} sm={12} md={1} ></Grid>
+                    <Grid item xs={12} sm={12} md={7}>
                         {
                             this.renderInfomation(classes)
                         }
                     </Grid>
-                    <Grid item xs={12} md={3}>
+                    <Grid item xs={12} sm={12} md={3}>
                         {
                             this.renderPhone(classes)
                         }
@@ -283,7 +292,7 @@ class Index extends BaseView {
                         }
                         <br></br>
                     </Grid>
-                    <Grid item xs={1}></Grid>
+                    <Grid item xs={12} sm={12} md={1}></Grid>
                 </Grid>
             </div>
         )

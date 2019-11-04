@@ -72,7 +72,7 @@ class Index extends BaseView {
                         </div>
                     </div>
                </Hidden>
-               <Hidden smDown>
+               <Hidden xsDown>
                 <div
                         style={{ height: '100%', width: '100%', backgroundSize: "100% 100%", backgroundImage: img }}
                     >

@@ -1,5 +1,5 @@
 const BaseController = use("./BaseController")
-const OrderModel = use("App/Models/Order")
+const ClientModel = use("App/Models/Client")
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require('mongodb')
@@ -8,24 +8,26 @@ const Common = use("App/Common/common")
 /*
   Xem hàm mẫu BaseController nếu muốn viết lại các action
 */
-class OrderController extends BaseController {
+class ClientController extends BaseController {
     constructor() {
         super()
-        this.Model = new OrderModel()
+        this.Model = new ClientModel()
     }
 
     async index({ request, response }) {
         let allowFields = {
             _id: 1,
-            status: 1,
+            code: 1,
             name: 1,
-            phone: 1,
-            address: 1,
-            money: 1,
-            count: 1,
-            pay: 1,
-            goodsId: 1,
-            transportFee: 1,
+            image1: 1,
+            image2: 1,
+            image3: 1,
+            image4: 1,
+            moneyOld: 1,
+            moneyNew: 1,
+            typeGoods: 1,
+            typeWoods: 1,
+            content: 1,
             insert: {
                 when: 1
             }
@@ -41,15 +43,17 @@ class OrderController extends BaseController {
     async detail({ request, response }) {
         let allowFields = {
             _id: 1,
-            status: 1,
+            code: 1,
             name: 1,
-            phone: 1,
-            address: 1,
-            money: 1,
-            count: 1,
-            pay: 1,
-            goodsId: 1,
-            transportFee: 1,
+            image1: 1,
+            image2: 1,
+            image3: 1,
+            image4: 1,
+            moneyOld: 1,
+            moneyNew: 1,
+            typeGoods: 1,
+            typeWoods: 1,
+            content: 1,
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -58,25 +62,27 @@ class OrderController extends BaseController {
         let input = request.body
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
+            code: "string!",
             name: "string!",
-            status: 'string!',
-            phone: "string!",
-            address: "string!",
-            money: "string!",
-            count: "string!",
-            pay: "string!",
-            goodsId: "string!",
-            transportFee: "string!",
+            image1: "string!",
+            image2: "string!",
+            image3: "string!",
+            image4: "string!",
+            moneyOld: "string!",
+            moneyNew: "string!",
+            typeGoods: "string!",
+            typeWoods: "string!",
+            content: "string!",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
-        // check code, name khác nhau
-        // let existCode = await this.Model.getOne({
-        //     code: data.code
-        // })
-        // let existName = await this.Model.getOne({
-        //     name: data.name
-        // })
-        // if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
+
+        let existCode = await this.Model.getOne({
+            code: data.code
+        })
+        let existName = await this.Model.getOne({
+            name: data.name
+        })
+        if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
         let result = await this.Model.insertOne(data)
         return result
     }
@@ -84,7 +90,6 @@ class OrderController extends BaseController {
     async update({ request, response }) {
         let id = request.params.id
         if (!id) throw new ApiException(422, "Id_Required")
-
         let exist = await this.Model.getById(id)
         if (!exist) throw new ApiException(404, "No_Object")
         if (exist.code == "All") {
@@ -93,40 +98,43 @@ class OrderController extends BaseController {
 
         //allowFields là object các trường được phép lưu vào db
         let allowFields = {
+            code: "string!",
             name: "string!",
-            status: 'string',
-            phone: "string!",
-            address: "string!",
-            money: "string!",
-            count: "string!",
-            pay: "string!",
-            goodsId: "string!",
-            transportFee: "string!",
+            image1: "string!",
+            image2: "string!",
+            image3: "string!",
+            image4: "string!",
+            moneyOld: "string!",
+            moneyNew: "string!",
+            typeGoods: "string!",
+            typeWoods: "string!",
+            content: "string!",
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
-        // let existCode = await this.Model.getOne({
-        //     code: data.code
-        // })
-        // let existName = await this.Model.getOne({
-        //     name: data.name
-        // })
-        let result = await this.Model.update(id, data)
-        // let check = false
-        // if (!existCode && !existName) check = true
-        // if (existName && !existCode) {
-        //     if (existName._id == id) check = true
-        // }
-        // if (existCode && !existName) {
-        //     if (existCode._id == id) check = true
-        // }
-        // if (existName && existCode) {
-        //     if (existCode._id == id && existName._id == id) check = true
-        // }
-        // if (check) {
-        //     result = await this.Model.update(id, data)
-        // } else {
-        //     throw new ApiException(400, "Bad_Code_Exist")
-        // }
+
+        let existCode = await this.Model.getOne({
+            code: data.code
+        })
+        let existName = await this.Model.getOne({
+            name: data.name
+        })
+        let result = {}
+        let check = false
+        if (!existCode && !existName) check = true
+        if (existName && !existCode) {
+            if (existName._id == id) check = true
+        }
+        if (existCode && !existName) {
+            if (existCode._id == id) check = true
+        }
+        if (existName && existCode) {
+            if (existCode._id == id && existName._id == id) check = true
+        }
+        if (check) {
+            result = await this.Model.update(id, data)
+        } else {
+            throw new ApiException(400, "Bad_Code_Exist")
+        }
         return result
     }
 
@@ -145,4 +153,4 @@ class OrderController extends BaseController {
     }
 }
 
-module.exports = OrderController
+module.exports = ClientController

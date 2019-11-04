@@ -54,6 +54,13 @@ const styles = theme => ({
     listItemIconActive: {
         color: '#fff'
     },
+    buttonSidebar: {
+        marginLeft: '10px',
+        fontSize: '14px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+        },
+    },
 })
 
 class Sidebar extends React.Component {
@@ -121,12 +128,12 @@ class Sidebar extends React.Component {
                         />
                     </ListItem>
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     <Button
-                        style={{ marginLeft: '10px', fontSize: '14px' }}
                         size="small"
                         key={key}
                         to={path}
+                        className={classes.buttonSidebar}
                         component={NavLink}
                         color='inherit'
                     >

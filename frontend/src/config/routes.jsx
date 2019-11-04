@@ -13,6 +13,8 @@ const GoodsEdit     = lazy(() => import('containers/Goods/Edit'))
 const OrderIndex    = lazy(() => import('containers/Order/Index'))
 // const OrderCreate  = lazy(() => import('containers/Order/Create'))
 // const OrderEdit    = lazy(() => import('containers/Order/Edit'))
+const ClientIndex    = lazy(() => import('containers/Client/Index'))
+
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
@@ -197,22 +199,14 @@ const routes = [
         exact: true,
         sidebarName: 'order'
     },
-    // {
-    //     path: "/order/create",
-    //     name: 'order.create',
-    //     title: () => I18n.t("Breadcrumb.orderCreate"),
-    //     component: () => <OrderCreate />,
-    //     exact: true,
-    //     sidebarName: 'order'
-    // },
-    // {
-    //     path: "/order/:id",
-    //     name: 'order.edit',
-    //     title: () => I18n.t("Breadcrumb.orderEdit"),
-    //     component: () => <OrderEdit />,
-    //     exact: true,
-    //     sidebarName: 'order'
-    // }
+    {
+        path: "/client",
+        name: 'client',
+        title: () => I18n.t("Breadcrumb.clientIndex"),
+        component: () => <ClientIndex />,
+        exact: true,
+        sidebarName: 'client'
+    }
 ]
 
 export default routes

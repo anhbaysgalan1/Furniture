@@ -71,7 +71,7 @@ class Index extends BaseView {
                         </Grid>
                     </Grid>
                </Hidden>
-               <Hidden smDown>
+               <Hidden xsDown>
                     <Grid container direction="row" justify="center" alignItems="center" spacing={0}>
                         <Grid item xs={2} md={1}>
                             <img src={DD}
@@ -87,20 +87,30 @@ class Index extends BaseView {
                                 width="100%">
                             </img>
                         </Grid>
-                        <Grid item xs={6} md={3}>
-                            <IconButton color="primary"> 
-                                <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
-                                noithat.dodo@gmail.com
-                            </IconButton>
-                        </Grid>
-                        <Grid item xs={6} md={3}>
-                            <IconButton color="primary">
-                                <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
-                                0377 535 717
-                            </IconButton>
-                        </Grid>
+                        <Hidden smDown>
+                            <Grid item xs={6} md={3}>
+                                <IconButton color="primary"> 
+                                    <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
+                                    noithat.dodo@gmail.com
+                                </IconButton>
+                            </Grid>
+                        </Hidden>
+                        <Hidden mdDown>
+                            <Grid item xs={6} md={3}>
+                                <IconButton color="primary">
+                                    <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
+                                    0377 535 717
+                                </IconButton>
+                            </Grid>
+                        </Hidden>
                     </Grid>
+                    {/* <p>Dai ca Dai ca</p> */}
                </Hidden>
+               {/* <Hidden xsUp> <p>xsUp</p> </Hidden> <Hidden xsDown> <p>xsDown</p> </Hidden>
+               <Hidden smUp> <p>smUp</p> </Hidden> <Hidden smDown> <p>smDown</p> </Hidden>
+               <Hidden mdUp> <p>mdUp</p> </Hidden> <Hidden mdDown> <p>mdDown</p> </Hidden>
+               <Hidden lgUp> <p>lgUp</p> </Hidden> <Hidden lgDown> <p>lgDown</p> </Hidden>
+               <Hidden xlUp> <p>xlUp</p> </Hidden> <Hidden xlDown> <p>xlDown</p> </Hidden> */}
             </div>
         )
     }

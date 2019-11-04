@@ -91,7 +91,7 @@ class Footer extends BaseView {
                         </CardActions>
                     </Form>
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     <Typography variant='h6' component="h6" >
                         Để lại thông tin chúng tôi sẽ liên hệ với bạn
                     </Typography>
@@ -156,7 +156,7 @@ class Footer extends BaseView {
                         &nbsp;&nbsp; 0377 535 717
                     </Typography>
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     <Typography variant='h5' component="h5">
                         Thông tin công ty
                     </Typography>
@@ -218,7 +218,7 @@ class Footer extends BaseView {
                         Đồ gỗ nội thất Dodo - noithat.dodo@gmail.com
                     </Typography>
                 </Hidden>
-                <Hidden smDown>
+                <Hidden xsDown>
                     <Typography style={{ color: 'white', backgroundColor: '#9e9e9e', padding: '5px' }} variant='h6'>
                         Đồ gỗ nội thất Dodo - noithat.dodo@gmail.com
                     </Typography>
