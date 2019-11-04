@@ -21,6 +21,7 @@ import {
     Typography,
     AppBar,
     Toolbar,
+    Hidden,
 } from '@material-ui/core'
 import moment from 'moment'
 import home from '../../../public/images/home.png'
@@ -42,16 +43,30 @@ class Index extends BaseView {
         let img1 = "http://sieuthimythuatpro.vn/wp-content/uploads/2018/10/MG_2546.jpg"
         return (
             <div>
-                <img 
-                    src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png" 
-                    src={home}
-                    height="560" 
-                    width="1920" 
-                    title="slider" 
-                    alt="" 
-                    className="slider-133 slide-757" 
+                <Hidden smUp>
+                    <img
+                        src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png"
+                        src={home}
+                        height="200"
+                        width="400"
+                        title="slider"
+                        alt=""
+                        className="slider-133 slide-757"
                     // style="width: 1528px; visibility: hidden; display: inline;">
-                />
+                    />
+                </Hidden>
+                <Hidden smDown>
+                    <img
+                        src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_560/https://thachthatdecor.com.vn/wp-content/uploads/2019/03/slider-1920x560.png"
+                        src={home}
+                        height="560"
+                        width="1920"
+                        title="slider"
+                        alt=""
+                        className="slider-133 slide-757"
+                    // style="width: 1528px; visibility: hidden; display: inline;">
+                    />
+                </Hidden>
             </div>
         )
     }

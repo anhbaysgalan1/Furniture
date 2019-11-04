@@ -15,6 +15,7 @@ import {
     CardHeader,
     Typography,
     Avatar,
+    Hidden,
 } from '@material-ui/core'
 import BaseView from 'views/BaseView'
 import PaperFade from 'components/Main/PaperFade'
@@ -51,37 +52,56 @@ class Index extends BaseView {
     render() {
         const { classes } = this.props
         return (
-            <Card>
-                <Grid container direction="row" justify="center" alignItems="center" spacing={0}>
-                    <Grid item xs={1}>
-                        <img src={DD}
-                            alt="Smiley face"
-                            height="80%"
-                            width="70%">
-                        </img>
+            <div style={{ backgroundColor: 'white' }}>
+               <Hidden smUp>
+                    <Grid container direction="row" justify="center" alignItems="center" spacing={0}>
+                        <Grid item xs={2} md={1}>
+                            <img src={DD}
+                                alt="Smiley face"
+                                height="25"
+                                width="25">
+                            </img>
+                        </Grid>
+                        <Grid item xs={10} md={5}>
+                            <img src={LogoDD}
+                                alt="Smiley face"
+                                height="100%"
+                                width="100%">
+                            </img>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={5}>
-                        <img src={LogoDD}
-                            alt="Smiley face"
-                            height="100%"
-                            width="100%">
-                        </img>
+               </Hidden>
+               <Hidden smDown>
+                    <Grid container direction="row" justify="center" alignItems="center" spacing={0}>
+                        <Grid item xs={2} md={1}>
+                            <img src={DD}
+                                alt="Smiley face"
+                                height="80%"
+                                width="70%">
+                            </img>
+                        </Grid>
+                        <Grid item xs={10} md={5}>
+                            <img src={LogoDD}
+                                alt="Smiley face"
+                                height="100%"
+                                width="100%">
+                            </img>
+                        </Grid>
+                        <Grid item xs={6} md={3}>
+                            <IconButton color="primary"> 
+                                <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
+                                noithat.dodo@gmail.com
+                            </IconButton>
+                        </Grid>
+                        <Grid item xs={6} md={3}>
+                            <IconButton color="primary">
+                                <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
+                                0377 535 717
+                            </IconButton>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={3}>
-                        <IconButton color="primary"> 
-                            <Icon style={{fontSize: '40px'}} color='primary' >email</Icon>
-                            noithat.dodo@gmail.com
-                        </IconButton>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <IconButton color="primary">
-                            <Icon style={{fontSize: '40px'}} color='primary' >phone</Icon>
-                            0377 535 717
-                        </IconButton>
-                    </Grid>
-                    
-                </Grid>
-            </Card>
+               </Hidden>
+            </div>
         )
     }
 }

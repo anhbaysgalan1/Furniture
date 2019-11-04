@@ -21,6 +21,7 @@ import {
     Typography,
     AppBar,
     Toolbar,
+    Hidden,
 
 } from '@material-ui/core'
 import { Fragment } from "react"
@@ -37,6 +38,15 @@ const styles = theme => ({
         border: 'solid 5px #039be5',
         background: '#039be5',
         borderRadius: '50%',
+        [theme.breakpoints.down('xs')]: {
+            margin: '10px',
+            fontSize: '10px',
+            width: '90px',
+            height: '90px',
+            border: 'solid 1px #039be5',
+            background: '#039be5',
+            // borderRadius: '50%',
+        },
     }
 })
 
@@ -51,32 +61,56 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <center>
-                <Typography variant="h4" color='primary'>
-                    Phương trâm làm việc của chúng tôi
-                </Typography>
-                <Grid container spacing={32}>
-                    <Grid item xs={4}>
-                        <Button className={classes.cssBorder} 
+                <Hidden mdUp>
+                    <Typography color='primary'>
+                        Phương trâm làm việc của chúng tôi
+                    </Typography>
+                    <Grid container spacing={32}>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder} >
+                                Khách hàng là số 1
+                            </Button>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder} >
+                                Phục vụ chuyên nghiệp
+                            </Button>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder} >
+                                Uy tín hàng đầu
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Hidden>
+                <Hidden mdDown>
+                    <Typography variant="h4" color='primary'>
+                        Phương trâm làm việc của chúng tôi
+                    </Typography>
+                    <Grid container spacing={32}>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder}
                             // onClick={() => this.goto(`/contact`)} 
-                        >
-                            Khách hàng là số 1 
+                            >
+                                Khách hàng là số 1
                         </Button>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Button className={classes.cssBorder} 
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder}
                             // onClick={() => this.goto(`/question`)} 
-                        >
-                            Phục vụ chuyên nghiệp
+                            >
+                                Phục vụ chuyên nghiệp
                         </Button>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Button className={classes.cssBorder} 
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Button className={classes.cssBorder}
                             // onClick={() => this.goto(`/registration`)} 
-                        >
-                            Uy tín hàng đầu
+                            >
+                                Uy tín hàng đầu
                         </Button>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </Hidden>
             </center>
         )
     }

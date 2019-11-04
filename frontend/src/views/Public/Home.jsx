@@ -15,6 +15,7 @@ import {
     Tooltip,
     Button,
     Card,
+    Hidden,
     Grid,
     CardContent,
     CardActions,
@@ -46,45 +47,61 @@ class Index extends BaseView {
     render() {
         let { classes, img } = this.props
         return (
-            <div>
-                <div className="row">
-                    <div className="col-md-6 mb-4">
-                        <div
-                            className="card card-image mb-3"
-                            style={{
-                                backgroundImage: img,
-                                height: '100%',
-                                width: '100%', 
-                                backgroundSize:"100% 100%",
-                            }}
-                        >
-                            <div style={{ color: '#2196f3' }} className={classes.fromCompany}>
-                                <Grid container spacing={32}>
-                                    <Grid item xs={2}>
-                                    </Grid>
-                                    <Grid item xs={5}>
-                                        <Typography color='primary' variant='h6' component='h6'>
-                                            CÔNG TY CỔ PHẦN NỘI THẤT HOÀNG GIA DODO
+            <span>
+               <Hidden smUp>
+                    <div
+                        style={{ height: '100%', width: '100%', backgroundSize: "100% 100%", backgroundImage: img }}
+                    >
+                        <div style={{ color: '#2196f3', marginTop: '10px', padding: '3px' }} className={classes.fromCompany}>
+                            <Grid container spacing={32}>
+                                <Grid item xs={12} md={5}>
+                                    <Typography color='primary' variant='hP'>
+                                        CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
                                         </Typography>
-                                        <Typography color='primary' variant='h4' component='h4'>
-                                            Liên hệ
-                                        </Typography>
-                                        <hr></hr>
-                                        <Typography color='primary' component='h4'>
-                                            Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội <br></br>
-                                            Phone: 0377 535 717<br></br>
-                                            Email: noithat.dodo@gmail.com<br></br>
-                                        </Typography>
-                                    </Grid>
-                                    <Grid item xs={5}>
-                                    </Grid>
+                                    <Typography color='primary' variant='h5'>
+                                        Liên hệ
+                                    </Typography>
+                                    <hr></hr>
+                                    <Typography color='primary'>
+                                        Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội <br></br>
+                                        Phone: 0377 535 717<br></br>
+                                        Email: noithat.dodo@gmail.com<br></br>
+                                    </Typography>
                                 </Grid>
-                            </div>
+                            </Grid>
                         </div>
                     </div>
-                </div>
-                <br></br><br></br>
-            </div>
+               </Hidden>
+               <Hidden smDown>
+                <div
+                        style={{ height: '100%', width: '100%', backgroundSize: "100% 100%", backgroundImage: img }}
+                    >
+                        <div style={{ color: '#2196f3' }} className={classes.fromCompany}>
+                            <Grid container spacing={32}>
+                                <Grid item xs={2}>
+                                </Grid>
+                                <Grid item xs={5}>
+                                    <Typography color='primary' variant='h6' component='h6'>
+                                        CÔNG TY CỔ PHẦN NỘI THẤT HOÀNG GIA DODO
+                                        </Typography>
+                                    <Typography color='primary' variant='h4' component='h4'>
+                                        Liên hệ
+                                        </Typography>
+                                    <hr></hr>
+                                    <Typography color='primary' component='h4'>
+                                        Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội <br></br>
+                                        Phone: 0377 535 717<br></br>
+                                        Email: noithat.dodo@gmail.com<br></br>
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={5}>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </div>
+                    <br></br><br></br>
+               </Hidden>
+            </span>
         )
     }
 }

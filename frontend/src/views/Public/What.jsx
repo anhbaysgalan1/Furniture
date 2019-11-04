@@ -24,6 +24,7 @@ import {
    CardActionArea,
    CardMedia,
    Avatar,
+   Hidden, 
 
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -44,6 +45,10 @@ const styles = theme => ({
       },
    },
    card: {
+      [theme.breakpoints.down('sm')]: {
+         // position: 'fixed',
+         maxWidth: 170,
+      },
       maxWidth: 300,
    },
    title: {
@@ -75,17 +80,17 @@ const arrImg = [
       title: 'Mua hàng tiện lợi',
    },
    {
+      image: what4, //"https://www.thietkekientrucgroup.com/public/upload/images/noi-that-go-phong-khach%20(76).jpg",
+      title: 'Bảo hành tận nhà',
+   },
+   {
       image: what2, //"https://www.noithathoanmy.com.vn/blog/wp-content/uploads/2018/11/noi-that-go-phong-khach-dep.jpg",
-      title: 'Đạt tiêu chuẩn xuất khẩu',
+      title: 'Đạt chuẩn xuất khẩu',
    },
    {
       image: what3, //"https://i2.wp.com/dogoquoccuong.com/wp-content/uploads/2014/08/DSC09545.jpg?fit=3008%2C2000&ssl=1",
       title: 'Chất lượng hoàng gia',
    },
-   {
-      image: what4, //"https://www.thietkekientrucgroup.com/public/upload/images/noi-that-go-phong-khach%20(76).jpg",
-      title: 'Bảo hành tận nhà',
-   }
 ]
 
 class Index extends BaseView {
@@ -101,73 +106,154 @@ class Index extends BaseView {
       let img = "url('https://c.wallhere.com/photos/c1/f2/lines_wavy_shiny_glitter-716443.jpg!d')"
       // let img = "url('https://png.pngtree.com/58pic/32/49/67/20U58PICI9dWcd7X7yX8e_PIC2018.jpg')"
       return (
-         <div
-            className="card card-image mb-3"
-            style={{
-               backgroundImage: img,
-               height: '500px',
-               width: '100%',
-            }}
-         >
-            <div style={{ color: '#2196f3', textAlign: 'center' }} className={classes.fromCompany} >
-               <Grid container spacing={16}>
-                  <Grid item xs={12}>
-                     <Typography className={classes.title} variant='h4' component='h4'>
-                        HÃY ĐẾN VỚI CHÚNG TÔI
-              </Typography>
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
-                     <StarRateIcon className={classes.cssIcon} />
+         <span>
+            <Hidden smUp>
+               <div
+               className="card card-image mb-3"
+               style={{
+                  backgroundImage: img,
+                  height: '100%',
+                  width: '100%',
+               }}
+            >
+               <div style={{ color: '#2196f3', textAlign: 'center' }} className={classes.fromCompany} >
+                  <Grid container spacing={16}>
+                     <Grid item xs={12}>
+                        <Hidden smUp>
+                           <Typography className={classes.title} variant='h6'>
+                              HÃY ĐẾN VỚI CHÚNG TÔI
+                           </Typography>
+                        </Hidden>
+                        <Hidden smDown>
+                           <Typography className={classes.title} variant='h4'>
+                              HÃY ĐẾN VỚI CHÚNG TÔI
+                           </Typography>
+                        </Hidden>
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                     </Grid>
                   </Grid>
-               </Grid>
-               <br></br>
-               <center>
-                  <Grid container spacing={16} >
-                     {
-                        arrImg.map((element, index) => {
-                           let link = '/convenient'
-                           switch (index) {
-                              case 1:
-                                 link = './export'
-                                 break
-                              case 2:
-                                 link = './quality'
-                                 break
-                              case 3:
-                                 link = './guarantee'
-                           }
-                           return (
-                              <Grid item xs={6} md={3} key={index} className={classes.viewPhone}>
-                                 <Card className={classes.card}>
-                                    <CardActionArea onClick={() => this.goto(link)}>
-                                       <CardMedia
-                                          className={classes.imgZoom}
-                                          component="img"
-                                          alt="Contemplative Reptile"
-                                          height="200"
-                                          image={element.image}
-                                          title={element.title}
-                                       />
-                                       <CardContent>
-                                          <Typography variant="body2" color="textSecondary" component="p">
-                                             {element.title}
-                                          </Typography>
-                                       </CardContent>
-                                    </CardActionArea>
-                                 </Card>
-                              </Grid>
-                           )
-                        })
-                     }
-                  </Grid>
-               </center>
+                  <br></br>
+                  <center>
+                     <Grid container spacing={8} >
+                        {
+                           arrImg.map((element, index) => {
+                              let link = '/convenient'
+                              switch (index) {
+                                 case 1:
+                                    link = './export'
+                                    break
+                                 case 2:
+                                    link = './quality'
+                                    break
+                                 case 3:
+                                    link = './guarantee'
+                              }
+                              return (
+                                 <Grid item xs={6} md={3} key={index} className={classes.viewPhone}>
+                                    <Card className={classes.card}>
+                                       <CardActionArea onClick={() => this.goto(link)}>
+                                          <CardMedia
+                                             className={classes.imgZoom}
+                                             component="img"
+                                             alt="Contemplative Reptile"
+                                             height="100"
+                                             image={element.image}
+                                             title={element.title}
+                                          />
+                                          <CardContent>
+                                             <Typography>
+                                                {element.title}
+                                             </Typography>
+                                          </CardContent>
+                                       </CardActionArea>
+                                    </Card>
+                                 </Grid>
+                              )
+                           })
+                        }
+                     </Grid>
+                  </center>
+               </div>
             </div>
-         </div>
+            </Hidden>
+            <Hidden smDown>
+               <div
+               className="card card-image mb-3"
+               style={{
+                  backgroundImage: img,
+                  height: '500px',
+                  width: '100%',
+               }}
+            >
+               <div style={{ color: '#2196f3', textAlign: 'center' }} className={classes.fromCompany} >
+                  <Grid container spacing={16}>
+                     <Grid item xs={12}>
+                        <Typography className={classes.title} variant='h4' component='h4'>
+                           HÃY ĐẾN VỚI CHÚNG TÔI
+                        </Typography>
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                        <StarRateIcon className={classes.cssIcon} />
+                     </Grid>
+                  </Grid>
+                  <br></br>
+                  <center>
+                     <Grid container spacing={16} >
+                        {
+                           arrImg.map((element, index) => {
+                              let link = '/convenient'
+                              switch (index) {
+                                 case 1:
+                                    link = './export'
+                                    break
+                                 case 2:
+                                    link = './quality'
+                                    break
+                                 case 3:
+                                    link = './guarantee'
+                              }
+                              return (
+                                 <Grid item xs={6} md={3} key={index} className={classes.viewPhone}>
+                                    <Card className={classes.card}>
+                                       <CardActionArea onClick={() => this.goto(link)}>
+                                          <CardMedia
+                                             className={classes.imgZoom}
+                                             component="img"
+                                             alt="Contemplative Reptile"
+                                             height="200"
+                                             image={element.image}
+                                             title={element.title}
+                                          />
+                                          <CardContent>
+                                             <Typography variant="body2" color="textSecondary" component="p">
+                                                {element.title}
+                                             </Typography>
+                                          </CardContent>
+                                       </CardActionArea>
+                                    </Card>
+                                 </Grid>
+                              )
+                           })
+                        }
+                     </Grid>
+                  </center>
+               </div>
+            </div>
+            </Hidden>
+         </span>
+         
       )
    }
 }

@@ -5,12 +5,13 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import {
     Divider,
     Drawer,
-    Hidden,
     Toolbar,
     Typography,
     Icon,
     Tooltip,
     Button,
+    Hidden
+
 } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import Sidebar from '../components/Main/Sidebar'
@@ -26,7 +27,7 @@ import LogOut from './components/LogOut'
 import ProfileMenu from './components/ProfileMenu'
 import DrawerMobileMenu from './components/DrawerMobileMenu'
 import Footer from '../public/Footer'
-import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from '@material-ui/icons/Home'
 import { I18n } from 'react-redux-i18n'
 import _ from 'lodash'
 
@@ -144,16 +145,28 @@ class Main extends React.Component {
                 className={classes.appBar}
                 color="primary"
             >
+                <Hidden smUp>
+                    <Toolbar variant='dense'> 
+                        <DrawerMobileMenu route={route} />
+                        <div id='top-buttom_image'>
+                            <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
+                                <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
+                            </a><br />
+                        </div>
+                    </Toolbar>
+                </Hidden>
+                <Hidden smDown>
                 <Toolbar variant='dense' style={{marginLeft: '100px'}} > 
-                {/* variant='regular' */}
                     <Sidebar route={route}/>
-                    {/* <DrawerMobileMenu route={route} /> */}
-                    {/* <div id='top-buttom_image'>
+                    <DrawerMobileMenu route={route} />
+                    <div id='top-buttom_image'>
                         <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
                             <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
                         </a><br />
-                    </div> */}
+                    </div>
                 </Toolbar>
+                </Hidden>
+                
             </AppBar>
             {/* <nav className={classes.drawer}>
                 <Hidden smDown implementation="css">
@@ -173,7 +186,7 @@ class Main extends React.Component {
                     </Suspense>
                 <br></br>
                 <br></br>
-                {/* <Footer/> */}
+                <Footer/>
             </main>
         </div>
     }

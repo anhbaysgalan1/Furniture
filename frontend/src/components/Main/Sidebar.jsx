@@ -13,7 +13,7 @@ import routes from 'config/routes'
 import permission from 'helpers/permission'
 import Divider from '@material-ui/core/Divider';
 import { NavLink, withRouter } from 'react-router-dom';
-import { Button, Typography, Tabs } from '@material-ui/core';
+import { Button, Typography, Tabs, Hidden } from '@material-ui/core';
 
 const styles = theme => ({
     root: {
@@ -64,7 +64,7 @@ class Sidebar extends React.Component {
             }
         }
     }
-    
+
     handleClick = () => {
         this.setState(state => ({ open: !state.open }));
     }
@@ -102,34 +102,38 @@ class Sidebar extends React.Component {
             return
         }
         const path = menuRoute.path || menu.path
-        // return (
-        //     <ListItem
-        //         button
-        //         component={NavLink}
-        //         to={path}
-        //         key={key}
-        //         className={`${classesDefault} ${classes.listItem} ${isActive ? classes.listItemActive : ''}`}
-        //     >
-        //         <ListItemText
-        //             primary={menu.title}
-        //             classes={{
-        //                 root: `${classes.listItemTextRoot}`,
-        //                 primary: `${classes.listItemTextPrimary} ${isActive ? classes.listItemTextPrimaryActive : ''}`
-        //             }}
-        //         />
-        //     </ListItem>
-        // )
         return (
-            <Button
-                style={{ marginLeft: '10px', fontSize: '14px' }}
-                size="small"
-                key={key}
-                to={path}
-                component={NavLink}
-                color='inherit'
-            >
-                {menu.title}
-            </Button>
+            <span>
+                <Hidden smUp>
+                    <ListItem
+                        button
+                        component={NavLink}
+                        to={path}
+                        key={key}
+                        className={`${classesDefault} ${classes.listItem} ${isActive ? classes.listItemActive : ''}`}
+                    >
+                        <ListItemText
+                            primary={menu.title}
+                            classes={{
+                                root: `${classes.listItemTextRoot}`,
+                                primary: `${classes.listItemTextPrimary} ${isActive ? classes.listItemTextPrimaryActive : ''}`
+                            }}
+                        />
+                    </ListItem>
+                </Hidden>
+                <Hidden smDown>
+                    <Button
+                        style={{ marginLeft: '10px', fontSize: '14px' }}
+                        size="small"
+                        key={key}
+                        to={path}
+                        component={NavLink}
+                        color='inherit'
+                    >
+                        {menu.title}
+                    </Button>
+                </Hidden>
+            </span>
         )
     }
 
