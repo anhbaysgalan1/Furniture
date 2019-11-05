@@ -71,6 +71,11 @@ class Index extends BaseView {
                 {
                     name: 'type',
                     title: I18n.t('Table.header.role.Loại khách'),
+                    sortable: false,
+                    filterable: false,
+                    formatterComponent: (data) => {
+                        return this.typeClient(data)
+                    },
                     style: {
                         textAlign: 'center',
                     }
@@ -174,7 +179,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'type',
-                    width: 70
+                    width: 120
                 },
                 {
                     name: 'code',
@@ -241,6 +246,20 @@ class Index extends BaseView {
     onDelete(_id){
         this.ConfirmDialog.show([_id])
         this.onHide()
+    }
+
+    typeClient(data){
+        let type = _.get(data, 'row.type', '')
+        switch(type){
+            case '0':
+                return <Button color='primary' variant='outlined'>Khách lẻ</Button>
+            case '1':
+                return <Button color='primary' variant='outlined'>Khách buôn</Button>
+            case '2':
+                return <Button color='primary' variant='outlined'>Đối tác</Button>
+            default:
+                return ''
+        }
     }
 
     renderDetail(){

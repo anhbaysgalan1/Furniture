@@ -42,7 +42,6 @@ class Edit extends BaseContainer {
                             break
                         }
                         default: this.notify(`Response: [${err.status}] ${err.message}`, 'error')
-
                     }
                 }
             })
@@ -59,7 +58,6 @@ class Edit extends BaseContainer {
 }
 
 const mapStateToProps = state => {
-    console.log("state", state)
     return {
         //sử dụng selector để lấy state từ redux
         lastType: selector(state, "client.lastType", {}),

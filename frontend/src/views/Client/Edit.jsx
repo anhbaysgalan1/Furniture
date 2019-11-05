@@ -88,186 +88,138 @@ class Create extends BaseView {
     render() {
         const { classes, onSubmit, data } = this.props
         let { dataInput } = this.state
-        let copyPermission = [
+        let typeClient = [
             {
-                name: "Giường gỗ tự nhiên",
-                code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                title: "Khách lẻ",
+                value: '0',
             },
             {
-                name: "Giường gỗ công nghiệp",
-                code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                title: "Khách buôn",
+                value: '1',
             },
             {
-                name: "Giường gỗ cổ điển",
-                code: 'GG1',
-                _id: 'hdjffngjgihghjh'
-            },
-            {
-                name: "Giường gỗ hiện đại",
-                code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                title: "Đối tác",
+                value: '2',
             }
         ]
-        let image1 = _.get(data, 'image1', '')
-        let image2 = _.get(data, 'image2', '')
-        let image3 = _.get(data, 'image3', '')
-        let image4 = _.get(data, 'image4', '')
-        let code   = _.get(data, 'code', '')
-        let typeGoods = _.get(data, 'typeGoods', '')
-        let name = _.get(data, 'name', '')
-        let moneyOld = _.get(data, 'moneyOld', '')
-        let moneyNew = _.get(data, 'moneyNew', '')
-        let typeWoods = _.get(data, 'typeWoods', '')
-        let content = _.get(data, 'content', '')
+        // note: "Sư huynh"
+        let type    = _.get(data, 'type', '')
+        let code    = _.get(data, 'code', '')
+        let name    = _.get(data, 'name', '')
+        let phone   = _.get(data, 'phone', '')
+        let mail    = _.get(data, 'mail', '')
+        let address = _.get(data, 'address', '')
+        let number  = _.get(data, 'number', '')
+        let money   = _.get(data, 'money', '')
+        let goods   = _.get(data, 'goods', '')
+        let note    = _.get(data, 'note', '')
+        console.log('type', type)
         return (
             // <PaperFade className={classes.paper}>
             <Form className={classes.form} onSubmit={onSubmit}>
                 <Grid container spacing={32}>
-                    <Grid item xs={3} lg={3}>
-                        <Card>
-                            <CardContent>
-                                <Typography color='primary'>
-                                    Xem bài đăng
-                                </Typography>
-                                <CardActionArea className={classes.imgZoom}>
-                                    {
-                                        dataInput.img && dataInput.name && dataInput.code
-                                        ?
-                                            <CardMedia
-                                                component="img"
-                                                alt="Contemplative Reptile"
-                                                height="200"
-                                                width="250"
-                                                image={dataInput.img}
-                                                title={`${dataInput.name} - ${dataInput.code}`}
-                                            />
-                                        : ''
-                                    }
-                                    {
-                                        dataInput.moneyOld && dataInput.moneyNew
-                                        ?
-                                            <CardContent>
-                                                <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                                    {dataInput.moneyOld} - {dataInput.moneyNew}
-                                                </Typography>
-                                            </CardContent>
-                                        : ''
-                                    }
-
-                                </CardActionArea>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={9} >
+                    <Grid item xs={3}></Grid>
+                    <Grid item xs={9}>
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography variant='h5' color='primary'>
-                                    Them hang hoa
+                                    Thêm khách hàng
                                 </Typography>
                                 <Grid container spacing={32}>
-                                    <Grid item xs={6}>
-                                        <TextField
-                                            fullWidth
-                                            label={I18n.t("Input.goods.image1")}
-                                            onChange={(value) => this.onHandleChange(value, 'img')}
-                                            value={image1}
-                                            name="image1"
-                                        />
-                                        <TextField
-                                            fullWidth
-                                            label={I18n.t("Input.goods.image2")}
-                                            onChange={(value) => this.onHandleChange(value, 'img')}
-                                            value={image2}
-                                            name="image2"
-                                        />
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <TextField
-                                            fullWidth
-                                            label={I18n.t("Input.goods.image3")}
-                                            onChange={(value) => this.onHandleChange(value, 'img')}
-                                            value={image3}
-                                            name="image3"
-                                        />
-                                        <TextField
-                                            fullWidth
-                                            label={I18n.t("Input.goods.image4")}
-                                            onChange={(value) => this.onHandleChange(value, 'img')}
-                                            value={image4}
-                                            name="image4"
-                                        />
-                                    </Grid>
-                                </Grid>
-                                <Grid container spacing={32}>
-                                    <Grid item xs={3}>
-                                        <TextField
-                                            fullWidth
-                                            label={I18n.t("Input.goods.code")}
-                                            onChange={(value) => this.onHandleChange(value, 'code')}
-                                            value={code}
-                                            name="code"
-                                        />
-                                    </Grid>
                                     <Grid item xs={3}>
                                         <AutoCompleteField
                                             key="1"
                                             fullWidth
                                             select
-                                            label={I18n.t("Input.goods.typeGoods")}
-                                            onChange={(value) => this.onHandleChange(value, 'typeGoods')}
-                                            name="typeGoods"
+                                            label={I18n.t("Input.goods.Loại khách hàng")}
+                                            onChange={(value) => this.onHandleChange(value, 'type')}
+                                            name="type"
                                             validate={this.validate.area}
                                             isMulti={false}
-                                            value={typeGoods}
+                                            value={type}
                                             isClearable={false}
                                         >
                                             {
-                                                copyPermission.map(item => (
-                                                    <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                                        {item.name}
+                                                typeClient.map(item => (
+                                                    <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                                        {item.title}
                                                     </OptionAuto>
                                                 ))
                                             }
                                         </AutoCompleteField>
                                     </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.goods.Mã khách hàng")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="code"
+                                            value={code}
+                                        />
+                                    </Grid>
+
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.goods.name")}
-                                            onChange={(value) => this.onHandleChange(value, 'name')}
+                                            label={I18n.t("Input.goods.Tên khách hàng")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
                                             name="name"
                                             value={name}
                                         />
                                     </Grid>
-                                </Grid>
-                                <Grid container spacing={32}>
                                     <Grid item xs={3}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.goods.moneyOld")}
-                                            onChange={(value) => this.onHandleChange(value, 'moneyOld')}
-                                            value={moneyOld}
-                                            name="moneyOld"
+                                            label={I18n.t("Input.goods.Số điện thoại")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="phone"
+                                            value={phone}
                                         />
                                     </Grid>
                                     <Grid item xs={3}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.goods.moneyNew")}
-                                            onChange={(value) => this.onHandleChange(value, 'moneyNew')}
-                                            name="moneyNew"
-                                            value={moneyNew}
+                                            label={I18n.t("Input.goods.Email")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="mail"
+                                            value={mail}
                                         />
                                     </Grid>
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth
-                                            label={I18n.t("Input.goods.typeWoods")}
-                                            onChange={(value) => this.onHandleChange(value, 'typeWoods')}
-                                            name="typeWoods"
-                                            value={typeWoods}
+                                            label={I18n.t("Input.goods.Địa chỉ")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="address"
+                                            value={address}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.goods.Số lần mua hàng")}
+                                            onChange={(value) => this.onHandleChange(value, 'img')}
+                                            name="number"
+                                            value={number}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={3}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.goods.Tổng tiền")}
+                                            onChange={(value) => this.onHandleChange(value, 'name')}
+                                            name="money"
+                                            value={money}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <TextField
+                                            fullWidth
+                                            label={I18n.t("Input.goods.Hàng đã mua")}
+                                            onChange={(value) => this.onHandleChange(value, 'code')}
+                                            value="GN1 (2019-11-11), GN2 (2019-01-12)"
+                                            name="goods"
+                                            value={goods}
                                         />
                                     </Grid>
                                 </Grid>
@@ -279,23 +231,22 @@ class Create extends BaseView {
                                             rowsMax={8}
                                             variant="outlined"
                                             fullWidth
-                                            value={content}
-                                            label={I18n.t("Input.goods.content.Nội dung miêu tả")}
+                                            label={I18n.t("Input.goods.content.Ghi chú khách hàng")}
                                             onChange={(value) => this.onHandleChange(value, 'content')}
-                                            name="content"
+                                            name="note"
+                                            value={note}
                                         />
                                     </Grid>
                                 </Grid>
                             </CardContent>
                             <CardActions>
-                                <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
+                                <Button variant="contained" color="primary" onClick={() => this.goto("/client")}>
                                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                                 </Button>
                                 <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
                             </CardActions>
                         </Card>
                     </Grid>
-                    <br />
                 </Grid>
             </Form>
             // </PaperFade>

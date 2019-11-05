@@ -98,7 +98,7 @@ class Create extends BaseView {
             },
             {
                 title: "Đối tác",
-                value: '1',
+                value: '2',
             }
         ]
         return (
