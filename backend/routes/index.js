@@ -28,7 +28,6 @@ Route.group(() => {
     // Route.put("/users/updateLineToken", "UserController.updateLineToken")
     
     Route.resource("/users", "UserController")
-    
     Route.resource("/bads", "BadController")
 
     Route.resource("/goods", "GoodsController")

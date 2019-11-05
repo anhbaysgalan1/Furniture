@@ -17,17 +17,16 @@ class ClientController extends BaseController {
     async index({ request, response }) {
         let allowFields = {
             _id: 1,
+            type: 1,
             code: 1,
             name: 1,
-            image1: 1,
-            image2: 1,
-            image3: 1,
-            image4: 1,
-            moneyOld: 1,
-            moneyNew: 1,
-            typeGoods: 1,
-            typeWoods: 1,
-            content: 1,
+            phone: 1,
+            mail: 1,
+            address: 1,
+            number: 1,
+            money: 1,
+            goods: 1,
+            note: 1,
             insert: {
                 when: 1
             }
@@ -43,17 +42,16 @@ class ClientController extends BaseController {
     async detail({ request, response }) {
         let allowFields = {
             _id: 1,
+            type: 1,
             code: 1,
             name: 1,
-            image1: 1,
-            image2: 1,
-            image3: 1,
-            image4: 1,
-            moneyOld: 1,
-            moneyNew: 1,
-            typeGoods: 1,
-            typeWoods: 1,
-            content: 1,
+            phone: 1,
+            mail: 1,
+            address: 1,
+            number: 1,
+            money: 1,
+            goods: 1,
+            note: 1,
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -62,17 +60,16 @@ class ClientController extends BaseController {
         let input = request.body
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
+            type: "string!",
             code: "string!",
             name: "string!",
-            image1: "string!",
-            image2: "string!",
-            image3: "string!",
-            image4: "string!",
-            moneyOld: "string!",
-            moneyNew: "string!",
-            typeGoods: "string!",
-            typeWoods: "string!",
-            content: "string!",
+            phone: "string!",
+            mail: "string",
+            address: "string!",
+            number: "string!",
+            money: "string!",
+            goods:"string!",
+            note: "string",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
 
@@ -98,17 +95,16 @@ class ClientController extends BaseController {
 
         //allowFields là object các trường được phép lưu vào db
         let allowFields = {
+            type: "string!",
             code: "string!",
             name: "string!",
-            image1: "string!",
-            image2: "string!",
-            image3: "string!",
-            image4: "string!",
-            moneyOld: "string!",
-            moneyNew: "string!",
-            typeGoods: "string!",
-            typeWoods: "string!",
-            content: "string!",
+            phone: "string!",
+            mail: "string",
+            address: "string!",
+            number: "string!",
+            money: "string!",
+            goods:"string!",
+            note: "string",
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
 

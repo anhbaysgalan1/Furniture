@@ -1,14 +1,13 @@
 {
     "_id": "objectid",
+    "type": "string",
     "code": "string",
     "name": "string",
-    "image1": "string",
-    "image2": "string",
-    "image3": "string",
-    "image4": "string",
-    "moneyOld": "string",
-    "moneyNew": "string",
-    "typeGoods": "string",
-    "typeWoods": "string",
-    "content": "string"
+    "phone": "string",
+    "mail": "string",
+    "address": "string",
+    "number": "string",
+    "money": "string",
+    "goods": "string",
+    "note": "string"
 }

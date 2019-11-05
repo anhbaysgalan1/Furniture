@@ -69,43 +69,71 @@ class Index extends BaseView {
                     }
                 },
                 {
+                    name: 'type',
+                    title: I18n.t('Table.header.role.Loại khách'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
                     name: 'code',
-                    title: I18n.t('Table.header.role.Mã hàng'),
+                    title: I18n.t('Table.header.role.Mã khách'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
                     name: 'name',
-                    title: I18n.t('Table.header.role.Tên hàng'),
+                    title: I18n.t('Table.header.role.Tên khách'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeGoods',
-                    title: I18n.t('Table.header.role.Kiểu hàng'),
+                    name: 'phone',
+                    title: I18n.t('Table.header.role.SĐT'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeWoods',
-                    title: I18n.t('Table.header.role.Kiểu gỗ'),
+                    name: 'mail',
+                    title: I18n.t('Table.header.role.Email'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'moneyOld',
-                    title: I18n.t('Table.header.role.Tiền cũ'),
+                    name: 'address',
+                    title: I18n.t('Table.header.role.Địa chỉ'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'moneyNew',
-                    title: I18n.t('Table.header.role.Tiền mới'),
+                    name: 'number',
+                    title: I18n.t('Table.header.role.Số lần mua'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'money',
+                    title: I18n.t('Table.header.role.Số tiền mua'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'goods',
+                    title: I18n.t('Table.header.role.Số hàng mua'),
+                    style: {
+                        textAlign: 'center',
+                    }
+                },
+                {
+                    name: 'note',
+                    title: I18n.t('Table.header.role.Ghi chú'),
                     style: {
                         textAlign: 'center',
                     }
@@ -116,6 +144,7 @@ class Index extends BaseView {
                     sortable: false,
                     filterable: false,
                     formatterComponent: (data) => {
+                        console.log("data", data.row)
                         return this.customActionColumn(data)
                     },
                     style: {
@@ -125,18 +154,26 @@ class Index extends BaseView {
             ],
             defaultSort: [],
             tableColumnExtensions: [
+                { columnName: 'type', wordWrapEnabled: true },
                 { columnName: 'code', wordWrapEnabled: true },
                 { columnName: 'name', wordWrapEnabled: true },
-                { columnName: 'monerOld', wordWrapEnabled: true },
-                { columnName: 'monerNew', wordWrapEnabled: true },
-                { columnName: 'typeGoods', wordWrapEnabled: true },
-                { columnName: 'typeWoods', wordWrapEnabled: true },
+                { columnName: 'phone', wordWrapEnabled: true },
+                { columnName: 'mail', wordWrapEnabled: true },
+                { columnName: 'address', wordWrapEnabled: true },
+                { columnName: 'number', wordWrapEnabled: true },
+                { columnName: 'money', wordWrapEnabled: true },
+                { columnName: 'goods', wordWrapEnabled: true },
+                { columnName: 'note', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
             columnWidths: [
                 {
                     name: 'index',
+                    width: 70
+                },
+                {
+                    name: 'type',
                     width: 70
                 },
                 {
@@ -148,19 +185,31 @@ class Index extends BaseView {
                     width: 200
                 },
                 {
-                    name: 'typeGoods',
-                    width: 170
+                    name: 'phone',
+                    width: 100
                 },
                 {
-                    name: 'typeWoods',
+                    name: 'mail',
+                    width: 120
+                },
+                {
+                    name: 'address',
                     width: 150
                 },
                 {
-                    name: 'moneyOld',
+                    name: 'number',
                     width: 80
                 },
                 {
-                    name: 'moneyNew',
+                    name: 'money',
+                    width: 80
+                },
+                {
+                    name: 'goods',
+                    width: 80
+                },
+                {
+                    name: 'note',
                     width: 80
                 },
                 {

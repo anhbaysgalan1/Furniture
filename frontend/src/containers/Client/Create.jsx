@@ -23,6 +23,7 @@ class Index extends BaseContainer {
     }
 
     onSubmit(values) {
+        console.log('values', values)
         this.props.dispatch(ClientAction.create(values))
             .then(data => {
                 if (!data.error) {
