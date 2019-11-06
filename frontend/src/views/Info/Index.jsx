@@ -27,6 +27,7 @@ import Header from '../Public/Header/Header'
 import Home from '../Public/Home'
 import Infomation from './Components/Infomation'
 import Chance from './Components/Chance'
+import PostIndex from '../Posts/Index'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -61,6 +62,7 @@ class Index extends BaseView {
                 <Chance classes={classes} />
                 <br></br> <br></br> <br></br>
                 <What classes={classes} />
+                <PostIndex classes={classes} />
             </div>
         )
     }

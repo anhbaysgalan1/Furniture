@@ -174,9 +174,6 @@ const routes = [
         exact: true,
         sidebarName: 'posts'
     },
-
-    
-    //  
     {
         path: "/convenient",
         name: 'Convenient',

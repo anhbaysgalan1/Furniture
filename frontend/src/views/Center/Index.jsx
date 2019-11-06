@@ -37,6 +37,8 @@ import DiningRoom from './Components/DiningRoom'
 import Promotion from '../Public/Promotion'
 import ListGoods from './Components/ListGoods'
 import List from './Components/List'
+import Partner from '../Public/Partner'
+import PostIndex from '../Posts/Index'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -60,16 +62,17 @@ class Index extends BaseView {
         let { classes } = this.props
         return (
             <div className={classes.paddingIndex}>
-                {/* <Header classes={classes} /> */}
-                {/* <Home classes={classes} /> */}
-                {/* <ButtonViews classes={classes} /> */}
-                {/* <br></br> */}
-                {/* <What classes={classes} /> */}
-                {/* <Circle classes={classes} /> */}
+                {/* <Header classes={classes} />
+                <Home classes={classes} />
+                <ButtonViews classes={classes} />
                 <br></br>
-                {/* <NewHot classes={classes} /> */}
+                <What classes={classes} />
+                <Circle classes={classes} />
                 <br></br>
-                {/* <Promotion classes={classes} /> */}
+                <Partner classes={classes} />
+                <NewHot classes={classes} />
+                <br></br>
+                <Promotion classes={classes} /> */}
                 <br></br>
                 {/* <ListGoods classes={classes}/> */}
                 <br></br>
@@ -88,6 +91,7 @@ class Index extends BaseView {
                 </Grid>
                 <br></br>
                 {/* <List classes={classes} /> */}
+                <PostIndex  classes={classes} />
                 <Footer classes={classes} />
             </div>
         )

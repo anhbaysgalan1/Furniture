@@ -59,7 +59,7 @@ class Index extends BaseView {
                   <Card>
                      <CardContent style={{ textAlign: 'justify' }} >
                         <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
-                            XU HƯỚNG THIẾT KẾ NỘI THẤT 2020
+                           XU HƯỚNG THIẾT KẾ NỘI THẤT 2020
                         </Typography>
                         <Typography>
                            <Icon>calendar_today</Icon> {dateNew} | Lượt xem: 562
@@ -67,13 +67,16 @@ class Index extends BaseView {
                         <hr></hr>
                         <ul>
                            <li>
-                                <Typography>
-                                    Thị hiếu và nhu cầu của người tiêu dùng về thiết kế nội thất ngày càng khó tính. Họ muốn đi theo thu huống mới nhất hiện nay nhưng vẫn phải có nét riêng của họ. Đến với bài viết này, mời các bạn cùng với Amazing House tìm hiểu xu hướng thiết kế nội thất 2020 là gì?
+                              <Typography>
+                                 Thị hiếu và nhu cầu của người tiêu dùng về thiết kế nội thất ngày 
+                                 càng khó tính. Họ muốn đi theo thu huống mới nhất hiện nay nhưng 
+                                 vẫn phải có nét riêng của họ. Đến với bài viết này, mời các bạn 
+                                 cùng với Amazing House tìm hiểu xu hướng thiết kế nội thất 2020 là gì?
                                 </Typography>
                            </li>
                         </ul>
                         <Typography variant='h5'>
-                            Xu hướng thiết kế nội thất 2020
+                           Xu hướng thiết kế nội thất 2020
                         </Typography>
                         <center>
                            <img
@@ -84,16 +87,22 @@ class Index extends BaseView {
                            />
                         </center>
                         <ul>
-                            <li>
-                                <Typography>
-                                Bạn sẽ làm gì khi không gian của căn nhà bạn nhỏ hẹp nhưng bạn lại muốn sử dụng với nhiều mục đích khác nhau như vừa sống vừa nấu ăn cùng một chỗ, vừa làm nhà bếp vừa làm nơi làm việc? Do vậy, xu hướng thiết kế nội thất năm 2020 là thiết kế không gian đa chức năng. Việc thiết kế, bố trí nội thất, chọn màu phải thật cẩn thận để cho bạn cảm thấy thoải mái, thông thoáng mặc dù không gian thực tế nhỏ.
+                           <li>
+                              <Typography>
+                                 Bạn sẽ làm gì khi không gian của căn nhà bạn nhỏ hẹp nhưng bạn 
+                                 lại muốn sử dụng với nhiều mục đích khác nhau như vừa sống vừa 
+                                 nấu ăn cùng một chỗ, vừa làm nhà bếp vừa làm nơi làm việc? 
+                                 Do vậy, xu hướng thiết kế nội thất năm 2020 là thiết kế không 
+                                 gian đa chức năng. Việc thiết kế, bố trí nội thất, chọn màu 
+                                 phải thật cẩn thận để cho bạn cảm thấy thoải mái, thông thoáng 
+                                 mặc dù không gian thực tế nhỏ.
                                 </Typography>
-                            </li>
+                           </li>
                         </ul>
                         <Typography variant='h5'>
-                            Phong cách thiết kế là một trong những điều cần thiết khi thiết kế nội thất
+                           Phong cách thiết kế là một trong những điều cần thiết khi thiết kế nội thất
                         </Typography>
-                        
+
                         <center>
                            <img
                               src='https://noithatdogoviet.com/upload/images/a4-1.jpg'
@@ -103,14 +112,14 @@ class Index extends BaseView {
                            />
                         </center>
                         <ul>
-                            <li>
-                                <Typography>
-                                    Tùy theo không gian và phong cách thiết kế nội thất của ngôi nhà mà chúng ta sẽ lựa chọn các loại vật liệu thiết kế nội thất khác nhau. Xu hướng vật liệu thiết kế nội thất 2020 là tre, nứa, đất nung, đá cẩm thạch, tấm thảm lót, tấm dán tường 3D, kim loại, Neon hay sợi thực vật…Mỗi vật liệu khác nhau sẽ tạo không gian khác nhau và tạo ra những sự riêng biệt của chính nó.
+                           <li>
+                              <Typography>
+                                 Tùy theo không gian và phong cách thiết kế nội thất của ngôi nhà mà chúng ta sẽ lựa chọn các loại vật liệu thiết kế nội thất khác nhau. Xu hướng vật liệu thiết kế nội thất 2020 là tre, nứa, đất nung, đá cẩm thạch, tấm thảm lót, tấm dán tường 3D, kim loại, Neon hay sợi thực vật…Mỗi vật liệu khác nhau sẽ tạo không gian khác nhau và tạo ra những sự riêng biệt của chính nó.
                                 </Typography>
-                            </li>
+                           </li>
                         </ul>
                         <Typography variant='h5'>
-                            Màu sắc trong thiết kế nội thất
+                           Màu sắc trong thiết kế nội thất
                         </Typography>
                         <center>
                            <img
@@ -121,26 +130,26 @@ class Index extends BaseView {
                            />
                         </center>
                         <ul>
-                            <li>
-                                <Typography>
-                                Dù bạn chọn phong cách thiết kế nào, đồ dụng nội thất ra sao thì không thể không nhắc đến các tông màu chọn lựa sao cho phù hợp mà còn mang lại ý nghĩa đặc trưng của nó trong mỗi thiết kế nội thất. Các màu sắc được xem xét và lựa chọn cho phù hợp với căn nhà của bạn như màu xanh biển nhạt, màu bạc hà, màu hồng, màu vàng mật ong, màu hồng, màu pastel, màu đất nung, màu gỗ…
+                           <li>
+                              <Typography>
+                                 Dù bạn chọn phong cách thiết kế nào, đồ dụng nội thất ra sao thì không thể không nhắc đến các tông màu chọn lựa sao cho phù hợp mà còn mang lại ý nghĩa đặc trưng của nó trong mỗi thiết kế nội thất. Các màu sắc được xem xét và lựa chọn cho phù hợp với căn nhà của bạn như màu xanh biển nhạt, màu bạc hà, màu hồng, màu vàng mật ong, màu hồng, màu pastel, màu đất nung, màu gỗ…
                                 </Typography>
-                            </li>
+                           </li>
                         </ul>
                         <Typography>
-                        Với những chia sẽ trên, chúng hy vọng bạn có thể có những ý tưởng cho ngôi nhà tương lai của bạn. Nếu các bạn có nhu cầu tư vấn thiết kế nội thất có thể liên hệ với chúng tôi:
+                           Với những chia sẽ trên, chúng hy vọng bạn có thể có những ý tưởng cho ngôi nhà tương lai của bạn. Nếu các bạn có nhu cầu tư vấn thiết kế nội thất có thể liên hệ với chúng tôi:
                         </Typography>
                         <Typography>
-                            Công ty Cổ phần Kiến trúc – Nội thất Amazing House
+                           Công ty Cổ phần Kiến trúc – Nội thất Amazing House
                         </Typography>
                         <Typography>
-                            Hotline: 091 234 1896 - 090 686 0004
+                           Hotline: 091 234 1896 - 090 686 0004
                         </Typography>
                         <Typography>
-                            Địa chỉ: Căn 3/13 Park city - Lê Trọng Tấn - Hà Đông - Hà Nội
+                           Địa chỉ: Căn 3/13 Park city - Lê Trọng Tấn - Hà Đông - Hà Nội
                         </Typography>
                         <Typography>
-                            Website: https://amazinghouse.vn
+                           Website: https://amazinghouse.vn
                         </Typography>
                      </CardContent>
                   </Card>
