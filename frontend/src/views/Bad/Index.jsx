@@ -56,7 +56,7 @@ class Index extends BaseView {
                 <br></br>
                 {/* <BadHot classes={classes} /> */}
                 <br></br>
-                {/* <Promotion classes={classes} />   */}
+                <Promotion classes={classes} />  
                 <br></br>
                 <Tabs classes={classes} onSubmit={onSubmit} />
                 <br></br>

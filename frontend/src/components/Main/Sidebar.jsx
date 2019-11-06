@@ -110,7 +110,7 @@ class Sidebar extends React.Component {
         }
         const path = menuRoute.path || menu.path
         return (
-            <span>
+            <span key={key} >
                 <Hidden smUp>
                     <ListItem
                         button

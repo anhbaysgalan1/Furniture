@@ -26,11 +26,15 @@ const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
 const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
 const PostsExport           = lazy(() => import('containers/Posts/Export'))
 const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
-const PostsQuality          = lazy(() => import('containers/Posts/Quality') )
-const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions') )
-const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend') )
-const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart') )
-const PostsTableEatHot         = lazy(() => import('containers/Posts/TableEatHot') )
+const PostsQuality          = lazy(() => import('containers/Posts/Quality'))
+const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions'))
+const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend'))
+const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart'))
+const PostsTableEatHot         = lazy(() => import('containers/Posts/TableEatHot'))
+
+const PostsIndex         = lazy(() => import('containers/Posts/Index'))
+
+
 // 
 
 const routes = [
@@ -162,8 +166,17 @@ const routes = [
         exact: true,
         sidebarName: 'posts'
     },
+    {
+        path: '/posts-index',
+        name: 'posts.index',
+        title: () => I18n.t("Breadcrumb.postsIndex"),
+        component: () => <PostsIndex />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+
     
-    // 
+    //  
     {
         path: "/convenient",
         name: 'Convenient',

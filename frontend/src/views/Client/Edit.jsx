@@ -113,7 +113,7 @@ class Create extends BaseView {
         let money   = _.get(data, 'money', '')
         let goods   = _.get(data, 'goods', '')
         let note    = _.get(data, 'note', '')
-        console.log('type', type)
+
         return (
             // <PaperFade className={classes.paper}>
             <Form className={classes.form} onSubmit={onSubmit}>
