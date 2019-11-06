@@ -27,6 +27,11 @@ const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
 const PostsExport           = lazy(() => import('containers/Posts/Export'))
 const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
 const PostsQuality          = lazy(() => import('containers/Posts/Quality') )
+const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions') )
+const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend') )
+const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart') )
+const PostsTableEatHot         = lazy(() => import('containers/Posts/TableEatHot') )
+// 
 
 const routes = [
     {
@@ -125,6 +130,40 @@ const routes = [
         exact: true,
         sidebarName: 'posts'
     },
+    {
+        path: '/5-cau-hoi-thuong-gap',
+        name: 'frequently.questions',
+        title: () => I18n.t("Breadcrumb.postsFrequentlyQuestions"),
+        component: () => <PostsFrequentlyQuestions />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    {
+        path: '/xu-huong-noi-that-2020',
+        name: 'interior.trend',
+        title: () => I18n.t("Breadcrumb.postsPostsInteriorTrend"),
+        component: () => <PostsInteriorTrend />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    {
+        path: '/giuong-ngu-thong-minh',
+        name: 'bad.smart',
+        title: () => I18n.t("Breadcrumb.postsBadSmart"),
+        component: () => <PostsBadSmart />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    {
+        path: '/ban-an-hot',
+        name: 'table-eat-hot',
+        title: () => I18n.t("Breadcrumb.postsTableEatHot"),
+        component: () => <PostsTableEatHot />,
+        exact: true,
+        sidebarName: 'posts'
+    },
+    
+    // 
     {
         path: "/convenient",
         name: 'Convenient',

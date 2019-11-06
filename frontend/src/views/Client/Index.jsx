@@ -252,11 +252,11 @@ class Index extends BaseView {
         let type = _.get(data, 'row.type', '')
         switch(type){
             case '0':
-                return <Button color='primary' variant='outlined'>Khách lẻ</Button>
+                return <Button color='primary' variant='contained'>Khách lẻ</Button>
             case '1':
-                return <Button color='primary' variant='outlined'>Khách buôn</Button>
+                return <Button color='primary' variant='contained'>Khách buôn</Button>
             case '2':
-                return <Button color='primary' variant='outlined'>Đối tác</Button>
+                return <Button color='primary' variant='contained'>Đối tác</Button>
             default:
                 return ''
         }
@@ -279,7 +279,7 @@ class Index extends BaseView {
                         <Typography variant="h6"> 
                             Xem chi tiết đơn hàng
                         </Typography>
-                            {dataRow.code}
+                        {dataRow.code}
                         <Grid container spacing={32}>
                             <Grid item xs={6}></Grid>
                             <Grid item xs={6}>
