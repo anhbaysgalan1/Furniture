@@ -24,6 +24,7 @@ import {
 
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
+import PaniTion from './PaniTion'
 import What from '../Public/What'
 import Home from '../Public/Home'
 import Promotion from '../Public/Promotion'
@@ -214,13 +215,14 @@ class Index extends BaseView {
                 <Grid container spacing={32} >
                     <Grid item xs={1}></Grid>
                     <Grid item xs={10}>
+                        <PaniTion classes={classes} />
                         {
-                            this.renderRelateTo(classes)
+                            // this.renderRelateTo(classes)
                         }
                         <br></br>
                         <Partner classes={classes} />
                         {
-                            this.renderNewsHot(classes)
+                            // this.renderNewsHot(classes)
                         }
                     </Grid>
                     <Grid item xs={1}></Grid>
