@@ -219,32 +219,31 @@ class Create extends BaseView {
                                  {
                                     arrContent.map((element, count) => {
                                        return (
-                                          <center key={count} >
-                                             <Grid container direction='row' alignItems="center" spacing={8}>
-                                                <Grid item xs={11}>
-                                                   <TextField
-                                                      multiline
-                                                      rows={4}
-                                                      rowsMax={8}
-                                                      variant="outlined"
-                                                      fullWidth
-                                                      label={I18n.t("Input.goods.List Item nội dung")}
-                                                      // onChange={(value) => this.onHandleChange(value, 'contentItem')}
-                                                      // name="contentItem"
-                                                      name={`data[${index}][content][${count}][listConten]`}
-                                                   />
-                                                </Grid>
-                                                <Grid item xs={1}>
+                                          <Grid key={count} container direction='row' alignItems="center" spacing={8}>
+                                             <Grid item xs={11}>
+                                                <TextField
+                                                   multiline
+                                                   rows={4}
+                                                   rowsMax={8}
+                                                   variant="outlined"
+                                                   fullWidth
+                                                   label={I18n.t("Input.goods.List Item nội dung")}
+                                                   // onChange={(value) => this.onHandleChange(value, 'contentItem')}
+                                                   // name="contentItem"
+                                                   name={`data[${index}][content][${count}][listConten]`}
+                                                />
+                                             </Grid>
+                                             <Grid item xs={1}>
+                                                <center>
                                                    <IconButton onClick={() => this.signContent(index, count)} >
                                                       <Icon style={{ color: 'red' }} >delete</Icon>
                                                    </IconButton>
-                                                </Grid>
+                                                </center>
                                              </Grid>
-                                          </center>
+                                          </Grid>
                                        )
                                     })
                                  }
-
                               </div>
                            </Grid>
                         </Grid>

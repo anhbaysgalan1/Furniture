@@ -17,20 +17,14 @@ class PostsController extends BaseController {
     async index({ request, response }) {
         let allowFields = {
             _id: 1,
-            code: 1,
-            name: 1,
-            image1: 1,
-            image2: 1,
-            image3: 1,
-            image4: 1,
-            moneyOld: 1,
-            moneyNew: 1,
-            typePosts: 1,
-            typeWoods: 1,
-            content: 1,
-            insert: {
-                when: 1
-            }
+            title: 1,
+            image: 1,
+            number: 1,
+            summary: 1,
+            contentStart: 1,
+            contentEnd: 1,
+            data: 1,
+
         }
         let result = await this.Model.aggregation([{
             $sort: {
@@ -60,22 +54,28 @@ class PostsController extends BaseController {
 
     async store({ request, response }) {
         let input = request.body
+        console.log("input", input)
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
-            code: "string!",
-            name: "string!",
-            image1: "string!",
-            image2: "string!",
-            image3: "string!",
-            image4: "string!",
-            moneyOld: "string!",
-            moneyNew: "string!",
-            typePosts: "string!",
-            typeWoods: "string!",
-            content: "string!",
+            title: "string!",
+            image: "string!",
+            number: "string!",
+            summary: "string!",
+            contentStart: "string!",
+            contentEnd: "string!",
+            data: [
+                { 
+                    title: "string!",
+                    image: "string!",
+                    content: [
+                        {
+                            listConten: "string!", 
+                        }
+                    ]
+                }
+            ]
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
-
         let existCode = await this.Model.getOne({
             code: data.code
         })
