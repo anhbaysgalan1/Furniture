@@ -68,7 +68,7 @@ class Create extends BaseView {
          },
          arrItem: [
             {
-               arrContent: [{item: '1'}],
+               arrContent: [{ item: '1' }],
             },
          ],
       }
@@ -79,25 +79,23 @@ class Create extends BaseView {
       this.signContent = this.signContent.bind(this)
    }
 
-   addItem(){
+   addItem() {
       let { arrItem } = this.state
       let element = {
-         arrContent: [{item: '1'}]
+         arrContent: [{ item: '1' }]
       }
       arrItem.push(element)
       this.setState({ arrItem: arrItem })
-      this.setState({reload: !this.state.reload})
+      this.setState({ reload: !this.state.reload })
    }
-
-   signItem(index){
+   signItem(index) {
       let { arrItem } = this.state
       arrItem.splice(index, 1)
       this.setState({ arrItem: arrItem })
-      this.setState({reload: !this.state.reload})
+      this.setState({ reload: !this.state.reload })
    }
-
-   addContent(index){
-      let { arrItem } = this.state 
+   addContent(index) {
+      let { arrItem } = this.state
       let element = {
          item: '1'
       }
@@ -105,9 +103,8 @@ class Create extends BaseView {
       this.setState({ arrItem: arrItem })
       this.setState({ reload: !this.state.reload })
    }
-
-   signContent(index, count){
-      let { arrItem } = this.state 
+   signContent(index, count) {
+      let { arrItem } = this.state
       arrItem[index].arrContent.splice(count, 1)
       this.setState({ arrItem: arrItem })
       this.setState({ reload: !this.state.reload })
@@ -120,223 +117,179 @@ class Create extends BaseView {
       })
    }
 
-   render() {
-      const { classes, onSubmit } = this.props
-      let { dataInput } = this.state
-      let copyPermission = [
-         {
-            name: "Giường gỗ tự nhiên",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
-         },
-         {
-            name: "Giường gỗ công nghiệp",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
-         },
-         {
-            name: "Giường gỗ cổ điển",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
-         },
-         {
-            name: "Giường gỗ hiện đại",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
-         }
-      ]
-
+   renderPosts(classes) {
+      let { onSubmit } = this.props
       let { arrItem } = this.state
-      console.log('arrItem arrItem ', arrItem)
-
-      let arrListContent = [
-         {
-            content: 'aaa',
-         },
-         {
-            content: 'aaa',
-         }
-      ]
-
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
+            <Card className={classes.card}>
+               <Typography variant='h5' color='primary'>
+                  Thêm tin tức
+               </Typography>
+               <Grid container spacing={32}>
+                  <Grid item xs={6}>
+                     <TextField
+                        fullWidth
+                        label={I18n.t("Input.goods.Tiêu đề tin tức")}
+                        onChange={(value) => this.onHandleChange(value, 'title')}
+                        name="title"
+                     />
+                  </Grid>
+                  <Grid item xs={4}>
+                     <TextField
+                        fullWidth
+                        label={I18n.t("Input.goods.Ảnh")}
+                        onChange={(value) => this.onHandleChange(value, 'image')}
+                        name="image"
+                     />
+                  </Grid>
+                  <Grid item xs={2}>
+                     <TextField
+                        fullWidth
+                        label={I18n.t("Input.goods.Số lượt truy cập")}
+                        onChange={(value) => this.onHandleChange(value, 'number')}
+                        name="number"
+                     />
+                  </Grid>
+                  <Grid item xs={4}>
+                     <TextField
+                        multiline
+                        rows={6}
+                        rowsMax={8}
+                        variant="outlined"
+                        fullWidth
+                        label={I18n.t("Input.goods.Tóm tắt nội dung")}
+                        onChange={(value) => this.onHandleChange(value, 'summary')}
+                        name="summary"
+                     />
+                  </Grid>
+                  <Grid item xs={8}>
+                     <TextField
+                        multiline
+                        rows={6}
+                        rowsMax={8}
+                        variant="outlined"
+                        fullWidth
+                        label={I18n.t("Input.goods.content.Lời dẫn giới thiệu")}
+                        onChange={(value) => this.onHandleChange(value, 'contentStart')}
+                        name="contentStart"
+                     />
+                  </Grid>
+               </Grid>
+               <center>
+                  <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
+                     Thêm Nội dung
+                  </Button>
+               </center>
+               {
+                  arrItem.map((_item, index) => {
+                     let arrContent = _.get(_item, 'arrContent', [])
+                     return (
+                        <Grid container spacing={16} key={index}>
+                           <Grid item xs={12}>
+                              <div style={{ textAlign: 'right' }} >
+                                 <IconButton style={{ color: 'red' }} onClick={() => this.signItem(index)} >
+                                    <Icon>highlight_off</Icon>
+                                 </IconButton>
+                              </div>
+                              <div style={{ borderStyle: 'groove', padding: '10px' }}>
+                                 <Grid container spacing={16}>
+                                    <Grid item xs={6}>
+                                       <TextField
+                                          fullWidth
+                                          label={I18n.t("Input.goods.Tiêu đề nội dung")}
+                                          // onChange={(value) => this.onHandleChange(value, 'titleItem')}
+                                          // name="titleItem"
+                                          name={`data[${index}][title]`}
+                                       />
+                                    </Grid>
+                                    <Grid item xs={5}>
+                                       <TextField
+                                          fullWidth
+                                          label={I18n.t("Input.goods.Link ảnh")}
+                                          // onChange={(value) => this.onHandleChange(value, 'imgItem')}
+                                          // name="imgItem"
+                                          name={`data[${index}][image]`}
+                                       />
+                                    </Grid>
+                                 </Grid>
+                                 <IconButton color='primary' onClick={() => this.addContent(index)}>
+                                    <Icon>add_circle_outline</Icon>
+                                 </IconButton>
+                                 {
+                                    arrContent.map((element, count) => {
+                                       return (
+                                          <center key={count} >
+                                             <Grid container direction='row' alignItems="center" spacing={8}>
+                                                <Grid item xs={11}>
+                                                   <TextField
+                                                      multiline
+                                                      rows={4}
+                                                      rowsMax={8}
+                                                      variant="outlined"
+                                                      fullWidth
+                                                      label={I18n.t("Input.goods.List Item nội dung")}
+                                                      // onChange={(value) => this.onHandleChange(value, 'contentItem')}
+                                                      // name="contentItem"
+                                                      name={`data[${index}][content][${count}][listConten]`}
+                                                   />
+                                                </Grid>
+                                                <Grid item xs={1}>
+                                                   <IconButton onClick={() => this.signContent(index, count)} >
+                                                      <Icon style={{ color: 'red' }} >delete</Icon>
+                                                   </IconButton>
+                                                </Grid>
+                                             </Grid>
+                                          </center>
+                                       )
+                                    })
+                                 }
+
+                              </div>
+                           </Grid>
+                        </Grid>
+                     )
+                  })
+               }
+               <Grid container spacing={32}>
+                  <Grid item xs={12}>
+                     <TextField
+                        multiline
+                        rows={4}
+                        rowsMax={8}
+                        variant="outlined"
+                        fullWidth
+                        label={I18n.t("Input.goods.Lời dẫn kết thúc")}
+                        onChange={(value) => this.onHandleChange(value, 'contentEnd')}
+                        name="contentEnd"
+                     />
+                  </Grid>
+               </Grid>
+               <CardActions>
+                  <Button variant="contained" color="primary" onClick={() => this.goto("/posts")}>
+                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                  </Button>
+                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+               </CardActions>
+            </Card>
+         </Form>
+      )
+   }
+
+   render() {
+      const { classes } = this.props
+      return (
+         <div>
             <Grid container spacing={32}>
                <Grid item xs={1}></Grid>
                <Grid item xs={10}>
-                  <Card className={classes.card}>
-                        <Typography variant='h5' color='primary'>
-                           Thêm tin tức
-                                </Typography>
-                        <Grid container spacing={32}>
-                           <Grid item xs={6}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.goods.Tiêu đề tin tức")}
-                                 onChange={(value) => this.onHandleChange(value, 'title')}
-                                 name="title"
-                              />
-                           </Grid>
-                           <Grid item xs={4}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.goods.Ảnh")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
-                                 name="img"
-                              />
-                           </Grid>
-                           <Grid item xs={2}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.goods.Số lượt truy cập")}
-                                 onChange={(value) => this.onHandleChange(value, 'number')}
-                                 name="number"
-                              />
-                           </Grid>
-                           <Grid item xs={4}>
-                              <TextField
-                                 multiline
-                                 rows={6}
-                                 rowsMax={8}
-                                 variant="outlined"
-                                 fullWidth
-                                 label={I18n.t("Input.goods.Tóm tắt nội dung")}
-                                 onChange={(value) => this.onHandleChange(value, 'summary')}
-                                 name="summary"
-                              />
-                           </Grid>
-                           <Grid item xs={8}>
-                              <TextField
-                                 multiline
-                                 rows={6}
-                                 rowsMax={8}
-                                 variant="outlined"
-                                 fullWidth
-                                 label={I18n.t("Input.goods.content.Lời dẫn giới thiệu")}
-                                 onChange={(value) => this.onHandleChange(value, 'content')}
-                                 name="content"
-                              />
-                           </Grid>
-                        </Grid>
-                        <center>
-                           <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
-                              Thêm Nội dung
-                           </Button>
-                        </center>
-                        {
-                           arrItem.map((_item, index) => {
-                              let arrContent = _.get(_item, 'arrContent', [])
-                              return (
-                                 <Grid container spacing={16} key={index}>
-                                    <Grid item xs={12}>
-                                       <div style={{textAlign: 'right'}} >
-                                          <IconButton style={{color: 'red'}} onClick={() => this.signItem(index)} >
-                                             <Icon>highlight_off</Icon>
-                                          </IconButton>
-                                       </div>
-                                       <div style={{ borderStyle: 'groove', padding: '10px' }}>
-                                          <Grid container spacing={16}>
-                                             <Grid item xs={6}>
-                                                <TextField
-                                                   fullWidth
-                                                   label={I18n.t("Input.goods.Tiêu đề nội dung")}
-                                                   onChange={(value) => this.onHandleChange(value, 'titleItem')}
-                                                   name="titleItem"
-                                                />
-                                             </Grid>
-                                             <Grid item xs={5}>
-                                                <TextField
-                                                   fullWidth
-                                                   label={I18n.t("Input.goods.Link ảnh")}
-                                                   onChange={(value) => this.onHandleChange(value, 'imgItem')}
-                                                   name="imgItem"
-                                                />
-                                             </Grid>
-                                          </Grid>
-                                          <IconButton color='primary' onClick={() => this.addContent(index)}>
-                                             <Icon>add_circle_outline</Icon>
-                                          </IconButton>
-                                          {
-                                             arrContent.map((element, count) => {
-                                                return (
-                                                   <center key={count} >
-                                                      <Grid container direction='row' alignItems="center" spacing={8}>
-                                                         <Grid item xs={11}>
-                                                            <TextField
-                                                               multiline
-                                                               rows={4}
-                                                               rowsMax={8}
-                                                               variant="outlined"
-                                                               fullWidth
-                                                               label={I18n.t("Input.goods.List Item nội dung")}
-                                                               onChange={(value) => this.onHandleChange(value, 'contentItem')}
-                                                               name="contentItem"
-                                                            />
-                                                         </Grid>
-                                                         <Grid item xs={1}>
-                                                            <IconButton onClick={() => this.signContent(index, count)} >
-                                                               <Icon style={{color: 'red'}} >delete</Icon>
-                                                            </IconButton>
-                                                         </Grid>
-                                                      </Grid>
-                                                   </center>
-                                                )
-                                             })
-                                          }
-                                          
-                                       </div>
-                                    </Grid>
-                                 </Grid>
-                              )
-                           })
-                        }
-                        <Grid container spacing={32}>
-                           <Grid item xs={12}>
-                              <TextField
-                                 multiline
-                                 rows={4}
-                                 rowsMax={8}
-                                 variant="outlined"
-                                 fullWidth
-                                 label={I18n.t("Input.goods.Lời dẫn kết thúc")}
-                                 onChange={(value) => this.onHandleChange(value, 'contentItem')}
-                                 name="contentItem"
-                              />
-                           </Grid>
-                        </Grid>
-
-                        {/* <Grid container spacing={32}>
-                              <Grid item xs={3}>
-                                    <AutoCompleteField
-                                       key="1"
-                                       fullWidth
-                                       select
-                                       label={I18n.t("Input.goods.typeGoods")}
-                                       onChange={(value) => this.onHandleChange(value, 'typeGoods')}
-                                       name="typeGoods"
-                                       isMulti={false}
-                                       isClearable={false}
-                                    >
-                                       {
-                                          copyPermission.map(item => (
-                                                <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                                   {item.name}
-                                                </OptionAuto>
-                                          ))
-                                       }
-                                    </AutoCompleteField>
-                              </Grid>
-                           </Grid> */}
-                     <CardActions>
-                        <Button variant="contained" color="primary" onClick={() => this.goto("/posts")}>
-                           <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                        </Button>
-                        <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                     </CardActions>
-                  </Card>
+                  {
+                     this.renderPosts(classes)
+                  }
                </Grid>
                <Grid item xs={1}></Grid>
             </Grid>
-         </Form>
+         </div>
       )
    }
 }
