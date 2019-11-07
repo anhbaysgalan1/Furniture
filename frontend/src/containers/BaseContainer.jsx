@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import _ from 'lodash'
-import UtilityAction from 'actions/UtilityAction';
+import UtilityAction from 'actions/UtilityAction'
 import { I18n } from 'react-redux-i18n'
 import Modal from 'components/Dialogs/Modal'
 class BaseContainer extends Component {

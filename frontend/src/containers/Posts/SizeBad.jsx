@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import View from 'views/Posts/SizeBad'
-import BaseContainer, { selector } from 'containers/BaseContainer';
+import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { I18n } from 'react-redux-i18n';
+import { I18n } from 'react-redux-i18n'
 
 class Index extends BaseContainer {
     constructor(props) {

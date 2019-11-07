@@ -1,9 +1,9 @@
-import React from 'react';
-import BaseContainer, { selector } from 'containers/BaseContainer';
+import React from 'react'
+import BaseContainer, { selector } from 'containers/BaseContainer'
 
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import { Grid, Button } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { Grid, Button } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 import PaperFade from "components/Main/PaperFade"
 class Time extends BaseContainer {
     constructor(props) {

@@ -141,7 +141,6 @@ class Create extends BaseView {
                                             name="code"
                                         />
                                     </Grid>
-                                
                                     <Grid item xs={6}>
                                         <TextField
                                             fullWidth

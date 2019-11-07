@@ -22,7 +22,7 @@ class ErrorBoundary extends React.Component {
       // You can render any custom fallback UI
       // if(!window.navigator.onLine){
       //   alert(I18n.t('Message.failedRequest'))
-      //   return '';
+      //   return ''
       // } else 
       // {
       //   return <h2>{I18n.t('Message.đã có lỗi xảy ra, xin vui lòng thử lại!')}</h2>

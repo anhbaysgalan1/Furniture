@@ -1,4 +1,4 @@
-import BaseReducer from './BaseReducer';
+import BaseReducer from './BaseReducer'
 class LoadingReducer extends BaseReducer {
   get actionsAllow() {
     return {

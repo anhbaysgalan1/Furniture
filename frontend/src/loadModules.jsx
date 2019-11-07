@@ -1,9 +1,9 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Login from './layouts/Login'
 import Main from './layouts/Main'
-import withRoot from './withRoot';
-import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary';
+import withRoot from './withRoot'
+import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary'
 
 class Routes extends React.Component {
   checkJWTToken() {

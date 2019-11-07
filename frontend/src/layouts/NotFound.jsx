@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { I18n } from 'react-redux-i18n';
+import React, { Component } from 'react'
+import { Grid, Typography } from '@material-ui/core'
+import { withStyles } from '@material-ui/core/styles'
+import { I18n } from 'react-redux-i18n'
 
 const styles = theme => ({
     root: {

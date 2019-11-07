@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { I18n } from 'react-redux-i18n'
-import PropTypes from 'prop-types';
-import { Avatar, Button, Paper, Typography, Icon } from '@material-ui/core/';
-import withStyles from '@material-ui/core/styles/withStyles';
-import { Form, TextField, CheckboxField } from 'components/Forms/';
+import PropTypes from 'prop-types'
+import { Avatar, Button, Paper, Typography, Icon } from '@material-ui/core/'
+import withStyles from '@material-ui/core/styles/withStyles'
+import { Form, TextField, CheckboxField } from 'components/Forms/'
 import { required } from 'components/Forms/Validation'
 
 const styles = theme => ({

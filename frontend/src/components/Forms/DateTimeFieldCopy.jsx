@@ -7,10 +7,10 @@ import DateFnsUtils from '@date-io/moment'
 import moment from 'moment'
 import { MuiPickersUtilsProvider, TimePicker, DatePicker, DateTimePicker } from 'material-ui-pickers'
 import 'moment/locale/vi'
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CalendarToday from '@material-ui/icons/CalendarToday';
+import InputAdornment from '@material-ui/core/InputAdornment'
+import CalendarToday from '@material-ui/icons/CalendarToday'
 // import WatchIcon from '@material-ui/icons/Watch'
-import Icon from '@material-ui/core/Icon';
+import Icon from '@material-ui/core/Icon'
 
 const debug = require("debug")("mq:form:DateTimeField")
 const locale = "vi"

@@ -1,4 +1,4 @@
-import BaseReducer from './BaseReducer';
+import BaseReducer from './BaseReducer'
 class ManageOrderReducer extends BaseReducer {
   get actionsAllow() {
     return {

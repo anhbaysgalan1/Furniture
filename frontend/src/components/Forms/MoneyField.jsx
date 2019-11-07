@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import TextField from '@material-ui/core/TextField';
-import BaseField from './BaseField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
+import TextField from '@material-ui/core/TextField'
+import BaseField from './BaseField'
 import { connectField } from './Connect'
 
 const debug = require("debug")("mq:form:MoneyField")

@@ -1,7 +1,7 @@
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
 import { I18n } from 'react-redux-i18n'
 
 const styles = theme => ({

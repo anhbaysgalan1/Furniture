@@ -1,6 +1,6 @@
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import _ from 'lodash'
 import './style.css'
 class PrintTable extends React.Component {

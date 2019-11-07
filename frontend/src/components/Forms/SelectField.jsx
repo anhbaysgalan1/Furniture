@@ -1,9 +1,9 @@
 import React from 'react'
-import BaseField from './BaseField';
+import BaseField from './BaseField'
 
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import TextField from './TextField';
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
+import TextField from './TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import ListItemText from '@material-ui/core/ListItemText'
 

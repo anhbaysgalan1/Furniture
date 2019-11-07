@@ -8,7 +8,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton,
    Icon,
@@ -30,7 +30,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
-import StarRateIcon from '@material-ui/icons/StarRate';
+import StarRateIcon from '@material-ui/icons/StarRate'
 import what2 from '../../public/images/what2.jpg'
 import what3 from '../../public/images/what3.jpg'
 import what4 from '../../public/images/what4.jpg'

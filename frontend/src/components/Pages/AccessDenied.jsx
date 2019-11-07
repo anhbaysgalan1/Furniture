@@ -1,5 +1,5 @@
-import React from 'react';
-import { Paper } from '@material-ui/core';
+import React from 'react'
+import { Paper } from '@material-ui/core'
 
 class AccessDenied extends React.Component {
   render() {

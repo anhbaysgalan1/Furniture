@@ -2,37 +2,38 @@ import React, { lazy } from 'react'
 import _ from 'lodash'
 import { I18n } from 'react-redux-i18n'
 import { Redirect } from 'react-router'
-const NotFound      = lazy(() => import('../layouts/NotFound'))
-const UserIndex     = lazy(() => import('containers/User/Index'))
-const CenterIndex   = lazy(() => import('containers/Center/Index'))
-const InfoIndex     = lazy(() => import('containers/Info/Index'))
-const ContactIndex  = lazy(() => import('containers/Contact/Index'))
-const GoodsIndex    = lazy(() => import('containers/Goods/Index'))
-const GoodsCreate   = lazy(() => import('containers/Goods/Create'))
-const GoodsEdit     = lazy(() => import('containers/Goods/Edit'))
-const OrderIndex    = lazy(() => import('containers/Order/Index'))
+const NotFound = lazy(() => import('../layouts/NotFound'))
+const UserIndex = lazy(() => import('containers/User/Index'))
+const CenterIndex = lazy(() => import('containers/Center/Index'))
+const InfoIndex = lazy(() => import('containers/Info/Index'))
+const ContactIndex = lazy(() => import('containers/Contact/Index'))
+const GoodsIndex = lazy(() => import('containers/Goods/Index'))
+const GoodsCreate = lazy(() => import('containers/Goods/Create'))
+const GoodsEdit = lazy(() => import('containers/Goods/Edit'))
+const OrderIndex = lazy(() => import('containers/Order/Index'))
 // const OrderCreate  = lazy(() => import('containers/Order/Create'))
 // const OrderEdit    = lazy(() => import('containers/Order/Edit'))
-const ClientIndex    = lazy(() => import('containers/Client/Index'))
-const ClientCreate  = lazy(() => import('containers/Client/Create'))
-const ClientEdit    = lazy(() => import('containers/Client/Edit'))
+const ClientIndex = lazy(() => import('containers/Client/Index'))
+const ClientCreate = lazy(() => import('containers/Client/Create'))
+const ClientEdit = lazy(() => import('containers/Client/Edit'))
 
-const BadIndex              = lazy(() => import('containers/Bad/Index'))
-const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
-const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
-const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
-const PostsChangeTable      = lazy(() => import('containers/Posts/ChangeTable'))
-const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
-const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
-const PostsExport           = lazy(() => import('containers/Posts/Export'))
-const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
-const PostsQuality          = lazy(() => import('containers/Posts/Quality'))
+const BadIndex = lazy(() => import('containers/Bad/Index'))
+const DiningRoomIndex = lazy(() => import('containers/DiningRoom/Index'))
+const TableEatIndex = lazy(() => import('containers/TableEat/Index'))
+const TableRestaurantIndex = lazy(() => import('containers/TableRestaurant/Index'))
+const PostsChangeTable = lazy(() => import('containers/Posts/ChangeTable'))
+const PostsSizeBad = lazy(() => import('containers/Posts/SizeBad'))
+const PostsConvenient = lazy(() => import('containers/Posts/Convenient'))
+const PostsExport = lazy(() => import('containers/Posts/Export'))
+const PostsGuarantee = lazy(() => import('containers/Posts/Guarantee'))
+const PostsQuality = lazy(() => import('containers/Posts/Quality'))
+const PostsInteriorTrend = lazy(() => import('containers/Posts/InteriorTrend'))
+const PostsBadSmart = lazy(() => import('containers/Posts/BadSmart'))
+const PostsTableEatHot = lazy(() => import('containers/Posts/TableEatHot'))
 const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions'))
-const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend'))
-const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart'))
-const PostsTableEatHot         = lazy(() => import('containers/Posts/TableEatHot'))
-
-const PostsIndex         = lazy(() => import('containers/Posts/Index'))
+const PostsIndex = lazy(() => import('containers/Posts/Index'))
+const PostsCreate = lazy(() => import('containers/Posts/Create'))
+const PostsEdit = lazy(() => import('containers/Posts/Edit'))
 
 
 // 
@@ -41,8 +42,8 @@ const routes = [
     {
         path: "/",
         component: () => {
-          let link = '/center'
-          return <CenterIndex to={link ? link : './not-found'} />
+            let link = '/center'
+            return <CenterIndex to={link ? link : './not-found'} />
         },
         exact: true,
         name: 'dashboard'
@@ -124,7 +125,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsChangeTable"),
         component: () => <PostsChangeTable />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: "/size-bad",
@@ -132,7 +133,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsSizebad"),
         component: () => <PostsSizeBad />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: '/5-cau-hoi-thuong-gap',
@@ -140,7 +141,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsFrequentlyQuestions"),
         component: () => <PostsFrequentlyQuestions />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: '/xu-huong-noi-that-2020',
@@ -148,7 +149,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsPostsInteriorTrend"),
         component: () => <PostsInteriorTrend />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: '/giuong-ngu-thong-minh',
@@ -156,7 +157,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsBadSmart"),
         component: () => <PostsBadSmart />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: '/ban-an-hot',
@@ -164,15 +165,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsTableEatHot"),
         component: () => <PostsTableEatHot />,
         exact: true,
-        sidebarName: 'posts'
-    },
-    {
-        path: '/posts-index',
-        name: 'posts.index',
-        title: () => I18n.t("Breadcrumb.postsIndex"),
-        component: () => <PostsIndex />,
-        exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: "/convenient",
@@ -180,7 +173,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsConvenient"),
         component: () => <PostsConvenient />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: "/export",
@@ -188,7 +181,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsExport"),
         component: () => <PostsExport />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: "/guarantee",
@@ -196,7 +189,7 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsGuarantee"),
         component: () => <PostsGuarantee />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
     },
     {
         path: "/quality",
@@ -204,10 +197,34 @@ const routes = [
         title: () => I18n.t("Breadcrumb.postsQuality"),
         component: () => <PostsQuality />,
         exact: true,
-        sidebarName: 'posts'
+        sidebarName: 'post'
+    },
+    {
+        path: '/posts',
+        name: 'posts.index',
+        title: () => I18n.t("Breadcrumb.postsIndex"),
+        component: () => <PostsIndex />,
+        exact: true,
+        sidebarName: 'post'
+    },
+    {
+        path: '/posts/create',
+        name: 'posts.create',
+        title: () => I18n.t("Breadcrumb.postsCreate"),
+        component: () => <PostsCreate />,
+        exact: true,
+        sidebarName: 'post'
+    },
+    {
+        path: '/posts/:id',
+        name: 'posts.edit',
+        title: () => I18n.t("Breadcrumb.postsEdit"),
+        component: () => <PostsEdit />,
+        exact: true,
+        sidebarName: 'post'
     },
     //--------------------------------------
-    
+
     {
         path: "/users",
         name: 'user',

@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react';
-import BaseContainer from 'containers/BaseContainer';
-import { Fade, Paper } from '@material-ui/core';
+import React, { Suspense } from 'react'
+import BaseContainer from 'containers/BaseContainer'
+import { Fade, Paper } from '@material-ui/core'
 import LoadingCircle from 'components/Progress/LoadingCircle'
 
 class PaperFade extends BaseContainer {

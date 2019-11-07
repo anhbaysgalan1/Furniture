@@ -1,7 +1,7 @@
-import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Paper from '@material-ui/core/Paper';
+import React from 'react'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import MobileStepper from '@material-ui/core/MobileStepper'
+import Paper from '@material-ui/core/Paper'
 import {
     Typography,
     Card,
@@ -11,9 +11,9 @@ import {
     Gird,
 
 
-} from '@material-ui/core';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+} from '@material-ui/core'
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
 import BaseView from '../../../views/BaseView'
 
 

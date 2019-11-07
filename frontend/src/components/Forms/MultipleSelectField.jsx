@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import Chip from '@material-ui/core/Chip';
-import BaseField from './BaseField';
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
+import Chip from '@material-ui/core/Chip'
+import BaseField from './BaseField'
 import { connectField } from './Connect'
-import TextField from '@material-ui/core/TextField';
+import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Checkbox from '@material-ui/core/Checkbox'
 import ListItemText from '@material-ui/core/ListItemText'

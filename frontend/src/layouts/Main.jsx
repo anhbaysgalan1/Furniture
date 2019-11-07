@@ -155,7 +155,7 @@ class Main extends React.Component {
                 <Hidden smUp>
                     <Toolbar variant='dense'> 
                         <DrawerMobileMenu route={route} />
-                        <div id='top-buttom_image'>
+                        <div id='top_buttom_image'>
                             <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
                                 <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
                             </a><br />

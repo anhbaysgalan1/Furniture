@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import RootReducer from './reducers/RootReducer';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import RootReducer from './reducers/RootReducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n'
 import translationsObject from 'langs/index'
 
 export default function configureStore(initialState = {}) {

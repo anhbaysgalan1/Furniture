@@ -34,6 +34,8 @@ Route.group(() => {
     Route.resource("/order", "OrderController")
     Route.resource("/client", "ClientController")
 
+    Route.resource("/posts", "PostsController")
+
     Route.resource('/groups', 'GroupController')
     Route.resource('/areas', 'AreaController')
     Route.resource('/roles', 'RoleController')

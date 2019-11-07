@@ -16,7 +16,7 @@ import {
   Toolbar,
   VirtualTable,
   TableFixedColumns,
-} from '@devexpress/dx-react-grid-material-ui';
+} from '@devexpress/dx-react-grid-material-ui'
 import {
   FilteringState,
   SortingState,
@@ -25,11 +25,11 @@ import {
   SelectionState,
   IntegratedSelection,
   DataTypeProvider
-} from '@devexpress/dx-react-grid';
-import { I18n } from 'react-redux-i18n';
+} from '@devexpress/dx-react-grid'
+import { I18n } from 'react-redux-i18n'
 import DateRangeField from 'components/Forms/DateRangeField'
-import TextField from 'components/Forms/TextField';
-import { withStyles } from '@material-ui/core/styles';
+import TextField from 'components/Forms/TextField'
+import { withStyles } from '@material-ui/core/styles'
 import _ from 'lodash'
 import './style.css'
 const debug = require("debug")("mq:table")

@@ -1,7 +1,7 @@
-import React from 'react';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Fab from '@material-ui/core/Fab';
+import React from 'react'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import Fab from '@material-ui/core/Fab'
 import LogOutDialog from './LogOutDialog'
 import { Icon, Tooltip } from '@material-ui/core'
 import { I18n } from 'react-redux-i18n'

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import View from 'views/Goods/Index'
 import GoodsAction from '../../actions/GoodsAction'
 import UserAction from '../../actions/UserAction'

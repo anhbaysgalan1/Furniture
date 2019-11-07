@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import SelectField from 'components/Forms/SelectField';
+import SelectField from 'components/Forms/SelectField'
 import { Option as OptionSelect } from 'components/Forms/MultipleSelectField'
 import moment from 'moment'
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CalendarToday from '@material-ui/icons/CalendarToday';
+import InputAdornment from '@material-ui/core/InputAdornment'
+import CalendarToday from '@material-ui/icons/CalendarToday'
 class MonthPicker extends Component {
     constructor(props) {
         super(props)

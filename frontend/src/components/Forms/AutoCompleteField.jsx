@@ -14,7 +14,7 @@ import { emphasize } from '@material-ui/core/styles/colorManipulator'
 import Select from 'react-select'
 import BaseField from './BaseField'
 import { connectField } from './Connect'
-import { I18n } from 'react-redux-i18n';
+import { I18n } from 'react-redux-i18n'
 import _ from 'lodash'
 
 const debug = require("debug")("mq:form:AutoCompleteField")

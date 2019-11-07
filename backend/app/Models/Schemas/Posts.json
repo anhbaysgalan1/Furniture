@@ -1,0 +1,14 @@
+{
+    "_id": "objectid",
+    "code": "string",
+    "name": "string",
+    "image1": "string",
+    "image2": "string",
+    "image3": "string",
+    "image4": "string",
+    "moneyOld": "string",
+    "moneyNew": "string",
+    "typePosts": "string",
+    "typeWoods": "string",
+    "content": "string"
+}

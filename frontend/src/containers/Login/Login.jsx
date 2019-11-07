@@ -1,11 +1,11 @@
-import React from 'react';
-import BaseContainer, { selector } from 'containers/BaseContainer';
+import React from 'react'
+import BaseContainer, { selector } from 'containers/BaseContainer'
 import { I18n } from 'react-redux-i18n'
 import Login from 'views/Login/Login'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import UserAction from 'actions/UserAction';
-import UtilityAction from 'actions/UtilityAction';
+import UserAction from 'actions/UserAction'
+import UtilityAction from 'actions/UtilityAction'
 // import jwt from 'helpers/jwt'
 import jwt_decode from 'jwt-decode'
 class LoginContainer extends BaseContainer {

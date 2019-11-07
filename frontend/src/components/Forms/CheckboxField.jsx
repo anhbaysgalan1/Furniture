@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox'
 
-import BaseField from './BaseField';
+import BaseField from './BaseField'
 import { connectField } from './Connect'
 
 const debug = require("debug")("mq:form:CheckboxField")

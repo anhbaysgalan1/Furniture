@@ -25,7 +25,7 @@ import _ from 'lodash'
 import ExportExcel from 'components/ExportExcel/ExportExcel'
 import { Link } from 'react-router-dom'
 import Phone from '@material-ui/icons/Phone'
-import EmailIcon from '@material-ui/icons/Email';
+import EmailIcon from '@material-ui/icons/Email'
 import DD from './DD.png'
 import LogoDD from './logoDD.png'
 

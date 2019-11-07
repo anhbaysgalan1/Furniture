@@ -19,7 +19,7 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import TextField1 from '@material-ui/core/TextField'
 import { withRouter } from 'react-router-dom'
-import _ from 'lodash';
+import _ from 'lodash'
 
 
 const styles = theme => ({

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { withStyles } from '@material-ui/core/styles';
-import Login from '../containers/Login/Login';
+import React from 'react'
+import PropTypes from 'prop-types'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import { withStyles } from '@material-ui/core/styles'
+import Login from '../containers/Login/Login'
 import Loading from 'containers/Loading/Loading'
 import Notistack from 'components/Snackbars/Notistack'
 const styles = theme => ({

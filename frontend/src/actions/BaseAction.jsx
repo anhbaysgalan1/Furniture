@@ -1,7 +1,7 @@
 import http from '../helpers/http'
 import UrlPattern from 'url-pattern'
 import _ from 'lodash'
-import { I18n } from 'react-redux-i18n';
+import { I18n } from 'react-redux-i18n'
 class BaseAction {
   /**
    * export sử dụng khi export action

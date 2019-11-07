@@ -8,10 +8,10 @@ import moment from 'moment'
 import { I18n } from 'react-redux-i18n'
 import 'moment/locale/ja'
 import { MuiPickersUtilsProvider, TimePicker, DatePicker, DateTimePicker } from 'material-ui-pickers'
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CalendarToday from '@material-ui/icons/CalendarToday';
+import InputAdornment from '@material-ui/core/InputAdornment'
+import CalendarToday from '@material-ui/icons/CalendarToday'
 // import WatchIcon from '@material-ui/icons/Watch'
-import Icon from '@material-ui/core/Icon';
+import Icon from '@material-ui/core/Icon'
 
 const debug = require("debug")("mq:form:DateTimeField")
 

@@ -29,8 +29,8 @@ import BadModern from './Components/BadModern'
 import BadClassic from './Components/BadClassic'
 import BadHot from './Components/BadHot'
 
-import PhoneIcon from '@material-ui/icons/Phone';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import PhoneIcon from '@material-ui/icons/Phone'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 import PersonPinIcon from '@material-ui/icons/PersonPin'
 
 import moment from 'moment'

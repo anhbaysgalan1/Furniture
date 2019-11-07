@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import LockIcon from '@material-ui/icons/LockOutlined';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import withStyles from '@material-ui/core/styles/withStyles';
-import TextField from 'components/Forms/TextField';
-import SelectField from 'components/Forms/SelectField';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import LockIcon from '@material-ui/icons/LockOutlined'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import withStyles from '@material-ui/core/styles/withStyles'
+import TextField from 'components/Forms/TextField'
+import SelectField from 'components/Forms/SelectField'
 import DateTimeField from 'components/Forms/DateTimeField'
 import CheckboxField from 'components/Forms/CheckboxField'
 import SwitchField from 'components/Forms/SwitchField'
 import MultipleSelectField, { Option as OptionSelect } from 'components/Forms/MultipleSelectField'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import RadioGroupField, { Radio } from 'components/Forms/RadioGroupField'
-import Form from 'components/Forms/Form';
+import Form from 'components/Forms/Form'
 import AutoSuggestField from 'components/Forms/AutoSuggestField'
 
 const styles = theme => ({

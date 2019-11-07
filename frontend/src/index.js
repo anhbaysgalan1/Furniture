@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import configureStore from './store';
+import configureStore from './store'
 
-import LoadModules from './loadModules';
-import * as serviceWorker from './serviceWorker';
+import LoadModules from './loadModules'
+import * as serviceWorker from './serviceWorker'
 // These must be the first lines in src/index.js
-// import 'react-app-polyfill/ie11';
-// import 'react-app-polyfill/stable';
-// import 'url-search-params-polyfill';
+// import 'react-app-polyfill/ie11'
+// import 'react-app-polyfill/stable'
+// import 'url-search-params-polyfill'
 
 const { store } = configureStore()
 ReactDOM.render(

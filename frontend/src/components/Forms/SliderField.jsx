@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import BaseField from './BaseField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
+import BaseField from './BaseField'
 import { connectField } from './Connect'
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);

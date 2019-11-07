@@ -1,4 +1,4 @@
-import BaseReducer from './BaseReducer';
+import BaseReducer from './BaseReducer'
 /**
  * Files are automatically generated from the template.
  * MQ Solutions 2019

@@ -1,4 +1,4 @@
-import React, {PureComponent } from 'react';
+import React, {PureComponent } from 'react'
 import _ from 'lodash'
 class BaseView extends PureComponent{
 

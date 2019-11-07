@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Switch from '@material-ui/core/Switch';
+import Switch from '@material-ui/core/Switch'
 
-import BaseField from './BaseField';
+import BaseField from './BaseField'
 import { connectField } from './Connect'
 
 const debug = require("debug")("mq:form:SelectField")

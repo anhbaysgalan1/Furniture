@@ -1,10 +1,10 @@
 
 import React, { Component } from "react"
-import XLSX from 'xlsx';
+import XLSX from 'xlsx'
 import _ from 'lodash'
-import { IconButton, Icon, Tooltip } from '@material-ui/core/';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { IconButton, Icon, Tooltip } from '@material-ui/core/'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import { I18n } from 'react-redux-i18n'
 
 export default class ExportExcel extends Component {

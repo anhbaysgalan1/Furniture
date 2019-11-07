@@ -1,4 +1,4 @@
-import BaseReducer from './BaseReducer';
+import BaseReducer from './BaseReducer'
 class BadReducer extends BaseReducer {
   get actionsAllow() {
     return {

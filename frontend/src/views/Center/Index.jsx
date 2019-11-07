@@ -8,7 +8,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook';
+import FacebookIcon from '@material-ui/icons/Facebook'
 import {
     IconButton,
     Icon,
@@ -38,7 +38,7 @@ import Promotion from '../Public/Promotion'
 import ListGoods from './Components/ListGoods'
 import List from './Components/List'
 import Partner from '../Public/Partner'
-import PostIndex from '../Posts/Index'
+import PostsList from '../Posts/List'
 import moment from 'moment'
 import _ from 'lodash'
 
@@ -91,7 +91,7 @@ class Index extends BaseView {
                 </Grid>
                 <br></br>
                 {/* <List classes={classes} /> */}
-                <PostIndex  classes={classes} />
+                <PostsList  classes={classes} />
                 <Footer classes={classes} />
             </div>
         )

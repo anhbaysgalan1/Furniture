@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { SnackbarProvider, withSnackbar } from 'notistack';
-import { connect } from 'react-redux';
-import _ from 'lodash';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { SnackbarProvider, withSnackbar } from 'notistack'
+import { connect } from 'react-redux'
+import _ from 'lodash'
 
 class NotistackConsumer extends React.Component {
   handleClick = () => {

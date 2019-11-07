@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import View from 'views/Order/Index'
 import UserAction from '../../actions/UserAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'

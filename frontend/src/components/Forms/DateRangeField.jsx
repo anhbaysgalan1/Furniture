@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
-import BaseField from './BaseField';
+import React from 'react'
+import PropTypes from 'prop-types'
+import withStyles from '@material-ui/core/styles/withStyles'
+import BaseField from './BaseField'
 import { connectField } from './Connect'
-import moment from 'moment';
-import * as myLocale from 'react-date-range/dist/locale';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-import { DateRange, DateRangePicker } from 'react-date-range';
+import moment from 'moment'
+import * as myLocale from 'react-date-range/dist/locale'
+import 'react-date-range/dist/styles.css' // main style file
+import 'react-date-range/dist/theme/default.css' // theme css file
+import { DateRange, DateRangePicker } from 'react-date-range'
 import TextField from '@material-ui/core/TextField'
 import {
   Dialog,
@@ -16,8 +16,8 @@ import {
   DialogContent,
   withMobileDialog,
   Button
-} from '@material-ui/core';
-import { I18n } from 'react-redux-i18n';
+} from '@material-ui/core'
+import { I18n } from 'react-redux-i18n'
 const debug = require("debug")("mq:form:DateTimeRangeField")
 
 const styles = theme => ({

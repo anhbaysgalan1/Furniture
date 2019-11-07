@@ -1,4 +1,4 @@
-// import React from 'react';
+// import React from 'react'
 // import View from 'views/Order/Create'
 // import OrderAction from  '../../actions/OrderAction'
 // import BaseContainer, { selector } from 'containers/BaseContainer'

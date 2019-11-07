@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import React, { Component } from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 const debug = require("debug")("mq:loading")
 const styles = theme => {
