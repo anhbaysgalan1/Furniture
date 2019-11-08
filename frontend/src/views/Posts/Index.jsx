@@ -27,10 +27,10 @@ import {
     DialogContent,
 
 } from '@material-ui/core'
-import Header from '../Public/Header/Header'
-import What from '../Public/What'
-import Promotion from '../Public/Promotion'
-import moment from 'moment'
+import Header       from '../Public/Header/Header'
+import What         from '../Public/What'
+import Promotion    from '../Public/Promotion'
+import moment       from 'moment'
 import _ from 'lodash'
 
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
@@ -69,43 +69,36 @@ class Index extends BaseView {
                     }
                 },
                 {
-                    name: 'code',
-                    title: I18n.t('Table.header.role.Mã hàng'),
+                    name: 'title',
+                    title: I18n.t('Table.header.role.Tiêu đề'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'name',
-                    title: I18n.t('Table.header.role.Tên hàng'),
+                    name: 'number',
+                    title: I18n.t('Table.header.role.Lượt xem'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeGoods',
-                    title: I18n.t('Table.header.role.Kiểu hàng'),
+                    name: 'summary',
+                    title: I18n.t('Table.header.role.Tóm tắt nội dung'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'typeWoods',
-                    title: I18n.t('Table.header.role.Kiểu gỗ'),
+                    name: 'contentStart',
+                    title: I18n.t('Table.header.role.Lời giới thiệu'),
                     style: {
                         textAlign: 'center',
                     }
                 },
                 {
-                    name: 'moneyOld',
-                    title: I18n.t('Table.header.role.Tiền cũ'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'moneyNew',
-                    title: I18n.t('Table.header.role.Tiền mới'),
+                    name: 'contentEnd',
+                    title: I18n.t('Table.header.role.Lời kết thúc'),
                     style: {
                         textAlign: 'center',
                     }
@@ -125,12 +118,11 @@ class Index extends BaseView {
             ],
             defaultSort: [],
             tableColumnExtensions: [
-                { columnName: 'code', wordWrapEnabled: true },
-                { columnName: 'name', wordWrapEnabled: true },
-                { columnName: 'monerOld', wordWrapEnabled: true },
-                { columnName: 'monerNew', wordWrapEnabled: true },
-                { columnName: 'typeGoods', wordWrapEnabled: true },
-                { columnName: 'typeWoods', wordWrapEnabled: true },
+                { columnName: 'title', wordWrapEnabled: true },
+                { columnName: 'number', wordWrapEnabled: true },
+                { columnName: 'summary', wordWrapEnabled: true },
+                { columnName: 'contentStart', wordWrapEnabled: true },
+                { columnName: 'contentEnd', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
@@ -140,27 +132,23 @@ class Index extends BaseView {
                     width: 70
                 },
                 {
-                    name: 'code',
+                    name: 'title',
                     width: 70
                 },
                 {
-                    name: 'name',
+                    name: 'number',
+                    width: 70
+                },
+                {
+                    name: 'summary',
                     width: 200
                 },
                 {
-                    name: 'typeGoods',
-                    width: 170
+                    name: 'contentStart',
+                    width: 200
                 },
                 {
-                    name: 'typeWoods',
-                    width: 150
-                },
-                {
-                    name: 'moneyOld',
-                    width: 80
-                },
-                {
-                    name: 'moneyNew',
+                    name: 'contentEnd',
                     width: 80
                 },
                 {

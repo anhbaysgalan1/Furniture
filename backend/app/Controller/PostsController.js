@@ -76,13 +76,13 @@ class PostsController extends BaseController {
             ]
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
-        let existCode = await this.Model.getOne({
-            code: data.code
-        })
-        let existName = await this.Model.getOne({
-            name: data.name
-        })
-        if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
+        // let existCode = await this.Model.getOne({
+        //     code: data.code
+        // })
+        // let existName = await this.Model.getOne({
+        //     name: data.name
+        // })
+        // if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
         let result = await this.Model.insertOne(data)
         return result
     }
