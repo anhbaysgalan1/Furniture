@@ -5,6 +5,7 @@ import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { I18n } from 'react-redux-i18n'
+import { stat } from 'fs'
 
 class Index extends BaseContainer {
     constructor(props) {
@@ -67,7 +68,6 @@ class Index extends BaseContainer {
                         break
                     }
                     default: this.notify(`Response: [${err.status}] ${err.message}`, 'error')
-
                 }
             }
         })

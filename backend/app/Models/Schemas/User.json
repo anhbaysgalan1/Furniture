@@ -1,21 +1,6 @@
 {
   "_id": "objectid",
-  "name": "string",
   "username": "string",
+  "name": "string",
   "password": "string",
-  "status": "string",
-  "groupId": "objectid",
-  "roleIds": "[objectid]",
-  "group": "function",
-  "positionId": "objectid",
-  "areaId": "objectid",
-  "roleId": "objectid",
-  "dayOffs": "[object]",
-  "newDayOff": "object",
-  "remainThisYear": "number",
-  "remainLastYear": "number",
-  "remainTotal": "number",
-  "dayOffUsed": "number",
-  "remainByWorkingOnDayOff": "number",
-  "sixMonth": "string"
 }

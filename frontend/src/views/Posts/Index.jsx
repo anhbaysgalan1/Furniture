@@ -208,7 +208,7 @@ class Index extends BaseView {
                         </Grid>
                     </DialogContent>
                     <DialogActions>
-                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/posts/${_id}`)}>
                             {I18n.t("Button.edit")}
                         </Button>
                         <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onDelete(_id)}>
@@ -287,7 +287,7 @@ class Index extends BaseView {
                 <Grid item xs={12}>
                     <PaperFade showLoading={true} className={classes.card} >
                         <GridTable
-                            id="GoodsIndex"
+                            id="PostsIndex"
                             estimatedRowHeight={100}
                             className={classes.gridTable}
                             onFetchData={this.props.onFetchData}

@@ -53,22 +53,9 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         dataInput: {
-            name: '',
-            code: '',
-            image1: '',
-            image2: '',
-            image2: '',
-            image4: '',
-            moneyOld: '',
-            moneyNew: '',
-            typeGoods: '',
-            typeWoods: '',
-            content: ''
-         },
          arrItem: [
             {
-               arrContent: [{ item: '1' }],
+               content: [{ item: '1' }],
             },
          ],
       }
@@ -82,7 +69,7 @@ class Create extends BaseView {
    addItem() {
       let { arrItem } = this.state
       let element = {
-         arrContent: [{ item: '1' }]
+         content: [{ item: '1' }]
       }
       arrItem.push(element)
       this.setState({ arrItem: arrItem })
@@ -99,13 +86,13 @@ class Create extends BaseView {
       let element = {
          item: '1'
       }
-      arrItem[index].arrContent.push(element)
+      arrItem[index].content.push(element)
       this.setState({ arrItem: arrItem })
       this.setState({ reload: !this.state.reload })
    }
    signContent(index, count) {
       let { arrItem } = this.state
-      arrItem[index].arrContent.splice(count, 1)
+      arrItem[index].content.splice(count, 1)
       this.setState({ arrItem: arrItem })
       this.setState({ reload: !this.state.reload })
    }
@@ -183,7 +170,7 @@ class Create extends BaseView {
                </center>
                {
                   arrItem.map((_item, index) => {
-                     let arrContent = _.get(_item, 'arrContent', [])
+                     let content = _.get(_item, 'content', [])
                      return (
                         <Grid container spacing={16} key={index}>
                            <Grid item xs={12}>
@@ -217,7 +204,7 @@ class Create extends BaseView {
                                     <Icon>add_circle_outline</Icon>
                                  </IconButton>
                                  {
-                                    arrContent.map((element, count) => {
+                                    content.map((element, count) => {
                                        return (
                                           <Grid key={count} container direction='row' alignItems="center" spacing={8}>
                                              <Grid item xs={11}>
@@ -269,6 +256,7 @@ class Create extends BaseView {
                      <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                   </Button>
                   <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+                  <Button variant="contained" color="primary">{I18n.t("Button.previews.Xem trước")}</Button>
                </CardActions>
             </Card>
          </Form>

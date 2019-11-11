@@ -125,10 +125,11 @@ class Index extends BaseView {
             ],
             defaultSort: [],
             tableColumnExtensions: [
+                { columnName: 'index', wordWrapEnabled: false },
                 { columnName: 'code', wordWrapEnabled: true },
                 { columnName: 'name', wordWrapEnabled: true },
-                { columnName: 'monerOld', wordWrapEnabled: true },
-                { columnName: 'monerNew', wordWrapEnabled: true },
+                { columnName: 'moneyOld', wordWrapEnabled: true },
+                { columnName: 'moneyNew', wordWrapEnabled: true },
                 { columnName: 'typeGoods', wordWrapEnabled: true },
                 { columnName: 'typeWoods', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },

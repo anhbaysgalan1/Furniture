@@ -32,11 +32,11 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    paddingIndex: {
-        [theme.breakpoints.down('sm')]: {
-            padding: '8px',
-        },
-    }
+    // paddingIndex: {
+    //     [theme.breakpoints.down('sm')]: {
+    //         padding: '8px',
+    //     },
+    // }
 })
 
 
@@ -52,7 +52,8 @@ class Index extends BaseView {
         let { classes } = this.props
         let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
-            <div className={classes.paddingIndex}>
+            // className={classes.paddingIndex}
+            <div>
                 <Header classes={classes} />
                 <br></br>
                 <Home classes={classes} img={img} />

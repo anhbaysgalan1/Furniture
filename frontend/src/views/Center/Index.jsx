@@ -43,11 +43,11 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    paddingIndex: {
-        [theme.breakpoints.down('sm')]: {
-            padding: '8px',
-        },
-    }
+    // paddingIndex: {
+    //     [theme.breakpoints.down('sm')]: {
+    //         padding: '8px',
+    //     },
+    // }
 })
 
 
@@ -61,7 +61,8 @@ class Index extends BaseView {
     render() {
         let { classes } = this.props
         return (
-            <div className={classes.paddingIndex}>
+            // className={classes.paddingIndex}
+            <div> 
                 {/* <Header classes={classes} />
                 <Home classes={classes} />
                 <ButtonViews classes={classes} />

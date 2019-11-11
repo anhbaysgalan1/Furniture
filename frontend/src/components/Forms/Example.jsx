@@ -83,7 +83,16 @@ class Login extends Component {
         Sign in
         </Typography>
       <Form className={classes.form} onSubmit={(values, errors) => { console.log("submit", values, errors) }}>
-        
+      <DateTimeField
+          fullWidth
+          label="DateTime picker"
+          name="datetime"
+          ampm={false}
+          clearable={true}
+          autoOk={true}
+          showTime={false}
+          showDate={true}
+        />
       <AutoSuggestField
           key="1"
           fullWidth
@@ -203,13 +212,6 @@ class Login extends Component {
             </OptionAuto>
           ))}
         </AutoCompleteField>
-
-        {/**
-                    DateTimeField:
-                        sử dụng để chọn ngày tháng
-                        sử dụng showTime, showDate để tùy chỉnh hiển thị chọn ngày và giờ hay không.
-                        tham khảo thêm các props ở https://material-ui-pickers.firebaseapp.com/
-                     */}
         <DateTimeField
           fullWidth
           label="DateTime picker"
@@ -222,9 +224,9 @@ class Login extends Component {
         />
 
         {/**
-                    CheckboxField:
-                        xem thêm https://material-ui.com/demos/selection-controls/
-                     */}
+          CheckboxField:
+          xem thêm https://material-ui.com/demos/selection-controls/
+        */}
         <CheckboxField
           label="Kiểm thử checkbox"
           name="checkbox"

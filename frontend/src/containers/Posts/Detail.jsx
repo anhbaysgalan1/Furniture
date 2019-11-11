@@ -1,5 +1,5 @@
 import React from 'react'
-import View from 'views/Posts/Edit'
+import View from 'views/Posts/Detail'
 import PostsAction from '../../actions/PostsAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'

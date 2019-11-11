@@ -13,25 +13,6 @@ class User extends BaseModel {
   }
   static get relationship() {
     return {
-      Area: {
-        relationType: "belongsTo",
-        model: "App/Models/Area",
-        localField: "areaId",
-        foreignField: "_id",
-      },
-      Position: {
-        relationType: "belongsTo",
-        model: "App/Models/Position",
-        unwind: false,
-        localField: "positionId",
-        foreignField: "_id",
-      },
-      Role: {
-        relationType: "belongsTo",
-        model: "App/Models/Role",
-        localField: "roleId",
-        foreignField: "_id",
-      },
       // dayOffs: {
       //   relationType: "hasMany",
       //   model: "App/Models/DayOff",

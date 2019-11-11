@@ -88,6 +88,7 @@ export default {
             phone: 'Số Điện Thoại',
             password: "Mật Khẩu",
             rePassword: "Nhập Lại Mật Khẩu",
+            joining_date: 'Ngày tạo',
             dayOff: "有給繰越日数", //"Số ngày nghỉ có tính lương", 
 
         },
@@ -130,7 +131,7 @@ export default {
         new: 'Tin tức',
         introduce: 'Giới thiệu',
         job: 'Ngành nghề',
-        user: "Trang chủ",
+        user: "Tài khoản",
         group: "Nhóm",
     },
     Breadcrumb: {

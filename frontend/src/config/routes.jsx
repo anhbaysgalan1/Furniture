@@ -2,41 +2,43 @@ import React, { lazy } from 'react'
 import _ from 'lodash'
 import { I18n } from 'react-redux-i18n'
 import { Redirect } from 'react-router'
-const NotFound = lazy(() => import('../layouts/NotFound'))
-const UserIndex = lazy(() => import('containers/User/Index'))
-const CenterIndex = lazy(() => import('containers/Center/Index'))
-const InfoIndex = lazy(() => import('containers/Info/Index'))
-const ContactIndex = lazy(() => import('containers/Contact/Index'))
-const GoodsIndex = lazy(() => import('containers/Goods/Index'))
-const GoodsCreate = lazy(() => import('containers/Goods/Create'))
-const GoodsEdit = lazy(() => import('containers/Goods/Edit'))
-const OrderIndex = lazy(() => import('containers/Order/Index'))
-// const OrderCreate  = lazy(() => import('containers/Order/Create'))
-// const OrderEdit    = lazy(() => import('containers/Order/Edit'))
-const ClientIndex = lazy(() => import('containers/Client/Index'))
-const ClientCreate = lazy(() => import('containers/Client/Create'))
-const ClientEdit = lazy(() => import('containers/Client/Edit'))
 
-const BadIndex = lazy(() => import('containers/Bad/Index'))
-const DiningRoomIndex = lazy(() => import('containers/DiningRoom/Index'))
-const TableEatIndex = lazy(() => import('containers/TableEat/Index'))
-const TableRestaurantIndex = lazy(() => import('containers/TableRestaurant/Index'))
-const PostsChangeTable = lazy(() => import('containers/Posts/ChangeTable'))
-const PostsSizeBad = lazy(() => import('containers/Posts/SizeBad'))
-const PostsConvenient = lazy(() => import('containers/Posts/Convenient'))
-const PostsExport = lazy(() => import('containers/Posts/Export'))
-const PostsGuarantee = lazy(() => import('containers/Posts/Guarantee'))
-const PostsQuality = lazy(() => import('containers/Posts/Quality'))
-const PostsInteriorTrend = lazy(() => import('containers/Posts/InteriorTrend'))
-const PostsBadSmart = lazy(() => import('containers/Posts/BadSmart'))
-const PostsTableEatHot = lazy(() => import('containers/Posts/TableEatHot'))
+const NotFound          = lazy(() => import('../layouts/NotFound'))
+const Example           = lazy(() => import('components/Forms/Example'))
+const UserIndex         = lazy(() => import('containers/User/Index'))
+const UserCreate        = lazy(() => import('containers/User/Create'))
+const UserEdit          = lazy(() => import('containers/User/Edit'))
+const CenterIndex       = lazy(() => import('containers/Center/Index'))
+const InfoIndex         = lazy(() => import('containers/Info/Index'))
+const ContactIndex      = lazy(() => import('containers/Contact/Index'))
+const GoodsIndex        = lazy(() => import('containers/Goods/Index'))
+const GoodsCreate       = lazy(() => import('containers/Goods/Create'))
+const GoodsEdit         = lazy(() => import('containers/Goods/Edit'))
+const OrderIndex        = lazy(() => import('containers/Order/Index'))
+// const OrderCreate    = lazy(() => import('containers/Order/Create'))
+// const OrderEdit      = lazy(() => import('containers/Order/Edit'))
+const ClientIndex       = lazy(() => import('containers/Client/Index'))
+const ClientCreate      = lazy(() => import('containers/Client/Create'))
+const ClientEdit        = lazy(() => import('containers/Client/Edit'))
+const PostsIndex        = lazy(() => import('containers/Posts/Index'))
+const PostsCreate       = lazy(() => import('containers/Posts/Create'))
+const PostsEdit         = lazy(() => import('containers/Posts/Edit'))
+const PostsDetail       = lazy(() => import('containers/Posts/Detail'))
+
+const BadIndex              = lazy(() => import('containers/Bad/Index'))
+const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
+const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
+const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
+const PostsChangeTable      = lazy(() => import('containers/Posts/ChangeTable'))
+const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
+const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
+const PostsExport           = lazy(() => import('containers/Posts/Export'))
+const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
+const PostsQuality          = lazy(() => import('containers/Posts/Quality'))
+const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend'))
+const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart'))
+const PostsTableEatHot      = lazy(() => import('containers/Posts/TableEatHot'))
 const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions'))
-const PostsIndex = lazy(() => import('containers/Posts/Index'))
-const PostsCreate = lazy(() => import('containers/Posts/Create'))
-const PostsEdit = lazy(() => import('containers/Posts/Edit'))
-
-
-// 
 
 const routes = [
     {
@@ -55,6 +57,15 @@ const routes = [
         exact: true,
         name: 'dashboard'
     },
+    //--------------------------------------
+    {
+        path: "/example",
+        name: 'example',
+        title: () => I18n.t("Breadcrumb.userIndex"),
+        component: () => <Example />,
+        exact: true,
+        sidebarName: 'example'
+      },
     //--------------------------------------
     {
         path: "/center",
@@ -223,6 +234,14 @@ const routes = [
         exact: true,
         sidebarName: 'post'
     },
+    {
+        path: '/posts/:id/detail',
+        name: 'posts.detail',
+        title: () => I18n.t("Breadcrumb.postsDetail"),
+        component: () => <PostsDetail />,
+        exact: true,
+        sidebarName: 'post'
+    },
     //--------------------------------------
 
     {
@@ -230,6 +249,22 @@ const routes = [
         name: 'user',
         title: () => I18n.t("Breadcrumb.userIndex"),
         component: () => <UserIndex />,
+        exact: true,
+        sidebarName: 'user'
+    },
+    {
+        path: "/users/create",
+        name: 'user.create',
+        title: () => I18n.t("Breadcrumb.userCreate"),
+        component: () => <UserCreate />,
+        exact: true,
+        sidebarName: 'user'
+    },
+    {
+        path: "/users/:id",
+        name: 'user.edit',
+        title: () => I18n.t("Breadcrumb.userEdit"),
+        component: () => <UserEdit />,
         exact: true,
         sidebarName: 'user'
     },

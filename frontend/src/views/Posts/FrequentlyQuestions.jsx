@@ -116,6 +116,7 @@ class Index extends BaseView {
                               </Typography>
                            </li>
                         </ul>
+                        
                         <Typography variant='h5'>
                            Bàn ghế gỗ tràm có tốt không?
                         </Typography>
@@ -162,17 +163,29 @@ class Index extends BaseView {
                         <ul>
                            <li>
                               <Typography>
-                                 Phân biệt gỗ tự nhiên và gỗ pha: Những sản phẩm được pha thêm gỗ có vân gỗ giả tự nhiên không thật, màu sắc không đồng đều trên tổng thể sản phẩm. Các chi tiết được ráp nối lại với nhau không đều, nhìn rất lộ và xấu. Khách hàng khi mua nên kiểm tra các bộ phận như mặt sau sản phẩm, các khớp nối trên bộ phận để phân biệt rõ ràng nhất.
+                                 Phân biệt gỗ tự nhiên và gỗ pha: Những sản phẩm được pha thêm gỗ có 
+                                 vân gỗ giả tự nhiên không thật, màu sắc không đồng đều trên tổng 
+                                 thể sản phẩm. Các chi tiết được ráp nối lại với nhau không đều, 
+                                 nhìn rất lộ và xấu. Khách hàng khi mua nên kiểm tra các bộ phận 
+                                 như mặt sau sản phẩm, các khớp nối trên bộ phận để phân biệt rõ ràng nhất.
                               </Typography>
                            </li>
                            <li>
                               <Typography>
-                              Hàng cũ và hàng mới: Hàng cũ là những sản phẩm đã xuống màu được sơn lại do đó màu sơn thường lẫn lộn với nhau, không đều và đồng nhất về màu sắc. Nước sơn không đẹp và có độ bóng ấn tượng như hàng mới. Bạn có thể quan sát kiểu sơn, màu sơn trên sản phẩm để phân biệt.
+                              Hàng cũ và hàng mới: Hàng cũ là những sản phẩm đã xuống màu được 
+                              sơn lại do đó màu sơn thường lẫn lộn với nhau, không đều và đồng 
+                              nhất về màu sắc. Nước sơn không đẹp và có độ bóng ấn tượng như 
+                              hàng mới. Bạn có thể quan sát kiểu sơn, màu sơn trên sản phẩm để 
+                              phân biệt.
                               </Typography>
                            </li>
                            <li>
                               <Typography>
-                              Giá cả: Hầu hết tất cả các cửa hàng đều để mức giá sản phẩm cao hơn so với giá bán. Nếu khéo léo khách hàng hoàn toàn có thể mặc cả để có mức giá tốt nhất cho mình. Khi mua một sản phẩm dù là ưng ý đến đâu bạn cũng nên có sự trả giá để tiết kiệm chi phí sở hữu một cách tốt nhất.
+                              Giá cả: Hầu hết tất cả các cửa hàng đều để mức giá sản phẩm cao hơn 
+                              so với giá bán. Nếu khéo léo khách hàng hoàn toàn có thể mặc cả để 
+                              có mức giá tốt nhất cho mình. Khi mua một sản phẩm dù là ưng ý đến 
+                              đâu bạn cũng nên có sự trả giá để tiết kiệm chi phí sở hữu một cách 
+                              tốt nhất.
                               </Typography>
                            </li>
                         </ul>
@@ -182,7 +195,12 @@ class Index extends BaseView {
                         <ul>
                            <uli>
                               <Typography>
-                                 Trong chế tác đồ nội thất nói chung và bàn ghế gỗ nói riêng các sản phẩm đều được chia theo từng kích thước khác nhau để phân loại sao cho phù hợp. Trong đó các mẫu salon gỗ, sofa thường được chia theo kích thước của tay ghế như 8cm, 10cm, 12cm, 14cm, 16cm, 18cm, 20cm… Hay còn gọi một cách dân dã là tay 8, tay 10, tay 12, tay 14….
+                                 Trong chế tác đồ nội thất nói chung và bàn ghế gỗ nói riêng các 
+                                 sản phẩm đều được chia theo từng kích thước khác nhau để phân 
+                                 loại sao cho phù hợp. Trong đó các mẫu salon gỗ, sofa thường 
+                                 được chia theo kích thước của tay ghế như 8cm, 10cm, 12cm, 14cm, 
+                                 16cm, 18cm, 20cm… Hay còn gọi một cách dân dã là tay 8, tay 10, 
+                                 tay 12, tay 14….
                               </Typography>
                            </uli>
                         </ul>
@@ -200,17 +218,28 @@ class Index extends BaseView {
                         <ul>
                            <li>
                               <Typography>
-                                 Trên thị trường hiện nay, bàn ghế làm từ gỗ hương tay 12 có mức giá giao động từ 26.500.000 VNĐ – 35.000.000 VNĐ. Trong đó mức chênh lệch dựa trên chất liệu gỗ sử dụng như gỗ hương vân, gỗ hương đá, hương thường mà có những mức giá khác nhau.
+                                 Trên thị trường hiện nay, bàn ghế làm từ gỗ hương tay 12 
+                                 có mức giá giao động từ 26.500.000 VNĐ – 35.000.000 VNĐ. 
+                                 Trong đó mức chênh lệch dựa trên chất liệu gỗ sử dụng như 
+                                 gỗ hương vân, gỗ hương đá, hương thường mà có những mức 
+                                 giá khác nhau.
                               </Typography>
                            </li>
                            <li>
                               <Typography>
-                              Tổng hợp những mẫu bàn ghế salon gỗ hương đẹp nhất và 20+ mẫu bàn ghế gỗ đẹp nhất hiện nay.
+                              Tổng hợp những mẫu bàn ghế salon gỗ hương đẹp nhất và 20+ 
+                              mẫu bàn ghế gỗ đẹp nhất hiện nay.
                               </Typography>
                            </li>
                         </ul>
                         <Typography>
-                           Trên đây là một hướng dẫn và chia sẻ kinh nghiệm cơ bản dành cho khách hàng khi quyết định tìm kiếm và đặt mua cho mình những bộ bàn ghế gỗ phòng khách đẹp giá tốt trên thị trường hiện nay. Mọi yêu cầu về sản phẩm dịch vụ hoặc mong muốn được giải đáp bạn có thể liên hệ trực tiếp với Fanpage của chúng tôi qua FB messenger hoặc Hotline 09 8888 7878(Mr Thắng) - 09 4444 2288 (Mr Nghi) bạn nhé.
+                           Trên đây là một hướng dẫn và chia sẻ kinh nghiệm cơ bản dành 
+                           cho khách hàng khi quyết định tìm kiếm và đặt mua cho mình 
+                           những bộ bàn ghế gỗ phòng khách đẹp giá tốt trên thị trường 
+                           hiện nay. Mọi yêu cầu về sản phẩm dịch vụ hoặc mong muốn được 
+                           giải đáp bạn có thể liên hệ trực tiếp với Fanpage của chúng tôi 
+                           qua FB messenger hoặc Hotline 09 8888 7878(Mr Thắng) - 09 4444 
+                           2288 (Mr Nghi) bạn nhé.
                         </Typography>
                      </CardContent>
                   </Card>
