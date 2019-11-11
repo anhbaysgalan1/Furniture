@@ -116,6 +116,7 @@ export default {
     },
     Sidebar: {
         client: 'Khách hàng',
+        posts: "Tin tức",
         order: "Quan ly don hang",
         goods: "Quan ly hang hoa",
         bad: 'Giường ngủ',

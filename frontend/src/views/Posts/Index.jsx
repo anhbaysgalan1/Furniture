@@ -90,20 +90,6 @@ class Index extends BaseView {
                     }
                 },
                 {
-                    name: 'contentStart',
-                    title: I18n.t('Table.header.role.Lời giới thiệu'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'contentEnd',
-                    title: I18n.t('Table.header.role.Lời kết thúc'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
                     name: '_id',
                     title: I18n.t('Table.header.action'),
                     sortable: false,
@@ -121,8 +107,6 @@ class Index extends BaseView {
                 { columnName: 'title', wordWrapEnabled: true },
                 { columnName: 'number', wordWrapEnabled: true },
                 { columnName: 'summary', wordWrapEnabled: true },
-                { columnName: 'contentStart', wordWrapEnabled: true },
-                { columnName: 'contentEnd', wordWrapEnabled: true },
                 { columnName: '_id', align: 'center' },
             ],
             //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
@@ -133,7 +117,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'title',
-                    width: 70
+                    width: 150
                 },
                 {
                     name: 'number',
@@ -141,15 +125,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'summary',
-                    width: 200
-                },
-                {
-                    name: 'contentStart',
-                    width: 200
-                },
-                {
-                    name: 'contentEnd',
-                    width: 80
+                    width: 300
                 },
                 {
                     name: '_id',

@@ -63,7 +63,7 @@ class Index extends BaseView {
         return (
             // className={classes.paddingIndex}
             <div> 
-                {/* <Header classes={classes} />
+                <Header classes={classes} />
                 <Home classes={classes} />
                 <ButtonViews classes={classes} />
                 <br></br>
@@ -73,20 +73,20 @@ class Index extends BaseView {
                 <Partner classes={classes} />
                 <NewHot classes={classes} />
                 <br></br>
-                <Promotion classes={classes} /> */}
+                <Promotion classes={classes} />
                 <br></br>
-                {/* <ListGoods classes={classes}/> */}
+                <ListGoods classes={classes}/>
                 <br></br>
                 <Grid container spacing={8}>
                     <Grid item lg={1}></Grid>
                     <Grid item lg={10}>
-                        {/* <Bad classes={classes}/> */}
+                        <Bad classes={classes}/>
                         <br></br>
-                        {/* <TableEat classes={classes} /> */}
+                        <TableEat classes={classes} />
                         <br></br>
-                        {/* <DiningRoom classes={classes} /> */}
+                        <DiningRoom classes={classes} />
                         <br></br>
-                        {/* <TableRestaurant classes={classes} /> */}
+                        <TableRestaurant classes={classes} />
                     </Grid>
                     <Grid item lg={1}></Grid>
                 </Grid>

@@ -73,7 +73,6 @@ class Create extends BaseView {
 
    renderPosts(classes) {
       let { data } = this.props
-      console.log("data KKK", data)
       let { arrItem } = this.state
       let title = _.get(data, 'title', '')
       let image = _.get(data, 'image', '')
@@ -83,57 +82,55 @@ class Create extends BaseView {
       let summary = _.get(data, 'summary', '')
       let dataItem = _.get(data, 'data', []) || []
       return (
-         <Card className={classes.card}>
-            <CardContent style={{ textAlign: 'justify' }} >
-               <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
-                  {title}
-               </Typography>
-               <Typography>
-                  <Icon>calendar_today</Icon> {moment().format('DD/MM/YYYY')} | Lượt xem: {number}
-               </Typography>
-               <hr></hr>
-               <Typography>
-                  {contentStart}
-               </Typography>
-               <center>
-                  <img src={image} height="100%" width='100%' alt='Nội thất Dodo' />
-               </center>
-               {
-                  dataItem.map((element, index) => {
-                     let title = _.get(element, 'title', '')
-                     let image = _.get(element, 'image', '')
-                     let content = _.get(element, 'content', [])
-                     return (
-                        <span>
-                           <Typography variant='h5'>
-                              {title}
-                           </Typography>
-                           <center>
-                              <img src={image} height="100%" width='100%' alt='Nội thất Dodo' />
-                           </center>
-                           <ul>
-                              {
-                                 content.map((_element, _index) => {
-                                    let listConten = _.get(_element, 'listConten', '')
-                                    return (
-                                       <li>
-                                          <Typography>
-                                             {listConten}
-                                          </Typography>
-                                       </li>
-                                    )
-                                 })
-                              }
-                           </ul>
-                        </span>
-                     )
-                  })
-               }
-               <Typography>
-                  {contentEnd}
-               </Typography>
-            </CardContent>
-         </Card>
+         <CardContent style={{ textAlign: 'justify' }} className={classes.card}>
+            <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
+               {title}
+            </Typography>
+            <Typography>
+               <Icon>calendar_today</Icon> {moment().format('DD/MM/YYYY')} | Lượt xem: {number}
+            </Typography>
+            <hr></hr>
+            <Typography>
+               {contentStart}
+            </Typography>
+            <center>
+               { image == 'noImg' ? '' : <img src={image} height="70%" width='70%' alt='Nội thất Dodo' />}
+            </center>
+            {
+               dataItem.map((element, index) => {
+                  let title = _.get(element, 'title', '')
+                  let image = _.get(element, 'image', '')
+                  let content = _.get(element, 'content', [])
+                  return (
+                     <span>
+                        <Typography variant='h5'>
+                           {title}
+                        </Typography>
+                        <center>
+                           { image == 'noImg' ? "" :  <img src={image} height="70%" width='70%' alt='Nội thất Dodo' /> }
+                        </center>
+                        <ul>
+                           {
+                              content.map((_element, _index) => {
+                                 let listConten = _.get(_element, 'listConten', '')
+                                 return (
+                                    <li>
+                                       <Typography>
+                                          {listConten}
+                                       </Typography>
+                                    </li>
+                                 )
+                              })
+                           }
+                        </ul>
+                     </span>
+                  )
+               })
+            }
+            <Typography>
+               {contentEnd}
+            </Typography>
+         </CardContent>
       )
    }
 
