@@ -86,8 +86,9 @@ class App extends Component {
                         <center>
                         {
                             img.map((item, index) => {
+                                
                                 return (
-                                    <Button key={index}>
+                                    <Button key={index} style={{ backgroundColor: index == 2 ? 'blue' : '', padding: '2px' }}>
                                         <img
                                             key={index}
                                             src={item.img}
