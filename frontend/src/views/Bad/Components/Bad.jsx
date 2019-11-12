@@ -245,7 +245,7 @@ class Index extends BaseView {
       return (
          <span>
             <img src={tunhien} height='80' width='450' />
-            {/* <Page classes={classes} /> */}
+            <Page classes={classes} />
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -288,7 +288,7 @@ class Index extends BaseView {
             fullWidth={true}
             onClose={this.onCancel}
             open={this.state.open}
-            maxWidth='md'
+            maxWidth='lg'
             aria-labelledby="draggable-dialog-title"
          >
             <DialogContent>
@@ -300,13 +300,9 @@ class Index extends BaseView {
             </DialogContent>
             <DialogActions>
                <Button color='primary' onClick={() => this.onCancel()}>
-                  Hủy bỏ
-               </Button>
-               <Button color='primary' type='submit' autoFocus>
-                  Gửi
+                  Thoát
                </Button>
             </DialogActions>
-
          </Dialog>
       )
    }
