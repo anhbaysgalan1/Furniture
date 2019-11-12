@@ -67,7 +67,6 @@ class Create extends BaseView {
    }
 
    componentWillReceiveProps(nextProps){
-      console.log("Componetn Receive Props", nextProps)
       let dataItem = _.get(nextProps, 'data.data', [])
       this.setState({ arrItem: dataItem})
       this.setState({ reload: !this.state.reload })

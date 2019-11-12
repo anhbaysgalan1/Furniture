@@ -21,31 +21,10 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
+import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-   paper: {
-      // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   },
-   card: {
-      padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   },
-   form: {
-      padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-      // padding: '10px 10px 10px 10px'
-   },
-   imgZoom: {
-      transition: "transform .5s, filter 3s ease-in-out",
-      filter: "grayscale(100%)",
-   },
-   imgZoom: {
-      "&:hover": {
-         filter: "grayscale(0)",
-         transform: "scale(1.1)",
-         transitionDuration: "1s",
-         transitionTimingFunction: "linear",
-      }
-   },
 })
 
 class Create extends BaseView {
@@ -53,20 +32,68 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         arrItem: [
-            {
-               content: [{ item: '1' }],
-            },
-         ],
       }
    }
-
   
    renderPosts(classes) {
+      let { data } = this.props
+      let title = _.get(data, 'title', '')
+      let image = _.get(data, 'image', '')
+      let contentStart = _.get(data, 'contentStart', '')
+      let contentEnd = _.get(data, 'contentEnd', '')
+      let number = _.get(data, 'number', '')
+      let summary = _.get(data, 'summary', '')
+      let dataItem = _.get(data, 'data', []) || []
       return (
-         <div>
-             <p>Presiews</p>
-         </div>
+         <CardContent style={{ textAlign: 'justify' }} >
+            <Typography variant='h5' style={{ textTransform: 'uppercase' }}>
+               {title}
+            </Typography>
+            <Typography>
+               <Icon>calendar_today</Icon> {moment().format('DD/MM/YYYY')} | Lượt xem: {number}
+            </Typography>
+            <hr></hr>
+            <Typography>
+               {contentStart}
+            </Typography>
+            <center>
+               { image == 'noImg' ? '' : <img src={image} height="100%" width="100%" alt='Nội thất Dodo' /> }
+            </center>
+            {
+               dataItem.map((element, index) => {
+                  let title = _.get(element, 'title', '')
+                  let image = _.get(element, 'image', '')
+                  let content = _.get(element, 'content', [])
+                  return (
+                     <span key={index} >
+                        <Typography variant='h5'>
+                           {title}
+                        </Typography>
+                        <center>
+                           { image == 'noImg' ? "" :  <img src={image} height="100%" width="100%" alt='Nội thất Dodo' /> }
+                        </center>
+                        <ul>
+                           {
+                              content.map((_element, _index) => {
+                                 let listConten = _.get(_element, 'listConten', '')
+                                 return (
+                                    <li key={_index}>
+                                       <Typography>
+                                          {listConten}
+                                       </Typography>
+                                    </li>
+                                 )
+                              })
+                           }
+                        </ul>
+                     </span>
+                  )
+               })
+            }
+            <Typography>
+               {contentEnd}
+            </Typography>
+         </CardContent>
       )
    }
 
@@ -74,9 +101,9 @@ class Create extends BaseView {
       const { classes } = this.props
       return (
          <div>
-                  {
-                     this.renderPosts(classes)
-                  }
+            {
+               this.renderPosts(classes)
+            }
          </div>
       )
    }

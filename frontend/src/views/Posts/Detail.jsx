@@ -28,28 +28,9 @@ import _ from 'lodash'
 import moment from 'moment'
 
 const styles = theme => ({
-   paper: {
-      // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   },
    card: {
       padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   },
-   form: {
-      padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-      // padding: '10px 10px 10px 10px'
-   },
-   imgZoom: {
-      transition: "transform .5s, filter 3s ease-in-out",
-      filter: "grayscale(100%)",
-   },
-   imgZoom: {
-      "&:hover": {
-         filter: "grayscale(0)",
-         transform: "scale(1.1)",
-         transitionDuration: "1s",
-         transitionTimingFunction: "linear",
-      }
-   },
+   }
 })
 
 class Create extends BaseView {

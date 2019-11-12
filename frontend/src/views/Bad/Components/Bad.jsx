@@ -26,19 +26,19 @@ import {
    Avatar,
    Dialog,
    DialogContent,
-   DialogActions, 
+   DialogActions,
    DialogContentText,
    DialogTitle,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import Skeleton   from '@material-ui/lab/Skeleton'
-import moment     from 'moment'
-import tunhien    from '../../../public/tunhien.png'
+import Skeleton from '@material-ui/lab/Skeleton'
+import moment from 'moment'
+import tunhien from '../../../public/tunhien.png'
 import congnghiep from '../../../public/congnghiep.png'
-import hiendai    from '../../../public/hiendai.png'
-import codien     from '../../../public/codien.png'
-import Page       from './Page'
+import hiendai from '../../../public/hiendai.png'
+import codien from '../../../public/codien.png'
+import Page from './Page'
 import ViewDetail from './ViewDetail'
 import _ from 'lodash'
 
@@ -220,33 +220,40 @@ class Index extends BaseView {
       this.state = {
          reload: false,
          open: false,
-         index: '',
          dataGoods: {},
       }
       this.onCancel = this.onCancel.bind(this)
+      this.onShow = this.onShow.bind(this)
+      this.onHide = this.onHide.bind(this)
    }
 
-   onCancel() {
-      this.setState({index: ''})
+   onShow(element){
+      this.setState({ open: true, dataGoods: element })
+      this.setState({ reload: !this.state.reload })
+   }
+   
+   onHide(){
+      this.setState({ open: false })
    }
 
-   setRenderDetail(index, element){
-      this.setState({ dataGoods: element, index: index })
+   onCancel(){
+      this.onHide()
    }
 
-   renderNature(classes) {
+   renderNature() {
+      let { classes } = this.props
       return (
          <span>
             <img src={tunhien} height='80' width='450' />
-            <Page classes={classes} />
+            {/* <Page classes={classes} /> */}
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
                      return (
                         <Grid item xs={3} key={index}>
-                           <CardActionArea 
-                              className={classes.imgZoom} 
-                              onClick={() => this.setRenderDetail(index, element)}
+                           <CardActionArea
+                              className={classes.imgZoom}
+                              onClick={() => this.onShow(element)}
                            >
                               <CardMedia
                                  component="img"
@@ -273,138 +280,46 @@ class Index extends BaseView {
       )
    }
 
-   renderIndustry(classes) {
+   renderDetail() {
+      let { dataGoods } = this.state
+      let { classes, onSubmit } = this.props
       return (
-         <span>
-            <img src={congnghiep} height='80' width='450' />
-            <Grid container spacing={16}>
-               {
-                  arrImg.map((element, index) => {
-                     return (
-                        <Grid item xs={3} key={index}>
-                           <CardActionArea className={classes.imgZoom}>
-                              <CardMedia
-                                 component="img"
-                                 alt="Contemplative Reptile"
-                                 height="200"
-                                 image={element.img}
-                                 title={element.title}
-                              />
-                              <CardContent>
-                                 <Typography style={{ textAlign: 'center' }} color="primary">
-                                    {element.title}
-                                 </Typography>
-                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                    {element.money}
-                                 </Typography>
-                              </CardContent>
-                           </CardActionArea>
-                        </Grid>
-                     )
-                  })
-               }
-            </Grid>
-         </span>
-      )
-   }
+         <Dialog
+            fullWidth={true}
+            onClose={this.onCancel}
+            open={this.state.open}
+            maxWidth='md'
+            aria-labelledby="draggable-dialog-title"
+         >
+            <DialogContent>
+               <ViewDetail
+                  // dataGoods={dataGoods}
+                  // classes={classes}
+                  // onSubmit={onSubmit}
+               />
+            </DialogContent>
+            <DialogActions>
+               <Button color='primary' onClick={() => this.onCancel()}>
+                  Hủy bỏ
+               </Button>
+               <Button color='primary' type='submit' autoFocus>
+                  Gửi
+               </Button>
+            </DialogActions>
 
-   renderModern(classes) {
-      return (
-         <span>
-            <img src={hiendai} height='80' width='450' />
-            <Grid container spacing={16}>
-               {
-                  arrImg.map((element, index) => {
-                     return (
-                        <Grid item xs={3} key={index}>
-                           <CardActionArea className={classes.imgZoom}>
-                              <CardMedia
-                                 component="img"
-                                 alt="Contemplative Reptile"
-                                 height="200"
-                                 image={element.img}
-                                 title={element.title}
-                              />
-                              <CardContent>
-                                 <Typography style={{ textAlign: 'center' }} color="primary">
-                                    {element.title}
-                                 </Typography>
-                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                    {element.money}
-                                 </Typography>
-                              </CardContent>
-                           </CardActionArea>
-                        </Grid>
-                     )
-                  })
-               }
-            </Grid>
-         </span>
-      )
-   }
-
-   renderClassic(classes) {
-      return (
-         <span>
-            <img src={codien} height='80' width='450' />
-            <Grid container spacing={16}>
-               {
-                  arrImg.map((element, index) => {
-                     return (
-                        <Grid item xs={3} key={index}>
-                           <CardActionArea className={classes.imgZoom}>
-                              <CardMedia
-                                 component="img"
-                                 alt="Contemplative Reptile"
-                                 height="200"
-                                 image={element.img}
-                                 title={element.title}
-                              />
-                              <CardContent>
-                                 <Typography style={{ textAlign: 'center' }} color="primary">
-                                    {element.title}
-                                 </Typography>
-                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                    {element.money}
-                                 </Typography>
-                              </CardContent>
-                           </CardActionArea>
-                        </Grid>
-                     )
-                  })
-               }
-            </Grid>
-         </span>
+         </Dialog>
       )
    }
 
    render() {
-      let { classes, onSubmit } = this.props
-      let { dataGoods } = this.state
       return (
          <span>
             {
-               this.state.index 
-               ?  <ViewDetail 
-                     onCancel={this.onCancel} 
-                     dataGoods={dataGoods} 
-                     classes={classes} 
-                     onSubmit={onSubmit} 
-                  /> 
-               :  ""
+               this.renderDetail()
             }
             {
-               this.renderNature(classes)
+               this.renderNature()
             }
-            {/* {
-               this.renderIndustry(classes)
-            }
-            {
-               this.renderModern(classes)
-            }
-            {
-               this.renderClassic(classes)
-            } */}
          </span>
       )
    }

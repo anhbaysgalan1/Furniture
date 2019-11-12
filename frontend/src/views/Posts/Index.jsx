@@ -9,6 +9,7 @@ import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
 import FacebookIcon from '@material-ui/icons/Facebook'
+import Detail from './Detail'
 import {
     IconButton,
     Icon,
@@ -30,6 +31,7 @@ import {
 import Header       from '../Public/Header/Header'
 import What         from '../Public/What'
 import Promotion    from '../Public/Promotion'
+import Previews     from './Previews'
 import moment       from 'moment'
 import _ from 'lodash'
 
@@ -160,12 +162,14 @@ class Index extends BaseView {
 
     renderDetail(){
         let { dataRow } = this.state
+        console.log("dataRow", dataRow)
         let { classes } = this.props
         let _id = this.getData(dataRow, "_id", '')
         return (
             <Card>
                 <Dialog
                     // fullWidth={true}
+                    data={dataRow}
                     onClose={this.onCancel}
                     open={this.state.open}
                     maxWidth='lg'
@@ -175,13 +179,7 @@ class Index extends BaseView {
                         <Typography variant="h6"> 
                             Xem chi tiết đơn hàng
                         </Typography>
-                            {dataRow.code}
-                        <Grid container spacing={32}>
-                            <Grid item xs={6}></Grid>
-                            <Grid item xs={6}>
-
-                            </Grid>
-                        </Grid>
+                        <Previews data={dataRow}/>
                     </DialogContent>
                     <DialogActions>
                         <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/posts/${_id}`)}>
@@ -189,6 +187,9 @@ class Index extends BaseView {
                         </Button>
                         <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onDelete(_id)}>
                             {I18n.t('Button.delete')}
+                        </Button>
+                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onHide()}>
+                            {I18n.t("Button.cancel")}
                         </Button>
                     </DialogActions>
                 </Dialog>

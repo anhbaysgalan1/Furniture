@@ -16,9 +16,13 @@ import {
    CardMedia,
    CardContent,
    CardActions,
+   Dialog,
+   DialogActions,
+   DialogContent
 
 } from '@material-ui/core'
 import PaperFade from "components/Main/PaperFade"
+import Previews from './Previews'
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
@@ -53,60 +57,137 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         arrItem: [
-            {
-               content: [{ item: '1' }],
-            },
-         ],
+         open: false,
+         dataInput: {
+            title: '',
+            image: '',
+            number: '',
+            summary: '',
+            contentStart: '',
+            contentEnd: '',
+            data: [ 
+               {
+                  title: '',
+                  image: '',
+                  content: [
+                     { 
+                        listConten: '' 
+                     }
+                  ],
+               }
+            ]
+         },
       }
       this.onHandleChange = this.onHandleChange.bind(this)
+      this.onChangeData = this.onChangeData.bind(this)
+      this.onChangeContent = this.onChangeContent.bind(this)
       this.addItem = this.addItem.bind(this)
       this.signItem = this.signItem.bind(this)
       this.addContent = this.addContent.bind(this)
       this.signContent = this.signContent.bind(this)
+      this.onShow = this.onShow.bind(this)
+      this.onHide = this.onHide.bind(this)
    }
 
    addItem() {
-      let { arrItem } = this.state
-      let element = {
-         content: [{ item: '1' }]
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      let item = {
+         title: '',
+         image: '',
+         content: [{ listConten: '' }],
       }
-      arrItem.push(element)
-      this.setState({ arrItem: arrItem })
+      data.push(item)
+      this.setState({ dataInput: dataInput })
       this.setState({ reload: !this.state.reload })
    }
    signItem(index) {
-      let { arrItem } = this.state
-      arrItem.splice(index, 1)
-      this.setState({ arrItem: arrItem })
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      data.splice(index, 1)
+      this.setState({ dataInput: dataInput })
       this.setState({ reload: !this.state.reload })
    }
    addContent(index) {
-      let { arrItem } = this.state
-      let element = {
-         item: '1'
-      }
-      arrItem[index].content.push(element)
-      this.setState({ arrItem: arrItem })
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      let item = { listConten: '' }
+      data[index].content.push(item)
+      this.setState({ dataInput: dataInput })
       this.setState({ reload: !this.state.reload })
    }
    signContent(index, count) {
-      let { arrItem } = this.state
-      arrItem[index].content.splice(count, 1)
-      this.setState({ arrItem: arrItem })
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      data[index].content.splice(count, 1)
+      this.setState({ dataInput: dataInput })
       this.setState({ reload: !this.state.reload })
    }
 
    onHandleChange(value, name) {
       let { dataInput } = this.state
-      this.setState({
-         dataInput: { ...this.state.dataInput, [name]: value }
-      })
+      this.setState({ dataInput: { ...dataInput, [name]: value } })
+      this.setState({ reload: !this.state.reload })
+   }
+
+   onChangeData(value, name, index){
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      data[index][name] = value
+      this.setState({ dataInput: dataInput })
+      this.setState({ reload: !this.state.reload })
+   }
+
+   onChangeContent(value, name, index, count) {
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', [])
+      data[index].content[count][name] = value
+      this.setState({ dataInput: dataInput })
+      this.setState({ reload: !this.state.reload })
+   }
+
+   onShow(){
+      this.setState({open: true})
+   }
+   onCancel(){
+      this.onHide()
+   }
+   onHide(){
+      this.setState({open: false})
+   }
+
+   renderPreviews( dataRow ){
+      let { classes } = this.props
+      return (
+          <Card>
+              <Dialog
+                  // fullWidth={true}
+                  data={dataRow}
+                  onClose={this.onCancel}
+                  open={this.state.open}
+                  maxWidth='lg'
+                  aria-labelledby="draggable-dialog-title"
+              >
+                  <DialogContent>
+                      <Typography variant="h6"> 
+                          Xem chi tiết đơn hàng
+                      </Typography>
+                      <Previews data={dataRow}/>
+                  </DialogContent>
+                  <DialogActions>
+                     <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onHide()}>
+                        {I18n.t("Button.cancel")}
+                     </Button>
+                  </DialogActions>
+              </Dialog>
+          </Card>
+      )
    }
 
    renderPosts(classes) {
       let { onSubmit } = this.props
-      let { arrItem } = this.state
+      let { dataInput } = this.state
+      let data = _.get(dataInput, 'data', []) || []
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             <Card className={classes.card}>
@@ -163,13 +244,8 @@ class Create extends BaseView {
                      />
                   </Grid>
                </Grid>
-               <center>
-                  <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
-                     Thêm Nội dung
-                  </Button>
-               </center>
                {
-                  arrItem.map((_item, index) => {
+                  data.map((_item, index) => {
                      let content = _.get(_item, 'content', [])
                      return (
                         <Grid container spacing={16} key={index}>
@@ -185,8 +261,7 @@ class Create extends BaseView {
                                        <TextField
                                           fullWidth
                                           label={I18n.t("Input.goods.Tiêu đề nội dung")}
-                                          // onChange={(value) => this.onHandleChange(value, 'titleItem')}
-                                          // name="titleItem"
+                                          onChange={(value) => this.onChangeData(value, 'title', index)}
                                           name={`data[${index}][title]`}
                                        />
                                     </Grid>
@@ -194,8 +269,7 @@ class Create extends BaseView {
                                        <TextField
                                           fullWidth
                                           label={I18n.t("Input.goods.Link ảnh")}
-                                          // onChange={(value) => this.onHandleChange(value, 'imgItem')}
-                                          // name="imgItem"
+                                          onChange={(value) => this.onChangeData(value, 'image', index)}
                                           name={`data[${index}][image]`}
                                        />
                                     </Grid>
@@ -214,9 +288,9 @@ class Create extends BaseView {
                                                    rowsMax={8}
                                                    variant="outlined"
                                                    fullWidth
+                                                   value={element.listConten}
                                                    label={I18n.t("Input.goods.List Item nội dung")}
-                                                   // onChange={(value) => this.onHandleChange(value, 'contentItem')}
-                                                   // name="contentItem"
+                                                   onChange={(value) => this.onChangeContent(value, 'listConten', index, count)}
                                                    name={`data[${index}][content][${count}][listConten]`}
                                                 />
                                              </Grid>
@@ -237,6 +311,12 @@ class Create extends BaseView {
                      )
                   })
                }
+               <br></br>
+               <center>
+                  <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
+                     Thêm Nội dung
+                  </Button>
+               </center>
                <Grid container spacing={32}>
                   <Grid item xs={12}>
                      <TextField
@@ -256,7 +336,7 @@ class Create extends BaseView {
                      <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                   </Button>
                   <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                  <Button variant="contained" color="primary">{I18n.t("Button.previews.Xem trước")}</Button>
+                  <Button variant="contained" onClick={() => this.onShow()} color="primary">{I18n.t("Button.previews.Xem trước")}</Button>
                </CardActions>
             </Card>
          </Form>
@@ -265,8 +345,13 @@ class Create extends BaseView {
 
    render() {
       const { classes } = this.props
+      let { dataInput } = this.state
+      console.log( 'dataInput', dataInput)
       return (
          <div>
+            {
+               this.renderPreviews(dataInput)
+            }
             <Grid container spacing={32}>
                <Grid item xs={1}></Grid>
                <Grid item xs={10}>
