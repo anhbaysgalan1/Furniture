@@ -32,10 +32,22 @@ const styles = theme => ({
         padding: '5px',
         backgroundColor: '#039be5',
         color: 'white',
-     },
+    },
+    imgZoom: {
+        transition: "transform .5s, filter 3s ease-in-out",
+        filter: "grayscale(100%)",
+    },
+    imgZoom: {
+        "&:hover": {
+            filter: "grayscale(0)",
+            transform: "scale(1.1)",
+            transitionDuration: "1s",
+            transitionTimingFunction: "linear",
+        }
+    },
 })
 
-class App extends Component {
+class Page extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,22 +56,23 @@ class App extends Component {
     }
 
     render() {
+        let { arrImg, classes } = this.props
         return (
             <div>
-                <Button color='primary' variant='outlined'> Trước </Button>
+                <Button color='primary' variant='outlined'> <Icon>arrow_back_ios</Icon> </Button>
                 <Button color='primary' variant='outlined'> 1 </Button>
                 <Button color='primary' variant='outlined'> 2 </Button>
                 <Button color='primary' variant='outlined'> 3 </Button>
-                <Button color='primary' variant='outlined'> Sau </Button>
+                <Button color='primary' variant='outlined'> <Icon>arrow_forward_ios</Icon> </Button>
             </div>
         );
     }
 }
 
 
-App.propTypes = {
+Page.propTypes = {
     classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(withRouter(App))
-// ReactDOM.render(<App />, document.getElementById("root"));
+export default withStyles(styles)(withRouter(Page))
+// ReactDOM.render(<Page />, document.getElementById("root"));

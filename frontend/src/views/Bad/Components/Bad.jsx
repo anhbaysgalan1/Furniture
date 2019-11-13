@@ -128,6 +128,258 @@ let arrImg = [
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
+   {
+      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
+      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      code: 'S51',
+      title: 'Giường hiện đại S51',
+      money: '2.500.000 đ'
+   },
    // {
    //    img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
    //    code: 'S51',
@@ -221,10 +473,14 @@ class Index extends BaseView {
          reload: false,
          open: false,
          dataGoods: {},
+         itemPrimary: 0,
       }
       this.onCancel = this.onCancel.bind(this)
       this.onShow = this.onShow.bind(this)
       this.onHide = this.onHide.bind(this)
+      this.setPage = this.setPage.bind(this)
+      this.additionPage = this.additionPage.bind(this)
+      this.minusPage = this.minusPage.bind(this)
    }
 
    onShow(element){
@@ -240,12 +496,75 @@ class Index extends BaseView {
       this.onHide()
    }
 
-   renderNature() {
-      let { classes } = this.props
+   setPage(index){
+      this.setState({ itemPrimary: index })
+      this.setState({ reload: !this.state.reload })
+   }
+
+   additionPage(arrLength){
+      if(this.state.itemPrimary < arrLength - 1){
+         this.setState({ itemPrimary: this.state.itemPrimary + 1 })
+         this.setState({ reload: !this.state.reload })
+      }
+   }
+
+   minusPage(){
+      if(this.state.itemPrimary >  0){ 
+         this.setState({ itemPrimary: this.state.itemPrimary - 1 })
+         this.setState({ reload: !this.state.reload })
+      }
+   }
+   
+   renderPage(numberImg, numberPage){
+      let arr = []
+      for( let e = 0; e < numberPage ; ++e ){
+         let element = {
+            element: '',
+         }
+         arr.push(element)
+      }
+      let { itemPrimary } = this.state
+     
       return (
          <span>
-            <img src={tunhien} height='80' width='450' />
-            <Page classes={classes} />
+            <Button color='primary' variant='outlined' onClick={() => this.minusPage()} > 
+               <Icon>arrow_back_ios</Icon> 
+            </Button> 
+            {
+               arr.map((item, index) => {
+                  return (
+                     <Button 
+                        key={index} color='primary' 
+                        variant={ itemPrimary == index ? 'contained' : 'outlined'}
+                        onClick={() => this.setPage(index)}
+                     >
+                        {index + 1} 
+                     </Button>
+                  )
+               })
+            }
+             <Button color='primary' variant='outlined' onClick={() => this.additionPage(arr.length)} > 
+               <Icon>arrow_forward_ios</Icon> 
+            </Button> 
+         </span>
+      )
+   }
+
+   renderNature() {
+      let { classes } = this.props
+      let numberImg = 8 // số ảnh muốn hiện
+      let numberPage = parseInt(arrImg.length/numberImg) // Số trang phân
+      if(arrImg.length%numberImg){
+         numberPage = numberPage + 1
+      } 
+      
+      let button = this.renderPage(numberImg, numberPage)
+      let { itemPrimary } = this.state // Số trang 
+      return (
+         <span>
+            {/* <img src={tunhien} height='80' width='450' /> */}
+            {/* <Page arrImg={arrImg} classes={classes} /> */}
+            {button}
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -255,27 +574,30 @@ class Index extends BaseView {
                               className={classes.imgZoom}
                               onClick={() => this.onShow(element)}
                            >
-                              <CardMedia
+                              {/* <CardMedia
                                  component="img"
                                  alt="Contemplative Reptile"
                                  height="200"
                                  image={element.img}
                                  title={element.title}
-                              />
+                              /> */}
                               <CardContent>
-                                 <Typography style={{ textAlign: 'center' }} color="primary">
+                                 <Typography variant='h4' >
+                                    {index}
+                                 </Typography>
+                                 {/* <Typography style={{ textAlign: 'center' }} color="primary">
                                     {element.title}
                                  </Typography>
                                  <Typography style={{ textAlign: 'center', color: 'red' }}>
                                     {element.money}
-                                 </Typography>
+                                 </Typography> */}
                               </CardContent>
                            </CardActionArea>
                         </Grid>
                      )
                   })
                }
-            </Grid>
+            </Grid>  
          </span>
       )
    }

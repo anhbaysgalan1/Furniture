@@ -118,7 +118,6 @@ class App extends Component {
                </Grid>
                <Grid item xs={5}>
                   Thông tin giới thiệu hàng
-                  
                </Grid>
             </Grid>
            
