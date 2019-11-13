@@ -517,7 +517,7 @@ class Index extends BaseView {
    
    renderPage(numberImg, numberPage){
       let arr = []
-      for( let e = 0; e < numberPage ; ++e ){
+      for ( let e = 0; e < numberPage ; ++e ){
          let element = {
             element: '',
          }
@@ -543,11 +543,24 @@ class Index extends BaseView {
                   )
                })
             }
-             <Button color='primary' variant='outlined' onClick={() => this.additionPage(arr.length)} > 
+            <Button color='primary' variant='outlined' onClick={() => this.additionPage(arr.length)} > 
                <Icon>arrow_forward_ios</Icon> 
             </Button> 
          </span>
       )
+   }
+
+   setMinMaxImage(itemPrimary, numberImg){
+      let minImage = 0
+      let maxImage = 7
+      if (itemPrimary != 0){
+         minImage = numberImg * itemPrimary
+         maxImage = numberImg * (itemPrimary + 1) - 1
+      }
+      return {
+         minImage: minImage,
+         maxImage: maxImage,
+      }
    }
 
    renderNature() {
@@ -556,45 +569,49 @@ class Index extends BaseView {
       let numberPage = parseInt(arrImg.length/numberImg) // Số trang phân
       if(arrImg.length%numberImg){
          numberPage = numberPage + 1
-      } 
-      
+      }
       let button = this.renderPage(numberImg, numberPage)
       let { itemPrimary } = this.state // Số trang 
+      let minImage = this.setMinMaxImage(itemPrimary, numberImg).minImage
+      let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
       return (
          <span>
-            {/* <img src={tunhien} height='80' width='450' /> */}
+            <img src={tunhien} height='80' width='450' />
             {/* <Page arrImg={arrImg} classes={classes} /> */}
             {button}
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
-                     return (
-                        <Grid item xs={3} key={index}>
-                           <CardActionArea
-                              className={classes.imgZoom}
-                              onClick={() => this.onShow(element)}
-                           >
-                              {/* <CardMedia
-                                 component="img"
-                                 alt="Contemplative Reptile"
-                                 height="200"
-                                 image={element.img}
-                                 title={element.title}
-                              /> */}
-                              <CardContent>
-                                 <Typography variant='h4' >
-                                    {index}
-                                 </Typography>
-                                 {/* <Typography style={{ textAlign: 'center' }} color="primary">
-                                    {element.title}
-                                 </Typography>
-                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                    {element.money}
-                                 </Typography> */}
-                              </CardContent>
-                           </CardActionArea>
-                        </Grid>
-                     )
+                     if((index >= minImage) && (index <= maxImage)) {
+                        return (
+                           <Grid item xs={3} key={index}>
+                              <CardActionArea
+                                 className={classes.imgZoom}
+                                 onClick={() => this.onShow(element)}
+                              >
+                                 <CardMedia
+                                    component="img"
+                                    alt="Contemplative Reptile"
+                                    height="200"
+                                    image={element.img}
+                                    title={element.title}
+                                 />
+                                 <CardContent>
+                                    <Typography variant='h4' >
+                                       {index}
+                                    </Typography>
+                                    <Typography style={{ textAlign: 'center' }} color="primary">
+                                       {element.title}
+                                    </Typography>
+                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                       {element.money}
+                                    </Typography>
+                                 </CardContent>
+                              </CardActionArea>
+                           </Grid>
+                        )
+                     } else 
+                        return ''
                   })
                }
             </Grid>  
