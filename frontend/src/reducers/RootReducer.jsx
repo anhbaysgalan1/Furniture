@@ -11,13 +11,14 @@ import ClientReducer from './ClientReducer'
 import OrderReducer from './OrderReducer'
 
 export default combineReducers({
-    i18n: i18nReducer,
-    loading: LoadingReducer,
-    utility: UtilityReducer,
-    user: UserReducer,
-    bads: BadReducer,
-    group: GroupReducer,
-    posts: PostsReducer,
-    client: ClientReducer,
-    order: OrderReducer,
+    i18n    : i18nReducer,
+    loading : LoadingReducer,
+    utility : UtilityReducer,
+    user    : UserReducer,
+    bads    : BadReducer,
+    goods   : GoodsReducer,
+    group   : GroupReducer,
+    posts   : PostsReducer,
+    client  : ClientReducer,
+    order   : OrderReducer,
 })

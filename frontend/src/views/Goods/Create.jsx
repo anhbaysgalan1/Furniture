@@ -91,22 +91,22 @@ class Create extends BaseView {
             {
                 name: "Giường gỗ tự nhiên",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '1'
             },
             {
                 name: "Giường gỗ công nghiệp",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '2'
             },
             {
                 name: "Giường gỗ cổ điển",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '3'
             },
             {
                 name: "Giường gỗ hiện đại",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '4'
             }
         ]
         return (

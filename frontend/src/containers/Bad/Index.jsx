@@ -1,6 +1,7 @@
 import React from 'react'
 import View from 'views/Bad/Index'
 import BaseContainer, { selector } from 'containers/BaseContainer'
+import GoodsAction from '../../actions/GoodsAction'
 import OrderAction from  '../../actions/OrderAction'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -10,6 +11,10 @@ class Index extends BaseContainer {
     constructor(props) {
         super(props)
         this.onSubmit = this.onSubmit.bind(this)
+    }
+
+    componentDidMount() {
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
@@ -42,16 +47,17 @@ class Index extends BaseContainer {
     
     render() {
         return (
-            <div>
-                <View onSubmit={this.onSubmit}/>
-            </div>
-         
+            <View 
+                onSubmit={this.onSubmit}
+                data={this.props.data}
+            />
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
+        data: selector(state, "goods.list", {}),
     }
 }
 

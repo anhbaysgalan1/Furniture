@@ -92,22 +92,22 @@ class Create extends BaseView {
             {
                 name: "Giường gỗ tự nhiên",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '1'
             },
             {
                 name: "Giường gỗ công nghiệp",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '2'
             },
             {
                 name: "Giường gỗ cổ điển",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '3'
             },
             {
                 name: "Giường gỗ hiện đại",
                 code: 'GG1',
-                _id: 'hdjffngjgihghjh'
+                _id: '4'
             }
         ]
         let image1 = _.get(data, 'image1', '')
@@ -132,7 +132,7 @@ class Create extends BaseView {
                                     Xem bài đăng
                                 </Typography>
                                 <CardActionArea className={classes.imgZoom}>
-                                    {
+                                    {/* {
                                         dataInput.img && dataInput.name && dataInput.code
                                         ?
                                             <CardMedia
@@ -144,8 +144,8 @@ class Create extends BaseView {
                                                 title={`${dataInput.name} - ${dataInput.code}`}
                                             />
                                         : ''
-                                    }
-                                    {
+                                    } */}
+                                    {/* {
                                         dataInput.moneyOld && dataInput.moneyNew
                                         ?
                                             <CardContent>
@@ -154,7 +154,7 @@ class Create extends BaseView {
                                                 </Typography>
                                             </CardContent>
                                         : ''
-                                    }
+                                    } */}
 
                                 </CardActionArea>
                             </CardContent>
