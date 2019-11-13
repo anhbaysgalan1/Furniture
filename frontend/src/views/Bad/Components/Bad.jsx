@@ -67,315 +67,315 @@ let img = 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thu
 let arrImg = [
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
    },
    {
       // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'http://noithatgiaredng.com/StoreData/Product/99/color/tam%20compact%20mau%20trang.jpg',
+      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
       code: 'S51',
       title: 'Giường hiện đại S51',
       money: '2.500.000 đ'
@@ -578,7 +578,9 @@ class Index extends BaseView {
          <span>
             <img src={tunhien} height='80' width='450' />
             {/* <Page arrImg={arrImg} classes={classes} /> */}
+            <br></br>
             {button}
+            <br></br><br></br>
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -615,6 +617,8 @@ class Index extends BaseView {
                   })
                }
             </Grid>  
+            <br></br><br></br>
+            {button}
          </span>
       )
    }
