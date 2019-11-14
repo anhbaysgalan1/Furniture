@@ -72,7 +72,7 @@ class Index extends BaseView {
                                 break
                         }
                         return (
-                            <Grid container spacing={8}>
+                            <Grid container spacing={8} key={index}>
                                 <Grid item xs={4} md={4}>
                                     <img
                                         className={classes.imgZoom}

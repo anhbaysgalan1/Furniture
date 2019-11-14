@@ -75,10 +75,12 @@ class Index extends BaseView {
                 <br></br>
                 <Promotion classes={classes} />
                 <br></br>
-                <ListGoods classes={classes}/>
+                {/* <ListGoods classes={classes}/> */}
                 <br></br>
                 <Grid container spacing={8}>
-                    <Grid item lg={1}></Grid>
+                    <Grid item lg={1}>
+                        <ListGoods classes={classes}/>
+                    </Grid>
                     <Grid item lg={10}>
                         <Bad classes={classes}/>
                         <br></br>

@@ -247,10 +247,10 @@ class Index extends BaseView {
                 <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
                     {I18n.t('Button.detail')}
                 </Button>
-                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
                     {I18n.t("Button.edit")}
                 </Button>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                     {I18n.t('Button.delete')}
                 </Button> */}
             </div>

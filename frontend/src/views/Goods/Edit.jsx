@@ -16,9 +16,15 @@ import {
    CardMedia,
    CardContent,
    CardActions,
+   DialogTitle,
+   DialogContent,
+   Dialog,
+   DialogActions,
+
 
 } from '@material-ui/core'
 import PaperFade from "components/Main/PaperFade"
+import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
@@ -52,6 +58,8 @@ class Create extends BaseView {
    constructor(props) {
       super(props)
       this.state = {
+         open: false,
+         reload: false,
          dataInput: {
             name: '',
             code: '',
@@ -63,9 +71,13 @@ class Create extends BaseView {
             moneyNew: '',
             typeGoods: '',
             typeWoods: '',
+            typeItem: '',
             content: ''
          }
       }
+      this.onCancel = this.onCancel.bind(this)
+      this.onShow = this.onShow.bind(this)
+      this.onHide = this.onHide.bind(this)
       this.onHandleChange = this.onHandleChange.bind(this)
       this.validate = {
          name: [
@@ -78,6 +90,19 @@ class Create extends BaseView {
       }
    }
 
+   onShow(){
+      this.setState({ open: true })
+      this.setState({ reload: !this.state.reload })
+   }
+   
+   onHide(){
+      this.setState({ open: false })
+   }
+
+   onCancel(){
+      this.onHide()
+   }
+
    onHandleChange(value, name) {
       let { dataInput } = this.state
       this.setState({
@@ -85,9 +110,34 @@ class Create extends BaseView {
       })
    }
 
+   renderDetail() {
+      let { classes, onSubmit } = this.props
+      return (
+         <Dialog
+            fullWidth={true}
+            onClose={this.onCancel}
+            open={this.state.open}
+            maxWidth='lg'
+            aria-labelledby="draggable-dialog-title"
+         >
+            <DialogContent>
+               <Previews
+                  dataInput={this.state.dataInput}
+                  // classes={classes}
+                  // onSubmit={onSubmit}
+               />
+            </DialogContent>
+            <DialogActions>
+               <Button color='primary' onClick={() => this.onCancel()}>
+                  Thoát
+               </Button>
+            </DialogActions>
+         </Dialog>
+      )
+   }
+
    render() {
       const { classes, onSubmit, data } = this.props
-      let { dataInput } = this.state
       let image1 = _.get(data, 'image1', '')
       let image2 = _.get(data, 'image2', '')
       let image3 = _.get(data, 'image3', '')
@@ -160,8 +210,10 @@ class Create extends BaseView {
       ]
 
       return (
-         // <PaperFade className={classes.paper}>
          <Form className={classes.form} onSubmit={onSubmit}>
+            {
+               this.renderDetail()
+            }
             <Grid container spacing={32}>
                <Grid item lg={1}>
                   <Card>
@@ -202,10 +254,10 @@ class Create extends BaseView {
                   <Card className={classes.card}>
                      <CardContent>
                         <Typography variant='h5' color='primary'>
-                           Them hang hoa
+                           Sua hang hoa
                         </Typography>
                         <Grid container spacing={32}>
-                           <Grid item xs={4}>
+                           <Grid item xs={3}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
@@ -226,7 +278,7 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-                           <Grid item xs={4}>
+                           <Grid item xs={5}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
@@ -270,7 +322,7 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-                           <Grid item xs={2}>
+                           <Grid item xs={3}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.code")}
@@ -279,7 +331,7 @@ class Create extends BaseView {
                                  name="code"
                               />
                            </Grid>
-                           <Grid item xs={6}>
+                           <Grid item xs={5}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.name")}
@@ -361,6 +413,9 @@ class Create extends BaseView {
                         <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
                            <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                         </Button>
+                        <Button variant="contained" color="primary" onClick={() => this.onShow()}>
+                           {I18n.t("Button.previews")}
+                        </Button>
                         <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
                      </CardActions>
                   </Card>
@@ -369,7 +424,6 @@ class Create extends BaseView {
                <br />
             </Grid>
          </Form>
-         // </PaperFade>
       )
    }
 }

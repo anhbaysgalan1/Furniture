@@ -88,7 +88,7 @@ class Create extends BaseView {
       }
    }
 
-   onShow(element){
+   onShow(){
       this.setState({ open: true })
       this.setState({ reload: !this.state.reload })
    }
@@ -99,10 +99,6 @@ class Create extends BaseView {
 
    onCancel(){
       this.onHide()
-   }
-
-   componentDidUpdate(prevProps, prevState){ 
-      // console.log("prevState", prevState.dataInput)
    }
 
    onHandleChange(value, name) {
@@ -246,7 +242,7 @@ class Create extends BaseView {
                            Them hang hoa
                         </Typography>
                         <Grid container spacing={32}>
-                           <Grid item xs={4}>
+                           <Grid item xs={3}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
@@ -267,7 +263,7 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-                           <Grid item xs={4}>
+                           <Grid item xs={5}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
@@ -309,7 +305,7 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-                           <Grid item xs={2}>
+                           <Grid item xs={3}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
@@ -317,7 +313,7 @@ class Create extends BaseView {
                                  name="code"
                               />
                            </Grid>
-                           <Grid item xs={6}>
+                           <Grid item xs={5}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.name.Tên Hàng")}
