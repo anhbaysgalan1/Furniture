@@ -44,24 +44,8 @@ class App extends Component {
       this.state = {
          reload: false,
          indexButton: 0,
-         dataInput: {
-            name: '',
-            phone: '',
-            address: '',
-            count: '',
-            pay: '',
-            transportFee: '',
-         }
       }
       this.setIndex = this.setIndex.bind(this)
-      this.onHandleChange = this.onHandleChange.bind(this)
-   }
-
-   onHandleChange(value, name) {
-      let { dataInput } = this.state
-      this.setState({
-         dataInput: { ...dataInput, [name]: value }
-      })
    }
 
    setIndex(index) {

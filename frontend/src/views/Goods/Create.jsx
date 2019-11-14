@@ -102,11 +102,10 @@ class Create extends BaseView {
    }
 
    componentDidUpdate(prevProps, prevState){ 
-      console.log("prevState", prevState.dataInput)
+      // console.log("prevState", prevState.dataInput)
    }
 
    onHandleChange(value, name) {
-      let { dataInput } = this.state
       this.setState({
          dataInput: { ...this.state.dataInput, [name]: value }
       })
@@ -200,7 +199,6 @@ class Create extends BaseView {
          }
       ]
       return (
-         // <PaperFade className={classes.paper}>
          <Form className={classes.form} onSubmit={onSubmit}>
             {
                this.renderDetail()
@@ -404,7 +402,6 @@ class Create extends BaseView {
                <br />
             </Grid>
          </Form>
-         // </PaperFade>
       )
    }
 }
