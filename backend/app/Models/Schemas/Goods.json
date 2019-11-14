@@ -10,5 +10,6 @@
     "moneyNew": "string",
     "typeGoods": "string",
     "typeWoods": "string",
+    "typeItem": "string",
     "content": "string"
 }

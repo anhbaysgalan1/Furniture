@@ -98,6 +98,7 @@ export default {
         }
     },
     Button: {
+        previews: 'Xem trước',
         line_account: "Tài khoản Line",
         changePassword: 'Đổi MK',
         chose: "Chọn",
