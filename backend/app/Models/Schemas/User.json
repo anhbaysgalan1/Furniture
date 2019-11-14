@@ -2,5 +2,5 @@
   "_id": "objectid",
   "username": "string",
   "name": "string",
-  "password": "string",
+  "password": "string"
 }
