@@ -11,5 +11,6 @@
     "typeGoods": "string",
     "typeWoods": "string",
     "typeItem": "string",
-    "content": "string"
+    "content": "string",
+    "promotion": "string"
 }

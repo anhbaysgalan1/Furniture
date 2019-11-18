@@ -70,7 +70,8 @@ class Create extends BaseView {
             typeGoods: '',
             typeWoods: '',
             typeItem: '',
-            content: ''
+            content: '',
+            promotion: '',
          }
       }
       this.onCancel = this.onCancel.bind(this)
@@ -92,11 +93,9 @@ class Create extends BaseView {
       this.setState({ open: true })
       this.setState({ reload: !this.state.reload })
    }
-   
    onHide(){
       this.setState({ open: false })
    }
-
    onCancel(){
       this.onHide()
    }
@@ -192,6 +191,16 @@ class Create extends BaseView {
          {
             name: 'Xoan đào',
             value: 'XS',
+         }
+      ]
+      let promotions = [
+         {
+            name: 'Không',
+            value: '0'
+         },
+         {
+            name: 'Có',
+            value: '1'
          }
       ]
       return (
@@ -352,8 +361,6 @@ class Create extends BaseView {
                                  onChange={(value) => this.onHandleChange(value, 'image2')}
                                  name="image2"
                               />
-                           </Grid>
-                           <Grid item xs={6}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image3")}
@@ -366,14 +373,32 @@ class Create extends BaseView {
                                  onChange={(value) => this.onHandleChange(value, 'image4')}
                                  name="image4"
                               />
+                              <AutoCompleteField
+                                 key="1"
+                                 fullWidth
+                                 select
+                                 label={I18n.t("Input.goods.promotion.Khuyến mại")}
+                                 onChange={(value) => this.onHandleChange(value, 'promotion')}
+                                 name="promotion"
+                                 validate={this.validate.area}
+                                 isMulti={false}
+                                 isClearable={false}
+                                 value="1"
+                              >
+                                 {
+                                    promotions.map(item => (
+                                       <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                          {item.name}
+                                       </OptionAuto>
+                                    ))
+                                 }
+                              </AutoCompleteField>
                            </Grid>
-                        </Grid>
-                        <Grid container spacing={32}>
-                           <Grid item xs={12}>
+                           <Grid item xs={6}>
                               <TextField
                                  multiline
-                                 rows={4}
-                                 rowsMax={8}
+                                 rows={16}
+                                 rowsMax={25}
                                  variant="outlined"
                                  fullWidth
                                  label={I18n.t("Input.goods.content.Nội dung miêu tả")}

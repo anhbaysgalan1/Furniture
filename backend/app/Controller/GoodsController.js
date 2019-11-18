@@ -29,6 +29,7 @@ class GoodsController extends BaseController {
             typeWoods: 1,
             typeItem: 1,
             content: 1,
+            promotion: 1,
             insert: {
                 when: 1
             }
@@ -56,6 +57,7 @@ class GoodsController extends BaseController {
             typeWoods: 1,
             typeItem: 1,
             content: 1,
+            promotion: 1,
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -76,6 +78,7 @@ class GoodsController extends BaseController {
             typeWoods: "string!",
             typeItem: "string!",
             content: "string!",
+            promotion: "string",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
 
@@ -113,6 +116,7 @@ class GoodsController extends BaseController {
             typeWoods: "string!",
             typeItem: "string!",
             content: "string!",
+            promotion: "string",
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
 
