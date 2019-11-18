@@ -563,7 +563,7 @@ class Index extends BaseView {
       }
    }
 
-   renderNature() {
+   renderNature(data = []) {
       let { classes } = this.props
       let numberImg = 8 // số ảnh muốn hiện
       let numberPage = parseInt(arrImg.length/numberImg) // Số trang phân
@@ -581,6 +581,40 @@ class Index extends BaseView {
             <br></br>
             {button}
             <br></br><br></br>
+            <Grid container spacing={16}>
+               {
+                  data.map((element, index) => {
+                     console.log('element', element)
+                     if((index >= minImage) && (index <= maxImage)) {
+                        return (
+                           <Grid item xs={3} key={index}>
+                              <CardActionArea
+                                 className={classes.imgZoom}
+                                 onClick={() => this.onShow(element)}
+                              >
+                                 <CardMedia
+                                    component="img"
+                                    alt="Contemplative Reptile"
+                                    height="200"
+                                    image={element.image1}
+                                 />
+                                 <CardContent>
+                                    <Typography variant='h4' >
+                                       {index}
+                                    </Typography>
+                                    <Typography style={{ textAlign: 'center' }} color="primary">
+                                    </Typography>
+                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                    </Typography>
+                                 </CardContent>
+                              </CardActionArea>
+                           </Grid>
+                        )
+                     } else 
+                        return ''
+                  })
+               }
+            </Grid> 
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -651,13 +685,14 @@ class Index extends BaseView {
    }
 
    render() {
+      let { data, classes, onSubmit } = this.props 
       return (
          <span>
             {
                this.renderDetail()
             }
             {
-               this.renderNature()
+               this.renderNature(data)
             }
          </span>
       )

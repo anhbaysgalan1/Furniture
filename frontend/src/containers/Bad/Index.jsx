@@ -57,7 +57,7 @@ class Index extends BaseContainer {
 
 const mapStateToProps = state => {
     return {
-        data: selector(state, "goods.list", {}),
+        data: selector(state, "goods.list.data",  []),
     }
 }
 

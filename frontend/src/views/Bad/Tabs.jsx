@@ -69,6 +69,7 @@ function NavTabs(data) {
     }
     let classes = _.get(data, 'classes', '')
     let onSubmit = _.get(data, 'onSubmit', '')
+    let dataServer = _.get(data, 'data', '')
     return (
         <div>
             <AppBar position="static" color="default"> 
@@ -90,11 +91,11 @@ function NavTabs(data) {
                 </Paper>
             </AppBar>
             <div>
-                { value === 0 && <TabContainer> <Bad classes={classes} onSubmit={onSubmit}/> </TabContainer> }
-                { value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} /> </TabContainer> }
-                { value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} /> </TabContainer> }
-                { value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} /> </TabContainer> }
-                { value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} /> </TabContainer> }
+                { value === 0 && <TabContainer> <Bad classes={classes} onSubmit={onSubmit} data={dataServer} /> </TabContainer> }
+                { value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} data={dataServer} /> </TabContainer> }
+                { value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} data={dataServer} /> </TabContainer> }
+                { value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} data={dataServer} /> </TabContainer> }
+                { value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} data={dataServer} /> </TabContainer> }
             </div>
         </div>
     )
@@ -104,13 +105,14 @@ class Create extends BaseView {
         super(props)
     }
     render() {
-        const { classes, onSubmit } = this.props
+        const { classes, onSubmit, data } = this.props
         return (
             <PaperFade >
                 <Grid container spacing={32}>
                     <Grid item lg={1}></Grid>
                     <Grid item lg={10}>
                         <NavTabs
+                            data={data}
                             classes={classes}
                             onSubmit={onSubmit}
                         />
