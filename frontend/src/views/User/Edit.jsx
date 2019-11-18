@@ -196,7 +196,6 @@ class Create extends BaseView {
 
     render() {
         let { classes, onSubmit, data } = this.props
-        console.log("data", data)
         let username = _.get(data, "username", "")
         let name = _.get(data, "name", "")
         return (

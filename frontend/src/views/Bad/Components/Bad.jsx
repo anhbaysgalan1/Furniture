@@ -621,6 +621,7 @@ class Index extends BaseView {
                   })
                }
             </Grid> 
+         {/*             
             <Grid container spacing={16}>
                {
                   arrImg.map((element, index) => {
@@ -657,6 +658,7 @@ class Index extends BaseView {
                   })
                }
             </Grid>  
+             */}
             <br></br><br></br>
             {button}
          </span>

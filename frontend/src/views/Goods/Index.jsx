@@ -290,7 +290,6 @@ class Index extends BaseView {
 
     render() {
         const { data, classes } = this.props
-        console.log("data", data)
         return (
             <Grid container spacing={32} className={classes.card} >
                 <Grid item xs={12}>
