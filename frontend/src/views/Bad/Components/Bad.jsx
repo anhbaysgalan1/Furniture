@@ -576,7 +576,7 @@ class Index extends BaseView {
       let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
       return (
          <span>
-            <img src={tunhien} height='80' width='450' />
+            {/* <img src={tunhien} height='80' width='450' /> */}
             {/* <Page arrImg={arrImg} classes={classes} /> */}
             <br></br>
             {button}
@@ -584,7 +584,6 @@ class Index extends BaseView {
             <Grid container spacing={16}>
                {
                   data.map((element, index) => {
-                     console.log('element', element)
                      if((index >= minImage) && (index <= maxImage)) {
                         return (
                            <Grid item xs={3} key={index}>
@@ -602,10 +601,17 @@ class Index extends BaseView {
                                     <Typography variant='h4' >
                                        {index}
                                     </Typography>
-                                    <Typography style={{ textAlign: 'center' }} color="primary">
+                                    <Typography style={{ textAlign: 'center' }} color="primary" variant='h6' >
+                                       {element.name}
                                     </Typography>
                                     <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                       {element.moneyNew} đ
                                     </Typography>
+                                    <del>
+                                       <Typography style={{ textAlign: 'center' }}>
+                                          {element.moneyOld} đ
+                                       </Typography>
+                                    </del>
                                  </CardContent>
                               </CardActionArea>
                            </Grid>
