@@ -150,7 +150,7 @@ class Create extends BaseView {
       let moneyNew = _.get(data, 'moneyNew', '')
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
-      
+
       let typeGoods = [
          {
             name: "Giường ngủ",
@@ -234,29 +234,28 @@ class Create extends BaseView {
                                 </Typography>
                         <CardActionArea className={classes.imgZoom}>
                            {/* {
-                                        dataInput.img && dataInput.name && dataInput.code
-                                        ?
-                                            <CardMedia
-                                                component="img"
-                                                alt="Contemplative Reptile"
-                                                height="200"
-                                                width="250"
-                                                image={dataInput.img}
-                                                title={`${dataInput.name} - ${dataInput.code}`}
-                                            />
-                                        : ''
-                                    } */}
+                                 dataInput.img && dataInput.name && dataInput.code
+                                 ?
+                                    <CardMedia
+                                       component="img"
+                                       alt="Contemplative Reptile"
+                                       height="200"
+                                       width="250"
+                                       image={dataInput.img}
+                                       title={`${dataInput.name} - ${dataInput.code}`}
+                                    />
+                                 : ''
+                           } */}
                            {/* {
-                                        dataInput.moneyOld && dataInput.moneyNew
-                                        ?
-                                            <CardContent>
-                                                <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                                    {dataInput.moneyOld} - {dataInput.moneyNew}
-                                                </Typography>
-                                            </CardContent>
-                                        : ''
-                                    } */}
-
+                                 dataInput.moneyOld && dataInput.moneyNew
+                                 ?
+                                    <CardContent>
+                                       <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                             {dataInput.moneyOld} - {dataInput.moneyNew}
+                                       </Typography>
+                                    </CardContent>
+                                 : ''
+                           } */}
                         </CardActionArea>
                      </CardContent>
                   </Card>
