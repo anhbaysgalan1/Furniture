@@ -142,14 +142,15 @@ class Create extends BaseView {
       let image3 = _.get(data, 'image3', '')
       let image4 = _.get(data, 'image4', '')
       let code = _.get(data, 'code', '')
+      let name = _.get(data, 'name', '')
       let typeGood = _.get(data, 'typeGoods', '')
       let typeItem = _.get(data, 'typeItem', '')
-      let name = _.get(data, 'name', '')
+      let typeWood = _.get(data, 'typeWood', '')
       let moneyOld = _.get(data, 'moneyOld', '')
       let moneyNew = _.get(data, 'moneyNew', '')
-      let typeWood = _.get(data, 'typeWood', '')
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
+      
       let typeGoods = [
          {
             name: "Giường ngủ",
