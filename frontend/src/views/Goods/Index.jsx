@@ -10,324 +10,390 @@ import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import {
-    IconButton,
-    Icon,
-    Tooltip,
-    Button,
-    Card,
-    Grid,
-    CardContent,
-    CardActions,
-    Typography,
-    AppBar,
-    Toolbar,
-    Chip,
-    Dialog,
-    DialogActions,
-    DialogContent,
+   IconButton,
+   Icon,
+   Tooltip,
+   Button,
+   Card,
+   Grid,
+   CardContent,
+   CardActions,
+   Typography,
+   AppBar,
+   Toolbar,
+   Chip,
+   Dialog,
+   DialogActions,
+   DialogContent,
 
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
+import Previews from './Components/Previews'
 import What from '../Public/What'
 import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
+let typeGoods = [
+   {
+      name: "Giường ngủ",
+      value: '1'
+   },
+   {
+      name: "Tủ Quần áo",
+      value: '2'
+   },
+   {
+      name: "Bàn phòng khách",
+      value: '3'
+   },
+   {
+      name: "Bàn trà",
+      value: '4'
+   },
+   {
+      name: "Tủ giày",
+      value: '4'
+   }
+]
+let typeItem = [
+   {
+      name: "Giường gỗ tự nhiên",
+      value: '1'
+   },
+   {
+      name: "Giường gỗ công nghiệp",
+      value: '2'
+   },
+   {
+      name: "Giường gỗ cổ điển",
+      value: '3'
+   },
+   {
+      name: "Giường gỗ hiện đại",
+      value: '4'
+   }
+]
+let typeWoods = [
+   {
+      name: 'Tự nhiên cao cấp',
+      value: 'TN',
+   },
+   {
+      name: 'Công nghiệp',
+      value: 'CN',
+   },
+   {
+      name: 'Sồi Nga',
+      value: 'SN',
+   },
+   {
+      name: 'Xoan đào',
+      value: 'XS',
+   }
+]
+let promotions = [
+   {
+      name: 'Không',
+      value: '0'
+   },
+   {
+      name: 'Có',
+      value: '1'
+   }
+]
+
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
 const styles = theme => ({
-    gridTable: {
-        height: "calc(100vh - 100px)"
-    },
-    button: {
-        marginRight: '5px'
-    },
-    card: {
-        padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
-    },
+   gridTable: {
+      height: "calc(100vh - 100px)"
+   },
+   button: {
+      marginRight: '5px'
+   },
+   card: {
+      padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+   },
 })
 
 
 class Index extends BaseView {
-    constructor(props) {
-        super(props)
-        this.state = {
-            open: false,
-            dataRow: {},
-            reload: false,
-        }
-        this.table = {
-            columns: [
-                {
-                    name: 'index',
-                    title: I18n.t("Table.header.user.index"),
-                    type: "text",
-                    filterable: false,
-                    sortable: false,
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'code',
-                    title: I18n.t('Table.header.role.Mã hàng'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'name',
-                    title: I18n.t('Table.header.role.Tên hàng'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'typeGoods',
-                    title: I18n.t('Table.header.role.Kiểu hàng'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'typeWoods',
-                    title: I18n.t('Table.header.role.Kiểu gỗ'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'moneyOld',
-                    title: I18n.t('Table.header.role.Tiền cũ'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: 'moneyNew',
-                    title: I18n.t('Table.header.role.Tiền mới'),
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-                {
-                    name: '_id',
-                    title: I18n.t('Table.header.action'),
-                    sortable: false,
-                    filterable: false,
-                    formatterComponent: (data) => {
-                        return this.customActionColumn(data)
-                    },
-                    style: {
-                        textAlign: 'center',
-                    }
-                },
-            ],
-            defaultSort: [],
-            tableColumnExtensions: [
-                { columnName: 'index', wordWrapEnabled: false },
-                { columnName: 'code', wordWrapEnabled: true },
-                { columnName: 'name', wordWrapEnabled: true },
-                { columnName: 'moneyOld', wordWrapEnabled: true },
-                { columnName: 'moneyNew', wordWrapEnabled: true },
-                { columnName: 'typeGoods', wordWrapEnabled: true },
-                { columnName: 'typeWoods', wordWrapEnabled: true },
-                { columnName: '_id', align: 'center' },
-            ],
-            //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
-            columnWidths: [
-                {
-                    name: 'index',
-                    width: 70
-                },
-                {
-                    name: 'code',
-                    width: 70
-                },
-                {
-                    name: 'name',
-                    width: 200
-                },
-                {
-                    name: 'typeGoods',
-                    width: 170
-                },
-                {
-                    name: 'typeWoods',
-                    width: 150
-                },
-                {
-                    name: 'moneyOld',
-                    width: 80
-                },
-                {
-                    name: 'moneyNew',
-                    width: 80
-                },
-                {
-                    name: '_id',
-                    width: 120
-                }
-            ]
-        }
-        this.ConfirmDialog = null
-        this.renderToolbarActions = this.renderToolbarActions.bind(this)
-        this.renderSelectedActions = this.renderSelectedActions.bind(this)
-        this.onShow = this.onShow.bind(this)
-        this.onHide = this.onHide.bind(this)
-        this.onCancel = this.onCancel.bind(this)
-    }
+   constructor(props) {
+      super(props)
+      this.state = {
+         open: false,
+         dataRow: {},
+         reload: false,
+      }
+      this.table = {
+         columns: [
+            {
+               name: 'index',
+               title: I18n.t("Table.header.user.index"),
+               type: "text",
+               filterable: false,
+               sortable: false,
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'code',
+               title: I18n.t('Table.header.role.Mã hàng'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'name',
+               title: I18n.t('Table.header.role.Tên hàng'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'typeGoods',
+               title: I18n.t('Table.header.role.Kiểu hàng'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'typeWoods',
+               title: I18n.t('Table.header.role.Kiểu gỗ'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'moneyOld',
+               title: I18n.t('Table.header.role.Tiền cũ'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: 'moneyNew',
+               title: I18n.t('Table.header.role.Tiền mới'),
+               style: {
+                  textAlign: 'center',
+               }
+            },
+            {
+               name: '_id',
+               title: I18n.t('Table.header.action'),
+               sortable: false,
+               filterable: false,
+               formatterComponent: (data) => {
+                  return this.customActionColumn(data)
+               },
+               style: {
+                  textAlign: 'center',
+               }
+            },
+         ],
+         defaultSort: [],
+         tableColumnExtensions: [
+            { columnName: 'index', wordWrapEnabled: false },
+            { columnName: 'code', wordWrapEnabled: true },
+            { columnName: 'name', wordWrapEnabled: true },
+            { columnName: 'moneyOld', wordWrapEnabled: true },
+            { columnName: 'moneyNew', wordWrapEnabled: true },
+            { columnName: 'typeGoods', wordWrapEnabled: true },
+            { columnName: 'typeWoods', wordWrapEnabled: true },
+            { columnName: '_id', align: 'center' },
+         ],
+         //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
+         columnWidths: [
+            {
+               name: 'index',
+               width: 70
+            },
+            {
+               name: 'code',
+               width: 70
+            },
+            {
+               name: 'name',
+               width: 200
+            },
+            {
+               name: 'typeGoods',
+               width: 170
+            },
+            {
+               name: 'typeWoods',
+               width: 150
+            },
+            {
+               name: 'moneyOld',
+               width: 80
+            },
+            {
+               name: 'moneyNew',
+               width: 80
+            },
+            {
+               name: '_id',
+               width: 120
+            }
+         ]
+      }
+      this.ConfirmDialog = null
+      this.renderToolbarActions = this.renderToolbarActions.bind(this)
+      this.renderSelectedActions = this.renderSelectedActions.bind(this)
+      this.onShow = this.onShow.bind(this)
+      this.onHide = this.onHide.bind(this)
+      this.onCancel = this.onCancel.bind(this)
+   }
 
-    onShow(dataRow){
-        this.setState({open: true, dataRow: dataRow})
-    }
+   onShow(dataRow) {
+      this.setState({ open: true, dataRow: dataRow })
+   }
 
-    onHide(){
-        this.setState({open: false})
-    }
+   onHide() {
+      this.setState({ open: false })
+   }
 
-    onCancel(){
-        this.onHide()
-    }
+   onCancel() {
+      this.onHide()
+   }
 
-    onDelete(_id){
-        this.ConfirmDialog.show([_id])
-        this.onHide()
-    }
+   onDelete(_id) {
+      this.ConfirmDialog.show([_id])
+      this.onHide()
+   }
 
-    renderDetail(){
-        let { dataRow } = this.state
-        let { classes } = this.props
-        let _id = this.getData(dataRow, "_id", '')
-        return (
-            <Card>
-                <Dialog
-                    // fullWidth={true}
-                    onClose={this.onCancel}
-                    open={this.state.open}
-                    maxWidth='lg'
-                    aria-labelledby="draggable-dialog-title"
-                >
-                    <DialogContent>
-                        <Typography variant="h6"> 
-                            Xem chi tiết đơn hàng
-                        </Typography>
-                            {dataRow.code}
-                        <Grid container spacing={32}>
-                            <Grid item xs={6}></Grid>
-                            <Grid item xs={6}>
+   renderDetail() {
+      let { dataRow } = this.state
+      let { classes } = this.props
+      let _id = this.getData(dataRow, "_id", '')
+      return (
+         <Card>
+            <Dialog
+               // fullWidth={true}
+               onClose={this.onCancel}
+               open={this.state.open}
+               maxWidth='lg'
+               aria-labelledby="draggable-dialog-title"
+            >
+               <DialogContent>
+                  <Previews
+                     dataInput={dataRow}
+                  />
+               </DialogContent>
+               <DialogActions>
+                  <Button className={classes.button} color="primary" onClick={() => this.onCancel()}>
+                     {I18n.t("Button.cancel")}
+                  </Button>
+                  <Button className={classes.button} color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+                     {I18n.t("Button.edit")}
+                  </Button>
+                  <Button className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
+                     {I18n.t('Button.delete')}
+                  </Button>
+               </DialogActions>
+            </Dialog>
+         </Card>
+      )
+   }
 
-                            </Grid>
-                        </Grid>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
-                            {I18n.t("Button.edit")}
-                        </Button>
-                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onDelete(_id)}>
-                            {I18n.t('Button.delete')}
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-            </Card>
-        )
-    }
+   customUserColumn(data) {
+      data = this.getData(data, "value", [])
+      return data.length
+   }
 
-    customUserColumn(data) {
-        data = this.getData(data, "value", [])
-        return data.length
-    }
-
-    customActionColumn(data) {
-        let _id = this.getData(data, "value", '')
-        let dataRow = this.getData(data, "row", '')
-        const { classes } = this.props;
-        return (
-            <div>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
-                    {I18n.t('Button.detail')}
-                </Button>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
-                    {I18n.t("Button.edit")}
-                </Button>
-                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+   customActionColumn(data) {
+      let _id = this.getData(data, "value", '')
+      let dataRow = this.getData(data, "row", '')
+      const { classes } = this.props;
+      return (
+         <div>
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
+               {I18n.t('Button.detail')}
+            </Button>
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+               {I18n.t("Button.edit")}
+            </Button>
+            {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                     {I18n.t('Button.delete')}
                 </Button> */}
-            </div>
-        )
-    }
+         </div>
+      )
+   }
 
-    renderToolbarActions() {
-        return [
-            <Tooltip title={I18n.t("toolTip.new")} key="create">
-                <Button variant='contained' color='primary' onClick={() => this.goto("/goods/create")}>
-                    {I18n.t("Button.create")}
-                </Button>
-            </Tooltip>,
-        ]
-    }
+   renderToolbarActions() {
+      return [
+         <Tooltip title={I18n.t("toolTip.new")} key="create">
+            <Button variant='contained' color='primary' onClick={() => this.goto("/goods/create")}>
+               {I18n.t("Button.create")}
+            </Button>
+         </Tooltip>,
+      ]
+   }
 
-    renderSelectedActions(selectedIds) {
-        return [
-            <Tooltip title={I18n.t("toolTip.delete")} key="create">
-                <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
-                    <Icon>delete</Icon>
-                </IconButton>
-            </Tooltip>
-        ]
-    }
+   renderSelectedActions(selectedIds) {
+      return [
+         <Tooltip title={I18n.t("toolTip.delete")} key="create">
+            <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
+               <Icon>delete</Icon>
+            </IconButton>
+         </Tooltip>
+      ]
+   }
 
-    renderDialogConfirmDelete() {
-        return (
-            <ConfirmDialog
-                ref={(ref) => this.ConfirmDialog = ref}
-                title={I18n.t('Message.deleteDialogTitle')}
-                content={I18n.t('Message.deleteDialogContent')}
-                onSubmit={this.props.onDeleteData}
-            />
-        )
-    }
+   renderDialogConfirmDelete() {
+      return (
+         <ConfirmDialog
+            ref={(ref) => this.ConfirmDialog = ref}
+            title={I18n.t('Message.deleteDialogTitle')}
+            content={I18n.t('Message.deleteDialogContent')}
+            onSubmit={this.props.onDeleteData}
+         />
+      )
+   }
 
-    render() {
-        const { data, classes } = this.props
-        return (
-            <Grid container spacing={32} className={classes.card} >
-                <Grid item xs={12}>
-                {
-                    this.renderDetail()
-                }
-                </Grid>
-                <Grid item xs={12}>
-                    <PaperFade showLoading={true} className={classes.card} >
-                        <GridTable
-                            id="GoodsIndex"
-                            estimatedRowHeight={100}
-                            className={classes.gridTable}
-                            onFetchData={this.props.onFetchData}
-                            onRefTable={this.props.onRefTable}
-                            columns={this.table.columns}
-                            rows={data.data}
-                            totalCount={data.total}
-                            pageSize={data.pageSize}
-                            defaultSort={this.table.defaultSort}
-                            showCheckboxColumn={false}
-                            height="auto"
-                            selectedActions={this.renderSelectedActions}
-                            tableActions={this.renderToolbarActions}
-                            tableColumnExtensions={this.table.tableColumnExtensions}
-                            defaultColumnWidths={this.table.columnWidths}
-                        />
-                        {this.renderDialogConfirmDelete()}
-                    </PaperFade>
-                </Grid>
+   render() {
+      const { data, classes } = this.props
+      return (
+         <Grid container spacing={32} className={classes.card} >
+            <Grid item xs={12}>
+               {
+                  this.renderDetail()
+               }
             </Grid>
-            
-        )
-    }
+            <Grid item xs={12}>
+               <PaperFade showLoading={true} className={classes.card} >
+                  <GridTable
+                     id="GoodsIndex"
+                     estimatedRowHeight={100}
+                     className={classes.gridTable}
+                     onFetchData={this.props.onFetchData}
+                     onRefTable={this.props.onRefTable}
+                     columns={this.table.columns}
+                     rows={data.data}
+                     totalCount={data.total}
+                     pageSize={data.pageSize}
+                     defaultSort={this.table.defaultSort}
+                     showCheckboxColumn={false}
+                     height="auto"
+                     selectedActions={this.renderSelectedActions}
+                     tableActions={this.renderToolbarActions}
+                     tableColumnExtensions={this.table.tableColumnExtensions}
+                     defaultColumnWidths={this.table.columnWidths}
+                  />
+                  {this.renderDialogConfirmDelete()}
+               </PaperFade>
+            </Grid>
+         </Grid>
+
+      )
+   }
 }
 
 Index.propTypes = {
-    classes: PropTypes.object.isRequired,
+   classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(withRouter(Index))

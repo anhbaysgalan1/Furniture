@@ -27,6 +27,74 @@ import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 
+let typeGoods = [
+   {
+      name: "Giường ngủ",
+      value: '1'
+   },
+   {
+      name: "Tủ Quần áo",
+      value: '2'
+   },
+   {
+      name: "Bàn phòng khách",
+      value: '3'
+   },
+   {
+      name: "Bàn trà",
+      value: '4'
+   },
+   {
+      name: "Tủ giày",
+      value: '4'
+   }
+]
+let typeItem = [
+   {
+      name: "Giường gỗ tự nhiên",
+      value: '1'
+   },
+   {
+      name: "Giường gỗ công nghiệp",
+      value: '2'
+   },
+   {
+      name: "Giường gỗ cổ điển",
+      value: '3'
+   },
+   {
+      name: "Giường gỗ hiện đại",
+      value: '4'
+   }
+]
+let typeWoods = [
+   {
+      name: 'Tự nhiên cao cấp',
+      value: 'TN',
+   },
+   {
+      name: 'Công nghiệp',
+      value: 'CN',
+   },
+   {
+      name: 'Sồi Nga',
+      value: 'SN',
+   },
+   {
+      name: 'Xoan đào',
+      value: 'XS',
+   }
+]
+let promotions = [
+   {
+      name: 'Không',
+      value: '0'
+   },
+   {
+      name: 'Có',
+      value: '1'
+   }
+]
 const styles = theme => ({
    paper: {
       // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -135,74 +203,7 @@ class Create extends BaseView {
    render() {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
-      let typeGoods = [
-         {
-            name: "Giường ngủ",
-            value: '1'
-         },
-         {
-            name: "Tủ Quần áo",
-            value: '2'
-         },
-         {
-            name: "Bàn phòng khách",
-            value: '3'
-         },
-         {
-            name: "Bàn trà",
-            value: '4'
-         },
-         {
-            name: "Tủ giày",
-            value: '4'
-         }
-      ]
-      let typeItem = [
-         {
-            name: "Giường gỗ tự nhiên",
-            value: '1'
-         },
-         {
-            name: "Giường gỗ công nghiệp",
-            value: '2'
-         },
-         {
-            name: "Giường gỗ cổ điển",
-            value: '3'
-         },
-         {
-            name: "Giường gỗ hiện đại",
-            value: '4'
-         }
-      ]
-      let typeWoods = [
-         {
-            name: 'Tự nhiên cao cấp',
-            value: 'TN',
-         },
-         {
-            name: 'Công nghiệp',
-            value: 'CN',
-         },
-         {
-            name: 'Sồi Nga',
-            value: 'SN',
-         },
-         {
-            name: 'Xoan đào',
-            value: 'XS',
-         }
-      ]
-      let promotions = [
-         {
-            name: 'Không',
-            value: '0'
-         },
-         {
-            name: 'Có',
-            value: '1'
-         }
-      ]
+      let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
@@ -210,39 +211,7 @@ class Create extends BaseView {
             }
             <Grid container spacing={32}>
                <Grid item xs={1} lg={1}>
-                  <Card>
-                     <CardContent>
-                        <Typography color='primary'>
-                           Xem bài đăng
-                        </Typography>
-                        <CardActionArea className={classes.imgZoom}>
-                           {
-                              dataInput.img && dataInput.name && dataInput.code
-                                 ?
-                                 <CardMedia
-                                    // component="img"
-                                    alt="Contemplative Reptile"
-                                    height="200"
-                                    width="250"
-                                    image={dataInput.img}
-                                    title={`${dataInput.name} - ${dataInput.code}`}
-                                 />
-                                 : ''
-                           }
-                           {
-                              dataInput.moneyOld && dataInput.moneyNew
-                                 ?
-                                 <CardContent>
-                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                       {dataInput.moneyOld} - {dataInput.moneyNew}
-                                    </Typography>
-                                 </CardContent>
-                                 : ''
-                           }
-
-                        </CardActionArea>
-                     </CardContent>
-                  </Card>
+                  
                </Grid>
                <Grid item xs={10}>
                   <Card className={classes.card}>
@@ -412,7 +381,7 @@ class Create extends BaseView {
                         <Button variant="contained" color="primary" onClick={() => this.goto("/goods")}>
                            <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                         </Button>
-                        <Button variant="contained" color="primary" onClick={() => this.onShow()}>
+                        <Button disabled={disabledPreview} variant="contained" color="primary" onClick={() => this.onShow()}>
                            {I18n.t("Button.previews")}
                         </Button>
                         <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>

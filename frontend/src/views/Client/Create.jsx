@@ -22,6 +22,20 @@ import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 
+let typeClient = [
+    {
+        title: "Khách lẻ",
+        value: '0',
+    },
+    {
+        title: "Khách buôn",
+        value: '1',
+    },
+    {
+        title: "Đối tác",
+        value: '2',
+    }
+]
 const styles = theme => ({
     paper: {
         // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -87,20 +101,7 @@ class Create extends BaseView {
     render() {
         const { classes, onSubmit } = this.props
         let { dataInput } = this.state
-        let typeClient = [
-            {
-                title: "Khách lẻ",
-                value: '0',
-            },
-            {
-                title: "Khách buôn",
-                value: '1',
-            },
-            {
-                title: "Đối tác",
-                value: '2',
-            }
-        ]
+       
         return (
             <Form className={classes.form} onSubmit={onSubmit}>
                 <Grid container spacing={32}>

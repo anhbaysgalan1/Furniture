@@ -29,6 +29,75 @@ import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
+let typeGoods = [
+   {
+      name: "Giường ngủ",
+      value: '1'
+   },
+   {
+      name: "Tủ Quần áo",
+      value: '2'
+   },
+   {
+      name: "Bàn phòng khách",
+      value: '3'
+   },
+   {
+      name: "Bàn trà",
+      value: '4'
+   },
+   {
+      name: "Tủ giày",
+      value: '4'
+   }
+]
+let typeItems = [
+   {
+      name: "Giường gỗ tự nhiên",
+      value: '1'
+   },
+   {
+      name: "Giường gỗ công nghiệp",
+      value: '2'
+   },
+   {
+      name: "Giường gỗ cổ điển",
+      value: '3'
+   },
+   {
+      name: "Giường gỗ hiện đại",
+      value: '4'
+   }
+]
+let typeWoods = [
+   {
+      name: 'Tự nhiên cao cấp',
+      value: 'TN',
+   },
+   {
+      name: 'Công nghiệp',
+      value: 'CN',
+   },
+   {
+      name: 'Sồi Nga',
+      value: 'SN',
+   },
+   {
+      name: 'Xoan đào',
+      value: 'XS',
+   }
+]
+let promotions = [
+   {
+      name: 'Không',
+      value: '0'
+   },
+   {
+      name: 'Có',
+      value: '1'
+   }
+]
+
 const styles = theme => ({
    paper: {
       // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -151,115 +220,13 @@ class Create extends BaseView {
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
 
-      let typeGoods = [
-         {
-            name: "Giường ngủ",
-            value: '1'
-         },
-         {
-            name: "Tủ Quần áo",
-            value: '2'
-         },
-         {
-            name: "Bàn phòng khách",
-            value: '3'
-         },
-         {
-            name: "Bàn trà",
-            value: '4'
-         },
-         {
-            name: "Tủ giày",
-            value: '4'
-         }
-      ]
-      let typeItems = [
-         {
-            name: "Giường gỗ tự nhiên",
-            value: '1'
-         },
-         {
-            name: "Giường gỗ công nghiệp",
-            value: '2'
-         },
-         {
-            name: "Giường gỗ cổ điển",
-            value: '3'
-         },
-         {
-            name: "Giường gỗ hiện đại",
-            value: '4'
-         }
-      ]
-      let typeWoods = [
-         {
-            name: 'Tự nhiên cao cấp',
-            value: 'TN',
-         },
-         {
-            name: 'Công nghiệp',
-            value: 'CN',
-         },
-         {
-            name: 'Sồi Nga',
-            value: 'SN',
-         },
-         {
-            name: 'Xoan đào',
-            value: 'XS',
-         }
-      ]
-      let promotions = [
-         {
-            name: 'Không',
-            value: '0'
-         },
-         {
-            name: 'Có',
-            value: '1'
-         }
-      ]
-
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
                this.renderDetail()
             }
             <Grid container spacing={32}>
-               <Grid item lg={1}>
-                  <Card>
-                     <CardContent>
-                        <Typography color='primary'>
-                           Xem bài đăng
-                                </Typography>
-                        <CardActionArea className={classes.imgZoom}>
-                           {/* {
-                                 dataInput.img && dataInput.name && dataInput.code
-                                 ?
-                                    <CardMedia
-                                       component="img"
-                                       alt="Contemplative Reptile"
-                                       height="200"
-                                       width="250"
-                                       image={dataInput.img}
-                                       title={`${dataInput.name} - ${dataInput.code}`}
-                                    />
-                                 : ''
-                           } */}
-                           {/* {
-                                 dataInput.moneyOld && dataInput.moneyNew
-                                 ?
-                                    <CardContent>
-                                       <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                             {dataInput.moneyOld} - {dataInput.moneyNew}
-                                       </Typography>
-                                    </CardContent>
-                                 : ''
-                           } */}
-                        </CardActionArea>
-                     </CardContent>
-                  </Card>
-               </Grid>
+               <Grid item lg={1}></Grid>
                <Grid item xs={10} >
                   <Card className={classes.card}>
                      <CardContent>

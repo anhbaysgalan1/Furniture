@@ -15,13 +15,6 @@ class Index extends BaseContainer {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-    }
-
-    componentDidMount() {
-        // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
-    }
-
     onSubmit(values) {
         this.props.dispatch(GoodsAction.create(values))
             .then(data => {

@@ -25,16 +25,32 @@ import {
     Dialog,
     DialogActions,
     DialogContent,
-
+    Table,
+    TableBody,
+    TableCell,
+    TableRow
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
 import What from '../Public/What'
 import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
-
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
+let typeClient = [
+    {
+        title: "Khách lẻ",
+        value: '0',
+    },
+    {
+        title: "Khách buôn",
+        value: '1',
+    },
+    {
+        title: "Đối tác",
+        value: '2',
+    }
+]
 const styles = theme => ({
     gridTable: {
         height: "calc(100vh - 100px)"
@@ -46,7 +62,6 @@ const styles = theme => ({
         padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
     },
 })
-
 
 class Index extends BaseView {
     constructor(props) {
@@ -219,7 +234,7 @@ class Index extends BaseView {
                 },
                 {
                     name: '_id',
-                    width: 70
+                    width: 150
                 }
             ]
         }
@@ -232,11 +247,11 @@ class Index extends BaseView {
     }
 
     onShow(dataRow){
-        this.setState({open: true, dataRow: dataRow})
+        this.setState({ open: true, dataRow: dataRow })
     }
 
     onHide(){
-        this.setState({open: false})
+        this.setState({ open: false })
     }
 
     onCancel(){
@@ -252,11 +267,11 @@ class Index extends BaseView {
         let type = _.get(data, 'row.type', '')
         switch(type){
             case '0':
-                return <Button color='primary' variant='contained'>Khách lẻ</Button>
+                return <Button color='primary'>Khách lẻ</Button>
             case '1':
-                return <Button color='primary' variant='contained'>Khách buôn</Button>
+                return <Button color='primary'>Khách buôn</Button>
             case '2':
-                return <Button color='primary' variant='contained'>Đối tác</Button>
+                return <Button color='primary'>Đối tác</Button>
             default:
                 return ''
         }
@@ -266,6 +281,17 @@ class Index extends BaseView {
         let { dataRow } = this.state
         let { classes } = this.props
         let _id = this.getData(dataRow, "_id", '')
+        let type = _.get(dataRow, 'type', '')
+        let code = _.get(dataRow, 'code', '')
+        let name = _.get(dataRow, 'name', '')
+        let phone = _.get(dataRow, 'phone', '')
+        let mail = _.get(dataRow, 'mail', '')
+        let address = _.get(dataRow, 'address', '')
+        let money = _.get(dataRow, 'money', '')
+        let number = _.get(dataRow, 'number', '')
+        let goods = _.get(dataRow, 'goods', '')
+        let note = _.get(dataRow, 'note', '')
+        
         return (
             <Card>
                 <Dialog
@@ -276,22 +302,52 @@ class Index extends BaseView {
                     aria-labelledby="draggable-dialog-title"
                 >
                     <DialogContent>
-                        <Typography variant="h6"> 
-                            Xem chi tiết đơn hàng
-                        </Typography>
-                        {dataRow.code}
-                        <Grid container spacing={32}>
-                            <Grid item xs={6}></Grid>
-                            <Grid item xs={6}>
-
-                            </Grid>
-                        </Grid>
+                        <Table>
+                            <TableBody>
+                                <TableRow >
+                                    <TableCell> Mã khách hàng</TableCell>
+                                    <TableCell> {code} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Tên khách hàng</TableCell>
+                                    <TableCell> {name} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> SĐT</TableCell>
+                                    <TableCell> {phone} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Email</TableCell>
+                                    <TableCell> {mail} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Địa chỉ</TableCell>
+                                    <TableCell> {address} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Tổng tiền</TableCell>
+                                    <TableCell> {money} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Số lần mua hàng</TableCell>
+                                    <TableCell> {number} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Hàng đã mua</TableCell>
+                                    <TableCell> {goods} </TableCell>
+                                </TableRow>
+                                <TableRow >
+                                    <TableCell> Ghi chú</TableCell>
+                                    <TableCell> {note} </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
                     </DialogContent>
                     <DialogActions>
-                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/client/${_id}`)}>
+                        <Button className={classes.button} color="primary" onClick={() => this.goto(`/client/${_id}`)}>
                             {I18n.t("Button.edit")}
                         </Button>
-                        <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onDelete(_id)}>
+                        <Button className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
                             {I18n.t('Button.delete')}
                         </Button>
                     </DialogActions>
@@ -314,10 +370,10 @@ class Index extends BaseView {
                 <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
                     {I18n.t('Button.detail')}
                 </Button>
-                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/client/${_id}`)}>
+                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/client/${_id}`)}>
                     {I18n.t("Button.edit")}
                 </Button>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                     {I18n.t('Button.delete')}
                 </Button> */}
             </div>

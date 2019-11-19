@@ -59,7 +59,6 @@ class Edit extends BaseContainer {
 }
 
 const mapStateToProps = state => {
-    console.log("state", state)
     return {
         //sử dụng selector để lấy state từ redux
         lastType: selector(state, "goods.lastType", {}),
