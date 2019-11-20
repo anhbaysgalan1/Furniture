@@ -128,104 +128,71 @@ class App extends Component {
    render() {
       let { classes, dataInput } = this.props
       let { indexButton } = this.state
-
       let code = _.get(dataInput, 'code', '')
       let name = _.get(dataInput, 'name', '')
       let typeGoods = _.get(dataInput, 'typeGoods.value', '')
-      let typeItem  = _.get(dataInput, 'typeItem.value', '')
+      let typeItem = _.get(dataInput, 'typeItem.value', '')
       let typeWoods = _.get(dataInput, 'typeWoods.value', '')
       let promotion = _.get(dataInput, 'promotion.value', '')
-      let moneyNew  = _.get(dataInput, 'moneyNew', '')
-      let moneyOld  = _.get(dataInput, 'moneyOld', '')
-      let image1    = _.get(dataInput, 'image1', '')
-      let image2    = _.get(dataInput, 'image2', '')
-      let image3    = _.get(dataInput, 'image3', '')
-      let image4    = _.get(dataInput, 'image4', '')
-      let content   = _.get(dataInput, 'content', '')
-      let img = [{ img: image1 }, { img: image2 }, { img: image3 }, { img: image4 }]
+      let moneyNew = _.get(dataInput, 'moneyNew', '')
+      let moneyOld = _.get(dataInput, 'moneyOld', '')
+      let image1 = _.get(dataInput, 'image1', '')
+      let image2 = _.get(dataInput, 'image2', '')
+      let image3 = _.get(dataInput, 'image3', '')
+      let image4 = _.get(dataInput, 'image4', '')
+      let content = _.get(dataInput, 'content', '')
+      let images = [{ img: image1 }, { img: image2 }, { img: image3 }, { img: image4 }]
       return (
-         <Card>
-            <CardContent>
-               <Grid container spacing={8}>
-                  <Grid item xs={3}>
-                     <CardActionArea className={classes.imgZoom}>
-                        {
-                           image1 
-                           ?  <CardMedia
-                                 component="img"
-                                 alt="Contemplative Reptile"
-                                 height="200"
-                                 width="250"
-                                 image={image1}
-                                 title={`${name} - ${code}`}
-                              />
-                           :  ''
-                        }
-                        <CardContent>
-                           {
-                              moneyNew ? 
-                                 <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                    {moneyNew}
-                                 </Typography>
-                              :  ''
-                           }
-                           {
-                              moneyOld ?
-                                 <del>
-                                    <Typography style={{ textAlign: 'center'}}>
-                                       {moneyOld}
-                                    </Typography>
-                                 </del>
-                              :  ''
-                           }
-                         
-                        </CardContent>
-                     </CardActionArea>
-                  </Grid>
-                  <Grid item xs={9}>
-                     <Grid container spacing={8}>
-                        <Grid item xs={7}>
-                           {
-                              name && moneyNew 
-                              ?  <Typography variant="h6">
-                                    {name} - {moneyNew}
-                                 </Typography>
-                              : ''
-                           }
-                           <center>
-                              <img src={img[indexButton].img} height='450' width='550' />
-                              <br></br>
-                              {
-                                 img.map((item, index) => {
-                                    return (
-                                       <Button
-                                          key={index}
-                                          style={{ backgroundColor: index == indexButton ? '#eeff41' : '', padding: '2px' }}
-                                          onClick={() => this.setIndex(index)}
-                                       >
-                                          <img key={index} src={item.img} height='50' width='80'/>
-                                       </Button>
-                                    )
-                                 })
-                              }
-                              <Button color='primary'>Mua hàng</Button>
-                           </center>
-                        </Grid>
-                        <Grid item xs={5}>
-                           Thông tin giới thiệu hàng
-                        </Grid>
-                     </Grid>
-                  </Grid>
+         <div>
+            <Grid container spacing={8}>
+               <Grid item xs={7}>
+                  <center>
+                     <img src={images[indexButton].img} height='450' width='550' />
+                     <Typography variant='h4'>
+                        {indexButton}
+                     </Typography>
+                     <br></br>
+                     {
+                        images.map((item, index) => {
+                           return (
+                              <Button
+                                 key={index}
+                                 style={{ backgroundColor: index == indexButton ? '#eeff41' : '', padding: '2px' }}
+                                 onClick={() => this.setIndex(index)}
+                              >
+                                 <img key={index} src={item.img} height='50' width='80' />
+                              </Button>
+                           )
+                        })
+                     }
+                  </center>
                </Grid>
-            </CardContent>
-         </Card>
+               <Grid item xs={5}>
+               <center>
+                  {
+                     image1 ? <img src={image1} alt="Nội thất Dodo" height='120' width='180' title={`${name} - ${code}`} /> : ''
+                  }
+                  {
+                     name ? <Typography color='primary' variant='h6'> {name} </Typography> : ''
+                  }
+                  {
+                     moneyNew ? <Typography style={{ color: 'red' }}> {moneyNew} </Typography> : ''
+                  }
+                  {
+                     moneyOld ? <del> <Typography> {moneyOld} </Typography> </del> : ''
+                  }
+               </center>
+                  Thông tin giới thiệu hàng
+               </Grid>
+            </Grid>
+         </div>
       )
    }
 }
-     
-      
+
+
 App.propTypes = {
    classes: PropTypes.object.isRequired,
 }
-         
+
 export default withStyles(styles)(withRouter(App))

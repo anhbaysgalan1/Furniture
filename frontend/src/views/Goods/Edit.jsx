@@ -177,7 +177,7 @@ class Create extends BaseView {
       })
    }
 
-   renderDetail() {
+   renderDetail(data) {
       let { classes, onSubmit } = this.props
       return (
          <Dialog
@@ -189,7 +189,7 @@ class Create extends BaseView {
          >
             <DialogContent>
                <Previews
-                  dataInput={this.state.dataInput}
+                  dataInput={data}
                   // classes={classes}
                   // onSubmit={onSubmit}
                />
@@ -218,11 +218,10 @@ class Create extends BaseView {
       let moneyNew = _.get(data, 'moneyNew', '')
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
-
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
-               this.renderDetail()
+               this.renderDetail(data)
             }
             <Grid container spacing={32}>
                <Grid item lg={1}></Grid>

@@ -280,7 +280,7 @@ class Index extends BaseView {
       return (
          <Card>
             <Dialog
-               // fullWidth={true}
+               fullWidth={true}
                onClose={this.onCancel}
                open={this.state.open}
                maxWidth='lg'
