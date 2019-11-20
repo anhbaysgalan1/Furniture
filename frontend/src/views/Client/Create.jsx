@@ -91,6 +91,35 @@ class Create extends BaseView {
       }
    }
 
+   formatPhoneNumber = (value) => {
+      return this.phoneFormatter(value)
+   }
+
+   phoneFormatter = (number) => {
+      number = number.replace(/[^\d]/g, '')
+      if (number.length == 4) {
+         number = number.replace(/(\d{4})/, "$1")
+      } else if (number.length == 5) {
+         number = number.replace(/(\d{4})(\d{1})/, "$1-$2")
+      } else if (number.length == 6) {
+         number = number.replace(/(\d{4})(\d{2})/, "$1-$2")
+      } else if (number.length == 7) {
+         number = number.replace(/(\d{4})(\d{3})/, "$1-$2")
+      } else if (number.length == 8) {
+         number = number.replace(/(\d{4})(\d{3})(\d{1})/, "$1-$2-$3")
+      } else if (number.length == 9) {
+         number = number.replace(/(\d{4})(\d{3})(\d{2})/, "$1-$2-$3")
+      } else if (number.length == 10) {
+         number = number.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3")
+      } else if (number.length == 11) {
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      } else if (number.length > 11) {
+         number = number.substring(0, 11)
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      }
+      return number
+   }
+
    onHandleChange(value, name) {
       this.setState({
          dataInput: { ...this.state.dataInput, [name]: value }
@@ -109,7 +138,7 @@ class Create extends BaseView {
                      <CardContent>
                         <Typography variant='h5' color='primary'>
                            Thêm khách hàng
-                                </Typography>
+                        </Typography>
                         <Grid container spacing={32}>
                            <Grid item xs={3}>
                               <AutoCompleteField
@@ -144,7 +173,7 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.Tên khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 onChange={(value) => this.onHandleChange(value, 'name')}
                                  name="name"
                               />
                            </Grid>
@@ -152,7 +181,18 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.Số điện thoại")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 onChange={(value) => this.onHandleChange(value, 'phone')}
+                                 formatData={(value) => this.formatPhoneNumber(value)}
+                                 onKeyDown={(e) => {
+                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                       e.preventDefault()
+                                    }
+                                    if (e.target.value.length >= 13) {
+                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                          e.preventDefault()
+                                       }
+                                    }
+                                 }}
                                  name="phone"
                               />
                            </Grid>
@@ -168,7 +208,7 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.Địa chỉ")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 onChange={(value) => this.onHandleChange(value, 'address')}
                                  name="address"
                               />
                            </Grid>
@@ -178,6 +218,16 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.Số lần mua hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'img')}
                                  name="number"
+                                 onKeyDown={(e) => {
+                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                       e.preventDefault()
+                                    }
+                                    if (e.target.value.length >= 3) {
+                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                          e.preventDefault()
+                                       }
+                                    }
+                                 }}
                               />
                            </Grid>
                            <Grid item xs={3}>
