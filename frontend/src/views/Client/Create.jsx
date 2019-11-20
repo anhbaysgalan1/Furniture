@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation } from 'components/Forms'
+import { Form, TextField, Validation,MoneyField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -99,14 +99,15 @@ class Create extends BaseView {
     }
 
     render() {
-        const { classes, onSubmit } = this.props
+        const { classes, onSubmit, goods = [] } = this.props
         let { dataInput } = this.state
-       
+        console.log('goods', goods)
+        
         return (
             <Form className={classes.form} onSubmit={onSubmit}>
                 <Grid container spacing={32}>
-                    <Grid item xs={3}></Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={1}></Grid>
+                    <Grid item xs={10}>
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography variant='h5' color='primary'>
@@ -183,21 +184,50 @@ class Create extends BaseView {
                                         />
                                     </Grid>
                                     <Grid item xs={3}>
-                                    <TextField
+                                        <MoneyField
                                             fullWidth
                                             label={I18n.t("Input.goods.Tổng tiền")}
-                                            onChange={(value) => this.onHandleChange(value, 'name')}
                                             name="money"
+                                            onChange={(value) => this.onHandleChange(value, 'name')}
                                         />
                                     </Grid>
                                     <Grid item xs={6}>
-                                    <TextField
+                                        <TextField
                                             fullWidth
                                             label={I18n.t("Input.goods.Hàng đã mua")}
                                             onChange={(value) => this.onHandleChange(value, 'code')}
                                             value="GN1 (2019-11-11), GN2 (2019-01-12)"
                                             name="goods"
                                         />
+                                        <AutoCompleteField
+                                            key="1"
+                                            isClearable={false}
+                                            fullWidth
+                                            select
+                                            // isDisabled={checkOld || checkEndTime}
+                                            value={[]}
+                                            hideSelectedOptions={true}
+                                            name="goods__"
+                                            label={I18n.t('Input.goods.Hàng đã mua')}
+                                            onChange={(value) => this.onHandleChange(value, "employees")}
+                                            isMulti={true}
+                                            // onKeyDown={(e) => {
+                                            // if (e.target.value.length < 1 && moment(start).format('YYYY/MM/DD') == moment(new Date()).format('YYYY/MM/DD')) {
+                                            //     if (['Backspace', 'Delete'].indexOf(e.key) >= 0) {
+                                            //         e.preventDefault()
+                                            //     }
+                                            // }
+                                            // }}
+                                            // dataCheckIn={dataCheckIn}
+                                        >
+                                            {
+                                                goods.map(option => (
+                                                    <OptionAuto key={option._id} value={option._id} showCheckbox={false}>
+                                                        {option.name}
+                                                    </OptionAuto>
+                                                ))
+                                            }
+                                        </AutoCompleteField>
                                     </Grid>
                                 </Grid>
                                 <Grid container spacing={32}>
@@ -223,6 +253,7 @@ class Create extends BaseView {
                             </CardActions>
                         </Card>
                     </Grid>
+                    <Grid item xs={1}></Grid>
                 </Grid>
             </Form>
         )

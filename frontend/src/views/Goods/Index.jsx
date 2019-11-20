@@ -171,14 +171,22 @@ class Index extends BaseView {
                title: I18n.t('Table.header.role.Tiền cũ'),
                style: {
                   textAlign: 'center',
-               }
+               },
+               formatterComponent: (data) => {
+                  let moneyOld = _.get(data, 'row.moneyOld', '')
+                  return moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+               },
             },
             {
                name: 'moneyNew',
                title: I18n.t('Table.header.role.Tiền mới'),
                style: {
                   textAlign: 'center',
-               }
+               },
+               formatterComponent: (data) => {
+                  let moneyNew = _.get(data, 'row.moneyNew', '')
+                  return moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+               },
             },
             {
                name: '_id',

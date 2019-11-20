@@ -1,6 +1,7 @@
 import React from 'react'
 import View from 'views/Client/Create'
 import ClientAction from  '../../actions/ClientAction'
+import GoodsAction from '../../actions/GoodsAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -15,11 +16,8 @@ class Index extends BaseContainer {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
-    componentWillReceiveProps(nextProps) {
-    }
-
     componentDidMount() {
-        // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
@@ -57,6 +55,7 @@ class Index extends BaseContainer {
             <View
                 onSubmit={this.onSubmit}
                 permission={this.props.permission}
+                goods={this.props.goods}
             />
         )
     }
@@ -65,6 +64,7 @@ class Index extends BaseContainer {
 const mapStateToProps = state => {
     return {
         data: selector(state, "role.data", {}),
+        goods: selector(state, "goods.list.data", []),
         permission: selector(state, "permission.list.data", []),
     }
 }

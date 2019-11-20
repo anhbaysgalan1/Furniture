@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -300,19 +300,19 @@ class Create extends BaseView {
                               />
                            </Grid>
                            <Grid item xs={2}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
-                                 onChange={(value) => this.onHandleChange(value, 'moneyOld')}
                                  name="moneyOld"
+                                 onChange={(value) => this.onHandleChange(value, 'moneyOld')}
                               />
                            </Grid>
                            <Grid item xs={2}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
-                                 onChange={(value) => this.onHandleChange(value, 'moneyNew')}
                                  name="moneyNew"
+                                 onChange={(value) => this.onHandleChange(value, 'moneyNew')}
                               />
                            </Grid>
                         </Grid>

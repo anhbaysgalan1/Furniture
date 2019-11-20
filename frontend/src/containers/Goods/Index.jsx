@@ -19,6 +19,7 @@ class Index extends BaseContainer {
     componentDidMount() {
         this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
+    
     onFetchData(state) {
         this.props.dispatch(GoodsAction.fetchAll(state))
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import View from 'views/Client/Edit'
 import ClientAction from '../../actions/ClientAction'
+import GoodsAction from '../../actions/GoodsAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -17,6 +18,7 @@ class Edit extends BaseContainer {
     componentDidMount() {
         this.id = this.props.match.params.id
         this.props.dispatch(ClientAction.fetch({ _id: this.id }))
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
@@ -52,6 +54,7 @@ class Edit extends BaseContainer {
             <View
                 data={this.props.data || {}}
                 onSubmit={this.onSubmit}
+                goods={this.props.goods}
             />
         )
     }
@@ -63,6 +66,7 @@ const mapStateToProps = state => {
         lastType: selector(state, "client.lastType", {}),
         error: selector(state, "client.error", ""),
         data: selector(state, "client.item", {}),
+        goods: selector(state, "goods.list.data", []),
     }
 }
 

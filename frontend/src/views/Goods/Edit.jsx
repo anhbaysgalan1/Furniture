@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -20,7 +20,6 @@ import {
    DialogContent,
    Dialog,
    DialogActions,
-
 
 } from '@material-ui/core'
 import PaperFade from "components/Main/PaperFade"
@@ -318,21 +317,21 @@ class Create extends BaseView {
                               />
                            </Grid>
                            <Grid item xs={2}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.goods.moneyOld")}
-                                 onChange={(value) => this.onHandleChange(value, 'moneyOld')}
-                                 value={moneyOld}
+                                 label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
                                  name="moneyOld"
+                                 defaultValue={moneyOld}
+                                 onChange={(value) => this.onHandleChange(value, 'moneyOld')}
                               />
                            </Grid>
                            <Grid item xs={2}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.goods.moneyNew")}
-                                 onChange={(value) => this.onHandleChange(value, 'moneyNew')}
+                                 label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
                                  name="moneyNew"
-                                 value={moneyNew}
+                                 defaultValue={moneyNew}
+                                 onChange={(value) => this.onHandleChange(value, 'moneyNew')}
                               />
                            </Grid>
                         </Grid>

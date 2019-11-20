@@ -1,6 +1,7 @@
 import React from 'react'
 import View from 'views/Client/Index'
 import ClientAction from '../../actions/ClientAction'
+import GoodsAction from '../../actions/GoodsAction'
 import UserAction from '../../actions/UserAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
@@ -18,6 +19,7 @@ class Index extends BaseContainer {
 
     componentDidMount() {
         this.props.dispatch(ClientAction.fetchAll({ pageSize: -1 }))
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
     }
     onFetchData(state) {
         this.props.dispatch(ClientAction.fetchAll(state))
@@ -76,6 +78,7 @@ class Index extends BaseContainer {
                     onRefTable={this.onRefTable}
                     onDeleteData={this.onDeleteData}
                     data={this.props.data}
+                    goods={this.props.goods}
                 />
             </div>
         )
@@ -85,6 +88,7 @@ class Index extends BaseContainer {
 const mapStateToProps = state => {
     return {
         data: selector(state, "client.list", {}),
+        goods: selector(state, "goods.list.data", []),
     }
 }
 

@@ -673,12 +673,13 @@ class Index extends BaseView {
             fullWidth={true}
             onClose={this.onCancel}
             open={this.state.open}
+            // open={true}
             maxWidth='lg'
             aria-labelledby="draggable-dialog-title"
          >
             <DialogContent>
                <ViewDetail
-                  // dataGoods={dataGoods}
+                  dataGoods={dataGoods}
                   // classes={classes}
                   onSubmit={onSubmit}
                />
@@ -693,7 +694,7 @@ class Index extends BaseView {
    }
 
    render() {
-      let { data, classes, onSubmit } = this.props 
+      let { data, classes } = this.props 
       return (
          <span>
             {

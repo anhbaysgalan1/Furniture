@@ -142,14 +142,25 @@ class Index extends BaseView {
                     title: I18n.t('Table.header.role.Số tiền mua'),
                     style: {
                         textAlign: 'center',
-                    }
+                    },
+                    formatterComponent: (data) => {
+                        let money = _.get(data, 'row.money', '')
+                        return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+                    },
+                    
                 },
                 {
                     name: 'goods',
                     title: I18n.t('Table.header.role.Số hàng mua'),
                     style: {
                         textAlign: 'center',
-                    }
+                    },
+                    formatterComponent: (data) => {
+                        let goods = _.get(data, 'row.goods', '')
+                        console.log("goods", goods)
+                        return ''
+                        // return this.customActionColumn(data)
+                    },
                 },
                 {
                     name: 'note',
@@ -164,7 +175,6 @@ class Index extends BaseView {
                     sortable: false,
                     filterable: false,
                     formatterComponent: (data) => {
-                        console.log("data", data.row)
                         return this.customActionColumn(data)
                     },
                     style: {
@@ -226,7 +236,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'goods',
-                    width: 80
+                    width: 150
                 },
                 {
                     name: 'note',
@@ -326,7 +336,7 @@ class Index extends BaseView {
                                 </TableRow>
                                 <TableRow >
                                     <TableCell> Tổng tiền</TableCell>
-                                    <TableCell> {money} </TableCell>
+                                    <TableCell> {money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} </TableCell>
                                 </TableRow>
                                 <TableRow >
                                     <TableCell> Số lần mua hàng</TableCell>
