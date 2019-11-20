@@ -8,6 +8,6 @@
     "address": "string",
     "number": "string",
     "money": "string",
-    "goods": "string",
+    "goodsIds": ["object"],
     "note": "string"
 }

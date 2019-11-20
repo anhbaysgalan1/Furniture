@@ -139,7 +139,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'money',
-                    title: I18n.t('Table.header.role.Số tiền mua'),
+                    title: I18n.t('Table.header.role.Tổng tiền'),
                     style: {
                         textAlign: 'center',
                     },
@@ -156,10 +156,8 @@ class Index extends BaseView {
                         textAlign: 'center',
                     },
                     formatterComponent: (data) => {
-                        let goods = _.get(data, 'row.goods', '')
-                        console.log("goods", goods)
-                        return ''
-                        // return this.customActionColumn(data)
+                        let goodsIds = _.get(data, 'row.goodsIds', [])
+                        return this.renderGoods(goodsIds)
                     },
                 },
                 {
@@ -268,6 +266,15 @@ class Index extends BaseView {
         this.onHide()
     }
 
+    renderGoods(goodsIds = []){
+        return goodsIds.map((item, index) => {
+            if(++index == goodsIds.length){
+                return <span key={index}>{item.code}</span>
+            } 
+            return <span key={index}>{item.code} - </span>
+        })
+    }
+
     onDelete(_id){
         this.ConfirmDialog.show([_id])
         this.onHide()
@@ -299,7 +306,7 @@ class Index extends BaseView {
         let address = _.get(dataRow, 'address', '')
         let money = _.get(dataRow, 'money', '')
         let number = _.get(dataRow, 'number', '')
-        let goods = _.get(dataRow, 'goods', '')
+        let goodsIds = _.get(dataRow, 'goodsIds', [])
         let note = _.get(dataRow, 'note', '')
         
         return (
@@ -344,7 +351,17 @@ class Index extends BaseView {
                                 </TableRow>
                                 <TableRow >
                                     <TableCell> Hàng đã mua</TableCell>
-                                    <TableCell> {goods} </TableCell>
+                                    <TableCell>
+                                        {
+                                            goodsIds.map((item, index) => {
+                                                return (
+                                                    <div key={index}>
+                                                        {item.name}
+                                                    </div>
+                                                )
+                                            })
+                                        } 
+                                    </TableCell>
                                 </TableRow>
                                 <TableRow >
                                     <TableCell> Ghi chú</TableCell>

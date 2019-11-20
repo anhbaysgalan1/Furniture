@@ -101,7 +101,7 @@ class Create extends BaseView {
     }
 
     render() {
-        const { classes, onSubmit, data } = this.props
+        const { classes, onSubmit, data, goods = [] } = this.props
         let { dataInput } = this.state
         let typeClient = [
             {
@@ -126,15 +126,15 @@ class Create extends BaseView {
         let address = _.get(data, 'address', '')
         let number  = _.get(data, 'number', '')
         let money   = _.get(data, 'money', '')
-        let goods   = _.get(data, 'goods', '')
         let note    = _.get(data, 'note', '')
+        let goodsIds    = _.get(data, 'goodsIds', [])
 
         return (
             // <PaperFade className={classes.paper}>
             <Form className={classes.form} onSubmit={onSubmit}>
                 <Grid container spacing={32}>
-                    <Grid item xs={3}></Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={1}></Grid>
+                    <Grid item xs={10}>
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography variant='h5' color='primary'>
@@ -228,14 +228,26 @@ class Create extends BaseView {
                                         />
                                     </Grid>
                                     <Grid item xs={6}>
-                                        <TextField
+                                        <AutoCompleteField
+                                            key="1"
+                                            isClearable={false}
                                             fullWidth
-                                            label={I18n.t("Input.goods.Hàng đã mua")}
-                                            onChange={(value) => this.onHandleChange(value, 'code')}
-                                            value="GN1 (2019-11-11), GN2 (2019-01-12)"
-                                            name="goods"
-                                            value={goods}
-                                        />
+                                            select
+                                            value={goodsIds || []}
+                                            hideSelectedOptions={true}
+                                            name="goodsIds"
+                                            label={I18n.t('Input.goodsIds.Hàng đã mua')}
+                                            onChange={(value) => this.onHandleChange(value, "goodsIds")}
+                                            isMulti={true}
+                                        >
+                                            {
+                                                goods.map(option => (
+                                                <OptionAuto key={option._id} value={option._id} showCheckbox={false}>
+                                                    {option.name}
+                                                </OptionAuto>
+                                                ))
+                                            }
+                                        </AutoCompleteField>
                                     </Grid>
                                 </Grid>
                                 <Grid container spacing={32}>
@@ -262,6 +274,7 @@ class Create extends BaseView {
                             </CardActions>
                         </Card>
                     </Grid>
+                    <Grid item xs={1}></Grid>
                 </Grid>
             </Form>
             // </PaperFade>

@@ -1,5 +1,7 @@
 const BaseController = use("./BaseController")
 const ClientModel = use("App/Models/Client")
+const GoodsModel = use("App/Models/Goods")
+
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require('mongodb')
@@ -12,6 +14,7 @@ class ClientController extends BaseController {
     constructor() {
         super()
         this.Model = new ClientModel()
+        this.GoodsModel = new GoodsModel()
     }
 
     async index({ request, response }) {
@@ -25,17 +28,25 @@ class ClientController extends BaseController {
             address: 1,
             number: 1,
             money: 1,
-            goods: 1,
-            note: 1,
-            insert: {
-                when: 1
-            }
+            goodsIds: 1,
+            note: 1
         }
         let result = await this.Model.aggregation([{
             $sort: {
                 _id: -1
             }
         }]).getForGridTable(request.query, allowFields)
+
+        let promise = result.data.map(item => {
+            return Promise.all(item.goodsIds.map(element => {
+                return this.GoodsModel.getById(element, { code: 1, name: 1 })
+            }))
+        })
+        let info = await Promise.all(promise)
+        result.data.map((item, i) => {
+            item.goodsIds = info[i]
+        })
+
         return result
     }
 
@@ -50,7 +61,7 @@ class ClientController extends BaseController {
             address: 1,
             number: 1,
             money: 1,
-            goods: 1,
+            goodsIds: 1,
             note: 1,
         }
         return await super.detail({ request, response, allowFields })
@@ -58,7 +69,7 @@ class ClientController extends BaseController {
 
     async store({ request, response }) {
         let input = request.body
-            //allowFields là object các trường được phép lưu vào db
+        //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             type: "string!",
             code: "string!",
@@ -68,7 +79,7 @@ class ClientController extends BaseController {
             address: "string!",
             number: "string!",
             money: "string!",
-            goods:"string!",
+            goodsIds: ["objectid"],
             note: "string",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
@@ -86,13 +97,14 @@ class ClientController extends BaseController {
 
     async update({ request, response }) {
         let id = request.params.id
+
         if (!id) throw new ApiException(422, "Id_Required")
         let exist = await this.Model.getById(id)
         if (!exist) throw new ApiException(404, "No_Object")
         if (exist.code == "All") {
             throw new ApiException(400, "Bad_Update_Warning")
         }
-
+        console.log("request.body", request.body)
         //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             type: "string!",
@@ -103,7 +115,7 @@ class ClientController extends BaseController {
             address: "string!",
             number: "string!",
             money: "string!",
-            goods:"string!",
+            goodsIds: ["objectid"],
             note: "string",
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })

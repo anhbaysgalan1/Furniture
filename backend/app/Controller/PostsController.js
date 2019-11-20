@@ -51,7 +51,6 @@ class PostsController extends BaseController {
 
     async store({ request, response }) {
         let input = request.body
-        console.log("input", input)
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             title: "string!",
