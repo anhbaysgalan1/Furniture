@@ -8,20 +8,12 @@ class Order extends BaseModel {
     }
     static get relationship() {
         return {
-            /* area: {
-              relationType: "hasMany",
-              model: "App/Models/Area",
-              localField: "areaIds",
-              foreignField: "_id",
-
+            goods: {
+                relationType: "belongsTo", //hasMany, belongsTo
+                model: "App/Models/Goods",
+                localField: "goodsId",
+                foreignField: "_id",
             },
-            user: {
-              relationType: "hasMany",
-              model: "App/Models/Group",
-              unwind: true,
-              localField: "_id",
-              foreignField: "group_id",
-            } */
         }
     }
 

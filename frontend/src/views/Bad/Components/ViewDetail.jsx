@@ -49,7 +49,7 @@ class App extends Component {
             name: '',
             phone: '',
             address: '',
-            number: '',
+            number: '1',
             pay: '',
             transportFee: '',
          }
@@ -61,9 +61,8 @@ class App extends Component {
 
    onHandleChange(value, name) {
       let { dataInput } = this.state
-      this.setState({
-         dataInput: { ...dataInput, [name]: value }
-      })
+      this.setState({ dataInput: { ...dataInput, [name]: value } })
+      this.setState({ reload: !this.state.reload })
    }
 
    setIndex(index) {
@@ -79,9 +78,8 @@ class App extends Component {
    render() {
       let { onSubmit, dataGoods } = this.props
       let { indexButton, viewsOrder } = this.state
-      let code = _.get(dataGoods, 'code', '')
       let moneyNew = _.get(dataGoods, 'moneyNew', '')
-
+      let code = _.get(dataGoods, 'code', '')
       let _id = _.get(dataGoods, '_id', '')
       let name = _.get(dataGoods, 'name', '')
       let image1 = _.get(dataGoods, 'image1', '')
@@ -103,7 +101,7 @@ class App extends Component {
          }
       ]
       console.log("img[indexButton].img", img[indexButton].img)
-     
+      let number = Number(_.get(this.state, 'dataInput.number', '1'))
       return (
          <Form onSubmit={onSubmit} >
             <Typography variant="h6">
@@ -111,8 +109,11 @@ class App extends Component {
             </Typography>
             <Grid container spacing={8}>
                <Grid item xs={7}>
-                  {/* <center>
+                  <center>
                      <img src={img[indexButton].img} height='450' width='550' />
+                     <Typography variant="h6">
+                        {indexButton}
+                     </Typography>
                      <br></br>
                      {
                         img.map((item, index) => {
@@ -132,7 +133,7 @@ class App extends Component {
                            )
                         })
                      }
-                  </center> */}
+                  </center>
                </Grid>
                <Grid item xs={5}>
                   <Button color='primary' onClick={() => this.setViewOrder() } >
@@ -151,25 +152,32 @@ class App extends Component {
                               onChange={(value) => this.onHandleChange(value, 'name')}
                               name="name"
                            />
+                        </Grid>
+                        <Grid item xs={6}>
                            <TextField
                               fullWidth
                               label={I18n.t("Input.bad.SĐT")}
                               onChange={(value) => this.onHandleChange(value, 'phone')}
                               name="phone"
                            />
+                        </Grid>
+                        <Grid item xs={12}>
                            <TextField
                               fullWidth
                               label={I18n.t("Input.bad.Dia chi giao hang")}
                               onChange={(value) => this.onHandleChange(value, 'address')}
                               name="address"
                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                           
                            <Grid container spacing={16} direction="row" alignItems="center">
                               <Grid item xs={6}>
                                  <TextField
                                     fullWidth
                                     label={I18n.t("Input.bad.Số lượng")}
                                     onChange={(value) => this.onHandleChange(value, 'number')}
-                                    value='1'
+                                    defaultValue={number}
                                     name="number"
                                  />
                               </Grid>
@@ -178,14 +186,14 @@ class App extends Component {
                                     fullWidth
                                     label={I18n.t("Input.bad.Tổng tiền")}
                                     name="money"
-                                    defaultValue={moneyNew}
+                                    defaultValue={number*Number(moneyNew)}
                                     disabled={true}
-                                    // onChange={(value) => this.onHandleChange(value, 'money')}
+                                    onChange={(value) => this.onHandleChange(value, 'money')}
                                  />
                               </Grid>
                            </Grid>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                            <TextField
                               fullWidth
                               label={I18n.t("Input.bad.Phí vận chuyển")}

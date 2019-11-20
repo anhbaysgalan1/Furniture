@@ -3,13 +3,11 @@
     "code": "string",
     "name": "string",
     "status": "string",
-    "image1": "string",
-    "image2": "string",
-    "image3": "string",
-    "image4": "string",
-    "moneyOld": "string",
-    "moneyNew": "string",
-    "typeGoods": "string",
-    "typeWoods": "string",
-    "content": "string"
+    "phone": "string",
+    "address": "string",
+    "money": "string",
+    "number": "string",
+    "pay": "string",
+    "transportFee": "string",
+    "goodsId": "objectid"
 }

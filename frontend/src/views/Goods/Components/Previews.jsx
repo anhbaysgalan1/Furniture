@@ -176,10 +176,10 @@ class App extends Component {
                      name ? <Typography color='primary' variant='h6'> {name} </Typography> : ''
                   }
                   {
-                     moneyNew ? <Typography style={{ color: 'red' }}> {moneyNew} </Typography> : ''
+                     moneyNew ? <Typography style={{ color: 'red' }}> {moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} </Typography> : ''
                   }
                   {
-                     moneyOld ? <del> <Typography> {moneyOld} </Typography> </del> : ''
+                     moneyOld ? <del> <Typography> {moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} </Typography> </del> : ''
                   }
                </center>
                   Thông tin giới thiệu hàng

@@ -257,15 +257,12 @@ class Index extends BaseView {
     onShow(dataRow){
         this.setState({ open: true, dataRow: dataRow })
     }
-
     onHide(){
         this.setState({ open: false })
     }
-
     onCancel(){
         this.onHide()
     }
-
     renderGoods(goodsIds = []){
         return goodsIds.map((item, index) => {
             if(++index == goodsIds.length){
@@ -274,12 +271,10 @@ class Index extends BaseView {
             return <span key={index}>{item.code} - </span>
         })
     }
-
     onDelete(_id){
         this.ConfirmDialog.show([_id])
         this.onHide()
     }
-
     typeClient(data){
         let type = _.get(data, 'row.type', '')
         switch(type){
@@ -312,10 +307,10 @@ class Index extends BaseView {
         return (
             <Card>
                 <Dialog
-                    // fullWidth={true}
+                    fullWidth={true}
                     onClose={this.onCancel}
                     open={this.state.open}
-                    maxWidth='lg'
+                    maxWidth='md'
                     aria-labelledby="draggable-dialog-title"
                 >
                     <DialogContent>

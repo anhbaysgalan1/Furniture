@@ -3,6 +3,7 @@ import View from 'views/Order/Edit'
 import OrderAction from '../../actions/OrderAction'
 // import RoleAction from '../../actions/RoleAction'
 // import PermissionAction from '../../actions/PermissionAction'
+import GoodsAction from '../../actions/GoodsAction' 
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -20,8 +21,10 @@ class Edit extends BaseContainer {
     }
 
     componentDidMount() {
+
         this.id = this.props.match.params.id
         this.props.dispatch(OrderAction.fetch({ _id: this.id }))
+        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
         // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
     }
 
@@ -58,6 +61,7 @@ class Edit extends BaseContainer {
         return (
             <View
                 data={this.props.data || {}}
+                goods={this.props.goods}
                 onSubmit={this.onSubmit}
                 permissions={this.props.permissions || []}
             />
@@ -72,6 +76,7 @@ const mapStateToProps = state => {
         lastType: selector(state, "role.lastType", {}),
         error: selector(state, "role.error", ""),
         data: selector(state, "role.item", {}),
+        goods: selector(state, "goods.list.data", []),
         permissions: selector(state, "permission.list.data", [])
     }
 }

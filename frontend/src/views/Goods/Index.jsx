@@ -102,7 +102,6 @@ let promotions = [
       value: '1'
    }
 ]
-
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
 const styles = theme => ({

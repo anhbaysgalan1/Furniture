@@ -487,11 +487,9 @@ class Index extends BaseView {
       this.setState({ open: true, dataGoods: element })
       this.setState({ reload: !this.state.reload })
    }
-   
    onHide(){
       this.setState({ open: false })
    }
-
    onCancel(){
       this.onHide()
    }
@@ -574,6 +572,7 @@ class Index extends BaseView {
       let { itemPrimary } = this.state // Số trang 
       let minImage = this.setMinMaxImage(itemPrimary, numberImg).minImage
       let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
+
       return (
          <span>
             {/* <img src={tunhien} height='80' width='450' /> */}
@@ -605,11 +604,11 @@ class Index extends BaseView {
                                        {element.name}
                                     </Typography>
                                     <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                       {element.moneyNew} đ
+                                       {element.moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
                                     </Typography>
                                     <del>
                                        <Typography style={{ textAlign: 'center' }}>
-                                          {element.moneyOld} đ
+                                          {element.moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
                                        </Typography>
                                     </del>
                                  </CardContent>

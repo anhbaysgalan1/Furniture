@@ -24,17 +24,18 @@ class OrderController extends BaseController {
             money: 1,
             number: 1,
             pay: 1,
-            goodsId: 1,
+            goods: {
+                code: 1,
+                name: 1
+            },
             transportFee: 1,
-            insert: {
-                when: 1
-            }
         }
         let result = await this.Model.aggregation([{
             $sort: {
                 _id: -1
             }
         }]).getForGridTable(request.query, allowFields)
+        console.log("xxxx", result)
         return result
     }
 
@@ -65,18 +66,18 @@ class OrderController extends BaseController {
             money: "string!",
             number: "string!",
             pay: "string!",
-            goodsId: "string!",
+            goodsId: "objectid!",
             transportFee: "string!",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
-        // check code, name khác nhau
-        // let existCode = await this.Model.getOne({
-        //     code: data.code
-        // })
-        // let existName = await this.Model.getOne({
-        //     name: data.name
-        // })
-        // if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
+            // check code, name khác nhau
+            // let existCode = await this.Model.getOne({
+            //     code: data.code
+            // })
+            // let existName = await this.Model.getOne({
+            //     name: data.name
+            // })
+            // if (existCode || existName) throw new ApiException(400, "Bad_Code_Exist")
         let result = await this.Model.insertOne(data)
         return result
     }
@@ -100,33 +101,33 @@ class OrderController extends BaseController {
             money: "string!",
             number: "string!",
             pay: "string!",
-            goodsId: "string!",
+            goodsId: "objectid!",
             transportFee: "string!",
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
-        // let existCode = await this.Model.getOne({
-        //     code: data.code
-        // })
-        // let existName = await this.Model.getOne({
-        //     name: data.name
-        // })
+            // let existCode = await this.Model.getOne({
+            //     code: data.code
+            // })
+            // let existName = await this.Model.getOne({
+            //     name: data.name
+            // })
         let result = await this.Model.update(id, data)
-        // let check = false
-        // if (!existCode && !existName) check = true
-        // if (existName && !existCode) {
-        //     if (existName._id == id) check = true
-        // }
-        // if (existCode && !existName) {
-        //     if (existCode._id == id) check = true
-        // }
-        // if (existName && existCode) {
-        //     if (existCode._id == id && existName._id == id) check = true
-        // }
-        // if (check) {
-        //     result = await this.Model.update(id, data)
-        // } else {
-        //     throw new ApiException(400, "Bad_Code_Exist")
-        // }
+            // let check = false
+            // if (!existCode && !existName) check = true
+            // if (existName && !existCode) {
+            //     if (existName._id == id) check = true
+            // }
+            // if (existCode && !existName) {
+            //     if (existCode._id == id) check = true
+            // }
+            // if (existName && existCode) {
+            //     if (existCode._id == id && existName._id == id) check = true
+            // }
+            // if (check) {
+            //     result = await this.Model.update(id, data)
+            // } else {
+            //     throw new ApiException(400, "Bad_Code_Exist")
+            // }
         return result
     }
 
