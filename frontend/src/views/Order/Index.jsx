@@ -170,7 +170,7 @@ class Index extends BaseView {
                 },
                 {
                     name: 'status',
-                    title: I18n.t('Table.header.Trạng thái đơn hàng'),
+                    title: I18n.t('Table.header.Trạng thái'),
                     sortable: false,
                     filterable: false,
                     formatterComponent: (data) => {
@@ -252,7 +252,7 @@ class Index extends BaseView {
                 },
                 {
                     name: '_id',
-                    width: 100
+                    width: 150
                 }
             ]
         }
@@ -268,19 +268,19 @@ class Index extends BaseView {
     formatStatus(status){
         switch (status){
             case '0':
-                return <Button color="primary" variant='contained'>Mới</Button>
+                return <Button color="primary" >Mới</Button>
             case '1':
-                return <Button color="primary" variant='contained'>Đang giao</Button>
+                return <Button color="primary" >Đang giao</Button>
             case '2':
-                return <Button color="primary" variant='contained'>Đã giao</Button>
+                return <Button color="primary" >Đã giao</Button>
             case '3':
-                return <Button color="primary" variant='contained'>Hoàn thành</Button>
+                return <Button color="primary" >Hoàn thành</Button>
             case '4':
-                return <Button color="primary" variant='contained'>Thất bại</Button>
+                return <Button color="primary" >Thất bại</Button>
             case '5':
-                return <Button color="primary" variant='contained'>Đổi hàng</Button>
+                return <Button color="primary" >Đổi hàng</Button>
             case '6':
-                return <Button color="primary" variant='contained'>Đã hủy</Button>
+                return <Button color="primary" >Đã hủy</Button>
             default: 
                 return ''
         }
@@ -300,10 +300,10 @@ class Index extends BaseView {
                 <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
                     {I18n.t('Button.detail')}
                 </Button>
-                {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+               <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/order/${_id}`)}>
                     {I18n.t("Button.edit")}
                 </Button>
-                <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+                 {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                     {I18n.t('Button.delete')}
                 </Button> */}
             </div>
@@ -312,11 +312,11 @@ class Index extends BaseView {
 
     renderToolbarActions() {
         return [
-            // <Tooltip title={I18n.t("toolTip.new")} key="create">
-            //     <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
-            //         {I18n.t("Button.create")}
-            //     </Button>
-            // </Tooltip>,
+            <Tooltip title={I18n.t("toolTip.new")} key="create">
+                <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
+                    {I18n.t("Button.create")}
+                </Button>
+            </Tooltip>,
         ]
     }
 

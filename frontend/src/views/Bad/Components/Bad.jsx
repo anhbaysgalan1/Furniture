@@ -680,7 +680,7 @@ class Index extends BaseView {
                <ViewDetail
                   // dataGoods={dataGoods}
                   // classes={classes}
-                  // onSubmit={onSubmit}
+                  onSubmit={onSubmit}
                />
             </DialogContent>
             <DialogActions>

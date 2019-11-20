@@ -15,8 +15,8 @@ const GoodsIndex        = lazy(() => import('containers/Goods/Index'))
 const GoodsCreate       = lazy(() => import('containers/Goods/Create'))
 const GoodsEdit         = lazy(() => import('containers/Goods/Edit'))
 const OrderIndex        = lazy(() => import('containers/Order/Index'))
-// const OrderCreate    = lazy(() => import('containers/Order/Create'))
-// const OrderEdit      = lazy(() => import('containers/Order/Edit'))
+const OrderCreate    = lazy(() => import('containers/Order/Create'))
+const OrderEdit      = lazy(() => import('containers/Order/Edit'))
 const ClientIndex       = lazy(() => import('containers/Client/Index'))
 const ClientCreate      = lazy(() => import('containers/Client/Create'))
 const ClientEdit        = lazy(() => import('containers/Client/Edit'))
@@ -299,6 +299,22 @@ const routes = [
         name: 'order',
         title: () => I18n.t("Breadcrumb.orderIndex"),
         component: () => <OrderIndex />,
+        exact: true,
+        sidebarName: 'order'
+    },
+    {
+        path: "/order/create",
+        name: 'order.create',
+        title: () => I18n.t("Breadcrumb.orderCreate"),
+        component: () => <OrderCreate />,
+        exact: true,
+        sidebarName: 'order'
+    },
+    {
+        path: "/order/:id",
+        name: 'order.edit',
+        title: () => I18n.t("Breadcrumb.orderEdit"),
+        component: () => <OrderEdit />,
         exact: true,
         sidebarName: 'order'
     },
