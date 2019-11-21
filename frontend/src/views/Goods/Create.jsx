@@ -30,19 +30,19 @@ import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCo
 let typeGoods = [
    {
       name: "Giường ngủ",
-      value: '1'
+      value: '0'
    },
    {
       name: "Tủ Quần áo",
-      value: '2'
+      value: '1'
    },
    {
       name: "Bàn phòng khách",
-      value: '3'
+      value: '2'
    },
    {
       name: "Bàn trà",
-      value: '4'
+      value: '3'
    },
    {
       name: "Tủ giày",

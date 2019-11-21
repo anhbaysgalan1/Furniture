@@ -155,7 +155,6 @@ class Create extends BaseView {
          }
       })
       number = numberState ? numberState : number
-      money  = Number(number)*Number(moneyNew)
       return (
          <Form className={classes.paper} onSubmit={onSubmit}>
             <Card>
@@ -239,7 +238,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.order.money.Tổng tiền")}
                                  name="money"
                                  disabled={true}
-                                 defaultValue={`${money}`}
+                                 defaultValue={`${Number(number)*Number(moneyNew)}` || `${money}`}
                                  onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>

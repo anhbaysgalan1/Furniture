@@ -79,7 +79,28 @@ const status = [
       name: "Thất bại"
    }
 ]
-
+let typeGoods = [
+   {
+      name: "Giường ngủ",
+      _id: '0'
+   },
+   {
+      name: "Tủ Quần áo",
+      _id: '1'
+   },
+   {
+      name: "Bàn phòng khách",
+      _id: '2'
+   },
+   {
+      name: "Bàn trà",
+      _id: '3'
+   },
+   {
+      name: "Tủ giày",
+      _id: '4'
+   }
+]
 
 class Index extends BaseView {
    constructor(props) {
@@ -104,16 +125,10 @@ class Index extends BaseView {
                type: "text",
                filterable: false,
                sortable: false,
-               style: {
-                  textAlign: 'center',
-               }
             },
             {
                name: 'goodsId',
                title: I18n.t('Table.header.role.name.Mã sản phẩm'),
-               style: {
-                  textAlign: 'center',
-               },
                formatterComponent: (data) => {
                   let code = _.get(data, 'row.goods.code', '')
                   return code
@@ -122,37 +137,22 @@ class Index extends BaseView {
             {
                name: 'name',
                title: I18n.t('Table.header.role.name.Tên khách hàng'),
-               style: {
-                  textAlign: 'center',
-               }
             },
             {
                name: 'phone',
                title: I18n.t('Table.header.role.name.Phone'),
-               style: {
-                  textAlign: 'center',
-               }
             },
             {
                name: 'address',
                title: I18n.t('Table.header.role.name.Địa chỉ'),
-               style: {
-                  textAlign: 'center',
-               }
             },
             {
                name: 'number',
                title: I18n.t('Table.header.role.number.Số Lượng'),
-               style: {
-                  textAlign: 'center',
-               }
             },
             {
                name: 'money',
                title: I18n.t('Table.header.role.name.Số tiền hàng'),
-               style: {
-                  textAlign: 'center',
-               },
                formatterComponent: (data) => {
                   let money = _.get(data, 'row.money', '')
                   return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
@@ -183,9 +183,6 @@ class Index extends BaseView {
                formatterComponent: (data) => {
                   let status = _.get(data, 'row.status', '')
                   return this.formatStatus(status)
-               },
-               style: {
-                  textAlign: 'center',
                }
             },
             {
@@ -195,9 +192,6 @@ class Index extends BaseView {
                filterable: false,
                formatterComponent: (data) => {
                   return this.customActionColumn(data)
-               },
-               style: {
-                  textAlign: 'center',
                }
             },
 
@@ -214,19 +208,18 @@ class Index extends BaseView {
             { columnName: 'status', status: true },
             { columnName: '_id', align: 'center' },
          ],
-         //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
          columnWidths: [
             {
                name: 'index',
-               width: 70
+               width: 80
             },
             {
                name: 'goodsId',
-               width: 70
+               width: 100
             },
             {
                name: 'name',
-               width: 120
+               width: 150
             },
             {
                name: 'phone',
@@ -234,15 +227,15 @@ class Index extends BaseView {
             },
             {
                name: 'address',
-               width: 250
+               width: 350
             },
             {
                name: 'money',
-               width: 70
+               width: 100
             },
             {
                name: 'number',
-               width: 70
+               width: 80
             },
             {
                name: 'pay',
@@ -250,11 +243,11 @@ class Index extends BaseView {
             },
             {
                name: 'status',
-               width: 100
+               width: 130
             },
             {
                name: '_id',
-               width: 200
+               width: 150
             }
          ]
       }
@@ -310,9 +303,9 @@ class Index extends BaseView {
             <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/order/${_id}`)}>
                {I18n.t("Button.edit")}
             </Button>
-            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+            {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                {I18n.t('Button.delete')}
-            </Button>
+            </Button> */}
          </div>
       )
    }
@@ -377,16 +370,16 @@ class Index extends BaseView {
    }
 
    renderDetail() {
-      let { dataRow } = this.state
-      let _id = this.getData(dataRow, "_id", '')
-      let codeGoods = _.get(dataRow, 'goods.code', '')
-      let nameGoods = _.get(dataRow, 'goods.name', '')
-      let phone = _.get(dataRow, 'phone', '')
-      let address = _.get(dataRow, 'address', '')
-      let money = _.get(dataRow, 'money', '')
-      let nameUser = _.get(dataRow, 'name', '')
-      let pay = _.get(dataRow, 'pay', '')
-      let status = _.get(dataRow, 'status', '')
+      let {dataRow}  = this.state
+      let _id        = this.getData(dataRow, "_id", '')
+      let codeGoods  = _.get(dataRow, 'goods.code', '')
+      let nameGoods  = _.get(dataRow, 'goods.name', '')
+      let phone      = _.get(dataRow, 'phone', '')
+      let address    = _.get(dataRow, 'address', '')
+      let money      = _.get(dataRow, 'money', '')
+      let nameUser   = _.get(dataRow, 'name', '')
+      let pay        = _.get(dataRow, 'pay', '')
+      let status     = _.get(dataRow, 'status', '')
       return (
          <Card>
             <Dialog
@@ -435,8 +428,14 @@ class Index extends BaseView {
                   </Table>
                </DialogContent>
                <DialogActions>
-                  <Button variant='contained' color="primary" onClick={() => this.onCancel()}>
-                     {I18n.t("Button.Thoát")}
+                  <Button color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+                     {I18n.t('Button.delete')}
+                  </Button>
+                  <Button color="primary" onClick={() => this.goto(`/order/${_id}`)}>
+                     {I18n.t("Button.edit")}
+                  </Button>
+                  <Button color="primary" onClick={() => this.onCancel()}>
+                     {I18n.t("Button.exit")}
                   </Button>
                </DialogActions>
             </Dialog>
@@ -444,27 +443,8 @@ class Index extends BaseView {
       )
    }
 
-
    render() {
       const { data, classes, onSubmit } = this.props
-      let goods = [
-         {
-            name: "Giường gỗ tự nhiên",
-            _id: '0'
-         },
-         {
-            name: "Giường gỗ công nghiệp",
-            _id: '1'
-         },
-         {
-            name: "Giường gỗ cổ điển",
-            _id: '2'
-         },
-         {
-            name: "Giường gỗ hiện đại",
-            _id: '3'
-         }
-      ]
 
       return (
          <Grid container spacing={32} className={classes.card} >
@@ -476,19 +456,20 @@ class Index extends BaseView {
             <Grid item xs={12}>
                <PaperFade showLoading={true} className={classes.card} >
                   <Grid container spacing={32}>
-                     <Grid item xs={4}>
+                     <Grid item xs={3}>
                         <AutoCompleteField
                            key="1"
                            fullWidth
                            select
-                           label={I18n.t("Input.bad.Chọn loại hàng")}
+                           label={I18n.t("Input.bad.Chọn hàng")}
                            // onChange={(value) => this.onHandleChange(value, 'typeBad')}
                            name="typeBad"
                            isMulti={false}
                            isClearable={false}
+                           defaultValue='0'
                         >
                            {
-                              goods.map(item => (
+                              typeGoods.map(item => (
                                  <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
                                     {item.name}
                                  </OptionAuto>
@@ -504,6 +485,7 @@ class Index extends BaseView {
                            label={I18n.t("Input.bad.Trạng thái đơn hàng")}
                            // onChange={(value) => this.onHandleChange(value, 'typeBad')}
                            name="status"
+                           defaultValue='0'
                            isMulti={false}
                            isClearable={false}
                         >

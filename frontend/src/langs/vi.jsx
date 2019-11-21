@@ -109,6 +109,7 @@ export default {
         createUser: "Thêm người dùng",
         createGroup: "Tạo nhóm",
         ok: "OK",
+        exit: 'Thoát',
         cancel: "Hủy bỏ",
         detail: "Chi tiết",
         detailReport: '詳細',

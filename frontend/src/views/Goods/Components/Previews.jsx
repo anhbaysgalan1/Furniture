@@ -38,23 +38,23 @@ import _ from 'lodash'
 let typeGoods = [
    {
       name: "Giường ngủ",
-      value: '1'
+      _id: '0'
    },
    {
       name: "Tủ Quần áo",
-      value: '2'
+      _id: '1'
    },
    {
       name: "Bàn phòng khách",
-      value: '3'
+      _id: '2'
    },
    {
       name: "Bàn trà",
-      value: '4'
+      _id: '3'
    },
    {
       name: "Tủ giày",
-      value: '4'
+      _id: '4'
    }
 ]
 let typeItem = [
@@ -130,17 +130,12 @@ class App extends Component {
       let { indexButton } = this.state
       let code = _.get(dataInput, 'code', '')
       let name = _.get(dataInput, 'name', '')
-      let typeGoods = _.get(dataInput, 'typeGoods.value', '')
-      let typeItem = _.get(dataInput, 'typeItem.value', '')
-      let typeWoods = _.get(dataInput, 'typeWoods.value', '')
-      let promotion = _.get(dataInput, 'promotion.value', '')
       let moneyNew = _.get(dataInput, 'moneyNew', '')
       let moneyOld = _.get(dataInput, 'moneyOld', '')
       let image1 = _.get(dataInput, 'image1', '')
       let image2 = _.get(dataInput, 'image2', '')
       let image3 = _.get(dataInput, 'image3', '')
       let image4 = _.get(dataInput, 'image4', '')
-      let content = _.get(dataInput, 'content', '')
       let images = [{ img: image1 }, { img: image2 }, { img: image3 }, { img: image4 }]
       return (
          <div>
