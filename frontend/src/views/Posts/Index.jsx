@@ -142,19 +142,15 @@ class Index extends BaseView {
         this.onHide = this.onHide.bind(this)
         this.onCancel = this.onCancel.bind(this)
     }
-
     onShow(dataRow){
         this.setState({open: true, dataRow: dataRow})
     }
-
     onHide(){
         this.setState({open: false})
     }
-
     onCancel(){
         this.onHide()
     }
-
     onDelete(_id){
         this.ConfirmDialog.show([_id])
         this.onHide()
@@ -162,7 +158,6 @@ class Index extends BaseView {
 
     renderDetail(){
         let { dataRow } = this.state
-        console.log("dataRow", dataRow)
         let { classes } = this.props
         let _id = this.getData(dataRow, "_id", '')
         return (
