@@ -17,40 +17,38 @@ class OrderController extends BaseController {
     async index({ request, response }) {
         let allowFields = {
             _id: 1,
-            status: 1,
             name: 1,
             phone: 1,
             address: 1,
-            money: 1,
-            number: 1,
-            pay: 1,
             goods: {
                 code: 1,
                 name: 1
             },
-            transportFee: 1,
+            number: 1,
+            money: 1,
+            status: 1,
+            pay: 1,
+            note: 1,
         }
         let result = await this.Model.aggregation([{
             $sort: {
                 _id: -1
             }
         }]).getForGridTable(request.query, allowFields)
-        console.log("xxxx", result)
         return result
     }
 
     async detail({ request, response }) {
         let allowFields = {
-            _id: 1,
-            status: 1,
             name: 1,
             phone: 1,
             address: 1,
-            money: 1,
-            number: 1,
-            pay: 1,
+            status: 1,
             goodsId: 1,
-            transportFee: 1,
+            number: 1,
+            money: 1,
+            pay: 1,            
+            note: 1,
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -60,14 +58,14 @@ class OrderController extends BaseController {
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             name: "string!",
-            status: 'string!',
             phone: "string!",
             address: "string!",
-            money: "string!",
-            number: "string!",
-            pay: "string!",
             goodsId: "objectid!",
-            transportFee: "string!",
+            number: "string!",
+            money: "string!",
+            status: 'string!',
+            pay: "string!",
+            note: 'string',           
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
             // check code, name khác nhau
@@ -95,14 +93,14 @@ class OrderController extends BaseController {
         //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             name: "string!",
-            status: 'string',
             phone: "string!",
             address: "string!",
-            money: "string!",
-            number: "string!",
-            pay: "string!",
             goodsId: "objectid!",
-            transportFee: "string!",
+            number: "string!",
+            money: "string!",
+            status: 'string!',
+            pay: "string!",
+            note: 'string',      
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
             // let existCode = await this.Model.getOne({

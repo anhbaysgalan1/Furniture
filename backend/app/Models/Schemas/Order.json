@@ -1,13 +1,12 @@
 {
     "_id": "objectid",
-    "code": "string",
     "name": "string",
-    "status": "string",
     "phone": "string",
     "address": "string",
-    "money": "string",
+    "goodsId": "objectid",
     "number": "string",
+    "money": "string",
+    "status": "string",
     "pay": "string",
-    "transportFee": "string",
-    "goodsId": "objectid"
+    "note": "string"
 }

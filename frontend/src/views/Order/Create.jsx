@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -21,40 +21,65 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
+import _ from 'lodash'
+
+const status = [
+   {
+      _id: '0',
+      name: "Mới"
+   },
+   {
+      _id: '1',
+      name: "Đang giao"
+   },
+   {
+      _id: '2',
+      name: "Hoàn thành"
+   },
+   {
+      _id: '3',
+      name: "Đổi hàng"
+   },
+   {
+      _id: '4',
+      name: "Thất bại"
+   }
+]
+let pays = [
+   {
+      name: "Thanh toán khi nhận hàng",
+      _id: '0'
+   },
+   {
+      name: "Chuyển khoản",
+      _id: '1'
+   },
+   {
+      name: "Ví điện tử",
+      _id: '2'
+   }
+]
 
 const styles = theme => ({
    paper: {
       padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   },
-   imgZoom: {
-      transition: "transform .5s, filter 3s ease-in-out",
-      filter: "grayscale(100%)",
-   },
-   imgZoom: {
-      "&:hover": {
-         filter: "grayscale(0)",
-         transform: "scale(1.1)",
-         transitionDuration: "1s",
-         transitionTimingFunction: "linear",
-      }
-   },
+   }
 })
 
 class Create extends BaseView {
    constructor(props) {
       super(props)
       this.state = {
+         reload: false,
          data: {
             name: '',
-            code: '',
-            image1: '',
-            image2: '',
-            image2: '',
-            image4: '',
-            moneyOld: '',
-            moneyNew: '',
-            typeGoods: '',
-            typeWoods: '',
+            phone: '',
+            address: '',
+            goodsId: '',
+            number: '1',
+            money: '0',
+            status: '',
+            pay: '',
             content: ''
          }
       }
@@ -71,102 +96,80 @@ class Create extends BaseView {
    }
 
    onHandleChange(value, name) {
-      let { data } = this.state
-      this.setState({
-         data: { ...this.state.data, [name]: value }
-      })
+      this.setState({ data: { ...this.state.data, [name]: value } })
+      this.setState({ reload: !this.state.reload })
+   }
+
+   phoneFormatter = (number) => {
+      number = number.replace(/[^\d]/g, '')
+      if (number.length == 4) {
+         number = number.replace(/(\d{4})/, "$1")
+      } else if (number.length == 5) {
+         number = number.replace(/(\d{4})(\d{1})/, "$1-$2")
+      } else if (number.length == 6) {
+         number = number.replace(/(\d{4})(\d{2})/, "$1-$2")
+      } else if (number.length == 7) {
+         number = number.replace(/(\d{4})(\d{3})/, "$1-$2")
+      } else if (number.length == 8) {
+         number = number.replace(/(\d{4})(\d{3})(\d{1})/, "$1-$2-$3")
+      } else if (number.length == 9) {
+         number = number.replace(/(\d{4})(\d{3})(\d{2})/, "$1-$2-$3")
+      } else if (number.length == 10) {
+         number = number.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3")
+      } else if (number.length == 11) {
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      } else if (number.length > 11) {
+         number = number.substring(0, 11)
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      }
+      return number
    }
 
    render() {
       const { classes, onSubmit, goods = [] } = this.props
       let { data } = this.state
-      let pays = [
-         {
-            name: "Thanh toán khi nhận hàng",
-            _id: '0'
-         },
-         {
-            name: "Chuyển khoản",
-            _id: '1'
-         },
-         {
-            name: "Ví điện tử",
-            _id: '2'
+      let goodsId = _.get(data, 'goodsId', '')
+      let number = Number(_.get(this.state, 'data.number', '1'))
+      let moneyNew = 0
+      let moneyOld = ''
+      let image = ''
+      let nameGoods = ''
+      let codeGoods = ''
+      goods.map(item => {
+         if (item._id == goodsId) {
+            moneyOld = _.get(item, 'moneyOld', '')
+            moneyNew = _.get(item, 'moneyNew', '')
+            nameGoods = _.get(item, 'name', '')
+            codeGoods = _.get(item, 'code', '')
+            image = _.get(item, 'image1', '')
          }
-      ]
-      let status = [
-         {
-            name: 'Chưa thanh toán',
-            _id: '0'
-         },
-         {
-            name: 'Đã thanh toán',
-            _id: '1'
-         }
-      ]
-
+      })
+      console.log("dtaaa", data)
       return (
          <Form className={classes.paper} onSubmit={onSubmit}>
             <Card>
                <CardContent>
                   <Grid container spacing={32}>
                      <Grid item xs={3} lg={3}>
-                        <Typography color='primary'>
-                           Xem đơn hàng
-                        </Typography>
-                        <CardActionArea className={classes.imgZoom}>
-                           {
-                              data.img && data.name && data.code
-                                 ?
-                                 <CardMedia
-                                    component="img"
-                                    alt="Contemplative Reptile"
-                                    height="200"
-                                    width="250"
-                                    image={data.img}
-                                    title={`${data.name} - ${data.code}`}
-                                 />
-                                 : ''
-                           }
-                           {
-                              data.moneyOld && data.moneyNew
-                                 ?
-                                 <CardContent>
-                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
-                                       {data.moneyOld} - {data.moneyNew}
-                                    </Typography>
-                                 </CardContent>
-                                 : ''
-                           }
-
-                        </CardActionArea>
+                        <center>
+                           { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
+                           { image ? <img src={image} height='350' width='250' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
+                           { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
+                           { moneyNew ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography> : '' }
+                           { moneyOld ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography></del> : '' }
+                        </center>
                      </Grid>
                      <Grid item xs={9}>
-                        <Grid container spacing={16}>
-                           <Grid item xs={6}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.order.name.Tên khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'name')}
-                                 name="name"
-                              />
-                           </Grid>
-                           <Grid item xs={6}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.order.phone.SĐT")}
-                                 onChange={(value) => this.onHandleChange(value, 'phone')}
-                                 name="phone"
-                              />
-                           </Grid>
-                           <Grid item xs={6}>
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
+                           <Grid item xs={4}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.order.goodsId.Tên Hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'goodsId')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
                                  name="goodsId"
+                                 value={goodsId}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -179,24 +182,84 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-
+                           <Grid item xs={2}>
+                              <AutoCompleteField
+                                 key="2"
+                                 fullWidth
+                                 select
+                                 label={I18n.t("Input.order.goodsId.Mã hàng")}
+                                 onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
+                                 name="goodsCode"
+                                 value={goodsId}
+                                 isMulti={false}
+                                 isClearable={false}
+                              >
+                                 {
+                                    goods.map(item => (
+                                       <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
+                                          {item.name}
+                                       </OptionAuto>
+                                    ))
+                                 }
+                              </AutoCompleteField>
+                           </Grid>
                            <Grid item xs={3}>
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.order.number.Số lượng")}
                                  onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
+                                 defaultValue={number}
+                                 onKeyDown={(e) => {
+                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                       e.preventDefault()
+                                    }
+                                    if (e.target.value.length >= 3) {
+                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                          e.preventDefault()
+                                       }
+                                    }
+                                 }}
                               />
                            </Grid>
                            <Grid item xs={3}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
                                  label={I18n.t("Input.order.money.Tổng tiền")}
-                                 onChange={(value) => this.onHandleChange(value, 'money')}
                                  name="money"
+                                 defaultValue={number * Number(moneyNew)}
+                                 onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>
-
+                        </Grid>
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                           <Grid item xs={4}>
+                              <TextField
+                                 fullWidth
+                                 label={I18n.t("Input.order.name.Tên khách hàng")}
+                                 onChange={(value) => this.onHandleChange(value, 'name')}
+                                 name="name"
+                              />
+                           </Grid>
+                           <Grid item xs={2}>
+                              <TextField
+                                 fullWidth
+                                 label={I18n.t("Input.order.phone.SĐT")}
+                                 onChange={(value) => this.onHandleChange(value, 'phone')}
+                                 formatData={(value) => this.phoneFormatter(value)}
+                                 onKeyDown={(e) => {
+                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                       e.preventDefault()
+                                    }
+                                    if (e.target.value.length >= 13) {
+                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                          e.preventDefault()
+                                       }
+                                    }
+                                 }}
+                                 name="phone"
+                              />
+                           </Grid>
                            <Grid item xs={6}>
                               <TextField
                                  fullWidth
@@ -205,15 +268,18 @@ class Create extends BaseView {
                                  name="address"
                               />
                            </Grid>
-                           <Grid item xs={3}>
+                        </Grid>
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                           <Grid item xs={6}>
                               <AutoCompleteField
-                                 key="2"
+                                 key="3"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.order.status.Trạng thái đơn hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'status')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'status')}
                                  name="status"
                                  isMulti={false}
+                                 defaultValue='0'
                                  isClearable={false}
                               >
                                  {
@@ -224,16 +290,15 @@ class Create extends BaseView {
                                     ))
                                  }
                               </AutoCompleteField>
-                           </Grid>
-                           <Grid item xs={3}>
                               <AutoCompleteField
-                                 key="3"
+                                 key="4"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.order.pay.Hình thức thanh toán")}
-                                 onChange={(value) => this.onHandleChange(value, 'pay')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'pay')}
                                  name="pay"
                                  isMulti={false}
+                                 defaultValue='0'
                                  isClearable={false}
                               >
                                  {
@@ -245,10 +310,10 @@ class Create extends BaseView {
                                  }
                               </AutoCompleteField>
                            </Grid>
-                           <Grid item xs={12}>
+                           <Grid item xs={6}>
                               <TextField
                                  multiline
-                                 rows={4}
+                                 rows={5}
                                  rowsMax={8}
                                  variant="outlined"
                                  fullWidth

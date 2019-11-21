@@ -57,36 +57,29 @@ const styles = theme => ({
    }
 })
 
-let statusArr = [
+const status = [
    {
-      value: '0',
-      title: 'Mới'
+      _id: '0',
+      name: "Mới"
    },
    {
-      value: '1',
-      title: 'Đang giao'
+      _id: '1',
+      name: "Đang giao"
    },
    {
-      value: '2',
-      title: 'Đã giao'
+      _id: '2',
+      name: "Hoàn thành"
    },
    {
-      value: '3',
-      title: 'Hoàn thành'
+      _id: '3',
+      name: "Đổi hàng"
    },
    {
-      value: '4',
-      title: 'Thất bại'
-   },
-   {
-      value: '5',
-      title: 'Đổi hàng'
-   },
-   {
-      value: '6',
-      title: 'Đã hủy'
-   },
+      _id: '4',
+      name: "Thất bại"
+   }
 ]
+
 
 class Index extends BaseView {
    constructor(props) {
@@ -101,7 +94,6 @@ class Index extends BaseView {
             address: '',
             count: '',
             pay: '',
-            transportFee: '',
          }
       }
       this.table = {
@@ -149,32 +141,39 @@ class Index extends BaseView {
                }
             },
             {
-               name: 'money',
-               title: I18n.t('Table.header.role.name.Số tiền hàng'),
+               name: 'number',
+               title: I18n.t('Table.header.role.number.Số Lượng'),
                style: {
                   textAlign: 'center',
                }
             },
             {
-               name: 'count',
-               title: I18n.t('Table.header.role.name.Số Lượng'),
+               name: 'money',
+               title: I18n.t('Table.header.role.name.Số tiền hàng'),
                style: {
                   textAlign: 'center',
+               },
+               formatterComponent: (data) => {
+                  let money = _.get(data, 'row.money', '')
+                  return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
                }
             },
             {
                name: 'pay',
                title: I18n.t('Table.header.role.name.Hình thức thanh toán'),
-               style: {
-                  textAlign: 'center',
-               }
-            },
-            {
-               name: 'transportFee',
-               title: I18n.t('Table.header.role.name.Phí giao hàng'),
-               style: {
-                  textAlign: 'center',
-               }
+               formatterComponent: (data) => {
+                  let pay = _.get(data, 'row.pay', '')
+                  switch(pay) {
+                     case '0':
+                        return "Thanh toán khi nhận hàng"
+                     case '1':
+                        return "Chuyển khoản"
+                     case '2':
+                        return 'Ví điện tử'
+                     default:
+                        return ''
+                  }
+               },
             },
             {
                name: 'status',
@@ -210,9 +209,8 @@ class Index extends BaseView {
             { columnName: 'phone', wordWrapEnabled: true },
             { columnName: 'address', wordWrapEnabled: true },
             { columnName: 'money', wordWrapEnabled: true },
-            { columnName: 'count', wordWrapEnabled: true },
+            { columnName: 'number', wordWrapEnabled: true },
             { columnName: 'pay', wordWrapEnabled: true },
-            { columnName: 'transportFee', wordWrapEnabled: true },
             { columnName: 'status', status: true },
             { columnName: '_id', align: 'center' },
          ],
@@ -224,35 +222,31 @@ class Index extends BaseView {
             },
             {
                name: 'goodsId',
-               width: 150
+               width: 70
             },
             {
                name: 'name',
-               width: 70
+               width: 120
             },
             {
                name: 'phone',
-               width: 70
+               width: 100
             },
             {
                name: 'address',
-               width: 150
+               width: 250
             },
             {
                name: 'money',
                width: 70
             },
             {
-               name: 'count',
+               name: 'number',
                width: 70
             },
             {
                name: 'pay',
-               width: 100
-            },
-            {
-               name: 'transportFee',
-               width: 100
+               width: 150
             },
             {
                name: 'status',
@@ -260,7 +254,7 @@ class Index extends BaseView {
             },
             {
                name: '_id',
-               width: 150
+               width: 200
             }
          ]
       }
@@ -291,25 +285,19 @@ class Index extends BaseView {
          case '1':
             return <Button color="primary" >Đang giao</Button>
          case '2':
-            return <Button color="primary" >Đã giao</Button>
-         case '3':
             return <Button color="primary" >Hoàn thành</Button>
+         case '3':
+            return <Button color="primary" >Đổi hàng</Button>
          case '4':
             return <Button color="primary" >Thất bại</Button>
-         case '5':
-            return <Button color="primary" >Đổi hàng</Button>
-         case '6':
-            return <Button color="primary" >Đã hủy</Button>
          default:
             return ''
       }
    }
-
    customUserColumn(data) {
       data = this.getData(data, "value", [])
       return data.length
    }
-
    customActionColumn(data) {
       let _id = this.getData(data, "value", '')
       let dataRow = this.getData(data, "row", '')
@@ -322,13 +310,12 @@ class Index extends BaseView {
             <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/order/${_id}`)}>
                {I18n.t("Button.edit")}
             </Button>
-            {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
-                    {I18n.t('Button.delete')}
-                </Button> */}
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+               {I18n.t('Button.delete')}
+            </Button>
          </div>
       )
    }
-
    renderToolbarActions() {
       return [
          <Tooltip title={I18n.t("toolTip.new")} key="create">
@@ -338,7 +325,6 @@ class Index extends BaseView {
          </Tooltip>,
       ]
    }
-
    renderSelectedActions(selectedIds) {
       return [
          <Tooltip title={I18n.t("toolTip.delete")} key="create">
@@ -348,7 +334,6 @@ class Index extends BaseView {
          </Tooltip>
       ]
    }
-
    renderDialogConfirmDelete() {
       return (
          <ConfirmDialog
@@ -359,7 +344,6 @@ class Index extends BaseView {
          />
       )
    }
-
    onHandleChange(value, name) {
       let { dataInput } = this.state
       this.setState({
@@ -392,9 +376,8 @@ class Index extends BaseView {
       return number
    }
 
-   renderDetail(classes, onSubmit) {
+   renderDetail() {
       let { dataRow } = this.state
-      console.log("dataRow", dataRow)
       let _id = this.getData(dataRow, "_id", '')
       let codeGoods = _.get(dataRow, 'goods.code', '')
       let nameGoods = _.get(dataRow, 'goods.name', '')
@@ -403,9 +386,7 @@ class Index extends BaseView {
       let money = _.get(dataRow, 'money', '')
       let nameUser = _.get(dataRow, 'name', '')
       let pay = _.get(dataRow, 'pay', '')
-
       let status = _.get(dataRow, 'status', '')
-      let transportFee = _.get(dataRow, 'transportFee', '')
       return (
          <Card>
             <Dialog
@@ -419,49 +400,42 @@ class Index extends BaseView {
                   <Table>
                      <TableBody>
                         <TableRow >
+                           <TableCell> Tên hàng </TableCell>
+                           <TableCell>{nameGoods}></TableCell>
+                        </TableRow>
+                        <TableRow >
                            <TableCell> Mã hàng </TableCell>
                            <TableCell>{codeGoods}</TableCell>
                         </TableRow>
                         <TableRow >
-                           <TableCell> Tên hàng </TableCell>
-                           <TableCell>{nameGoods}</TableCell>
-                        </TableRow>
-                        <TableRow >
-                           <TableCell> Tên khách hàng</TableCell>
+                           <TableCell> Tên khách hàng </TableCell>
                            <TableCell>{nameUser}</TableCell>
                         </TableRow>
                         <TableRow >
-                           <TableCell> SĐT</TableCell>
+                           <TableCell> SĐT </TableCell>
                            <TableCell>{this.phoneFormatter(phone)}</TableCell>
                         </TableRow>
                         <TableRow >
                            <TableCell> Địa chỉ </TableCell>
                            <TableCell>{address}</TableCell>
                         </TableRow>
-                      
                         <TableRow >
-                           <TableCell> Tổng tiền</TableCell>
+                           <TableCell> Tổng tiền </TableCell>
                            <TableCell>{money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</TableCell>
                         </TableRow>
                         <TableRow >
-                           <TableCell> Hình thức thanh toán</TableCell>
+                           <TableCell> Hình thức thanh toán </TableCell>
                            <TableCell>{pay}</TableCell>
                         </TableRow>
-                        <TableRow >
+                        <TableRow>
                            <TableCell> Trạng thái đơn hàng </TableCell>
                            <TableCell>{this.formatStatus(status)}</TableCell>
-                        </TableRow>
-                        <TableRow >
-                           <TableCell> Phí giao hàng </TableCell>
-                           <TableCell>{transportFee}</TableCell>
                         </TableRow>
                      </TableBody>
                   </Table>
                </DialogContent>
                <DialogActions>
-                  <Button className={classes.button} variant='contained' color="primary"
-                     onClick={() => this.onCancel()}
-                  >
+                  <Button variant='contained' color="primary" onClick={() => this.onCancel()}>
                      {I18n.t("Button.Thoát")}
                   </Button>
                </DialogActions>
@@ -473,26 +447,22 @@ class Index extends BaseView {
 
    render() {
       const { data, classes, onSubmit } = this.props
-      let copyPermission = [
+      let goods = [
          {
             name: "Giường gỗ tự nhiên",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
+            _id: '0'
          },
          {
             name: "Giường gỗ công nghiệp",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
+            _id: '1'
          },
          {
             name: "Giường gỗ cổ điển",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
+            _id: '2'
          },
          {
             name: "Giường gỗ hiện đại",
-            code: 'GG1',
-            _id: 'hdjffngjgihghjh'
+            _id: '3'
          }
       ]
 
@@ -500,7 +470,7 @@ class Index extends BaseView {
          <Grid container spacing={32} className={classes.card} >
             <Grid item xs={12}>
                {
-                  this.renderDetail(classes, onSubmit)
+                  this.renderDetail()
                }
             </Grid>
             <Grid item xs={12}>
@@ -518,7 +488,7 @@ class Index extends BaseView {
                            isClearable={false}
                         >
                            {
-                              copyPermission.map(item => (
+                              goods.map(item => (
                                  <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
                                     {item.name}
                                  </OptionAuto>
@@ -526,9 +496,9 @@ class Index extends BaseView {
                            }
                         </AutoCompleteField>
                      </Grid>
-                     <Grid item xs={4}>
+                     <Grid item xs={2}>
                         <AutoCompleteField
-                           key="3"
+                           key="2"
                            fullWidth
                            select
                            label={I18n.t("Input.bad.Trạng thái đơn hàng")}
@@ -538,9 +508,9 @@ class Index extends BaseView {
                            isClearable={false}
                         >
                            {
-                              statusArr.map(item => (
-                                 <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
-                                    {item.title}
+                              status.map(item => (
+                                 <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
+                                    {item.name}
                                  </OptionAuto>
                               ))
                            }
