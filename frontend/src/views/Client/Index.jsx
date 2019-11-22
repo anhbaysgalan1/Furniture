@@ -156,8 +156,10 @@ class Index extends BaseView {
                   textAlign: 'center',
                },
                formatterComponent: (data) => {
-                  let goodsIds = _.get(data, 'row.goodsIds', [])
-                  return this.renderGoods(goodsIds)
+                  let goodsIds = _.get(data, 'row.goodsIds', []) || []
+                  if(goodsIds.length)
+                     return this.renderGoods(goodsIds)
+                  return ''
                },
             },
             {
@@ -265,10 +267,11 @@ class Index extends BaseView {
    }
    renderGoods(goodsIds = []) {
       return goodsIds.map((item, index) => {
+         let code = _.get(item, 'code', '')
          if (++index == goodsIds.length) {
-            return <span key={index}>{item.code}</span>
+            return <span key={index}>{code}</span>
          }
-         return <span key={index}>{item.code} - </span>
+         return <span key={index}>{code} - </span>
       })
    }
    onDelete(_id) {
@@ -301,9 +304,8 @@ class Index extends BaseView {
       let address = _.get(dataRow, 'address', '')
       let money = _.get(dataRow, 'money', '')
       let number = _.get(dataRow, 'number', '')
-      let goodsIds = _.get(dataRow, 'goodsIds', [])
+      let goodsIds = _.get(dataRow, 'goodsIds', []) || []
       let note = _.get(dataRow, 'note', '')
-
       return (
          <Card>
             <Dialog
@@ -348,13 +350,15 @@ class Index extends BaseView {
                            <TableCell> Hàng đã mua</TableCell>
                            <TableCell>
                               {
-                                 goodsIds.map((item, index) => {
-                                    return (
-                                       <div key={index}>
-                                          {item.name}
-                                       </div>
-                                    )
-                                 })
+                                 goodsIds.length ? 
+                                    goodsIds.map((item, index) => {
+                                       return (
+                                          <div key={index}>
+                                             {item.name}
+                                          </div>
+                                       )
+                                    })
+                                 : ''
                               }
                            </TableCell>
                         </TableRow>

@@ -25,7 +25,8 @@ class Index extends BaseContainer {
             .then(data => {
                 if (!data.error) {
                     this.notify(I18n.t('Message.createDataSuccess'))
-                    // this.goto("/order")
+                    // this.goto("/order/create")
+                    this.goto("/order")
                 }
                 else {
                     let err = data.error

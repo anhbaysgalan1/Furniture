@@ -4,7 +4,6 @@ import AutoCompleteField from './AutoCompleteField'
 import CheckboxField from './CheckboxField'
 import DateRangeField from './DateRangeField'
 import DateTimeField from './DateTimeField'
-import DateTimeFieldCopy from './DateTimeFieldCopy'
 import MultipleSelectField from './MultipleSelectField'
 import RadioGroupField from './RadioGroupField'
 import SelectField from './SelectField'
@@ -20,7 +19,6 @@ export {
   CheckboxField,
   DateRangeField,
   DateTimeField,
-  DateTimeFieldCopy,
   MultipleSelectField,
   RadioGroupField,
   SelectField,

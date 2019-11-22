@@ -56,7 +56,6 @@ const styles = theme => ({
       padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
    }
 })
-
 const status = [
    {
       _id: '0',
@@ -127,9 +126,20 @@ class Index extends BaseView {
                sortable: false,
             },
             {
+               name: 'insert',
+               title: I18n.t('Table.header.role.date.Ngày'),
+               filterable: false,
+               sortable: false,
+               formatterComponent: (data) => {
+                  let date = _.get(data, 'row.insert.when', '')
+                  return moment(date).format('DD/MM/YYYY')
+               },
+            },
+            {
                name: 'goodsId',
                title: I18n.t('Table.header.role.name.Mã sản phẩm'),
                formatterComponent: (data) => {
+                  console.log("date", data)
                   let code = _.get(data, 'row.goods.code', '')
                   return code
                },
@@ -198,20 +208,25 @@ class Index extends BaseView {
          ],
          defaultSort: [],
          tableColumnExtensions: [
-            { columnName: 'goodsId', wordWrapEnabled: true },
-            { columnName: 'name', wordWrapEnabled: true },
-            { columnName: 'phone', wordWrapEnabled: true },
-            { columnName: 'address', wordWrapEnabled: true },
-            { columnName: 'money', wordWrapEnabled: true },
-            { columnName: 'number', wordWrapEnabled: true },
-            { columnName: 'pay', wordWrapEnabled: true },
-            { columnName: 'status', status: true },
-            { columnName: '_id', align: 'center' },
+            { columnName: 'goodsId',   wordWrapEnabled: true },
+            { columnName: 'insert',    wordWrapEnabled: true },
+            { columnName: 'name',      wordWrapEnabled: true },
+            { columnName: 'phone',     wordWrapEnabled: true },
+            { columnName: 'address',   wordWrapEnabled: true },
+            { columnName: 'money',     wordWrapEnabled: true },
+            { columnName: 'number',    wordWrapEnabled: true },
+            { columnName: 'pay',       wordWrapEnabled: true },
+            { columnName: 'status',    status: true },
+            { columnName: '_id',       align: 'center' },
          ],
          columnWidths: [
             {
                name: 'index',
                width: 80
+            },
+            {
+               name: 'insert',
+               width: 100,
             },
             {
                name: 'goodsId',
@@ -227,7 +242,7 @@ class Index extends BaseView {
             },
             {
                name: 'address',
-               width: 350
+               width: 250
             },
             {
                name: 'money',
@@ -258,6 +273,7 @@ class Index extends BaseView {
       this.onHide = this.onHide.bind(this)
       this.onCancel = this.onCancel.bind(this)
       this.onHandleChange = this.onHandleChange.bind(this)
+      this.onDelete = this.onDelete.bind(this)
    }
 
    onShow(dataRow) {
@@ -269,6 +285,10 @@ class Index extends BaseView {
    }
    onCancel() {
       this.onHide()
+   }
+   onDelete(_id){
+      this.onHide()
+      this.ConfirmDialog.show([_id])
    }
 
    formatStatus(status) {
@@ -319,6 +339,7 @@ class Index extends BaseView {
       ]
    }
    renderSelectedActions(selectedIds) {
+      console.log("Mèo con")
       return [
          <Tooltip title={I18n.t("toolTip.delete")} key="create">
             <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
@@ -328,6 +349,7 @@ class Index extends BaseView {
       ]
    }
    renderDialogConfirmDelete() {
+      console.log("Cho con")
       return (
          <ConfirmDialog
             ref={(ref) => this.ConfirmDialog = ref}
@@ -428,7 +450,7 @@ class Index extends BaseView {
                   </Table>
                </DialogContent>
                <DialogActions>
-                  <Button color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+                  <Button color="primary" onClick={() => this.onDelete(_id)}>
                      {I18n.t('Button.delete')}
                   </Button>
                   <Button color="primary" onClick={() => this.goto(`/order/${_id}`)}>

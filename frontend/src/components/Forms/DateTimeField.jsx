@@ -8,10 +8,10 @@ import moment from 'moment'
 import { I18n } from 'react-redux-i18n'
 import 'moment/locale/ja'
 import { MuiPickersUtilsProvider, TimePicker, DatePicker, DateTimePicker } from 'material-ui-pickers'
-import InputAdornment from '@material-ui/core/InputAdornment';
-import CalendarToday from '@material-ui/icons/CalendarToday';
+import InputAdornment from '@material-ui/core/InputAdornment'
+import CalendarToday from '@material-ui/icons/CalendarToday'
 // import WatchIcon from '@material-ui/icons/Watch'
-import Icon from '@material-ui/core/Icon';
+import Icon from '@material-ui/core/Icon'
 
 const debug = require("debug")("mq:form:DateTimeField")
 
@@ -19,7 +19,7 @@ const styles = theme => ({
 })
 class LocalizedUtils extends DateFnsUtils {
    getDatePickerHeaderText(date) {
-      return moment(date).locale(I18n.t("DateTimeField.locale")).format('ll');
+      return moment(date).locale(I18n.t("DateTimeField.locale")).format('ll')
    }
    getMeridiemText(hour) {
       return "am" === hour ? I18n.t("DateTimeField.AM") : I18n.t("DateTimeField.PM")
@@ -51,6 +51,7 @@ class DateTimeField extends BaseField {
          Component = DatePicker
          format = 'YYYY/MM/DD'
       }
+      // debugger
       return (
          <MuiPickersUtilsProvider utils={LocalizedUtils}>
             <Component
@@ -68,10 +69,10 @@ class DateTimeField extends BaseField {
                   endAdornment: (
                      <InputAdornment position="end">
                         {showTime ? <Icon color="primary">watch_later</Icon> : <CalendarToday color="primary" />}
-
                      </InputAdornment>
                   ),
                }}
+               
                onChange={value => this.onChange(value)}
                onBlur={e => this.onBlur(e)}
             />

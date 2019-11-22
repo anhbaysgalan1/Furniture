@@ -31,6 +31,7 @@ class Edit extends BaseContainer {
       .then(data => {
          if (!data.error) {
             this.notify(I18n.t('Message.editDataSuccess'))
+            // this.goto(`/order/${this.id}`)
             this.goto("/order")
          }
          else {

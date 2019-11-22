@@ -297,7 +297,7 @@ class Index extends BaseView {
                   <Button className={classes.button} color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
                      {I18n.t("Button.edit")}
                   </Button>
-                  <Button className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
+                  <Button className={classes.button} disabled color="primary" onClick={() => this.onDelete(_id)}>
                      {I18n.t('Button.delete')}
                   </Button>
                </DialogActions>

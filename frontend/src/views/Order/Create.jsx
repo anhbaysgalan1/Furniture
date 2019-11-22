@@ -151,13 +151,13 @@ class Create extends BaseView {
                <CardContent>
                   <Grid container spacing={32}>
                      <Grid item xs={3} lg={3}>
-                        <center>
+                        {/* <center>
                            { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
-                           { image ? <img src={image} height='350' width='250' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
+                           { image ? <img src={image} height='350' width='280' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
                            { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
                            { moneyNew ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography> : '' }
                            { moneyOld ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography></del> : '' }
-                        </center>
+                        </center> */}
                      </Grid>
                      <Grid item xs={9}>
                         <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
@@ -209,7 +209,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.order.number.Số lượng")}
                                  onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
-                                 defaultValue={number}
+                                 defaultValue={`${number}`}
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
                                        e.preventDefault()
@@ -225,9 +225,9 @@ class Create extends BaseView {
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.money.Tổng tiền")}
+                                 label={I18n.t("Input.order.money.Tiền hàng")}
                                  name="money"
-                                 defaultValue={number * Number(moneyNew)}
+                                 defaultValue={`${number * Number(moneyNew)}`}
                                  onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>
@@ -269,7 +269,7 @@ class Create extends BaseView {
                               />
                            </Grid>
                         </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                        <Grid container spacing={16}> 
                            <Grid item xs={6}>
                               <AutoCompleteField
                                  key="3"
@@ -320,6 +320,41 @@ class Create extends BaseView {
                                  label={I18n.t("Input.order.note.Ghi chú")}
                                  onChange={(value) => this.onHandleChange(value, 'note')}
                                  name="note"
+                              />
+                           </Grid>
+                        </Grid>
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                           <Grid item xs={3}>
+                              <MoneyField
+                                 fullWidth
+                                 label={I18n.t("Input.order.amount.Tiền thu về thực tế")}
+                                 name="amount"
+                                 onChange={(value) => this.onHandleChange(value, 'amount')}
+                              />
+                           </Grid>
+                           <Grid item xs={3}>
+                              <MoneyField
+                                 fullWidth
+                                 label={I18n.t("Input.order.moneyImportGoods.Tiền nhập hàng")}
+                                 name="moneyImportGoods"
+                                 onChange={(value) => this.onHandleChange(value, 'moneyImportGoods')}
+                              />
+                           </Grid>
+                           <Grid item xs={3}>
+                              <MoneyField
+                                 fullWidth
+                                 label={I18n.t("Input.order.cost.Chi phí")}
+                                 name="cost"
+                                 onChange={(value) => this.onHandleChange(value, 'cost')}
+                              />
+                           </Grid>
+                           <Grid item xs={3}>
+                              <MoneyField
+                                 fullWidth
+                                 // disabled
+                                 label={I18n.t("Input.order.profit.Lợi nhuận")}
+                                 name="profit"
+                                 onChange={(value) => this.onHandleChange(value, 'profit')}
                               />
                            </Grid>
                         </Grid>

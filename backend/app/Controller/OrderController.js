@@ -29,6 +29,13 @@ class OrderController extends BaseController {
             status: 1,
             pay: 1,
             note: 1,
+            amount: 1,
+            moneyImportGoods: 1,
+            cost: 1,
+            profit: 1,
+            insert: {
+                when: 1
+            }
         }
         let result = await this.Model.aggregation([{
             $sort: {
@@ -49,6 +56,13 @@ class OrderController extends BaseController {
             money: 1,
             pay: 1,            
             note: 1,
+            amount: 1,
+            moneyImportGoods: 1,
+            cost: 1,
+            profit: 1,
+            // insert: {
+            //     when: 1
+            // }
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -65,7 +79,12 @@ class OrderController extends BaseController {
             money: "string!",
             status: 'string!',
             pay: "string!",
-            note: 'string',           
+            note: 'string',
+            amount: "string",
+            moneyImportGoods: "string",  
+            cost: "string",
+            profit: "string", 
+                   
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
             // check code, name khác nhau
@@ -100,7 +119,11 @@ class OrderController extends BaseController {
             money: "string!",
             status: 'string!',
             pay: "string!",
-            note: 'string',      
+            note: 'string',
+            amount: "string",
+            moneyImportGoods: 'string',
+            cost: "string",
+            profit: "string",   
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
             // let existCode = await this.Model.getOne({

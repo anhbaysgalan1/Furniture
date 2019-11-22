@@ -8,5 +8,8 @@
     "money": "string",
     "status": "string",
     "pay": "string",
-    "note": "string"
+    "note": "string",
+    "amount": "string",
+    "cost": "string",
+    "profit": "string" 
 }
