@@ -180,11 +180,6 @@ class Create extends BaseView {
                      />
                   </Grid>
                </Grid>
-               <center>
-                  <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
-                     Thêm Nội dung
-                  </Button>
-               </center>
                {
                   arrItem.map((_item, index) => {
                      let content = _.get(_item, 'content', [])
@@ -260,6 +255,12 @@ class Create extends BaseView {
                      )
                   })
                }
+               <br />
+               <center>
+                  <Button color='primary' variant='outlined' onClick={() => this.addItem()}>
+                     Thêm Nội dung
+                  </Button>
+               </center>
                <Grid container spacing={32}>
                   <Grid item xs={12}>
                      <TextField

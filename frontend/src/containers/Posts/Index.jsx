@@ -61,9 +61,7 @@ class Index extends BaseContainer {
                             break
                         }
                         default: this.notify(`Response: [${err.status}] ${err.message}`, 'error')
-
                     }
-
                 }
             })
     }

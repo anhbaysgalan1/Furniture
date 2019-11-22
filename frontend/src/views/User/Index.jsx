@@ -188,7 +188,7 @@ class Index extends BaseView {
                             totalCount={data.total}
                             pageSize={data.pageSize}
                             defaultSort={this.table.defaultSort}
-                            showCheckboxColumn={true}
+                            showCheckboxColumn={false}
                             height="auto"
                             selectedActions={this.renderSelectedActions}
                             tableActions={this.renderToolbarActions}

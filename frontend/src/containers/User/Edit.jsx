@@ -66,6 +66,7 @@ class Edit extends BaseContainer {
     }
 
     onChangePassword(values) {
+        console.log("sssss", values)
         this.props.dispatch(UserAction.editPassword({ _id: this.id, ...values }))
         .then(data => {
             if (!data.error) {

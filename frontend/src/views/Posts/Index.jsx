@@ -131,7 +131,7 @@ class Index extends BaseView {
             },
             {
                name: '_id',
-               width: 70
+               width: 120
             }
          ]
       }
@@ -173,18 +173,18 @@ class Index extends BaseView {
                <DialogContent>
                   <Typography variant="h6">
                      Xem chi tiết đơn hàng
-                        </Typography>
+                  </Typography>
                   <Previews data={dataRow} />
                </DialogContent>
                <DialogActions>
                   <Button className={classes.button} color="primary" onClick={() => this.goto(`/posts/${_id}`)}>
                      {I18n.t("Button.edit")}
                   </Button>
-                  <Button disabled className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
+                  <Button className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
                      {I18n.t('Button.delete')}
                   </Button>
                   <Button className={classes.button} color="primary" onClick={() => this.onHide()}>
-                     {I18n.t("Button.cancel")}
+                     {I18n.t("Button.exit")}
                   </Button>
                </DialogActions>
             </Dialog>
@@ -206,8 +206,11 @@ class Index extends BaseView {
             <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onShow(dataRow)}>
                {I18n.t('Button.detail')}
             </Button>
-            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/posts/${_id}`)}>
                {I18n.t("Button.edit")}
+            </Button>
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/posts/${_id}/detail`)}>
+               {I18n.t("Button.Xem tin")}
             </Button>
             {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
                     {I18n.t('Button.delete')}

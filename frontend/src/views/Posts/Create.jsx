@@ -161,7 +161,7 @@ class Create extends BaseView {
       return (
           <Card>
               <Dialog
-                  // fullWidth={true}
+                  fullWidth={true}
                   data={dataRow}
                   onClose={this.onCancel}
                   open={this.state.open}
@@ -176,7 +176,7 @@ class Create extends BaseView {
                   </DialogContent>
                   <DialogActions>
                      <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onHide()}>
-                        {I18n.t("Button.cancel")}
+                        {I18n.t("Button.exit")}
                      </Button>
                   </DialogActions>
               </Dialog>
@@ -346,7 +346,6 @@ class Create extends BaseView {
    render() {
       const { classes } = this.props
       let { dataInput } = this.state
-      console.log( 'dataInput', dataInput)
       return (
          <div>
             {

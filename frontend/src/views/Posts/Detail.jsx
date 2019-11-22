@@ -75,7 +75,7 @@ class Create extends BaseView {
                {contentStart}
             </Typography>
             <center>
-               { image == 'noImg' ? '' : <img src={image} height="70%" width='70%' alt='Nội thất Dodo' />}
+               { image == '' ? '' : <img src={image} height="70%" width='70%' alt='Nội thất Dodo' />}
             </center>
             {
                dataItem.map((element, index) => {
@@ -88,7 +88,7 @@ class Create extends BaseView {
                            {title}
                         </Typography>
                         <center>
-                           { image == 'noImg' ? "" :  <img src={image} height="70%" width='70%' alt='Nội thất Dodo' /> }
+                           { image == '' ? "" :  <img src={image} height="70%" width='70%' alt='Nội thất Dodo' /> }
                         </center>
                         <ul>
                            {
