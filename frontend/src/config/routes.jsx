@@ -14,9 +14,15 @@ const ContactIndex      = lazy(() => import('containers/Contact/Index'))
 const GoodsIndex        = lazy(() => import('containers/Goods/Index'))
 const GoodsCreate       = lazy(() => import('containers/Goods/Create'))
 const GoodsEdit         = lazy(() => import('containers/Goods/Edit'))
+
 const OrderIndex        = lazy(() => import('containers/Order/Index'))
 const OrderCreate    = lazy(() => import('containers/Order/Create'))
 const OrderEdit      = lazy(() => import('containers/Order/Edit'))
+
+const FinanceIndex        = lazy(() => import('containers/Finance/Index'))
+const FinanceCreate    = lazy(() => import('containers/Finance/Create'))
+const FinanceEdit      = lazy(() => import('containers/Finance/Edit'))
+
 const ClientIndex       = lazy(() => import('containers/Client/Index'))
 const ClientCreate      = lazy(() => import('containers/Client/Create'))
 const ClientEdit        = lazy(() => import('containers/Client/Edit'))
@@ -317,6 +323,31 @@ const routes = [
         component: () => <OrderEdit />,
         exact: true,
         sidebarName: 'order'
+    },
+    //---------------------------------------
+    {
+        path: "/finance",
+        name: 'finance',
+        title: () => I18n.t("Breadcrumb.financeIndex"),
+        component: () => <FinanceIndex />,
+        exact: true,
+        sidebarName: 'finance'
+    },
+    {
+        path: "/finance/create",
+        name: 'finance.create',
+        title: () => I18n.t("Breadcrumb.financeCreate"),
+        component: () => <FinanceCreate />,
+        exact: true,
+        sidebarName: 'finance'
+    },
+    {
+        path: "/finance/:id",
+        name: 'finance.edit',
+        title: () => I18n.t("Breadcrumb.financeEdit"),
+        component: () => <FinanceEdit />,
+        exact: true,
+        sidebarName: 'finance'
     },
     //---------------------------------------
     {

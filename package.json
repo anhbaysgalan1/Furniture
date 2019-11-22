@@ -17,6 +17,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "^1.3.11",
     "@linways/table-to-excel": "^1.0.4",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.29",

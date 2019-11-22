@@ -10,6 +10,7 @@ import DiningRoomIndex from 'containers/DiningRoom/Index'
 import TableEatIndex from 'containers/TableEat/Index'
 import TableRestaurantIndex from 'containers/TableRestaurant/Index'
 import OrderIndex from 'containers/Order/Index'
+import FinanceIndex from 'containers/Finance/Index'
 import GoodsIndex from 'containers/Goods/Index'
 import ClientIndex from 'containers/Client/Index'
 
@@ -71,6 +72,13 @@ const sidebar = [
         title: <Translate value="Sidebar.order" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
         icon: <Icon>account_circle</Icon>,
         component: () => <OrderIndex />
+    },
+    {
+        path: "/finance", 
+        name: 'finance',
+        title: <Translate value="Sidebar.finance" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <FinanceIndex />
     },
     {
         path: "/goods", 

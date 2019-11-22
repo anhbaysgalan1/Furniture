@@ -117,6 +117,7 @@ export default {
         submit: "Xác nhận",
     },
     Sidebar: {
+        finance: 'Tài chính',
         client: 'Khách hàng',
         posts: "Tin tức",
         order: "Quan ly don hang",
@@ -146,6 +147,13 @@ export default {
         postsQuality: 'Tiêu chuẩn xuất khẩu',
         goodsIndex: 'Quan ly hang hoa',
         orderIndex: 'Quan ly don hang',
+        orderCreate: 'Tạo đơn hàng',
+        orderEdit: 'Sửa đơn hàng',
+
+        financeIndex: 'Tài chính',
+        financeCreate: 'Thên thông tin tài chính',
+        financeEdit: 'Sửa thông tin tài chính',
+
         badIndex: 'Giường ngủ',
         diningRoomIndex: 'Phòng bếp',
         tableEatIndex: 'Bàn ăn',

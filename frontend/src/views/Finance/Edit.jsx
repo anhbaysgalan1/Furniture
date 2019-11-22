@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation, MoneyField, DateTimeField } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -71,13 +71,13 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         data: {
+         dataInput: {
             name: '',
             phone: '',
             address: '',
             goodsId: '',
-            number: '1',
-            money: '0',
+            number: '',
+            money: '',
             status: '',
             pay: '',
             content: ''
@@ -93,14 +93,15 @@ class Create extends BaseView {
             Validation.required(I18n.t("Form.required"))
          ],
       }
+      this.phoneFormatter = this.phoneFormatter.bind(this)
    }
 
    onHandleChange(value, name) {
-      this.setState({ data: { ...this.state.data, [name]: value } })
+      this.setState({ dataInput: { ...this.state.dataInput, [name]: value } })
       this.setState({ reload: !this.state.reload })
    }
 
-   phoneFormatter = (number) => {
+   phoneFormatter(number) {
       number = number.replace(/[^\d]/g, '')
       if (number.length == 4) {
          number = number.replace(/(\d{4})/, "$1")
@@ -126,11 +127,25 @@ class Create extends BaseView {
    }
 
    render() {
-      const { classes, onSubmit, goods = [] } = this.props
-      let { data } = this.state
+      const { classes, onSubmit, goods = [], data } = this.props
+      let { dataInput } = this.state
+      let goodsIdState = _.get(dataInput, 'goodsId', '')
+      let numberState = _.get(dataInput, 'number', '')
+      let name = _.get(data, 'name', '')
+      let phone = _.get(data, 'phone', '')
+      let address = _.get(data, 'address', '')
       let goodsId = _.get(data, 'goodsId', '')
-      let number = Number(_.get(this.state, 'data.number', '1'))
-      let moneyNew = 0
+      let number = _.get(data, 'number', '')
+      let money = _.get(data, 'money', '')
+      let _status = _.get(data, 'status', '')
+      let pay = _.get(data, 'pay', '')
+      let note = _.get(data, 'note', '')
+      let amount = _.get(data, 'amount', '')
+      let moneyImportGoods = _.get(data, 'moneyImportGoods', '')
+      let cost = _.get(data, 'cost', '')
+      let profit = _.get(data, 'profit', '')
+      console.log("Dtae", data)
+      let moneyNew = ''
       let moneyOld = ''
       let image = ''
       let nameGoods = ''
@@ -144,7 +159,7 @@ class Create extends BaseView {
             image = _.get(item, 'image1', '')
          }
       })
-      console.log("dtaaa", data)
+      number = numberState ? numberState : number
       return (
          <Form className={classes.paper} onSubmit={onSubmit}>
             <Card>
@@ -155,8 +170,8 @@ class Create extends BaseView {
                            { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
                            { image ? <img src={image} height='350' width='280' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
                            { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
-                           { moneyNew ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography> : '' }
-                           { moneyOld ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography></del> : '' }
+                           { moneyNew  ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography> : '' }
+                           { moneyOld  ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography></del> : '' }
                         </center> */}
                      </Grid>
                      <Grid item xs={9}>
@@ -166,10 +181,10 @@ class Create extends BaseView {
                                  key="1"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.order.goodsId.Tên Hàng")}
+                                 label={I18n.t("Input.finance.goodsId.Tên Hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
                                  name="goodsId"
-                                 value={goodsId}
+                                 value={goodsIdState || goodsId}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -187,10 +202,10 @@ class Create extends BaseView {
                                  key="2"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.order.goodsId.Mã hàng")}
+                                 label={I18n.t("Input.finance.goodsId.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
                                  name="goodsCode"
-                                 value={goodsId}
+                                 value={goodsIdState || goodsId}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -206,10 +221,10 @@ class Create extends BaseView {
                            <Grid item xs={3}>
                               <TextField
                                  fullWidth
-                                 label={I18n.t("Input.order.number.Số lượng")}
+                                 label={I18n.t("Input.finance.number.Số lượng")}
                                  onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
-                                 defaultValue={`${number}`}
+                                 defaultValue={number}
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
                                        e.preventDefault()
@@ -225,27 +240,30 @@ class Create extends BaseView {
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.money.Tiền hàng")}
+                                 label={I18n.t("Input.finance.money.Tổng tiền")}
                                  name="money"
-                                 defaultValue={`${number * Number(moneyNew)}`}
+                                 disabled={true}
+                                 defaultValue={`${Number(number) * Number(moneyNew)}` || `${money}`}
                                  onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>
                         </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={4}>
                               <TextField
                                  fullWidth
-                                 label={I18n.t("Input.order.name.Tên khách hàng")}
+                                 label={I18n.t("Input.finance.name.Tên khách hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
+                                 value={name}
                                  name="name"
                               />
                            </Grid>
                            <Grid item xs={2}>
                               <TextField
                                  fullWidth
-                                 label={I18n.t("Input.order.phone.SĐT")}
+                                 label={I18n.t("Input.finance.phone.SĐT")}
                                  onChange={(value) => this.onHandleChange(value, 'phone')}
+                                 defaultValue={this.phoneFormatter(phone)}
                                  formatData={(value) => this.phoneFormatter(value)}
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
@@ -263,23 +281,24 @@ class Create extends BaseView {
                            <Grid item xs={6}>
                               <TextField
                                  fullWidth
-                                 label={I18n.t("Input.order.address.Địa chỉ")}
+                                 label={I18n.t("Input.finance.address.Địa chỉ")}
                                  onChange={(value) => this.onHandleChange(value, 'address')}
+                                 value={address}
                                  name="address"
                               />
                            </Grid>
                         </Grid>
-                        <Grid container spacing={16}> 
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={6}>
                               <AutoCompleteField
                                  key="3"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.order.status.Trạng thái đơn hàng")}
+                                 label={I18n.t("Input.finance.status.Trạng thái đơn hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'status')}
                                  name="status"
                                  isMulti={false}
-                                 defaultValue='0'
+                                 defaultValue={_status}
                                  isClearable={false}
                               >
                                  {
@@ -294,11 +313,11 @@ class Create extends BaseView {
                                  key="4"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.order.pay.Hình thức thanh toán")}
+                                 label={I18n.t("Input.finance.pay.Hình thức thanh toán")}
                                  onChange={(data) => this.onHandleChange(data.value, 'pay')}
                                  name="pay"
                                  isMulti={false}
-                                 defaultValue='0'
+                                 defaultValue={pay}
                                  isClearable={false}
                               >
                                  {
@@ -317,34 +336,38 @@ class Create extends BaseView {
                                  rowsMax={8}
                                  variant="outlined"
                                  fullWidth
-                                 label={I18n.t("Input.order.note.Ghi chú")}
+                                 defaultValue={note}
+                                 label={I18n.t("Input.finance.note.Ghi chú")}
                                  onChange={(value) => this.onHandleChange(value, 'note')}
                                  name="note"
                               />
                            </Grid>
                         </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
+                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.amount.Tiền thu về thực tế")}
+                                 label={I18n.t("Input.finance.amount.Tiền thu về thực tế")}
                                  name="amount"
+                                 defaultValue={amount}
                                  onChange={(value) => this.onHandleChange(value, 'amount')}
                               />
                            </Grid>
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.moneyImportGoods.Tiền nhập hàng")}
+                                 label={I18n.t("Input.finance.moneyImportGoods.Tiền nhập hàng")}
                                  name="moneyImportGoods"
+                                 defaultValue={moneyImportGoods}
                                  onChange={(value) => this.onHandleChange(value, 'moneyImportGoods')}
                               />
                            </Grid>
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.cost.Chi phí")}
+                                 label={I18n.t("Input.finance.cost.Chi phí")}
                                  name="cost"
+                                 defaultValue={cost}
                                  onChange={(value) => this.onHandleChange(value, 'cost')}
                               />
                            </Grid>
@@ -352,8 +375,9 @@ class Create extends BaseView {
                               <MoneyField
                                  fullWidth
                                  // disabled
-                                 label={I18n.t("Input.order.profit.Lợi nhuận")}
+                                 label={I18n.t("Input.finance.profit.Lợi nhuận")}
                                  name="profit"
+                                 defaultValue={profit}
                                  onChange={(value) => this.onHandleChange(value, 'profit')}
                               />
                            </Grid>
@@ -362,7 +386,7 @@ class Create extends BaseView {
                   </Grid>
                </CardContent>
                <CardActions>
-                  <Button variant="contained" color="primary" onClick={() => this.goto("/order")}>
+                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
                      <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                   </Button>
                   <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>

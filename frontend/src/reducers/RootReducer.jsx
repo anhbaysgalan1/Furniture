@@ -9,6 +9,7 @@ import GoodsReducer from './GoodsReducer'
 import PostsReducer from './PostsReducer'
 import ClientReducer from './ClientReducer'
 import OrderReducer from './OrderReducer'
+import FinanceReducer from './FinanceReducer'
 
 export default combineReducers({
     i18n    : i18nReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
     posts   : PostsReducer,
     client  : ClientReducer,
     order   : OrderReducer,
+    finance : FinanceReducer,
 })
