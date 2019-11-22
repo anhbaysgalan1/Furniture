@@ -65,6 +65,8 @@ let pays = [
 const styles = theme => ({
    paper: {
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
+      marginLeft: '200px',
+      marginRight: '200px',
    }
 })
 
@@ -187,151 +189,147 @@ class Create extends BaseView {
       let { moneyOut, moneyIn } = this.state
       return (
          <Form className={classes.paper} onSubmit={onSubmit}>
-            <Grid container spacing={8}>
-               <Grid item xs={1}></Grid>
-               <Grid item xs={10}>
-                  <Card>
-                     <CardContent>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
-                           <Grid item xs={4}>
-                              <Typography color='primary' variant='h6'>
-                                 Nội chi tiêu
-                              </Typography>
+            <Card>
+               <CardContent>
+                  <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
+                     <Grid item xs={4}>
+                        <Typography color='primary' variant='h6'>
+                           Nội chi tiêu
+                        </Typography>
+                     </Grid>
+                     <Grid item xs={4}>
+                        <TextField
+                           fullWidth
+                           margin='none'
+                           label={I18n.t("Input.finance.date.Ngày")}
+                           name="date"
+                        />
+                     </Grid>
+                     <Grid item xs={2}></Grid>
+                     <Grid item xs={2}>
+                        <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyOut()}>
+                           <Icon>add_circle_outline</Icon>
+                        </IconButton>
+                     </Grid>
+                  </Grid>
+                  {
+                     moneyOut.map((item, index) => {
+                        return (
+                           <Grid key={index} container direction="row" alignItems="center" spacing={8}>
+                              <Grid item xs={3}>
+                                 <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.date.Người thanh toán tiền")}
+                                    onChange={(value) => this.onHandleChange(value, 'user')}
+                                    name="user"
+                                 />
+                              </Grid>
+                              <Grid item xs={6}>
+                                 <TextField
+                                    fullWidth
+                                    multiline={true}
+                                    label={I18n.t("Input.finance.date.Nội dung thanh toán")}
+                                    onChange={(value) => this.onHandleChange(value, 'content')}
+                                    name="content"
+                                 />
+                              </Grid>
+                              <Grid item xs={2}>
+                                 <MoneyField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.money.Số tiền")}
+                                    name="money"
+                                    defaultValue={`${number * Number(moneyNew)}`}
+                                    onChange={(value) => this.onHandleChange(value, 'money')}
+                                 />
+                              </Grid>
+                              <Grid item xs={1}>
+                                 <IconButton onClick={() => this.signMoneyOut(index)} style={{ marginTop: '30px' }}>
+                                    <Icon style={{ color: 'red' }} >delete</Icon>
+                                 </IconButton>
+                              </Grid>
                            </Grid>
-                           <Grid item xs={4}>
-                              <TextField
-                                 fullWidth
-                                 margin='none'
-                                 label={I18n.t("Input.finance.date.Ngày")}
-                                 name="date"
-                              />
+                        )
+                     })
+                  }
+               </CardContent>
+               <CardActions>
+                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
+                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                  </Button>
+                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+               </CardActions>
+            </Card>
+            <br />
+            <Card>
+               <CardContent>
+                  <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
+                     <Grid item xs={4}>
+                        <Typography color='primary' variant='h6'>
+                           Nội chi tiêu
+                        </Typography>
+                     </Grid>
+                     <Grid item xs={4}>
+                        <TextField
+                           fullWidth
+                           margin='none'
+                           label={I18n.t("Input.finance.date.Ngày")}
+                           name="date"
+                        />
+                     </Grid>
+                     <Grid item xs={2}></Grid>
+                     <Grid item xs={2}>
+                        <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyIn()}>
+                           <Icon>add_circle_outline</Icon>
+                        </IconButton>
+                     </Grid>
+                  </Grid>
+                  {
+                     moneyIn.map((item, index) => {
+                        return (
+                           <Grid key={index} container direction="row" alignItems="center" spacing={8}>
+                              <Grid item xs={3}>
+                                 <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.date.Người thanh toán tiền")}
+                                    onChange={(value) => this.onHandleChange(value, 'user')}
+                                    name="user"
+                                 />
+                              </Grid>
+                              <Grid item xs={6}>
+                                 <TextField
+                                    fullWidth
+                                    multiline={true}
+                                    label={I18n.t("Input.finance.date.Nội dung thanh toán")}
+                                    onChange={(value) => this.onHandleChange(value, 'content')}
+                                    name="content"
+                                 />
+                              </Grid>
+                              <Grid item xs={2}>
+                                 <MoneyField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.money.Số tiền")}
+                                    name="money"
+                                    defaultValue={`${number * Number(moneyNew)}`}
+                                    onChange={(value) => this.onHandleChange(value, 'money')}
+                                 />
+                              </Grid>
+                              <Grid item xs={1}>
+                                 <IconButton onClick={() => this.signMoneyIn(index)} style={{ marginTop: '30px' }}>
+                                    <Icon style={{ color: 'red' }} >delete</Icon>
+                                 </IconButton>
+                              </Grid>
                            </Grid>
-                           <Grid item xs={4}>
-                              <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyOut()}>
-                                 <Icon>add_circle_outline</Icon>
-                              </IconButton>
-                           </Grid>
-                        </Grid>
-                        {
-                           moneyOut.map((item, index) => {
-                              return (
-                                 <Grid key={index} container direction="row" alignItems="center" spacing={8}>
-                                    <Grid item xs={3}>
-                                       <TextField
-                                          fullWidth
-                                          label={I18n.t("Input.finance.date.Người thanh toán tiền")}
-                                          onChange={(value) => this.onHandleChange(value, 'user')}
-                                          name="user"
-                                       />
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                       <TextField
-                                          fullWidth
-                                          multiline={true}
-                                          label={I18n.t("Input.finance.date.Nội dung thanh toán")}
-                                          onChange={(value) => this.onHandleChange(value, 'content')}
-                                          name="content"
-                                       />
-                                    </Grid>
-                                    <Grid item xs={2}>
-                                       <MoneyField
-                                          fullWidth
-                                          label={I18n.t("Input.finance.money.Số tiền")}
-                                          name="money"
-                                          defaultValue={`${number * Number(moneyNew)}`}
-                                          onChange={(value) => this.onHandleChange(value, 'money')}
-                                       />
-                                    </Grid>
-                                    <Grid item xs={1}>
-                                       <IconButton onClick={() => this.signMoneyOut(index)} style={{ marginTop: '30px' }}>
-                                          <Icon style={{ color: 'red' }} >delete</Icon>
-                                       </IconButton>
-                                    </Grid>
-                                 </Grid>
-                              )
-                           })
-                        }
-                     </CardContent>
-                     <CardActions>
-                        <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
-                           <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                        </Button>
-                        <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                     </CardActions>
-                  </Card>
-                  <br />
-                  <Card>
-                     <CardContent>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
-                           <Grid item xs={4}>
-                              <Typography color='primary' variant='h6'>
-                                 Nội chi tiêu
-                              </Typography>
-                           </Grid>
-                           <Grid item xs={4}>
-                              <TextField
-                                 fullWidth
-                                 margin='none'
-                                 label={I18n.t("Input.finance.date.Ngày")}
-                                 name="date"
-                              />
-                           </Grid>
-                           <Grid item xs={4}>
-                              <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyIn()}>
-                                 <Icon>add_circle_outline</Icon>
-                              </IconButton>
-                           </Grid>
-                        </Grid>
-                        {
-                           moneyIn.map((item, index) => {
-                              return (
-                                 <Grid key={index} container direction="row" alignItems="center" spacing={8}>
-                                    <Grid item xs={3}>
-                                       <TextField
-                                          fullWidth
-                                          label={I18n.t("Input.finance.date.Người thanh toán tiền")}
-                                          onChange={(value) => this.onHandleChange(value, 'user')}
-                                          name="user"
-                                       />
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                       <TextField
-                                          fullWidth
-                                          multiline={true}
-                                          label={I18n.t("Input.finance.date.Nội dung thanh toán")}
-                                          onChange={(value) => this.onHandleChange(value, 'content')}
-                                          name="content"
-                                       />
-                                    </Grid>
-                                    <Grid item xs={2}>
-                                       <MoneyField
-                                          fullWidth
-                                          label={I18n.t("Input.finance.money.Số tiền")}
-                                          name="money"
-                                          defaultValue={`${number * Number(moneyNew)}`}
-                                          onChange={(value) => this.onHandleChange(value, 'money')}
-                                       />
-                                    </Grid>
-                                    <Grid item xs={1}>
-                                       <IconButton onClick={() => this.signMoneyIn(index)} style={{ marginTop: '30px' }}>
-                                          <Icon style={{ color: 'red' }} >delete</Icon>
-                                       </IconButton>
-                                    </Grid>
-                                 </Grid>
-                              )
-                           })
-                        }
-                     </CardContent>
-                     <CardActions>
-                        <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
-                           <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                        </Button>
-                        <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                     </CardActions>
-                  </Card>
-               </Grid>
-               <Grid item xs={1}></Grid>
-            </Grid>
+                        )
+                     })
+                  }
+               </CardContent>
+               <CardActions>
+                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
+                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                  </Button>
+                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+               </CardActions>
+            </Card>
          </Form>
       )
    }
