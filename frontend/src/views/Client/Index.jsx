@@ -116,13 +116,13 @@ class Index extends BaseView {
                   textAlign: 'center',
                }
             },
-            {
-               name: 'mail',
-               title: I18n.t('Table.header.role.Email'),
-               style: {
-                  textAlign: 'center',
-               }
-            },
+            // {
+            //    name: 'mail',
+            //    title: I18n.t('Table.header.role.Email'),
+            //    style: {
+            //       textAlign: 'center',
+            //    }
+            // },
             {
                name: 'address',
                title: I18n.t('Table.header.role.Địa chỉ'),
@@ -149,19 +149,19 @@ class Index extends BaseView {
                },
 
             },
-            {
-               name: 'goods',
-               title: I18n.t('Table.header.role.Số hàng mua'),
-               style: {
-                  textAlign: 'center',
-               },
-               formatterComponent: (data) => {
-                  let goodsIds = _.get(data, 'row.goodsIds', []) || []
-                  if(goodsIds.length)
-                     return this.renderGoods(goodsIds)
-                  return ''
-               },
-            },
+            // {
+            //    name: 'goods',
+            //    title: I18n.t('Table.header.role.Số hàng mua'),
+            //    style: {
+            //       textAlign: 'center',
+            //    },
+            //    formatterComponent: (data) => {
+            //       let goodsIds = _.get(data, 'row.goodsIds', []) || []
+            //       if(goodsIds.length)
+            //          return this.renderGoods(goodsIds)
+            //       return ''
+            //    },
+            // },
             {
                name: 'note',
                title: I18n.t('Table.header.role.Ghi chú'),
@@ -188,11 +188,11 @@ class Index extends BaseView {
             { columnName: 'code', wordWrapEnabled: true },
             { columnName: 'name', wordWrapEnabled: true },
             { columnName: 'phone', wordWrapEnabled: true },
-            { columnName: 'mail', wordWrapEnabled: true },
+            // { columnName: 'mail', wordWrapEnabled: true },
             { columnName: 'address', wordWrapEnabled: true },
             { columnName: 'number', wordWrapEnabled: true },
             { columnName: 'money', wordWrapEnabled: true },
-            { columnName: 'goods', wordWrapEnabled: true },
+            // { columnName: 'goods', wordWrapEnabled: true },
             { columnName: 'note', wordWrapEnabled: true },
             { columnName: '_id', align: 'center' },
          ],
@@ -218,10 +218,10 @@ class Index extends BaseView {
                name: 'phone',
                width: 100
             },
-            {
-               name: 'mail',
-               width: 120
-            },
+            // {
+            //    name: 'mail',
+            //    width: 120
+            // },
             {
                name: 'address',
                width: 150
@@ -234,10 +234,10 @@ class Index extends BaseView {
                name: 'money',
                width: 80
             },
-            {
-               name: 'goods',
-               width: 150
-            },
+            // {
+            //    name: 'goods',
+            //    width: 150
+            // },
             {
                name: 'note',
                width: 80
@@ -375,6 +375,9 @@ class Index extends BaseView {
                   </Button>
                   <Button className={classes.button} color="primary" onClick={() => this.onDelete(_id)}>
                      {I18n.t('Button.delete')}
+                  </Button>
+                  <Button className={classes.button} color="primary" onClick={() => this.onCancel(_id)}>
+                     {I18n.t('Button.exit')}
                   </Button>
                </DialogActions>
             </Dialog>

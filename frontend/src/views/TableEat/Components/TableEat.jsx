@@ -559,8 +559,8 @@ class Index extends BaseView {
       }
    }
 
-   renderNature(goods = []) {
-      let { classes } = this.props
+   renderNature() {
+      let { classes, goods = [] } = this.props
       let numberImg = 12 // số ảnh muốn hiện
       let numberPage = parseInt(arrImg.length/numberImg) // Số trang phân
       if(arrImg.length%numberImg){
@@ -573,7 +573,10 @@ class Index extends BaseView {
 
       return (
          <span>
-            <img src={tunhien} height='80' width='450' />
+            {/* <img src={tunhien} height='80' width='450' /> */}
+            <Typography variant='h5' className={classes.title}>
+               Bàn ăn
+            </Typography>
             <br></br>
             {button}
             <br></br><br></br>
@@ -652,14 +655,14 @@ class Index extends BaseView {
    }
 
    render() {
-      let { classes, goods } = this.props 
+      let { classes } = this.props 
       return (
          <span>
             {
                this.renderDetail()
             }
             {
-               this.renderNature(goods)
+               this.renderNature()
             }
          </span>
       )

@@ -21,13 +21,13 @@ import {
     CardActions, 
     CardContent
 } from '@material-ui/core'
-import Bad from './Components/Bad'
-import BadIndustry from './Components/BadIndustry'
-import BadNature from './Components/BadNature'
+import TableEat from './Components/TableEat'
+import TableEatIndustry from './Components/TableEatIndustry'
+import TableEatNature from './Components/TableEatNature'
 
-import BadModern from './Components/BadModern'
-import BadClassic from './Components/BadClassic'
-import BadHot from './Components/BadHot'
+import TableEatModern from './Components/TableEatModern'
+import TableEatClassic from './Components/TableEatClassic'
+import TableEatHot from './Components/TableEatHot'
 
 import PhoneIcon from '@material-ui/icons/Phone'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -83,19 +83,20 @@ function NavTabs(data) {
                     aria-label="icon tabs example"
                 >
                     <Tab label={I18n.t("Worker.Tất cả")} />
-                    <Tab label={I18n.t("Worker.Giường gỗ tự tiên")} />
-                    <Tab label={I18n.t("Worker.Giường gỗ công nghiệp")} />
-                    <Tab label={I18n.t("Worker.Giường gỗ hiện đại")} />
-                    <Tab label={I18n.t("Worker.Giường gỗ cổ điển")} />
+                    <Tab label={I18n.t("Worker.Bàn ăn gỗ tự tiên")} />
+                    <Tab label={I18n.t("Worker.Bàn ăn 4 ghế")} />
+                    <Tab label={I18n.t("Worker.Bàn ăn 6 ghế")} />
+                    <Tab label={I18n.t("Worker.Bàn ăn 8 ghế")} />
+                    <Tab label={I18n.t("Worker.Bàn ăn chòn")} />
                 </Tabs>
                 </Paper>
             </AppBar>
             <div>
-                { value === 0 && <TabContainer> <Bad classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
-                { value === 1 && <TabContainer> <BadNature classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
-                { value === 2 && <TabContainer> <BadIndustry classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
-                { value === 3 && <TabContainer> <BadModern classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
-                { value === 4 && <TabContainer> <BadClassic classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
+                { value === 0 && <TabContainer> <TableEat classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
+                { value === 1 && <TabContainer> <TableEatNature classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
+                { value === 2 && <TabContainer> <TableEatIndustry classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
+                { value === 3 && <TabContainer> <TableEatModern classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
+                { value === 4 && <TabContainer> <TableEatClassic classes={classes} onSubmit={onSubmit} goods={goods} /> </TabContainer> }
             </div>
         </div>
     )

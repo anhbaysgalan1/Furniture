@@ -49,7 +49,7 @@ class Index extends BaseView {
 
 
     render() {
-        let { classes, data } = this.props
+        let { classes, posts } = this.props
         let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
         return (
             // className={classes.paddingIndex}
@@ -63,7 +63,7 @@ class Index extends BaseView {
                 <Chance classes={classes} />
                 <br></br> <br></br> <br></br>
                 <What classes={classes} />
-                <PostsList classes={classes} data={data} />
+                <PostsList classes={classes} posts={posts} />
             </div>
         )
     }

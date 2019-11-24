@@ -11,7 +11,6 @@ class Index extends BaseContainer {
         super(props)
     }
 
-    
     componentDidMount() {
         this.props.dispatch(PostsAction.fetchAll({ pageSize: -1 }))
     }
@@ -19,7 +18,7 @@ class Index extends BaseContainer {
     render() {
         return (
             <View
-                data={this.props.data}
+                posts={this.props.posts}
             />
         )
     }
@@ -27,7 +26,7 @@ class Index extends BaseContainer {
 
 const mapStateToProps = state => {
     return {
-        data: selector(state, "posts.list.data", []),
+        posts: selector(state, "posts.list.data", []),
     }
 }
 

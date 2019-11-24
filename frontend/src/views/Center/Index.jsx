@@ -30,10 +30,7 @@ import ButtonViews from './Components/ButtonViews'
 import What from '../Public/What'
 import NewHot from './Components/NewHot'
 import Footer from './Components/Footer'
-import Bad from './Components/Bad'
-import TableEat from './Components/TableEat'
-import TableRestaurant from './Components/TableRestaurant'
-import DiningRoom from './Components/DiningRoom'
+import Bads from '../Bad/Components/Bad'
 import Promotion from '../Public/Promotion'
 import ListGoods from './Components/ListGoods'
 import List from './Components/List'
@@ -59,11 +56,10 @@ class Index extends BaseView {
     }
 
     render() {
-        let { classes } = this.props
+        let { classes, posts, goods = [] } = this.props
         return (
-            // className={classes.paddingIndex}
             <div> 
-                <Header classes={classes} />
+                {/* <Header classes={classes} />
                 <Home classes={classes} />
                 <ButtonViews classes={classes} />
                 <br></br>
@@ -73,28 +69,20 @@ class Index extends BaseView {
                 <Partner classes={classes} />
                 <NewHot classes={classes} />
                 <br></br>
-                <Promotion classes={classes} />
-                <br></br>
-                {/* <ListGoods classes={classes}/> */}
+                <Promotion classes={classes} /> */}
                 <br></br>
                 <Grid container spacing={8}>
                     <Grid item lg={1}>
                         <ListGoods classes={classes}/>
                     </Grid>
                     <Grid item lg={10}>
-                        <Bad classes={classes}/>
+                        <Bads classes={classes} goods={goods} />
                         <br></br>
-                        <TableEat classes={classes} />
-                        <br></br>
-                        <DiningRoom classes={classes} />
-                        <br></br>
-                        <TableRestaurant classes={classes} />
                     </Grid>
                     <Grid item lg={1}></Grid>
                 </Grid>
-                <br></br>
                 {/* <List classes={classes} /> */}
-                <PostsList  classes={classes} />
+                <PostsList posts={posts} classes={classes} />
                 <Footer classes={classes} />
             </div>
         )

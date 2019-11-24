@@ -45,20 +45,20 @@ const sidebar = [
     //     icon: <Icon>account_circle</Icon>,
     //     component: () => <DiningRoomIndex />
     // },
-    // {
-    //     path: "/table-eat", 
-    //     name: 'tableEat',
-    //     title: <Translate value="Sidebar.tableEat" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <TableEatIndex />
-    // },
-    // {
-    //     path: "/table-restaurant", 
-    //     name: 'tableRestaurant',
-    //     title: <Translate value="Sidebar.tableRestaurant" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <TableRestaurantIndex />
-    // },
+    {
+        path: "/table-eat", 
+        name: 'tableEat',
+        title: <Translate value="Sidebar.tableEat" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableEatIndex />
+    },
+    {
+        path: "/table-restaurant", 
+        name: 'tableRestaurant',
+        title: <Translate value="Sidebar.tableRestaurant" />, //bắt buộc dùng thẻ Translate, không được dùng I18n
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableRestaurantIndex />
+    },
     {
         path: "/contact", 
         name: 'contact',

@@ -8,7 +8,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'
+import FacebookIcon from '@material-ui/icons/Facebook'  
 import {
     IconButton,
     Icon,
@@ -22,18 +22,20 @@ import {
     AppBar,
     Toolbar,
 } from '@material-ui/core'
+import Tabs from './Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
-import Home from '../Public/Home'
+import TableEatHot from './Components/TableEatHot'
+import TableEat from './Components/TableEat'
+import OwlCarousel from 'react-owl-carousel2'
+import 'react-owl-carousel2/lib/styles.css'
+import Promotion from '../Public/Promotion'
+import IntroduceTableEat from './Components/IntroduceTableEat'
 import moment from 'moment'
 import _ from 'lodash'
+// import "bootstrap/less/bootstrap.less"
 
 const styles = theme => ({
-    title: {
-        padding: '5px',
-        backgroundColor: '#039be5',
-        color: 'white',
-    },
 })
 
 
@@ -41,16 +43,24 @@ class Index extends BaseView {
     constructor(props) {
         super(props)
         this.state = {
+            activePage: 15
         }
     }
 
-
     render() {
-        let { classes } = this.props
-        let img = "url('https://shinhan.com.vn/public/themes/shinhan/img/banner_corporate_social_responsibility.jpg')"
+        let { classes, onSubmit, goods } = this.props
         return (
             <div>
-               <p>Giường</p>
+                {/* <Header classes={classes} />
+                <IntroduceTableEat classes={classes} />
+                <br></br>
+                <TableEatHot classes={classes} />
+                <br></br>
+                <Promotion classes={classes} />   */}
+                <br></br>
+                <Tabs classes={classes} onSubmit={onSubmit} goods={goods} />
+                <br></br>
+                {/* <What classes={classes} /> */}
             </div>
         )
     }

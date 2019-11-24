@@ -42,7 +42,7 @@ class Index extends BaseView {
    }
 
    renderRelateTo(classes) {
-      let { data = [] } = this.props
+      let { posts = [] } = this.props
       return (
          <div>
             <Grid container spacing={8}>
@@ -52,10 +52,10 @@ class Index extends BaseView {
                      <CardContent style={{ textAlign: 'justify' }} >
                         <Typography variant='h5' style={{ textTransform: 'uppercase', textAlign: 'center' }}>
                            TIN LIÊN QUAN
-                                </Typography>
+                        </Typography>
                         <Grid container spacing={16}>
                            {
-                              data.map((element, index) => {
+                              posts.map((element, index) => {
                                  let image = _.get(element, 'image', '')
                                  let title = _.get(element, 'title', '')
                                  let summary = _.get(element, 'summary', '')
@@ -95,7 +95,7 @@ class Index extends BaseView {
    }
 
    renderNewsHot(classes) {
-      let { data = [] } = this.props
+      let { posts = [] } = this.props
       return (
          <Card>
             <CardContent style={{ textAlign: 'justify' }} >
@@ -104,7 +104,7 @@ class Index extends BaseView {
                     </Typography>
                <Grid container spacing={8}>
                   {
-                     data.map((element, index) => {
+                     posts.map((element, index) => {
                         let image = _.get(element, 'image', '')
                         let summary = _.get(element, 'summary', '')
                         let title = _.get(title, 'title', '')
@@ -146,9 +146,7 @@ class Index extends BaseView {
    }
 
    render() {
-      let { classes, data } = this.props
-      console.log("data", data)
-      let dateNew = moment(moment().clone().add(-13, 'd')).format('DD/MM/YYYY 08: 45')
+      let { classes } = this.props
       return (
          <div>
             <Grid container spacing={32} >

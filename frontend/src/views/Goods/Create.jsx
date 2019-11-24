@@ -33,38 +33,42 @@ let typeGoods = [
       value: '0'
    },
    {
-      name: "Tủ Quần áo",
+      name: "Bàn ăn",
       value: '1'
    },
    {
-      name: "Bàn phòng khách",
+      name: "Tủ Quần áo",
       value: '2'
    },
    {
-      name: "Bàn trà",
+      name: "Bàn phòng khách",
       value: '3'
    },
    {
-      name: "Tủ giày",
+      name: "Bàn trà",
       value: '4'
+   },
+   {
+      name: "Tủ giày",
+      value: '5'
    }
 ]
 let typeItem = [
    {
-      name: "Giường gỗ tự nhiên",
+      name: "Gỗ tự nhiên",
+      value: '0'
+   },
+   {
+      name: "Gỗ công nghiệp",
       value: '1'
    },
    {
-      name: "Giường gỗ công nghiệp",
+      name: "Giường gỗ cổ điển",
       value: '2'
    },
    {
-      name: "Giường gỗ cổ điển",
-      value: '3'
-   },
-   {
       name: "Giường gỗ hiện đại",
-      value: '4'
+      value: '3'
    }
 ]
 let typeWoods = [
@@ -204,6 +208,9 @@ class Create extends BaseView {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
+      let defaultName = `Giường ngủ ` + this.state.dataInput.code
+      let defaultContent = `Giường ngủ hiện đại trẻ trung phong cách ` + this.state.dataInput.code
+      let defaultImage = this.state.dataInput.image1
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
@@ -228,6 +235,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
                                  onChange={(value) => this.onHandleChange(value, 'typeGoods')}
                                  name="typeGoods"
+                                 defaultValue='0'
                                  validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
@@ -251,6 +259,7 @@ class Create extends BaseView {
                                  name="typeItem"
                                  validate={this.validate.area}
                                  isMulti={false}
+                                 defaultValue='1'
                                  isClearable={false}
                               >
                                  {
@@ -270,7 +279,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
                                  onChange={(value) => this.onHandleChange(value, 'typeWoods')}
                                  name="typeWoods"
-                                 value={'TN'}
+                                 defaultValue={'TN'}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -296,6 +305,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.name.Tên Hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
+                                 defaultValue={defaultName}
                                  name="name"
                               />
                            </Grid>
@@ -304,6 +314,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
                                  name="moneyOld"
+                                 defaultValue="4500000"
                                  onChange={(value) => this.onHandleChange(value, 'moneyOld')}
                               />
                            </Grid>
@@ -312,6 +323,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
                                  name="moneyNew"
+                                 defaultValue="3500000"
                                  onChange={(value) => this.onHandleChange(value, 'moneyNew')}
                               />
                            </Grid>
@@ -329,18 +341,21 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.image2")}
                                  onChange={(value) => this.onHandleChange(value, 'image2')}
                                  name="image2"
+                                 defaultValue={defaultImage}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image3")}
                                  onChange={(value) => this.onHandleChange(value, 'image3')}
                                  name="image3"
+                                 defaultValue={defaultImage}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image4")}
                                  onChange={(value) => this.onHandleChange(value, 'image4')}
                                  name="image4"
+                                 defaultValue={defaultImage}
                               />
                               <AutoCompleteField
                                  key="1"
@@ -370,6 +385,7 @@ class Create extends BaseView {
                                  rowsMax={25}
                                  variant="outlined"
                                  fullWidth
+                                 defaultValue={defaultContent}
                                  label={I18n.t("Input.goods.content.Nội dung miêu tả")}
                                  onChange={(value) => this.onHandleChange(value, 'content')}
                                  name="content"
