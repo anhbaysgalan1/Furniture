@@ -67,6 +67,31 @@ class App extends Component {
       this.setState({ reload: !this.state.reload })
    }
 
+   phoneFormatter = (number) => {
+      number = number.replace(/[^\d]/g, '')
+      if (number.length == 4) {
+         number = number.replace(/(\d{4})/, "$1")
+      } else if (number.length == 5) {
+         number = number.replace(/(\d{4})(\d{1})/, "$1-$2")
+      } else if (number.length == 6) {
+         number = number.replace(/(\d{4})(\d{2})/, "$1-$2")
+      } else if (number.length == 7) {
+         number = number.replace(/(\d{4})(\d{3})/, "$1-$2")
+      } else if (number.length == 8) {
+         number = number.replace(/(\d{4})(\d{3})(\d{1})/, "$1-$2-$3")
+      } else if (number.length == 9) {
+         number = number.replace(/(\d{4})(\d{3})(\d{2})/, "$1-$2-$3")
+      } else if (number.length == 10) {
+         number = number.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3")
+      } else if (number.length == 11) {
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      } else if (number.length > 11) {
+         number = number.substring(0, 11)
+         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+      }
+      return number
+   }
+
    render() {
       let { onSubmit, dataGoods } = this.props
       let { indexButton, viewsOrder } = this.state
@@ -75,8 +100,6 @@ class App extends Component {
       let code = _.get(dataGoods, 'code', '')
       let name = _.get(dataGoods, 'name', '')
       let content = _.get(dataGoods, 'content', '')
-
-
       let image1 = _.get(dataGoods, 'image1', '')
       let image2 = _.get(dataGoods, 'image2', '')
       let image3 = _.get(dataGoods, 'image3', '')
@@ -95,7 +118,7 @@ class App extends Component {
             img: image4
          }
       ]
-      let number = Number(_.get(this.state, 'dataInput.number', '1'))
+      let number = _.get(this.state, 'dataInput.number', '1')
       return (
          <Form onSubmit={onSubmit} >
             <Grid container spacing={8}>
@@ -110,7 +133,6 @@ class App extends Component {
                   </Typography>
                </Grid>
             </Grid>
-
             <Grid container spacing={8}>
                <Grid item xs={7}>
                   <center>
@@ -167,8 +189,19 @@ class App extends Component {
                         <TextField
                            margin='none'
                            fullWidth
-                           label={I18n.t("Input.bad.SĐT")}
+                           label={I18n.t("Input.bad.phone.SĐT")}
                            onChange={(value) => this.onHandleChange(value, 'phone')}
+                           formatData={(value) => this.phoneFormatter(value)}
+                           onKeyDown={(e) => {
+                              if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                 e.preventDefault()
+                              }
+                              if (e.target.value.length >= 13) {
+                                 if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
+                                    e.preventDefault()
+                                 }
+                              }
+                           }}
                            name="phone"
                         />
                      </Grid>
@@ -197,7 +230,7 @@ class App extends Component {
                            fullWidth
                            label={I18n.t("Input.bad.Tổng tiền")}
                            name="money"
-                           defaultValue={number * Number(moneyNew)}
+                           defaultValue={`${Number(number) * Number(moneyNew)}`}
                            disabled={true}
                            onChange={(value) => this.onHandleChange(value, 'money')}
                         />
@@ -221,7 +254,12 @@ class App extends Component {
                      <Button color='primary' type='submit' variant='contained' > Mua hàng </Button>
                      <Grid item xs={12}>
                         <TextField type="hidden" name="goodsId" value={_id} />
-                        <TextField type="hidden" name="status" value='0' />   {/* // Trạng thái đơn hàng mặc định là value=0 Mới */}
+                        <TextField type="hidden" name="status" value='0' />
+                        <TextField type="hidden" name="note" defaultValue="" />
+                        <TextField type="hidden" name="amount" defaultValue="" />
+                        <TextField type="hidden" name="moneyImportGoods" defaultValue="" />
+                        <TextField type="hidden" name="cost" defaultValue="" />
+                        <TextField type="hidden" name="profit" defaultValue="" />
                      </Grid>
                   </Grid>
                </Grid>

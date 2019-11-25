@@ -26,69 +26,8 @@ import PaperFade from "components/Main/PaperFade"
 import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
+import _ from 'lodash'
 
-let typeGoods = [
-   {
-      name: "Giường ngủ",
-      value: '0'
-   },
-   {
-      name: "Bàn ăn",
-      value: '1'
-   },
-   {
-      name: "Tủ Quần áo",
-      value: '2'
-   },
-   {
-      name: "Bàn phòng khách",
-      value: '3'
-   },
-   {
-      name: "Bàn trà",
-      value: '4'
-   },
-   {
-      name: "Tủ giày",
-      value: '5'
-   }
-]
-let typeItem = [
-   {
-      name: "Gỗ tự nhiên",
-      value: '0'
-   },
-   {
-      name: "Gỗ công nghiệp",
-      value: '1'
-   },
-   {
-      name: "Giường gỗ cổ điển",
-      value: '2'
-   },
-   {
-      name: "Giường gỗ hiện đại",
-      value: '3'
-   }
-]
-let typeWoods = [
-   {
-      name: 'Tự nhiên cao cấp',
-      value: 'TN',
-   },
-   {
-      name: 'Công nghiệp',
-      value: 'CN',
-   },
-   {
-      name: 'Sồi Nga',
-      value: 'SN',
-   },
-   {
-      name: 'Xoan đào',
-      value: 'XS',
-   }
-]
 let promotions = [
    {
       name: 'Không',
@@ -99,6 +38,162 @@ let promotions = [
       value: '1'
    }
 ]
+
+let typeGoods = [
+   {
+      name: "Giường ngủ",
+      value: "0",
+      typeItems: [
+         {
+            name: "Giường ngủ hiện đại",
+            value: "0"
+         }, {
+            name: "Giường ngủ cổ điển",
+            value: "1"
+         }, {
+            name: "Giường ngủ gỗ tự nhiên cao cấp",
+            value: "2"
+         }, {
+            name: "Giường ngủ gỗ công nghiệp",
+            value: "3"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Bàn ăn",
+      value: "1",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn ăn cổ điển",
+            value: "1"
+         }, {
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
+         },
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Tủ Quần áo",
+      value: "2",
+      typeItems: [
+         {
+            name: "Tủ quần áo hiện đại",
+            value: "0"
+         }, 
+         {
+            name: "Tủ quần áo gỗ tự nhiên",
+            value: "1"
+         }, 
+         {
+            name: "Tủ quần áo gỗ công nghiệp",
+            value: "2"
+         }, 
+         {
+            name: "Tủ quần áo 2 cánh",
+            value: "3"
+         }, 
+         {
+            name: "Tủ quần áo 3 cánh",
+            value: "4"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0"
+         }, {
+            name: "Xoan đào",
+            value: "1"
+         }, {
+            name: "Công nghiệp",
+            value: "2"
+         }
+      ]
+   }, {
+      name: "Bàn trà phòng khách",
+      value: "3",
+      typeItems: [
+         {
+            name: "Bàn trà hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn trà cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Tủ giày",
+      value: "4",
+      typeItems: [
+         {
+            name: "Tủ giày hiện đại",
+            value: "0"
+         }, {
+            name: "Tủ giày cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }
+]
+
 const styles = theme => ({
    paper: {
       // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -171,13 +266,11 @@ class Create extends BaseView {
    onCancel(){
       this.onHide()
    }
-
    onHandleChange(value, name) {
       this.setState({
          dataInput: { ...this.state.dataInput, [name]: value }
       })
    }
-
    renderDetail() {
       let { classes, onSubmit } = this.props
       return (
@@ -209,17 +302,25 @@ class Create extends BaseView {
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
       let defaultName = `Giường ngủ ` + this.state.dataInput.code
-      let defaultContent = `Giường ngủ hiện đại trẻ trung phong cách ` + this.state.dataInput.code
+      let defaultContent = `Giường ngủ hiện đại ` + this.state.dataInput.code
       let defaultImage = this.state.dataInput.image1
+      let typeItems = []
+      let typeWoods = []
+      typeGoods.map((item, index) => {
+         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '')
+         if(item.value == typeGoods){
+            typeItems = item.typeItems
+            typeWoods = item.typeWoods
+         }
+      })
+      console.log("typeItems", typeItems, '\ntypeWoods', typeWoods)
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
                this.renderDetail()
             }
             <Grid container spacing={32}>
-               <Grid item xs={1} lg={1}>
-                  
-               </Grid>
+               <Grid item xs={1} lg={1}></Grid>
                <Grid item xs={10}>
                   <Card className={classes.card}>
                      <CardContent>
@@ -233,9 +334,9 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
-                                 onChange={(value) => this.onHandleChange(value, 'typeGoods')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
                                  name="typeGoods"
-                                 defaultValue='0'
+                                 // defaultValue='0'
                                  validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
@@ -255,15 +356,16 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'typeItem')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'typeItem')}
                                  name="typeItem"
+                                 isDisabled={ typeItems.length ? false : true }
                                  validate={this.validate.area}
                                  isMulti={false}
-                                 defaultValue='1'
+                                 defaultValue='0'
                                  isClearable={false}
                               >
                                  {
-                                    typeItem.map(item => (
+                                    typeItems.map(item => (
                                        <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
                                           {item.name}
                                        </OptionAuto>
@@ -277,9 +379,10 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
-                                 onChange={(value) => this.onHandleChange(value, 'typeWoods')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue={'TN'}
+                                 defaultValue={'0'}
+                                 isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -296,7 +399,7 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'code')}
+                                 onChange={(data) => this.onHandleChange(data, 'code')}
                                  name="code"
                               />
                            </Grid>
@@ -304,7 +407,7 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.name.Tên Hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'name')}
+                                 onChange={(data) => this.onHandleChange(data, 'name')}
                                  defaultValue={defaultName}
                                  name="name"
                               />
@@ -315,7 +418,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
                                  name="moneyOld"
                                  defaultValue="4500000"
-                                 onChange={(value) => this.onHandleChange(value, 'moneyOld')}
+                                 onChange={(data) => this.onHandleChange(data, 'moneyOld')}
                               />
                            </Grid>
                            <Grid item xs={2}>
@@ -324,7 +427,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
                                  name="moneyNew"
                                  defaultValue="3500000"
-                                 onChange={(value) => this.onHandleChange(value, 'moneyNew')}
+                                 onChange={(data) => this.onHandleChange(data, 'moneyNew')}
                               />
                            </Grid>
                         </Grid>
@@ -333,27 +436,27 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image1")}
-                                 onChange={(value) => this.onHandleChange(value, 'image1')}
+                                 onChange={(data) => this.onHandleChange(data, 'image1')}
                                  name="image1"
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image2")}
-                                 onChange={(value) => this.onHandleChange(value, 'image2')}
+                                 onChange={(data) => this.onHandleChange(data, 'image2')}
                                  name="image2"
                                  defaultValue={defaultImage}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image3")}
-                                 onChange={(value) => this.onHandleChange(value, 'image3')}
+                                 onChange={(data) => this.onHandleChange(data, 'image3')}
                                  name="image3"
                                  defaultValue={defaultImage}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image4")}
-                                 onChange={(value) => this.onHandleChange(value, 'image4')}
+                                 onChange={(data) => this.onHandleChange(data, 'image4')}
                                  name="image4"
                                  defaultValue={defaultImage}
                               />
@@ -362,7 +465,7 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.promotion.Khuyến mại")}
-                                 onChange={(value) => this.onHandleChange(value, 'promotion')}
+                                 onChange={(data) => this.onHandleChange(data.value, 'promotion')}
                                  name="promotion"
                                  validate={this.validate.area}
                                  isMulti={false}
@@ -387,7 +490,7 @@ class Create extends BaseView {
                                  fullWidth
                                  defaultValue={defaultContent}
                                  label={I18n.t("Input.goods.content.Nội dung miêu tả")}
-                                 onChange={(value) => this.onHandleChange(value, 'content')}
+                                 onChange={(data) => this.onHandleChange(data, 'content')}
                                  name="content"
                               />
                            </Grid>

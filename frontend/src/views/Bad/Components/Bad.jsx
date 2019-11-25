@@ -38,7 +38,7 @@ import tunhien from '../../../public/tunhien.png'
 import congnghiep from '../../../public/congnghiep.png'
 import hiendai from '../../../public/hiendai.png'
 import codien from '../../../public/codien.png'
-import ViewDetail from './ViewDetail'
+import OrderGoods from '../../OrderGoods/OrderGoods'
 import _ from 'lodash'
 
 const styles = theme => ({
@@ -61,409 +61,6 @@ const styles = theme => ({
    },
 })
 
-
-let arrImg = [
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   {
-      // img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-      img: 'https://1.bp.blogspot.com/--R_y7gOcQLM/Xcw7pNfBFjI/AAAAAAAABpo/B91ZYhtMAE4ozfnIecUo90ID7S6u1VRYQCLcBGAsYHQ/s1600/noi-that-go-phong-khach-dep.jpg',
-      code: 'S51',
-      title: 'Giường hiện đại S51',
-      money: '2.500.000 đ'
-   },
-   // {
-   //    img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://noithatami.com/wp-content/uploads/2018/10/giuong-ngu-co-ngan-keo.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://thumuabanghe.vn/wp-content/uploads/2017/11/giuong-go-1m6-gia-re.png',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://vietba.vn/wp-content/uploads/2019/06/giuong-ngu-co-ngan-keo.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://noithatminhtri.com/wp-content/uploads/2017/11/Mau-giuong-ngu-dep-bang-go-cong-nghiep-cao-cap-GN-15.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://sofabella.vn/wp-content/uploads/2015/03/GIUONG-NGu-B1240.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://noithatthanglong.com/wp-content/uploads/2018/08/giuong-ngu-tlg001-1.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://dongtrieunhatrang.com/wp-content/uploads/2019/05/Gi%C6%B0%E1%BB%9Dng-g%E1%BB%97-Xoan-01.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'https://funismart.com/wp-content/uploads/giuong-go-2-trieu-theo-mau-fngn2m.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://noithatamia.com/wp-content/uploads/anh-dai-dien-mau-giuong-ngu-go-mau-trang-dep-tai-amia-600x563.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://vilahome.com.vn/wp-content/uploads/2018/05/Mau-giuong-da-nang-thong-minh-hien-dai-1.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-   // {
-   //    img: 'http://noithatphovip.com/file/giuong-ngu-go-soi-mau-canh-quat-vat-thuong-1568f.jpg',
-   //    code: 'S51',
-   //    title: 'Giường hiện đại S51',
-   //    money: '2.500.000 đ'
-   // },
-]
-
 class Index extends BaseView {
    constructor(props) {
       super(props)
@@ -479,6 +76,7 @@ class Index extends BaseView {
       this.setPage = this.setPage.bind(this)
       this.additionPage = this.additionPage.bind(this)
       this.minusPage = this.minusPage.bind(this)
+      this.onSubmit = this.onSubmit.bind(this)
    }
 
    onShow(element){
@@ -489,6 +87,10 @@ class Index extends BaseView {
       this.setState({ open: false })
    }
    onCancel(){
+      this.onHide()
+   }
+   onSubmit(values){
+      this.props.onSubmit(values)
       this.onHide()
    }
 
@@ -544,7 +146,7 @@ class Index extends BaseView {
             </Button> 
          </span>
       )
-   }
+   } 
 
    setMinMaxImage(itemPrimary, numberImg){
       let minImage = 0
@@ -560,26 +162,33 @@ class Index extends BaseView {
    }
 
    renderNature(goods = []) {
+      let converGoods = []
+      goods.map((item, index) => {
+         let typeGoods = _.get(item, 'typeGoods', '')
+         if(typeGoods == "0"){
+            converGoods.push(item)
+         }
+      })
       let { classes } = this.props
       let numberImg = 12 // số ảnh muốn hiện
-      let numberPage = parseInt(arrImg.length/numberImg) // Số trang phân
-      if(arrImg.length%numberImg){
+      let numberPage = parseInt(converGoods.length/numberImg) // Số trang phân
+      if(converGoods.length%numberImg){
          numberPage = numberPage + 1
       }
-      let button = this.renderPage(numberImg, numberPage)
+      let buttonPage = this.renderPage(numberImg, numberPage)
       let { itemPrimary } = this.state // Số trang 
       let minImage = this.setMinMaxImage(itemPrimary, numberImg).minImage
       let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
 
       return (
          <span>
-            <img src={tunhien} height='80' width='450' />
+            {/* <img src={tunhien} height='80' width='450' /> */}
             <br></br>
-            {button}
+            {buttonPage}
             <br></br><br></br>
             <Grid container spacing={16}>
                {
-                  goods.map((element, index) => {
+                  converGoods.map((element, index) => {
                      if((index >= minImage) && (index <= maxImage)) {
                         return (
                            <Grid item xs={3} key={index}>
@@ -618,28 +227,27 @@ class Index extends BaseView {
                }
             </Grid> 
             <br></br><br></br>
-            {button}
+            {buttonPage}
          </span>
       )
    }
 
    renderDetail() {
       let { dataGoods } = this.state
-      let { classes, onSubmit } = this.props
+      let { classes } = this.props
       return (
          <Dialog
             fullWidth={true}
             onClose={this.onCancel}
             open={this.state.open}
-            // open={true}
             maxWidth='lg'
             aria-labelledby="draggable-dialog-title"
          >
             <DialogContent>
-               <ViewDetail
+               <OrderGoods 
                   dataGoods={dataGoods}
                   // classes={classes}
-                  onSubmit={onSubmit}
+                  onSubmit={this.onSubmit}
                />
             </DialogContent>
             <DialogActions>
@@ -651,10 +259,34 @@ class Index extends BaseView {
       )
    }
 
+   titleBad = () => { 
+      let { tabBad } = this.props
+      let title = ""
+      switch(tabBad){
+         case "all":
+            return "Tất cả"
+         case "modern":
+            return "Hiện đại"
+         case "classic":
+            return "Cổ điển"
+         case "nature":
+            return "Giường gỗ tự nhiên"
+         case "industry":
+            return "Giường gỗ công nghiệp"
+      }
+   }
+
    render() {
-      let { classes, goods } = this.props 
+      let { classes, goods, tabBad } = this.props 
+      let title = this.titleBad()
       return (
          <span>
+            {
+               <Typography variant='h5'>
+                  {title}
+               </Typography>
+            }
+           
             {
                this.renderDetail()
             }

@@ -31,61 +31,158 @@ import _ from 'lodash'
 let typeGoods = [
    {
       name: "Giường ngủ",
-      value: '0'
-   },
-   {
+      value: "0",
+      typeItems: [
+         {
+            name: "Giường ngủ hiện đại",
+            value: "0"
+         }, {
+            name: "Giường ngủ cổ điển",
+            value: "1"
+         }, {
+            name: "Giường ngủ gỗ tự nhiên cao cấp",
+            value: "2"
+         }, {
+            name: "Giường ngủ gỗ công nghiệp",
+            value: "3"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Bàn ăn",
+      value: "1",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn ăn cổ điển",
+            value: "1"
+         }, {
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
+         },
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ Quần áo",
-      value: '1'
-   },
-   {
-      name: "Bàn phòng khách",
-      value: '2'
-   },
-   {
-      name: "Bàn trà",
-      value: '3'
-   },
-   {
+      value: "2",
+      typeItems: [
+         {
+            name: "Tủ quần áo hiện đại",
+            value: "0"
+         }, 
+         {
+            name: "Tủ quần áo gỗ tự nhiên",
+            value: "1"
+         }, 
+         {
+            name: "Tủ quần áo gỗ công nghiệp",
+            value: "2"
+         }, 
+         {
+            name: "Tủ quần áo 2 cánh",
+            value: "3"
+         }, 
+         {
+            name: "Tủ quần áo 3 cánh",
+            value: "4"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0"
+         }, {
+            name: "Xoan đào",
+            value: "1"
+         }, {
+            name: "Công nghiệp",
+            value: "2"
+         }
+      ]
+   }, {
+      name: "Bàn trà phòng khách",
+      value: "3",
+      typeItems: [
+         {
+            name: "Bàn trà hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn trà cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ giày",
-      value: '4'
+      value: "4",
+      typeItems: [
+         {
+            name: "Tủ giày hiện đại",
+            value: "0"
+         }, {
+            name: "Tủ giày cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
    }
 ]
-let typeItems = [
-   {
-      name: "Giường gỗ tự nhiên",
-      value: '1'
-   },
-   {
-      name: "Giường gỗ công nghiệp",
-      value: '2'
-   },
-   {
-      name: "Giường gỗ cổ điển",
-      value: '3'
-   },
-   {
-      name: "Giường gỗ hiện đại",
-      value: '4'
-   }
-]
-let typeWoods = [
-   {
-      name: 'Tự nhiên cao cấp',
-      value: 'TN',
-   },
-   {
-      name: 'Công nghiệp',
-      value: 'CN',
-   },
-   {
-      name: 'Sồi Nga',
-      value: 'SN',
-   },
-   {
-      name: 'Xoan đào',
-      value: 'XS',
-   }
-]
+
 let promotions = [
    {
       name: 'Không',
@@ -211,13 +308,23 @@ class Create extends BaseView {
       let image4 = _.get(data, 'image4', '')
       let code = _.get(data, 'code', '')
       let name = _.get(data, 'name', '')
-      let typeGood = _.get(data, 'typeGoods', '')
-      let typeItem = _.get(data, 'typeItem', '')
-      let typeWood = _.get(data, 'typeWood', '')
+      let typeGoodsServer = _.get(data, 'typeGoods', '')
+      let typeItemServer = _.get(data, 'typeItem', '')
+      let typeWoodsServer = _.get(data, 'typeWoods', '')
       let moneyOld = _.get(data, 'moneyOld', '')
       let moneyNew = _.get(data, 'moneyNew', '')
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
+      let typeItems = []
+      let typeWoods = []
+      console.log("typeGoodsServer", typeGoodsServer, '------', typeItemServer, ' >>>>>>> ', typeWoodsServer)
+      typeGoods.map((item, index) => {
+         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '') || typeGoodsServer
+         if(item.value == typeGoods){
+            typeItems = item.typeItems
+            typeWoods = item.typeWoods
+         }
+      })
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
@@ -238,10 +345,10 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
-                                 onChange={(value) => this.onHandleChange(value, 'typeGoods')}
+                                 onChange={(value) => this.onHandleChange(value, 'typeGood')}
                                  name="typeGoods"
                                  isMulti={false}
-                                 value={typeGood}
+                                 defaultValue={typeGoodsServer}
                                  isClearable={false}
                               >
                                  {
@@ -255,13 +362,13 @@ class Create extends BaseView {
                            </Grid>
                            <Grid item xs={5}>
                               <AutoCompleteField
-                                 key="1"
+                                 key="2"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'typeItem')}
                                  name="typeItem"
-                                 value={typeItem}
+                                 defaultValue={typeItemServer}
                                  validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
@@ -277,14 +384,13 @@ class Create extends BaseView {
                            </Grid>
                            <Grid item xs={4}>
                               <AutoCompleteField
-                                 key="1"
+                                 key="3"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
                                  onChange={(value) => this.onHandleChange(value, 'typeWoods')}
                                  name="typeWoods"
-                                 value={typeWood}
-                                 value={'TN'}
+                                 defaultValue={typeWoodsServer}
                                  isMulti={false}
                                  isClearable={false}
                               >
