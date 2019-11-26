@@ -302,7 +302,7 @@ class Create extends BaseView {
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
       let defaultName = `Giường ngủ ` + this.state.dataInput.code
-      let defaultContent = `Giường ngủ hiện đại ` + this.state.dataInput.code
+      let defaultContent = `Giường ngủ cổ điển ` + this.state.dataInput.code
       let defaultImage = this.state.dataInput.image1
       let typeItems = []
       let typeWoods = []
@@ -313,7 +313,6 @@ class Create extends BaseView {
             typeWoods = item.typeWoods
          }
       })
-      console.log("typeItems", typeItems, '\ntypeWoods', typeWoods)
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
@@ -337,7 +336,6 @@ class Create extends BaseView {
                                  onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
                                  name="typeGoods"
                                  // defaultValue='0'
-                                 validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -352,16 +350,15 @@ class Create extends BaseView {
                            </Grid>
                            <Grid item xs={5}>
                               <AutoCompleteField
-                                 key="1"
+                                 key="2"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeItem')}
                                  name="typeItem"
                                  isDisabled={ typeItems.length ? false : true }
-                                 validate={this.validate.area}
                                  isMulti={false}
-                                 defaultValue='0'
+                                 defaultValue='2'
                                  isClearable={false}
                               >
                                  {
@@ -375,13 +372,13 @@ class Create extends BaseView {
                            </Grid>
                            <Grid item xs={4}>
                               <AutoCompleteField
-                                 key="1"
+                                 key="3"
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue={'0'}
+                                 defaultValue='1'
                                  isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
                                  isClearable={false}
@@ -400,6 +397,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
+                                 defaultValue='GTN'
                                  name="code"
                               />
                            </Grid>
@@ -431,6 +429,7 @@ class Create extends BaseView {
                               />
                            </Grid>
                         </Grid>
+                       
                         <Grid container spacing={32}>
                            <Grid item xs={6}>
                               <TextField
@@ -467,7 +466,6 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.promotion.Khuyến mại")}
                                  onChange={(data) => this.onHandleChange(data.value, 'promotion')}
                                  name="promotion"
-                                 validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
                                  value="1"

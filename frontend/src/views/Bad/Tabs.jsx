@@ -64,7 +64,7 @@ function NavTabs(data) {
    }
    let classes = _.get(data, 'classes', '')
    let onSubmit = _.get(data, 'onSubmit', '')
-   let goods = _.get(data, 'goods', '')
+   let goodsBads = _.get(data, 'goodsBads', [])
    return (
       <div>
          <AppBar position="static" color="default">
@@ -86,12 +86,11 @@ function NavTabs(data) {
             </Paper>
          </AppBar>
          <div>
-            {value === 0 && <TabContainer> <Bad classes={classes} tabBad="all" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 1 && <TabContainer> <Bad classes={classes} tabBad="modern" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 2 && <TabContainer> <Bad classes={classes} tabBad="classic" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 3 && <TabContainer> <Bad classes={classes} tabBad="nature" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 4 && <TabContainer> <Bad classes={classes} tabBad="industry" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-           
+            {value === 0 && <TabContainer> <Bad classes={classes} tabBad="all" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 1 && <TabContainer> <Bad classes={classes} tabBad="modern" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 2 && <TabContainer> <Bad classes={classes} tabBad="classic" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 3 && <TabContainer> <Bad classes={classes} tabBad="nature" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 4 && <TabContainer> <Bad classes={classes} tabBad="industry" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
          </div>
       </div>
    )
@@ -101,16 +100,16 @@ class Create extends BaseView {
       super(props)
    }
    render() {
-      const { classes, onSubmit, goods } = this.props
+      const { classes, onSubmit, goodsBads } = this.props
       return (
          <PaperFade >
             <Grid container spacing={32}>
                <Grid item lg={1}></Grid>
                <Grid item lg={10}>
                   <NavTabs
-                     goods={goods}
                      classes={classes}
                      onSubmit={onSubmit}
+                     goodsBads={goodsBads}
                   />
                </Grid>
                <Grid item lg={1}></Grid>

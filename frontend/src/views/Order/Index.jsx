@@ -49,11 +49,8 @@ const styles = theme => ({
    button: {
       marginRight: '5px'
    },
-   form: {
-      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
-   },
    card: {
-      padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
    }
 })
 const status = [
@@ -78,26 +75,158 @@ const status = [
       name: "Thất bại"
    }
 ]
-let typeGoods = [
+const typeGoods = [
    {
       name: "Giường ngủ",
-      _id: '0'
-   },
-   {
+      value: "0",
+      typeItems: [
+         {
+            name: "Giường ngủ hiện đại",
+            value: "0"
+         }, {
+            name: "Giường ngủ cổ điển",
+            value: "1"
+         }, {
+            name: "Giường ngủ gỗ tự nhiên cao cấp",
+            value: "2"
+         }, {
+            name: "Giường ngủ gỗ công nghiệp",
+            value: "3"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Bàn ăn",
+      value: "1",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn ăn cổ điển",
+            value: "1"
+         }, {
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
+         },
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ Quần áo",
-      _id: '1'
-   },
-   {
-      name: "Bàn phòng khách",
-      _id: '2'
-   },
-   {
-      name: "Bàn trà",
-      _id: '3'
-   },
-   {
+      value: "2",
+      typeItems: [
+         {
+            name: "Tủ quần áo hiện đại",
+            value: "0"
+         },
+         {
+            name: "Tủ quần áo gỗ tự nhiên",
+            value: "1"
+         },
+         {
+            name: "Tủ quần áo gỗ công nghiệp",
+            value: "2"
+         },
+         {
+            name: "Tủ quần áo 2 cánh",
+            value: "3"
+         },
+         {
+            name: "Tủ quần áo 3 cánh",
+            value: "4"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0"
+         }, {
+            name: "Xoan đào",
+            value: "1"
+         }, {
+            name: "Công nghiệp",
+            value: "2"
+         }
+      ]
+   }, {
+      name: "Bàn trà phòng khách",
+      value: "3",
+      typeItems: [
+         {
+            name: "Bàn trà hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn trà cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ giày",
-      _id: '4'
+      value: "4",
+      typeItems: [
+         {
+            name: "Tủ giày hiện đại",
+            value: "0"
+         }, {
+            name: "Tủ giày cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
    }
 ]
 
@@ -108,12 +237,10 @@ class Index extends BaseView {
          open: false,
          dataRow: {},
          reload: false,
+         filterOpen: false,
          dataInput: {
-            name: '',
-            phone: '',
-            address: '',
-            count: '',
-            pay: '',
+            typeGoods: '',
+            typeItem: ''
          }
       }
       this.table = {
@@ -139,7 +266,6 @@ class Index extends BaseView {
                name: 'goodsId',
                title: I18n.t('Table.header.role.name.Mã sản phẩm'),
                formatterComponent: (data) => {
-                  console.log("date", data)
                   let code = _.get(data, 'row.goods.code', '')
                   return code
                },
@@ -266,6 +392,7 @@ class Index extends BaseView {
             }
          ]
       }
+      this.onShowFilter = this.onShowFilter.bind(this)
       this.ConfirmDialog = null
       this.renderToolbarActions = this.renderToolbarActions.bind(this)
       this.renderSelectedActions = this.renderSelectedActions.bind(this)
@@ -276,21 +403,24 @@ class Index extends BaseView {
       this.onDelete = this.onDelete.bind(this)
    }
 
+   onShowFilter() {
+      this.setState({ filterOpen: true })
+   }
    onShow(dataRow) {
       this.setState({ open: true, dataRow: dataRow })
       this.setState({ reload: !this.state.reload })
    }
    onHide() {
-      this.setState({ open: false })
+      this.setState({ open: false, filterOpen: false })
    }
    onCancel() {
       this.onHide()
    }
+
    onDelete(_id){
       this.onHide()
       this.ConfirmDialog.show([_id])
    }
-
    formatStatus(status) {
       switch (status) {
          case '0':
@@ -330,16 +460,17 @@ class Index extends BaseView {
       )
    }
    renderToolbarActions() {
+      let { classes } = this.props
       return [
-         <Tooltip title={I18n.t("toolTip.new")} key="create">
-            <Button variant='contained' color='primary' onClick={() => this.goto("/order/create")}>
-               {I18n.t("Button.create")}
-            </Button>
-         </Tooltip>,
+         <Button onClick={() => this.onShowFilter()} key="filter" className={classes.button} variant='contained' color='primary'>
+            {I18n.t("Button.filter")}
+         </Button>, 
+         <Button onClick={() => this.goto("/order/create")} key="create" className={classes.button} variant='contained' color='primary' >
+            {I18n.t("Button.create")}
+         </Button>,
       ]
    }
    renderSelectedActions(selectedIds) {
-      console.log("Mèo con")
       return [
          <Tooltip title={I18n.t("toolTip.delete")} key="create">
             <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
@@ -349,7 +480,6 @@ class Index extends BaseView {
       ]
    }
    renderDialogConfirmDelete() {
-      console.log("Cho con")
       return (
          <ConfirmDialog
             ref={(ref) => this.ConfirmDialog = ref}
@@ -360,7 +490,6 @@ class Index extends BaseView {
       )
    }
    onHandleChange(value, name) {
-      let { dataInput } = this.state
       this.setState({
          dataInput: { ...this.state.dataInput, [name]: value }
       })
@@ -389,6 +518,73 @@ class Index extends BaseView {
          number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
       }
       return number
+   }
+
+   renderFilter() {
+      return (
+         <Dialog
+            fullWidth={true}
+            onClose={this.onCancel}
+            open={this.state.filterOpen}
+            maxWidth='md'
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+         >
+            <DialogContent>
+               <Grid container spacing={32}>
+                  <Grid item xs={6}>
+                     <AutoCompleteField
+                        key="1"
+                        fullWidth
+                        select
+                        label={I18n.t("Input.bad.Chọn hàng")}
+                        onChange={(value) => this.onHandleChange(value, 'typeBad')}
+                        name="typeBad"
+                        isMulti={false}
+                        isClearable={false}
+                     >
+                        {
+                           typeGoods.map(item => (
+                              <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                 {item.name}
+                              </OptionAuto>
+                           ))
+                        }
+                     </AutoCompleteField>
+                  </Grid>
+                  <Grid item xs={6}>
+                     <AutoCompleteField
+                        key="2"
+                        fullWidth
+                        select
+                        label={I18n.t("Input.bad.Trạng thái đơn hàng")}
+                        onChange={(value) => this.onHandleChange(value, 'typeBad')}
+                        name="status"
+                        isMulti={false}
+                        isClearable={false}
+                     >
+                        {
+                           status.map(item => (
+                              <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
+                                 {item.name}
+                              </OptionAuto>
+                           ))
+                        }
+                     </AutoCompleteField>
+                  </Grid>
+               </Grid>
+               <br /><br /><br /><br /> <br /><br /><br /><br /> <br /><br /> <br /><br />
+            </DialogContent>
+            <DialogActions>
+               <Button color='primary' onClick={() => this.onCancel()} >
+                  {I18n.t("Button.search")}
+               </Button>
+               <Button color='primary' onClick={() => this.onCancel()} >
+                  {I18n.t("Button.exit")}
+               </Button>
+            </DialogActions>
+         </Dialog>
+      )
    }
 
    renderDetail() {
@@ -467,83 +663,36 @@ class Index extends BaseView {
 
    render() {
       const { data, classes, onSubmit } = this.props
-
       return (
-         <Grid container spacing={32} className={classes.card} >
-            <Grid item xs={12}>
-               {
-                  this.renderDetail()
-               }
-            </Grid>
-            <Grid item xs={12}>
-               <PaperFade showLoading={true} className={classes.card} >
-                  <Grid container spacing={32}>
-                     <Grid item xs={3}>
-                        <AutoCompleteField
-                           key="1"
-                           fullWidth
-                           select
-                           label={I18n.t("Input.bad.Chọn hàng")}
-                           // onChange={(value) => this.onHandleChange(value, 'typeBad')}
-                           name="typeBad"
-                           isMulti={false}
-                           isClearable={false}
-                           defaultValue='0'
-                        >
-                           {
-                              typeGoods.map(item => (
-                                 <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                    {item.name}
-                                 </OptionAuto>
-                              ))
-                           }
-                        </AutoCompleteField>
-                     </Grid>
-                     <Grid item xs={2}>
-                        <AutoCompleteField
-                           key="2"
-                           fullWidth
-                           select
-                           label={I18n.t("Input.bad.Trạng thái đơn hàng")}
-                           // onChange={(value) => this.onHandleChange(value, 'typeBad')}
-                           name="status"
-                           defaultValue='0'
-                           isMulti={false}
-                           isClearable={false}
-                        >
-                           {
-                              status.map(item => (
-                                 <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                    {item.name}
-                                 </OptionAuto>
-                              ))
-                           }
-                        </AutoCompleteField>
-                     </Grid>
-                     <Grid item xs={4}></Grid>
-                  </Grid>
-                  <GridTable
-                     id="OrderIndex"
-                     estimatedRowHeight={100}
-                     className={classes.gridTable}
-                     onFetchData={this.props.onFetchData}
-                     onRefTable={this.props.onRefTable}
-                     columns={this.table.columns}
-                     rows={data.data}
-                     totalCount={data.total}
-                     pageSize={data.pageSize}
-                     defaultSort={this.table.defaultSort}
-                     showCheckboxColumn={false}
-                     height="auto"
-                     selectedActions={this.renderSelectedActions}
-                     tableActions={this.renderToolbarActions}
-                     tableColumnExtensions={this.table.tableColumnExtensions}
-                     defaultColumnWidths={this.table.columnWidths}
-                  />
-                  {this.renderDialogConfirmDelete()}
-               </PaperFade>
-            </Grid>
-         </Grid>
+         <div className={classes.card}> 
+            {
+               this.renderDetail()
+            }
+            {
+               this.renderFilter()
+            }
+            <PaperFade showLoading={true} className={classes.card} >
+               <GridTable
+                  id="OrderIndex"
+                  estimatedRowHeight={100}
+                  className={classes.gridTable}
+                  onFetchData={this.props.onFetchData}
+                  onRefTable={this.props.onRefTable}
+                  columns={this.table.columns}
+                  rows={data.data}
+                  totalCount={data.total}
+                  pageSize={data.pageSize}
+                  defaultSort={this.table.defaultSort}
+                  showCheckboxColumn={false}
+                  height="auto"
+                  selectedActions={this.renderSelectedActions}
+                  tableActions={this.renderToolbarActions}
+                  tableColumnExtensions={this.table.tableColumnExtensions}
+                  defaultColumnWidths={this.table.columnWidths}
+               />
+               {this.renderDialogConfirmDelete()}
+            </PaperFade>
+         </div>
       )
    }
 }

@@ -1,5 +1,5 @@
 const BaseController = use("./BaseController")
-const OrderModel = use("App/Models/Order")
+const FinanceModel = use("App/Models/Finance")
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require('mongodb')
@@ -8,34 +8,18 @@ const Common = use("App/Common/common")
 /*
   Xem hàm mẫu BaseController nếu muốn viết lại các action
 */
-class OrderController extends BaseController {
+class FinanceController extends BaseController {
     constructor() {
         super()
-        this.Model = new OrderModel()
+        this.Model = new FinanceModel()
     }
 
     async index({ request, response }) {
         let allowFields = {
             _id: 1,
-            name: 1,
-            phone: 1,
-            address: 1,
-            goods: {
-                code: 1,
-                name: 1
-            },
-            number: 1,
-            money: 1,
-            status: 1,
-            pay: 1,
-            note: 1,
-            amount: 1,
-            moneyImportGoods: 1,
-            cost: 1,
-            profit: 1,
-            insert: {
-                when: 1
-            }
+            date: 1,
+            moneyIn: 1,
+            moneyOut: 1,
         }
         let result = await this.Model.aggregation([{
             $sort: {
@@ -47,22 +31,10 @@ class OrderController extends BaseController {
 
     async detail({ request, response }) {
         let allowFields = {
-            name: 1,
-            phone: 1,
-            address: 1,
-            status: 1,
-            goodsId: 1,
-            number: 1,
-            money: 1,
-            pay: 1,            
-            note: 1,
-            amount: 1,
-            moneyImportGoods: 1,
-            cost: 1,
-            profit: 1,
-            // insert: {
-            //     when: 1
-            // }
+            _id: 1,
+            date: 1,
+            moneyIn: 1,
+            moneyOut: 1,
         }
         return await super.detail({ request, response, allowFields })
     }
@@ -71,20 +43,17 @@ class OrderController extends BaseController {
         let input = request.body
             //allowFields là object các trường được phép lưu vào db
         let allowFields = {
-            name: "string!",
-            phone: "string!",
-            address: "string!",
-            goodsId: "objectid!",
-            number: "string!",
-            money: "string!",
-            status: 'string!',
-            pay: "string!",
-            note: 'string',
-            amount: "string",
-            moneyImportGoods: "string",  
-            cost: "string",
-            profit: "string", 
-                   
+            date: "date",
+            moneyIn: [{
+                user: "string!",
+                content: "string!",
+                money: "string!",
+            }],
+            moneyOut: [{
+                user: "string!",
+                content: "string!",
+                money: "string!",
+            }]
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
             // check code, name khác nhau
@@ -111,19 +80,17 @@ class OrderController extends BaseController {
 
         //allowFields là object các trường được phép lưu vào db
         let allowFields = {
-            name: "string!",
-            phone: "string!",
-            address: "string!",
-            goodsId: "objectid!",
-            number: "string!",
-            money: "string!",
-            status: 'string!',
-            pay: "string!",
-            note: 'string',
-            amount: "string",
-            moneyImportGoods: 'string',
-            cost: "string",
-            profit: "string",   
+            date: "date",
+            moneyIn: [{
+                user: "string!",
+                content: "string!",
+                money: "string!",
+            }],
+            moneyOut: [{
+                user: "string!",
+                content: "string!",
+                money: "string!",
+            }]
         }
         const data = this.validate(request.body, allowFields, { removeNotAllow: true })
             // let existCode = await this.Model.getOne({
@@ -167,4 +134,4 @@ class OrderController extends BaseController {
     }
 }
 
-module.exports = OrderController
+module.exports = FinanceController

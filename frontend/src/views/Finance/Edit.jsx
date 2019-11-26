@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation, MoneyField } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField, DateTimeField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -16,54 +16,21 @@ import {
    CardMedia,
    CardContent,
    CardActions,
-
+   CardHeader,
 } from '@material-ui/core'
 import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
-const status = [
-   {
-      _id: '0',
-      name: "Mới"
-   },
-   {
-      _id: '1',
-      name: "Đang giao"
-   },
-   {
-      _id: '2',
-      name: "Hoàn thành"
-   },
-   {
-      _id: '3',
-      name: "Đổi hàng"
-   },
-   {
-      _id: '4',
-      name: "Thất bại"
-   }
-]
-let pays = [
-   {
-      name: "Thanh toán khi nhận hàng",
-      _id: '0'
-   },
-   {
-      name: "Chuyển khoản",
-      _id: '1'
-   },
-   {
-      name: "Ví điện tử",
-      _id: '2'
-   }
-]
-
 const styles = theme => ({
    paper: {
-      padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-   }
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
+   },
+   card: {
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
+   },
+
 })
 
 class Create extends BaseView {
@@ -71,328 +38,199 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         dataInput: {
-            name: '',
-            phone: '',
-            address: '',
-            goodsId: '',
-            number: '',
-            money: '',
-            status: '',
-            pay: '',
-            content: ''
-         }
+         moneyOut: [],
+         moneyIn: []
       }
       this.onHandleChange = this.onHandleChange.bind(this)
-      this.validate = {
-         name: [
-            Validation.required(I18n.t("Form.required")),
-            Validation.maxLength(255, I18n.t("Form.maxLeng255"))
-         ],
-         permission: [
-            Validation.required(I18n.t("Form.required"))
-         ],
-      }
-      this.phoneFormatter = this.phoneFormatter.bind(this)
+      this.addMoneyOut = this.addMoneyOut.bind(this)
+      this.signMoneyOut = this.signMoneyOut.bind(this)
+      this.addMoneyIn = this.addMoneyIn.bind(this)
+      this.signMoneyIn = this.signMoneyIn.bind(this)
    }
 
+   addMoneyOut() {
+      let { moneyOut } = this.state || []
+      let element = {
+         item: '1'
+      }
+      moneyOut.push(element)
+      this.setState({ moneyOut: moneyOut })
+      this.setState({ reload: !this.state.reload })
+   }
+   addMoneyIn() {
+      let { moneyIn } = this.state || []
+      let element = {
+         item: '0'
+      }
+      moneyIn.push(element)
+      this.setState({ moneyIn: moneyIn })
+      this.setState({ reload: !this.state.reload })
+   }
+   signMoneyOut(index) {
+      let { moneyOut } = this.state || []
+      moneyOut.splice(index, 1)
+      this.setState({ moneyOut: moneyOut })
+      this.setState({ reload: !this.state.reload })
+   }
+   signMoneyIn(index) {
+      let { moneyIn } = this.state || []
+      moneyIn.splice(index, 1)
+      this.setState({ moneyIn: moneyIn })
+      this.setState({ reload: !this.state.reload })
+   }
    onHandleChange(value, name) {
       this.setState({ dataInput: { ...this.state.dataInput, [name]: value } })
       this.setState({ reload: !this.state.reload })
    }
 
-   phoneFormatter(number) {
-      number = number.replace(/[^\d]/g, '')
-      if (number.length == 4) {
-         number = number.replace(/(\d{4})/, "$1")
-      } else if (number.length == 5) {
-         number = number.replace(/(\d{4})(\d{1})/, "$1-$2")
-      } else if (number.length == 6) {
-         number = number.replace(/(\d{4})(\d{2})/, "$1-$2")
-      } else if (number.length == 7) {
-         number = number.replace(/(\d{4})(\d{3})/, "$1-$2")
-      } else if (number.length == 8) {
-         number = number.replace(/(\d{4})(\d{3})(\d{1})/, "$1-$2-$3")
-      } else if (number.length == 9) {
-         number = number.replace(/(\d{4})(\d{3})(\d{2})/, "$1-$2-$3")
-      } else if (number.length == 10) {
-         number = number.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3")
-      } else if (number.length == 11) {
-         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
-      } else if (number.length > 11) {
-         number = number.substring(0, 11)
-         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
-      }
-      return number
+   componentWillReceiveProps(nextProps){
+      let moneyIn = _.get(nextProps, 'data.moneyIn', {})
+      let moneyOut = _.get(nextProps, 'data.moneyOut', {})
+      this.setState({ moneyIn: moneyIn, moneyOut: moneyOut })
+      this.setState({ reload: !this.state.reload })
    }
 
-   render() {
-      const { classes, onSubmit, goods = [], data } = this.props
-      let { dataInput } = this.state
-      let goodsIdState = _.get(dataInput, 'goodsId', '')
-      let numberState = _.get(dataInput, 'number', '')
-      let name = _.get(data, 'name', '')
-      let phone = _.get(data, 'phone', '')
-      let address = _.get(data, 'address', '')
-      let goodsId = _.get(data, 'goodsId', '')
-      let number = _.get(data, 'number', '')
-      let money = _.get(data, 'money', '')
-      let _status = _.get(data, 'status', '')
-      let pay = _.get(data, 'pay', '')
-      let note = _.get(data, 'note', '')
-      let amount = _.get(data, 'amount', '')
-      let moneyImportGoods = _.get(data, 'moneyImportGoods', '')
-      let cost = _.get(data, 'cost', '')
-      let profit = _.get(data, 'profit', '')
-      console.log("Dtae", data)
-      let moneyNew = ''
-      let moneyOld = ''
-      let image = ''
-      let nameGoods = ''
-      let codeGoods = ''
-      goods.map(item => {
-         if (item._id == goodsId) {
-            moneyOld = _.get(item, 'moneyOld', '')
-            moneyNew = _.get(item, 'moneyNew', '')
-            nameGoods = _.get(item, 'name', '')
-            codeGoods = _.get(item, 'code', '')
-            image = _.get(item, 'image1', '')
-         }
-      })
-      number = numberState ? numberState : number
+   moneyInOut() {
+      const { classes, onSubmit, data } = this.props
+      let { moneyOut = [], moneyIn = [] } = this.state
+      let date = _.get(data, 'date', '')
       return (
-         <Form className={classes.paper} onSubmit={onSubmit}>
+         <Form className={classes.card} onSubmit={onSubmit}>
             <Card>
                <CardContent>
                   <Grid container spacing={32}>
-                     <Grid item xs={3} lg={3}>
-                        {/* <center>
-                           { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
-                           { image ? <img src={image} height='350' width='280' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
-                           { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
-                           { moneyNew  ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography> : '' }
-                           { moneyOld  ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography></del> : '' }
-                        </center> */}
+                     <Grid item xs={4}>
+                        <Typography color='primary' variant='h6'> Nội dung chi tiêu </Typography>
                      </Grid>
-                     <Grid item xs={9}>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
-                           <Grid item xs={4}>
-                              <AutoCompleteField
-                                 key="1"
-                                 fullWidth
-                                 select
-                                 label={I18n.t("Input.finance.goodsId.Tên Hàng")}
-                                 onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
-                                 name="goodsId"
-                                 value={goodsIdState || goodsId}
-                                 isMulti={false}
-                                 isClearable={false}
-                              >
-                                 {
-                                    goods.map(item => (
-                                       <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                          {item.name}
-                                       </OptionAuto>
-                                    ))
-                                 }
-                              </AutoCompleteField>
-                           </Grid>
-                           <Grid item xs={2}>
-                              <AutoCompleteField
-                                 key="2"
-                                 fullWidth
-                                 select
-                                 label={I18n.t("Input.finance.goodsId.Mã hàng")}
-                                 onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
-                                 name="goodsCode"
-                                 value={goodsIdState || goodsId}
-                                 isMulti={false}
-                                 isClearable={false}
-                              >
-                                 {
-                                    goods.map(item => (
-                                       <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                          {item.name}
-                                       </OptionAuto>
-                                    ))
-                                 }
-                              </AutoCompleteField>
-                           </Grid>
-                           <Grid item xs={3}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.number.Số lượng")}
-                                 onChange={(value) => this.onHandleChange(value, 'number')}
-                                 name="number"
-                                 defaultValue={number}
-                                 onKeyDown={(e) => {
-                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
-                                       e.preventDefault()
-                                    }
-                                    if (e.target.value.length >= 3) {
-                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
-                                          e.preventDefault()
-                                       }
-                                    }
-                                 }}
-                              />
-                           </Grid>
-                           <Grid item xs={3}>
-                              <MoneyField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.money.Tổng tiền")}
-                                 name="money"
-                                 disabled={true}
-                                 defaultValue={`${Number(number) * Number(moneyNew)}` || `${money}`}
-                                 onChange={(value) => this.onHandleChange(value, 'money')}
-                              />
-                           </Grid>
-                        </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
-                           <Grid item xs={4}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.name.Tên khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'name')}
-                                 value={name}
-                                 name="name"
-                              />
-                           </Grid>
-                           <Grid item xs={2}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.phone.SĐT")}
-                                 onChange={(value) => this.onHandleChange(value, 'phone')}
-                                 defaultValue={this.phoneFormatter(phone)}
-                                 formatData={(value) => this.phoneFormatter(value)}
-                                 onKeyDown={(e) => {
-                                    if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
-                                       e.preventDefault()
-                                    }
-                                    if (e.target.value.length >= 13) {
-                                       if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
-                                          e.preventDefault()
-                                       }
-                                    }
-                                 }}
-                                 name="phone"
-                              />
-                           </Grid>
-                           <Grid item xs={6}>
-                              <TextField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.address.Địa chỉ")}
-                                 onChange={(value) => this.onHandleChange(value, 'address')}
-                                 value={address}
-                                 name="address"
-                              />
-                           </Grid>
-                        </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
-                           <Grid item xs={6}>
-                              <AutoCompleteField
-                                 key="3"
-                                 fullWidth
-                                 select
-                                 label={I18n.t("Input.finance.status.Trạng thái đơn hàng")}
-                                 onChange={(data) => this.onHandleChange(data.value, 'status')}
-                                 name="status"
-                                 isMulti={false}
-                                 defaultValue={_status}
-                                 isClearable={false}
-                              >
-                                 {
-                                    status.map(item => (
-                                       <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                          {item.name}
-                                       </OptionAuto>
-                                    ))
-                                 }
-                              </AutoCompleteField>
-                              <AutoCompleteField
-                                 key="4"
-                                 fullWidth
-                                 select
-                                 label={I18n.t("Input.finance.pay.Hình thức thanh toán")}
-                                 onChange={(data) => this.onHandleChange(data.value, 'pay')}
-                                 name="pay"
-                                 isMulti={false}
-                                 defaultValue={pay}
-                                 isClearable={false}
-                              >
-                                 {
-                                    pays.map(item => (
-                                       <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
-                                          {item.name}
-                                       </OptionAuto>
-                                    ))
-                                 }
-                              </AutoCompleteField>
-                           </Grid>
-                           <Grid item xs={6}>
-                              <TextField
-                                 multiline
-                                 rows={5}
-                                 rowsMax={8}
-                                 variant="outlined"
-                                 fullWidth
-                                 defaultValue={note}
-                                 label={I18n.t("Input.finance.note.Ghi chú")}
-                                 onChange={(value) => this.onHandleChange(value, 'note')}
-                                 name="note"
-                              />
-                           </Grid>
-                        </Grid>
-                        <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
-                           <Grid item xs={3}>
-                              <MoneyField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.amount.Tiền thu về thực tế")}
-                                 name="amount"
-                                 defaultValue={amount}
-                                 onChange={(value) => this.onHandleChange(value, 'amount')}
-                              />
-                           </Grid>
-                           <Grid item xs={3}>
-                              <MoneyField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.moneyImportGoods.Tiền nhập hàng")}
-                                 name="moneyImportGoods"
-                                 defaultValue={moneyImportGoods}
-                                 onChange={(value) => this.onHandleChange(value, 'moneyImportGoods')}
-                              />
-                           </Grid>
-                           <Grid item xs={3}>
-                              <MoneyField
-                                 fullWidth
-                                 label={I18n.t("Input.finance.cost.Chi phí")}
-                                 name="cost"
-                                 defaultValue={cost}
-                                 onChange={(value) => this.onHandleChange(value, 'cost')}
-                              />
-                           </Grid>
-                           <Grid item xs={3}>
-                              <MoneyField
-                                 fullWidth
-                                 // disabled
-                                 label={I18n.t("Input.finance.profit.Lợi nhuận")}
-                                 name="profit"
-                                 defaultValue={profit}
-                                 onChange={(value) => this.onHandleChange(value, 'profit')}
-                              />
-                           </Grid>
-                        </Grid>
+                     <Grid item xs={4}>
+                        <DateTimeField
+                           style={{ marginTop: '-10px' }}
+                           label=''
+                           name="date"
+                           ampm="false"
+                           value={date}
+                           clearable={false}
+                           showTime={false}
+                           showDate={true}
+                        />
                      </Grid>
                   </Grid>
+                  {
+                     moneyOut.map((item, index) => {
+                        let user = _.get(item, 'user', '')
+                        let content = _.get(item, 'content', '')
+                        let money = _.get(item, 'money', '')
+                        return (
+                           <Grid key={index} container direction="row" alignItems="center" spacing={8}>
+                              <Grid item xs={3}>
+                                 <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.date.Người thanh toán tiền")}
+                                    onChange={(value) => this.onHandleChange(value, 'user', index)}
+                                    defaultValue={user}
+                                    name={`moneyOut[${index}][user]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={6}>
+                                 <TextField
+                                    fullWidth
+                                    multiline={true}
+                                    defaultValue={content}
+                                    label={I18n.t("Input.finance.date.Nội dung thanh toán")}
+                                    onChange={(value) => this.onHandleChange(value, 'content', index)}
+                                    name={`moneyOut[${index}][content]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={2}>
+                                 <MoneyField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.money.Số tiền")}
+                                    defaultValue={money}
+                                    onChange={(value) => this.onHandleChange(value, 'money', index)}
+                                    name={`moneyOut[${index}][money]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={1}>
+                                 <IconButton onClick={() => this.signMoneyOut(index)} style={{ marginTop: '30px' }}>
+                                    <Icon style={{ color: 'red' }} >delete</Icon>
+                                 </IconButton>
+                              </Grid>
+                           </Grid>
+                        )
+                     })
+                  }
+                  <IconButton color='primary' onClick={() => this.addMoneyOut()}>
+                     <Icon>add_circle_outline</Icon>
+                  </IconButton>
+                  <hr></hr>
+                  <Typography color='primary' variant='h6'> Nội dung thu tiền </Typography>
+                  {
+                     moneyIn.map((item, index) => {
+                        return (
+                           <Grid key={index} container direction="row" alignItems="center" spacing={8}>
+                              <Grid item xs={3}>
+                                 <TextField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.date.Người thanh toán tiền")}
+                                    onChange={(value) => this.onHandleChange(value, 'user', index)}
+                                    name={`moneyIn[${index}][user]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={6}>
+                                 <TextField
+                                    fullWidth
+                                    multiline={true}
+                                    label={I18n.t("Input.finance.date.Nội dung thanh toán")}
+                                    onChange={(value) => this.onHandleChange(value, 'content', index)}
+                                    name={`moneyIn[${index}][content]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={2}>
+                                 <MoneyField
+                                    fullWidth
+                                    label={I18n.t("Input.finance.money.Số tiền")}
+                                    onChange={(value) => this.onHandleChange(value, 'money', index)}
+                                    name={`moneyIn[${index}][money]`}
+                                 />
+                              </Grid>
+                              <Grid item xs={1}>
+                                 <IconButton onClick={() => this.signMoneyIn(index)} style={{ marginTop: '30px' }}>
+                                    <Icon style={{ color: 'red' }} >delete</Icon>
+                                 </IconButton>
+                              </Grid>
+                           </Grid>
+                        )
+                     })
+                  }
+                  <IconButton color='primary' onClick={() => this.addMoneyIn()}>
+                     <Icon>add_circle_outline</Icon>
+                  </IconButton>
+                  <CardActions>
+                     <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
+                        <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                     </Button>
+                     <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+                  </CardActions>
                </CardContent>
-               <CardActions>
-                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
-                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                  </Button>
-                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-               </CardActions>
             </Card>
          </Form>
+      )
+   }
+
+   render() {
+      const { classes } = this.props
+      return (
+         <div className={classes.paper}>
+            <Grid container spacing={32}>
+               <Grid item xs={1}></Grid>
+               <Grid item xs={10}>
+                  {
+                     this.moneyInOut()
+                  }
+               </Grid>
+               <Grid item xs={1}></Grid>
+            </Grid>
+         </div>
       )
    }
 }

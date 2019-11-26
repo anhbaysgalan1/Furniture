@@ -1,6 +1,5 @@
 import React from 'react'
 import View from 'views/Finance/Index'
-import UserAction from '../../actions/UserAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import FinanceAction from '../../actions/FinanceAction'

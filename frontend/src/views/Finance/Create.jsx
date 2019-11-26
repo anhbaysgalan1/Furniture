@@ -25,49 +25,13 @@ import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
-const status = [
-   {
-      _id: '0',
-      name: "Mới"
-   },
-   {
-      _id: '1',
-      name: "Đang giao"
-   },
-   {
-      _id: '2',
-      name: "Hoàn thành"
-   },
-   {
-      _id: '3',
-      name: "Đổi hàng"
-   },
-   {
-      _id: '4',
-      name: "Thất bại"
-   }
-]
-let pays = [
-   {
-      name: "Thanh toán khi nhận hàng",
-      _id: '0'
-   },
-   {
-      name: "Chuyển khoản",
-      _id: '1'
-   },
-   {
-      name: "Ví điện tử",
-      _id: '2'
-   }
-]
-
 const styles = theme => ({
    paper: {
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
-      marginLeft: '200px',
-      marginRight: '200px',
-   }
+   },
+   card: {
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
+   },
 })
 
 class Create extends BaseView {
@@ -75,35 +39,15 @@ class Create extends BaseView {
       super(props)
       this.state = {
          reload: false,
-         data: {
-            name: '',
-            phone: '',
-            address: '',
-            goodsId: '',
-            number: '1',
-            money: '0',
-            status: '',
-            pay: '',
-            content: ''
-         },
+         dataInput: [],
          moneyOut: [{ item: '1' }],
          moneyIn: [{ item: '0' }]
       }
-
       this.onHandleChange = this.onHandleChange.bind(this)
       this.addMoneyOut = this.addMoneyOut.bind(this)
-      this.addMoneyIn = this.addMoneyIn.bind(this)
       this.signMoneyOut = this.signMoneyOut.bind(this)
+      this.addMoneyIn = this.addMoneyIn.bind(this)
       this.signMoneyIn = this.signMoneyIn.bind(this)
-      this.validate = {
-         name: [
-            Validation.required(I18n.t("Form.required")),
-            Validation.maxLength(255, I18n.t("Form.maxLeng255"))
-         ],
-         permission: [
-            Validation.required(I18n.t("Form.required"))
-         ],
-      }
    }
 
    addMoneyOut() {
@@ -138,78 +82,31 @@ class Create extends BaseView {
    }
 
    onHandleChange(value, name) {
-      this.setState({ data: { ...this.state.data, [name]: value } })
+      this.setState({ dataInput: { ...this.state.dataInput, [name]: value } })
       this.setState({ reload: !this.state.reload })
    }
 
-   phoneFormatter = (number) => {
-      number = number.replace(/[^\d]/g, '')
-      if (number.length == 4) {
-         number = number.replace(/(\d{4})/, "$1")
-      } else if (number.length == 5) {
-         number = number.replace(/(\d{4})(\d{1})/, "$1-$2")
-      } else if (number.length == 6) {
-         number = number.replace(/(\d{4})(\d{2})/, "$1-$2")
-      } else if (number.length == 7) {
-         number = number.replace(/(\d{4})(\d{3})/, "$1-$2")
-      } else if (number.length == 8) {
-         number = number.replace(/(\d{4})(\d{3})(\d{1})/, "$1-$2-$3")
-      } else if (number.length == 9) {
-         number = number.replace(/(\d{4})(\d{3})(\d{2})/, "$1-$2-$3")
-      } else if (number.length == 10) {
-         number = number.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3")
-      } else if (number.length == 11) {
-         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
-      } else if (number.length > 11) {
-         number = number.substring(0, 11)
-         number = number.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
-      }
-      return number
-   }
-
-   render() {
-      const { classes, onSubmit, goods = [] } = this.props
-      let { data } = this.state
-      let goodsId = _.get(data, 'goodsId', '')
-      let number = Number(_.get(this.state, 'data.number', '1'))
-      let moneyNew = 0
-      let moneyOld = ''
-      let image = ''
-      let nameGoods = ''
-      let codeGoods = ''
-      goods.map(item => {
-         if (item._id == goodsId) {
-            moneyOld = _.get(item, 'moneyOld', '')
-            moneyNew = _.get(item, 'moneyNew', '')
-            nameGoods = _.get(item, 'name', '')
-            codeGoods = _.get(item, 'code', '')
-            image = _.get(item, 'image1', '')
-         }
-      })
-      let { moneyOut, moneyIn } = this.state
+   moneyInOut() {
+      const { classes, onSubmit } = this.props
+      let { moneyOut = [], moneyIn = [] } = this.state
       return (
-         <Form className={classes.paper} onSubmit={onSubmit}>
+         <Form className={classes.card} onSubmit={onSubmit}>
             <Card>
                <CardContent>
-                  <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
+                  <Grid container spacing={32}>
                      <Grid item xs={4}>
-                        <Typography color='primary' variant='h6'>
-                           Nội chi tiêu
-                        </Typography>
+                        <Typography color='primary' variant='h6'> Nội dung chi tiêu </Typography>
                      </Grid>
                      <Grid item xs={4}>
-                        <TextField
-                           fullWidth
-                           margin='none'
-                           label={I18n.t("Input.finance.date.Ngày")}
+                        <DateTimeField
+                           style={{ marginTop: '-10px' }}
+                           label=''
                            name="date"
+                           ampm="false"
+                           clearable={false}
+                           showTime={false}
+                           showDate={true}
                         />
-                     </Grid>
-                     <Grid item xs={2}></Grid>
-                     <Grid item xs={2}>
-                        <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyOut()}>
-                           <Icon>add_circle_outline</Icon>
-                        </IconButton>
                      </Grid>
                   </Grid>
                   {
@@ -220,8 +117,8 @@ class Create extends BaseView {
                                  <TextField
                                     fullWidth
                                     label={I18n.t("Input.finance.date.Người thanh toán tiền")}
-                                    onChange={(value) => this.onHandleChange(value, 'user')}
-                                    name="user"
+                                    onChange={(value) => this.onHandleChange(value, 'user', index)}
+                                    name={`moneyOut[${index}][user]`}
                                  />
                               </Grid>
                               <Grid item xs={6}>
@@ -229,17 +126,17 @@ class Create extends BaseView {
                                     fullWidth
                                     multiline={true}
                                     label={I18n.t("Input.finance.date.Nội dung thanh toán")}
-                                    onChange={(value) => this.onHandleChange(value, 'content')}
-                                    name="content"
+                                    onChange={(value) => this.onHandleChange(value, 'content', index)}
+                                    name={`moneyOut[${index}][content]`}
                                  />
                               </Grid>
                               <Grid item xs={2}>
                                  <MoneyField
                                     fullWidth
                                     label={I18n.t("Input.finance.money.Số tiền")}
-                                    name="money"
-                                    defaultValue={`${number * Number(moneyNew)}`}
-                                    onChange={(value) => this.onHandleChange(value, 'money')}
+                                    // defaultValue={`${number * Number(moneyNew)}`}
+                                    onChange={(value) => this.onHandleChange(value, 'money', index)}
+                                    name={`moneyOut[${index}][money]`}
                                  />
                               </Grid>
                               <Grid item xs={1}>
@@ -251,38 +148,11 @@ class Create extends BaseView {
                         )
                      })
                   }
-               </CardContent>
-               <CardActions>
-                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
-                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                  </Button>
-                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-               </CardActions>
-            </Card>
-            <br />
-            <Card>
-               <CardContent>
-                  <Grid container direction="row" justify="center" alignItems="center" spacing={8}>
-                     <Grid item xs={4}>
-                        <Typography color='primary' variant='h6'>
-                           Nội chi tiêu
-                        </Typography>
-                     </Grid>
-                     <Grid item xs={4}>
-                        <TextField
-                           fullWidth
-                           margin='none'
-                           label={I18n.t("Input.finance.date.Ngày")}
-                           name="date"
-                        />
-                     </Grid>
-                     <Grid item xs={2}></Grid>
-                     <Grid item xs={2}>
-                        <IconButton style={{ marginTop: '30px' }} color='primary' onClick={() => this.addMoneyIn()}>
-                           <Icon>add_circle_outline</Icon>
-                        </IconButton>
-                     </Grid>
-                  </Grid>
+                  <IconButton color='primary' onClick={() => this.addMoneyOut()}>
+                     <Icon>add_circle_outline</Icon>
+                  </IconButton>
+                  <hr></hr>
+                  <Typography color='primary' variant='h6'> Nội dung thu tiền </Typography>
                   {
                      moneyIn.map((item, index) => {
                         return (
@@ -291,8 +161,8 @@ class Create extends BaseView {
                                  <TextField
                                     fullWidth
                                     label={I18n.t("Input.finance.date.Người thanh toán tiền")}
-                                    onChange={(value) => this.onHandleChange(value, 'user')}
-                                    name="user"
+                                    onChange={(value) => this.onHandleChange(value, 'user', index)}
+                                    name={`moneyIn[${index}][user]`}
                                  />
                               </Grid>
                               <Grid item xs={6}>
@@ -300,17 +170,16 @@ class Create extends BaseView {
                                     fullWidth
                                     multiline={true}
                                     label={I18n.t("Input.finance.date.Nội dung thanh toán")}
-                                    onChange={(value) => this.onHandleChange(value, 'content')}
-                                    name="content"
+                                    onChange={(value) => this.onHandleChange(value, 'content', index)}
+                                    name={`moneyIn[${index}][content]`}
                                  />
                               </Grid>
                               <Grid item xs={2}>
                                  <MoneyField
                                     fullWidth
                                     label={I18n.t("Input.finance.money.Số tiền")}
-                                    name="money"
-                                    defaultValue={`${number * Number(moneyNew)}`}
-                                    onChange={(value) => this.onHandleChange(value, 'money')}
+                                    onChange={(value) => this.onHandleChange(value, 'money', index)}
+                                    name={`moneyIn[${index}][money]`}
                                  />
                               </Grid>
                               <Grid item xs={1}>
@@ -322,15 +191,35 @@ class Create extends BaseView {
                         )
                      })
                   }
+                  <IconButton color='primary' onClick={() => this.addMoneyIn()}>
+                     <Icon>add_circle_outline</Icon>
+                  </IconButton>
+                  <CardActions>
+                     <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
+                        <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
+                     </Button>
+                     <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
+                  </CardActions>
                </CardContent>
-               <CardActions>
-                  <Button variant="contained" color="primary" onClick={() => this.goto("/finance")}>
-                     <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
-                  </Button>
-                  <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-               </CardActions>
             </Card>
          </Form>
+      )
+   }
+
+   render() {
+      const { classes } = this.props
+      return (
+         <div className={classes.paper}>
+            <Grid container spacing={32}>
+               <Grid item xs={1}></Grid>
+               <Grid item xs={10}>
+                  {
+                     this.moneyInOut()
+                  }
+               </Grid>
+               <Grid item xs={1}></Grid>
+            </Grid>
+         </div>
       )
    }
 }

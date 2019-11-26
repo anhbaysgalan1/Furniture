@@ -648,7 +648,8 @@ class GridTable extends PureComponent {
         // showFilterSelector                      //tạm thời tắt filter icon
         iconComponent={FilterIcon}
         messages={{}}
-      />
+      />,
+
     ]
     return filterPlugins
   }

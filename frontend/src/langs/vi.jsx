@@ -113,7 +113,8 @@ export default {
         cancel: "Hủy bỏ",
         detail: "Chi tiết",
         detailReport: '詳細',
-        search: "Search",
+        search: "Tìm kiếm",
+        filter: "Lọc",
         submit: "Xác nhận",
     },
     Sidebar: {

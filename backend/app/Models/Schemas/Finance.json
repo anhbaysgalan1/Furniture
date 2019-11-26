@@ -1,15 +1,6 @@
 {
     "_id": "objectid",
-    "name": "string",
-    "phone": "string",
-    "address": "string",
-    "goodsId": "objectid",
-    "number": "string",
-    "money": "string",
-    "status": "string",
-    "pay": "string",
-    "note": "string",
-    "amount": "string",
-    "cost": "string",
-    "profit": "string" 
+    "date": "date",
+    "moneyIn": ["string"],
+    "moneyOut": ["string"]
 }

@@ -23,7 +23,6 @@ class Edit extends BaseContainer {
    componentDidMount() {
       this.id = this.props.match.params.id
       this.props.dispatch(FinanceAction.fetch({ _id: this.id }))
-      this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
    }
 
    onSubmit(values) {
@@ -31,7 +30,6 @@ class Edit extends BaseContainer {
       .then(data => {
          if (!data.error) {
             this.notify(I18n.t('Message.editDataSuccess'))
-            // this.goto(`/finance/${this.id}`)
             this.goto("/finance")
          }
          else {
@@ -58,8 +56,7 @@ class Edit extends BaseContainer {
    render() {
       return (
          <View
-            data={this.props.data || {}}
-            goods={this.props.goods}
+            data={this.props.data}
             onSubmit={this.onSubmit}
          />
       )
@@ -69,7 +66,6 @@ class Edit extends BaseContainer {
 const mapStateToProps = state => {
    return {
       data: selector(state, "finance.item", {}),
-      goods: selector(state, "goods.list.data", []),
    }
 }
 

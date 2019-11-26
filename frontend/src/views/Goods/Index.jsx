@@ -8,6 +8,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
+import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton,
@@ -25,6 +26,7 @@ import {
    Dialog,
    DialogActions,
    DialogContent,
+   DialogContentText,
 
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
@@ -34,76 +36,162 @@ import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
-let typeGoods = [
+const typeGoods = [
    {
       name: "Giường ngủ",
-      value: '0'
-   },
-   {
+      value: "0",
+      typeItems: [
+         {
+            name: "Giường ngủ hiện đại",
+            value: "0"
+         }, {
+            name: "Giường ngủ cổ điển",
+            value: "1"
+         }, {
+            name: "Giường ngủ gỗ tự nhiên cao cấp",
+            value: "2"
+         }, {
+            name: "Giường ngủ gỗ công nghiệp",
+            value: "3"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
+      name: "Bàn ăn",
+      value: "1",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn ăn cổ điển",
+            value: "1"
+         }, {
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
+         },
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ Quần áo",
-      value: '1'
-   },
-   {
-      name: "Bàn phòng khách",
-      value: '2'
-   },
-   {
-      name: "Bàn trà",
-      value: '3'
-   },
-   {
+      value: "2",
+      typeItems: [
+         {
+            name: "Tủ quần áo hiện đại",
+            value: "0"
+         },
+         {
+            name: "Tủ quần áo gỗ tự nhiên",
+            value: "1"
+         },
+         {
+            name: "Tủ quần áo gỗ công nghiệp",
+            value: "2"
+         },
+         {
+            name: "Tủ quần áo 2 cánh",
+            value: "3"
+         },
+         {
+            name: "Tủ quần áo 3 cánh",
+            value: "4"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0"
+         }, {
+            name: "Xoan đào",
+            value: "1"
+         }, {
+            name: "Công nghiệp",
+            value: "2"
+         }
+      ]
+   }, {
+      name: "Bàn trà phòng khách",
+      value: "3",
+      typeItems: [
+         {
+            name: "Bàn trà hiện đại",
+            value: "0"
+         }, {
+            name: "Bàn trà cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
+   }, {
       name: "Tủ giày",
-      value: '4'
+      value: "4",
+      typeItems: [
+         {
+            name: "Tủ giày hiện đại",
+            value: "0"
+         }, {
+            name: "Tủ giày cổ điển",
+            value: "1"
+         }
+      ],
+      typeWoods: [
+         {
+            name: "Sồi nga",
+            value: "0",
+         }, {
+            name: "Xoan đào",
+            value: "1",
+         }, {
+            name: "Công nghiệp",
+            value: "2",
+         }
+      ]
    }
 ]
-let typeItem = [
-   {
-      name: "Giường gỗ tự nhiên",
-      value: '1'
-   },
-   {
-      name: "Giường gỗ công nghiệp",
-      value: '2'
-   },
-   {
-      name: "Giường gỗ cổ điển",
-      value: '3'
-   },
-   {
-      name: "Giường gỗ hiện đại",
-      value: '4'
-   }
-]
-let typeWoods = [
-   {
-      name: 'Tự nhiên cao cấp',
-      value: 'TN',
-   },
-   {
-      name: 'Công nghiệp',
-      value: 'CN',
-   },
-   {
-      name: 'Sồi Nga',
-      value: 'SN',
-   },
-   {
-      name: 'Xoan đào',
-      value: 'XS',
-   }
-]
-let promotions = [
-   {
-      name: 'Không',
-      value: '0'
-   },
-   {
-      name: 'Có',
-      value: '1'
-   }
-]
-const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
+const GridTable = React.lazy(() => import('components/Table/GridTable'))
 const styles = theme => ({
    gridTable: {
       height: "calc(100vh - 100px)"
@@ -112,18 +200,22 @@ const styles = theme => ({
       marginRight: '5px'
    },
    card: {
-      padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
    },
 })
-
 
 class Index extends BaseView {
    constructor(props) {
       super(props)
       this.state = {
          open: false,
+         filterOpen: false,
          dataRow: {},
          reload: false,
+         dataInput: {
+            typeGoods: '',
+            typeItem: ''
+         }
       }
       this.table = {
          columns: [
@@ -152,18 +244,26 @@ class Index extends BaseView {
                }
             },
             {
-               name: 'typeGoods',
+               name: 'typeItem',
                title: I18n.t('Table.header.role.Kiểu hàng'),
                style: {
                   textAlign: 'center',
-               }
-            },
-            {
-               name: 'typeWoods',
-               title: I18n.t('Table.header.role.Kiểu gỗ'),
-               style: {
-                  textAlign: 'center',
-               }
+               },
+               formatterComponent: (data) => {
+                  let typeItem = _.get(data, 'row.typeItem', '')
+                  switch(typeItem){
+                     case "0":
+                        return "Giường ngủ hiện đại"
+                     case "1":
+                        return "Giường ngủ cổ điển"
+                     case "2":
+                        return "Giường ngủ gỗ tự nhiên cao cấp"
+                     case "3":
+                        return "Giường ngủ gỗ công nghiệp"
+                     default: 
+                        return typeItem
+                  }
+               },
             },
             {
                name: 'moneyOld',
@@ -207,8 +307,7 @@ class Index extends BaseView {
             { columnName: 'name', wordWrapEnabled: true },
             { columnName: 'moneyOld', wordWrapEnabled: true },
             { columnName: 'moneyNew', wordWrapEnabled: true },
-            { columnName: 'typeGoods', wordWrapEnabled: true },
-            { columnName: 'typeWoods', wordWrapEnabled: true },
+            { columnName: 'typeItem', wordWrapEnabled: true },
             { columnName: '_id', align: 'center' },
          ],
          //nếu tổng nhỏ hơn 990 thì tính theo %, ngược lại tính theo px
@@ -226,12 +325,8 @@ class Index extends BaseView {
                width: 200
             },
             {
-               name: 'typeGoods',
+               name: 'typeItem',
                width: 170
-            },
-            {
-               name: 'typeWoods',
-               width: 150
             },
             {
                name: 'moneyOld',
@@ -250,7 +345,9 @@ class Index extends BaseView {
       this.ConfirmDialog = null
       this.renderToolbarActions = this.renderToolbarActions.bind(this)
       this.renderSelectedActions = this.renderSelectedActions.bind(this)
+      this.onHandleChange = this.onHandleChange.bind(this)
       this.onShow = this.onShow.bind(this)
+      this.onShowFilter = this.onShowFilter.bind(this)
       this.onHide = this.onHide.bind(this)
       this.onCancel = this.onCancel.bind(this)
    }
@@ -258,13 +355,20 @@ class Index extends BaseView {
    onShow(dataRow) {
       this.setState({ open: true, dataRow: dataRow })
    }
-
-   onHide() {
-      this.setState({ open: false })
+   onShowFilter() {
+      this.setState({ filterOpen: true })
    }
-
+   onHide() {
+      this.setState({ open: false, filterOpen: false })
+   }
    onCancel() {
       this.onHide()
+   }
+
+   onHandleChange(value, name) {
+      this.setState({
+         dataInput: { ...this.state.dataInput, [name]: value }
+      })
    }
 
    onDelete(_id) {
@@ -330,19 +434,97 @@ class Index extends BaseView {
       )
    }
 
+   renderFilter() {
+      let typeItems = []
+      typeGoods.map((item, index) => {
+         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '')
+         if (item.value == typeGoods) {
+            typeItems = item.typeItems
+         }
+      })
+      return (
+         <Dialog
+            fullWidth={true}
+            onClose={this.onCancel}
+            open={this.state.filterOpen}
+            maxWidth='md'
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+         >
+            <DialogContent>
+               <Grid container spacing={32}>
+                  <Grid item xs={6}>
+                     <AutoCompleteField
+                        key="1"
+                        fullWidth
+                        select
+                        label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
+                        onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
+                        name="typeGoods"
+                        // defaultValue='0'
+                        isMulti={false}
+                        isClearable={false}
+                     >
+                        {
+                           typeGoods.map(item => (
+                              <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                 {item.name}
+                              </OptionAuto>
+                           ))
+                        }
+                     </AutoCompleteField>
+                  </Grid>
+                  <Grid item xs={6}>
+                     <AutoCompleteField
+                        key="2"
+                        fullWidth
+                        select
+                        label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
+                        onChange={(data) => this.onHandleChange(data.value, 'typeItem')}
+                        name="typeItem"
+                        isDisabled={typeItems.length ? false : true}
+                        isMulti={false}
+                        isClearable={false}
+                     >
+                        {
+                           typeItems.map(item => (
+                              <OptionAuto key={item.value} value={item.value} showCheckbox={false}>
+                                 {item.name}
+                              </OptionAuto>
+                           ))
+                        }
+                     </AutoCompleteField>
+                  </Grid>
+               </Grid>
+               <br /><br /><br /><br /> <br /><br /><br /><br /> <br /><br /> <br /><br />
+            </DialogContent>
+            <DialogActions>
+               <Button color='primary' onClick={() => this.onCancel()} >
+                  {I18n.t("Button.search")}
+               </Button>
+               <Button color='primary' onClick={() => this.onCancel()} >
+                  {I18n.t("Button.exit")}
+               </Button>
+            </DialogActions>
+         </Dialog>
+      )
+   }
+
    renderToolbarActions() {
+      let { classes } = this.props
       return [
-         <Tooltip title={I18n.t("toolTip.new")} key="create">
-            <Button variant='contained' color='primary' onClick={() => this.goto("/goods/create")}>
-               {I18n.t("Button.create")}
-            </Button>
-         </Tooltip>,
+         <Button onClick={() => this.onShowFilter()} key="filter" className={classes.button} variant='contained' color='primary' >
+            {I18n.t("Button.filter")}
+         </Button>,
+         <Button onClick={() => this.goto("/goods/create")} key="create" className={classes.button} variant='contained' color='primary' >
+            {I18n.t("Button.create")}
+         </Button>,
       ]
    }
 
    renderSelectedActions(selectedIds) {
       return [
-         <Tooltip title={I18n.t("toolTip.delete")} key="create">
+         <Tooltip title={I18n.t("toolTip.delete")} key="delete">
             <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
                <Icon>delete</Icon>
             </IconButton>
@@ -364,37 +546,35 @@ class Index extends BaseView {
    render() {
       const { data, classes } = this.props
       return (
-         <Grid container spacing={32} className={classes.card} >
-            <Grid item xs={12}>
-               {
-                  this.renderDetail()
-               }
-            </Grid>
-            <Grid item xs={12}>
-               <PaperFade showLoading={true} className={classes.card} >
-                  <GridTable
-                     id="GoodsIndex"
-                     estimatedRowHeight={100}
-                     className={classes.gridTable}
-                     onFetchData={this.props.onFetchData}
-                     onRefTable={this.props.onRefTable}
-                     columns={this.table.columns}
-                     rows={data.data}
-                     totalCount={data.total}
-                     pageSize={data.pageSize}
-                     defaultSort={this.table.defaultSort}
-                     showCheckboxColumn={false}
-                     height="auto"
-                     selectedActions={this.renderSelectedActions}
-                     tableActions={this.renderToolbarActions}
-                     tableColumnExtensions={this.table.tableColumnExtensions}
-                     defaultColumnWidths={this.table.columnWidths}
-                  />
-                  {this.renderDialogConfirmDelete()}
-               </PaperFade>
-            </Grid>
-         </Grid>
-
+         <div className={classes.card}>
+            {
+               this.renderDetail()
+            }
+            {
+               this.renderFilter()
+            }
+            <PaperFade showLoading={true} className={classes.card} >
+               <GridTable
+                  id="GoodsIndex"
+                  estimatedRowHeight={100}
+                  className={classes.gridTable}
+                  onFetchData={this.props.onFetchData}
+                  onRefTable={this.props.onRefTable}
+                  columns={this.table.columns}
+                  rows={data.data}
+                  totalCount={data.total}
+                  pageSize={data.pageSize}
+                  defaultSort={this.table.defaultSort}
+                  showCheckboxColumn={false}
+                  height="auto"
+                  selectedActions={this.renderSelectedActions}
+                  tableActions={this.renderToolbarActions}
+                  tableColumnExtensions={this.table.tableColumnExtensions}
+                  defaultColumnWidths={this.table.columnWidths}
+               />
+               {this.renderDialogConfirmDelete()}
+            </PaperFade>
+         </div>
       )
    }
 }

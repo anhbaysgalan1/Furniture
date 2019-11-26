@@ -52,7 +52,7 @@ class Edit extends BaseContainer {
     render() {
         return (
             <View
-                data={this.props.data || {}}
+                data={this.props.data}
                 onSubmit={this.onSubmit}
                 goods={this.props.goods}
             />
@@ -64,7 +64,6 @@ const mapStateToProps = state => {
     return {
         //sử dụng selector để lấy state từ redux
         lastType: selector(state, "client.lastType", {}),
-        error: selector(state, "client.error", ""),
         data: selector(state, "client.item", {}),
         goods: selector(state, "goods.list.data", []),
     }

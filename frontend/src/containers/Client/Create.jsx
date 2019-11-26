@@ -53,7 +53,6 @@ class Index extends BaseContainer {
       return (
          <View
             onSubmit={this.onSubmit}
-            permission={this.props.permission}
             goods={this.props.goods}
          />
       )
@@ -64,7 +63,6 @@ const mapStateToProps = state => {
    return {
       data: selector(state, "role.data", {}),
       goods: selector(state, "goods.list.data", []),
-      permission: selector(state, "permission.list.data", []),
    }
 }
 

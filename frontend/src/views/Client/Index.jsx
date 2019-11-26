@@ -35,22 +35,9 @@ import What from '../Public/What'
 import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
+
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
-let typeClient = [
-   {
-      title: "Khách lẻ",
-      value: '0',
-   },
-   {
-      title: "Khách buôn",
-      value: '1',
-   },
-   {
-      title: "Đối tác",
-      value: '2',
-   }
-]
 const styles = theme => ({
    gridTable: {
       height: "calc(100vh - 100px)"
@@ -59,7 +46,7 @@ const styles = theme => ({
       marginRight: '5px'
    },
    card: {
-      padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
    },
 })
 
@@ -443,36 +430,32 @@ class Index extends BaseView {
    render() {
       const { data, classes } = this.props
       return (
-         <Grid container spacing={32} className={classes.card} >
-            <Grid item xs={12}>
-               {
-                  this.renderDetail()
-               }
-            </Grid>
-            <Grid item xs={12}>
-               <PaperFade showLoading={true} className={classes.card} >
-                  <GridTable
-                     id="ClientIndex"
-                     estimatedRowHeight={100}
-                     className={classes.gridTable}
-                     onFetchData={this.props.onFetchData}
-                     onRefTable={this.props.onRefTable}
-                     columns={this.table.columns}
-                     rows={data.data}
-                     totalCount={data.total}
-                     pageSize={data.pageSize}
-                     defaultSort={this.table.defaultSort}
-                     showCheckboxColumn={false}
-                     height="auto"
-                     selectedActions={this.renderSelectedActions}
-                     tableActions={this.renderToolbarActions}
-                     tableColumnExtensions={this.table.tableColumnExtensions}
-                     defaultColumnWidths={this.table.columnWidths}
-                  />
-                  {this.renderDialogConfirmDelete()}
-               </PaperFade>
-            </Grid>
-         </Grid>
+         <div className={classes.card}>
+            {
+               this.renderDetail()
+            }
+            <PaperFade showLoading={true} className={classes.card} >
+               <GridTable
+                  id="ClientIndex"
+                  estimatedRowHeight={100}
+                  className={classes.gridTable}
+                  onFetchData={this.props.onFetchData}
+                  onRefTable={this.props.onRefTable}
+                  columns={this.table.columns}
+                  rows={data.data}
+                  totalCount={data.total}
+                  pageSize={data.pageSize}
+                  defaultSort={this.table.defaultSort}
+                  showCheckboxColumn={false}
+                  height="auto"
+                  selectedActions={this.renderSelectedActions}
+                  tableActions={this.renderToolbarActions}
+                  tableColumnExtensions={this.table.tableColumnExtensions}
+                  defaultColumnWidths={this.table.columnWidths}
+               />
+               {this.renderDialogConfirmDelete()}
+            </PaperFade>
+         </div>
 
       )
    }

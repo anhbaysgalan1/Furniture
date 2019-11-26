@@ -23,7 +23,7 @@ Route.group(() => {
   Route.post("/users/login", "UserController.login")
   Route.group(() => {
     // Route.put("/requests/sendMessage", "RequestController.sendMessage")
-    // Route.get("/users/getTimeList", "UserController.getTimeList")
+    Route.get("/goods/getBadByType", "GoodsController.getBadByType")
     // Route.put("/users/editpassword/:id", "UserController.editPassword")
     // Route.put("/users/updateLineToken", "UserController.updateLineToken")
     

@@ -24,15 +24,18 @@ class GoodsReducer extends BaseReducer {
       "Goods.destroy": {
         path: "data"
       },
-      "Goods.getApprover": {
-        path: "data.getApprover"
+      "Goods.getBadByType": {
+        path: "getBadByType"
       },
-      "Goods.updateLineToken": {
-        path: "data.updateLineToken"
-      },
-      "Goods.getTimeList": {
-        path: "getTimeList"
-      },
+      // "Goods.getApprover": {
+      //   path: "data.getApprover"
+      // },
+      // "Goods.updateLineToken": {
+      //   path: "data.updateLineToken"
+      // },
+      // "Goods.getTimeList": {
+      //   path: "getTimeList"
+      // },
     }
   }
 

@@ -42,6 +42,33 @@ class GoodsController extends BaseController {
         return result
     }
 
+    async getBadByType({ request, response }) {
+        let input = request.query
+        let allowFields = {
+            _id: 1,
+            code: 1,
+            name: 1,
+            image1: 1,
+            image2: 1,
+            image3: 1,
+            image4: 1,
+            moneyOld: 1,
+            moneyNew: 1,
+            typeGoods: 1,
+            typeWoods: 1,
+            typeItem: 1,
+            content: 1,
+            promotion: 1,
+            insert: {
+                when: 1
+            }
+        }
+        let result = await this.Model.getBadByType(input.typeGoods, allowFields)
+        return result
+
+    }
+
+
     async detail({ request, response }) {
         let allowFields = {
             _id: 1,
@@ -64,7 +91,7 @@ class GoodsController extends BaseController {
 
     async store({ request, response }) {
         let input = request.body
-            //allowFields là object các trường được phép lưu vào db
+        //allowFields là object các trường được phép lưu vào db
         let allowFields = {
             code: "string!",
             name: "string!",

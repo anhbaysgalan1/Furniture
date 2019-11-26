@@ -33,16 +33,21 @@ class GoodsAction extends BaseAction {
         url: '/api/v1/goods/:_id',
         type: 'Goods.fetch'
       },
-      getApprover: {
+      getBadByType: {
         method: 'get',
-        url: '/api/v1/goods/getApprover',
-        type: 'Goods.getApprover'
+        url: '/api/v1/goods/getBadByType',
+        type: 'Goods.getBadByType'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/goods/getTimeList',
-        type: 'Goods.getTimeList'
-      },
+      // getApprover: {
+      //   method: 'get',
+      //   url: '/api/v1/goods/getApprover',
+      //   type: 'Goods.getApprover'
+      // },
+      // getTimeList: {
+      //   method: 'get',
+      //   url: '/api/v1/goods/getTimeList',
+      //   type: 'Goods.getTimeList'
+      // },
     }
   }
 }

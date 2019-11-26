@@ -14,11 +14,10 @@ class Index extends BaseContainer {
     }
 
     componentDidMount() {
-        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
+        this.props.dispatch(GoodsAction.getBadByType({ typeGoods: '0' }))
     }
 
     onSubmit(values) {
-        console.log("xnxxxx", values)
         this.props.dispatch(OrderAction.create(values))
         .then(data => {
             if (!data.error) {
@@ -50,7 +49,7 @@ class Index extends BaseContainer {
         return (
             <View 
                 onSubmit={this.onSubmit}
-                goods={this.props.goods}
+                goodsBads={this.props.goodsBads}
             />
         )
     }
@@ -58,7 +57,7 @@ class Index extends BaseContainer {
 
 const mapStateToProps = state => {
     return {
-        goods: selector(state, "goods.list.data",  []),
+        goodsBads: selector(state, "goods.getBadByType", [])
     }
 }
 

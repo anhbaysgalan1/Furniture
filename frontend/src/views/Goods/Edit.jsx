@@ -369,7 +369,6 @@ class Create extends BaseView {
                                  onChange={(value) => this.onHandleChange(value, 'typeItem')}
                                  name="typeItem"
                                  defaultValue={typeItemServer}
-                                 validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -477,7 +476,6 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.promotion.Khuyến mại")}
                                  onChange={(value) => this.onHandleChange(value, 'promotion')}
                                  name="promotion"
-                                 validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
                                  value={promotion}

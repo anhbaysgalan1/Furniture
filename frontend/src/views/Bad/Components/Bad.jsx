@@ -161,12 +161,36 @@ class Index extends BaseView {
       }
    }
 
-   renderNature(goods = []) {
+   renderNature(tabBad, goodsBads) {
       let converGoods = []
-      goods.map((item, index) => {
-         let typeGoods = _.get(item, 'typeGoods', '')
-         if(typeGoods == "0"){
-            converGoods.push(item)
+      console.log("goodsBads", goodsBads )
+      // all, modern, classic, nature, industry
+      goodsBads.map((item, index) => {
+         let typeItem  = _.get(item, 'typeItem', '')
+         switch(tabBad){
+            case 'all':
+               converGoods.push(item)
+               break
+            case 'modern':
+               if(typeItem == '0'){
+                  converGoods.push(item)
+               }
+               break
+            case 'classic':
+               if(typeItem == '1'){
+                  converGoods.push(item)
+               }
+               break
+            case 'nature':
+               if(typeItem == '2'){
+                  converGoods.push(item)
+               }
+               break
+            case 'industry':
+               if(typeItem == '3'){
+                  converGoods.push(item)
+               }
+               break
          }
       })
       let { classes } = this.props
@@ -179,7 +203,7 @@ class Index extends BaseView {
       let { itemPrimary } = this.state // Số trang 
       let minImage = this.setMinMaxImage(itemPrimary, numberImg).minImage
       let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
-
+      
       return (
          <span>
             {/* <img src={tunhien} height='80' width='450' /> */}
@@ -259,8 +283,7 @@ class Index extends BaseView {
       )
    }
 
-   titleBad = () => { 
-      let { tabBad } = this.props
+   titleBad = (tabBad) => { 
       let title = ""
       switch(tabBad){
          case "all":
@@ -277,8 +300,8 @@ class Index extends BaseView {
    }
 
    render() {
-      let { classes, goods, tabBad } = this.props 
-      let title = this.titleBad()
+      let { classes, tabBad, goodsBads } = this.props 
+      let title = this.titleBad(tabBad)
       return (
          <span>
             {
@@ -291,7 +314,7 @@ class Index extends BaseView {
                this.renderDetail()
             }
             {
-               this.renderNature(goods)
+               this.renderNature( tabBad, goodsBads)
             }
          </span>
       )

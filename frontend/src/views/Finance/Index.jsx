@@ -49,11 +49,8 @@ const styles = theme => ({
    button: {
       marginRight: '5px'
    },
-   form: {
-      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
-   },
    card: {
-      padding: `${theme.spacing.unit * 1}px ${theme.spacing.unit * 4}px`,
+      padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
    }
 })
 const status = [
@@ -126,98 +123,69 @@ class Index extends BaseView {
                sortable: false,
             },
             {
-               name: 'insert',
-               title: I18n.t('Table.header.role.date.Ngày'),
+               name: 'date',
+               title: I18n.t('Table.header.finance.date.Ngày'),
                filterable: false,
                sortable: false,
                formatterComponent: (data) => {
-                  let date = _.get(data, 'row.insert.when', '')
+                  let date = _.get(data, 'row.date', '')
                   return moment(date).format('DD/MM/YYYY')
                },
             },
             {
-               name: 'goodsId',
-               title: I18n.t('Table.header.role.name.Mã sản phẩm'),
-               formatterComponent: (data) => {
-                  console.log("date", data)
-                  let code = _.get(data, 'row.goods.code', '')
-                  return code
-               },
-            },
-            {
-               name: 'name',
-               title: I18n.t('Table.header.role.name.Tên khách hàng'),
-            },
-            {
-               name: 'phone',
-               title: I18n.t('Table.header.role.name.Phone'),
-            },
-            {
-               name: 'address',
-               title: I18n.t('Table.header.role.name.Địa chỉ'),
-            },
-            {
-               name: 'number',
-               title: I18n.t('Table.header.role.number.Số Lượng'),
-            },
-            {
-               name: 'money',
-               title: I18n.t('Table.header.role.name.Số tiền hàng'),
-               formatterComponent: (data) => {
-                  let money = _.get(data, 'row.money', '')
-                  return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
-               }
-            },
-            {
-               name: 'pay',
-               title: I18n.t('Table.header.role.name.Hình thức thanh toán'),
-               formatterComponent: (data) => {
-                  let pay = _.get(data, 'row.pay', '')
-                  switch(pay) {
-                     case '0':
-                        return "Thanh toán khi nhận hàng"
-                     case '1':
-                        return "Chuyển khoản"
-                     case '2':
-                        return 'Ví điện tử'
-                     default:
-                        return ''
-                  }
-               },
-            },
-            {
-               name: 'status',
-               title: I18n.t('Table.header.Trạng thái'),
+               name: 'moneyIn',
+               title: I18n.t('Table.header.finance.Thu tiền'),
+               filterable: true,
                sortable: false,
-               filterable: false,
                formatterComponent: (data) => {
-                  let status = _.get(data, 'row.status', '')
-                  return this.formatStatus(status)
-               }
+                  let moneyIn = _.get(data, 'row.moneyIn', []) || []
+                  return moneyIn.map( (item, index ) => {
+                     let user = _.get(item, 'user', '')
+                     let content = _.get(item, 'content', '')
+                     let money = _.get(item, 'money', '')
+                     return (
+                        <div key={index}>
+                           {user} - {content} - {money}
+                        </div>
+                     )
+                  })
+               },
+            },
+            {
+               name: 'moneyOut',
+               title: I18n.t('Table.header.finance.Chi tiêu'),
+               filterable: true,
+               sortable: false,
+               formatterComponent: (data) => {
+                  let moneyOut = _.get(data, 'row.moneyOut', []) || []
+                  return moneyOut.map( (item, index ) => {
+                     let user = _.get(item, 'user', '')
+                     let content = _.get(item, 'content', '')
+                     let money = _.get(item, 'money', '')
+                     return (
+                        <div key={index}>
+                           {user} - {content} - {money}
+                        </div>
+                     )
+                  })
+               },
             },
             {
                name: '_id',
                title: I18n.t('Table.header.action'),
                sortable: false,
-               filterable: false,
+               filterable: true,
                formatterComponent: (data) => {
                   return this.customActionColumn(data)
                }
             },
-
          ],
          defaultSort: [],
          tableColumnExtensions: [
-            { columnName: 'goodsId',   wordWrapEnabled: true },
-            { columnName: 'insert',    wordWrapEnabled: true },
-            { columnName: 'name',      wordWrapEnabled: true },
-            { columnName: 'phone',     wordWrapEnabled: true },
-            { columnName: 'address',   wordWrapEnabled: true },
-            { columnName: 'money',     wordWrapEnabled: true },
-            { columnName: 'number',    wordWrapEnabled: true },
-            { columnName: 'pay',       wordWrapEnabled: true },
-            { columnName: 'status',    status: true },
-            { columnName: '_id',       align: 'center' },
+            { columnName: 'date', wordWrapEnabled: true },
+            { columnName: 'moneyIn', wordWrapEnabled: true },
+            { columnName: 'moneyOut', wordWrapEnabled: true },
+            { columnName: '_id', align: 'center' },
          ],
          columnWidths: [
             {
@@ -225,40 +193,16 @@ class Index extends BaseView {
                width: 80
             },
             {
-               name: 'insert',
+               name: 'date',
                width: 100,
             },
             {
-               name: 'goodsId',
-               width: 100
+               name: 'moneyIn',
+               width: 300
             },
             {
-               name: 'name',
-               width: 150
-            },
-            {
-               name: 'phone',
-               width: 100
-            },
-            {
-               name: 'address',
-               width: 250
-            },
-            {
-               name: 'money',
-               width: 100
-            },
-            {
-               name: 'number',
-               width: 80
-            },
-            {
-               name: 'pay',
-               width: 150
-            },
-            {
-               name: 'status',
-               width: 130
+               name: 'moneyOut',
+               width: 300
             },
             {
                name: '_id',
@@ -286,7 +230,7 @@ class Index extends BaseView {
    onCancel() {
       this.onHide()
    }
-   onDelete(_id){
+   onDelete(_id) {
       this.onHide()
       this.ConfirmDialog.show([_id])
    }
@@ -339,7 +283,6 @@ class Index extends BaseView {
       ]
    }
    renderSelectedActions(selectedIds) {
-      console.log("Mèo con")
       return [
          <Tooltip title={I18n.t("toolTip.delete")} key="create">
             <IconButton key="delete" onClick={() => this.ConfirmDialog.show(selectedIds)}>
@@ -349,7 +292,6 @@ class Index extends BaseView {
       ]
    }
    renderDialogConfirmDelete() {
-      console.log("Cho con")
       return (
          <ConfirmDialog
             ref={(ref) => this.ConfirmDialog = ref}
@@ -392,16 +334,16 @@ class Index extends BaseView {
    }
 
    renderDetail() {
-      let {dataRow}  = this.state
-      let _id        = this.getData(dataRow, "_id", '')
-      let codeGoods  = _.get(dataRow, 'goods.code', '')
-      let nameGoods  = _.get(dataRow, 'goods.name', '')
-      let phone      = _.get(dataRow, 'phone', '')
-      let address    = _.get(dataRow, 'address', '')
-      let money      = _.get(dataRow, 'money', '')
-      let nameUser   = _.get(dataRow, 'name', '')
-      let pay        = _.get(dataRow, 'pay', '')
-      let status     = _.get(dataRow, 'status', '')
+      let { dataRow } = this.state
+      let _id = this.getData(dataRow, "_id", '')
+      let codeGoods = _.get(dataRow, 'goods.code', '')
+      let nameGoods = _.get(dataRow, 'goods.name', '')
+      let phone = _.get(dataRow, 'phone', '')
+      let address = _.get(dataRow, 'address', '')
+      let money = _.get(dataRow, 'money', '')
+      let nameUser = _.get(dataRow, 'name', '')
+      let pay = _.get(dataRow, 'pay', '')
+      let status = _.get(dataRow, 'status', '')
       return (
          <Card>
             <Dialog
@@ -469,46 +411,32 @@ class Index extends BaseView {
       const { data, classes, onSubmit } = this.props
 
       return (
-         <Grid container spacing={32} className={classes.card} >
-            <Grid item xs={12}>
-               {
-                  this.renderDetail()
-               }
-            </Grid>
-            <Grid item xs={12}>
-               <PaperFade showLoading={true} className={classes.card} >
-                  <Grid container spacing={32}>
-                     <Grid item xs={3}>
-                        <TextField
-                           fullWidth
-                           label={I18n.t("Input.finance.date.Chọn tháng")}
-                           // onChange={(value) => this.onHandleChange(value, 'name')}
-                           name="date"
-                        />
-                     </Grid>
-                  </Grid>
-                  <GridTable
-                     id="FinanceIndex"
-                     estimatedRowHeight={100}
-                     className={classes.gridTable}
-                     onFetchData={this.props.onFetchData}
-                     onRefTable={this.props.onRefTable}
-                     columns={this.table.columns}
-                     rows={data.data}
-                     totalCount={data.total}
-                     pageSize={data.pageSize}
-                     defaultSort={this.table.defaultSort}
-                     showCheckboxColumn={false}
-                     height="auto"
-                     selectedActions={this.renderSelectedActions}
-                     tableActions={this.renderToolbarActions}
-                     tableColumnExtensions={this.table.tableColumnExtensions}
-                     defaultColumnWidths={this.table.columnWidths}
-                  />
-                  {this.renderDialogConfirmDelete()}
-               </PaperFade>
-            </Grid>
-         </Grid>
+         <div className={classes.card} >
+            {
+               this.renderDetail()
+            }
+            <PaperFade showLoading={true} className={classes.card} >
+               <GridTable
+                  id="FinanceIndex"
+                  estimatedRowHeight={100}
+                  className={classes.gridTable}
+                  onFetchData={this.props.onFetchData}
+                  onRefTable={this.props.onRefTable}
+                  columns={this.table.columns}
+                  rows={data.data}
+                  totalCount={data.total}
+                  pageSize={data.pageSize}
+                  defaultSort={this.table.defaultSort}
+                  showCheckboxColumn={false}
+                  height="auto"
+                  selectedActions={this.renderSelectedActions}
+                  tableActions={this.renderToolbarActions}
+                  tableColumnExtensions={this.table.tableColumnExtensions}
+                  defaultColumnWidths={this.table.columnWidths}
+               />
+               {this.renderDialogConfirmDelete()}
+            </PaperFade>
+         </div>
       )
    }
 }

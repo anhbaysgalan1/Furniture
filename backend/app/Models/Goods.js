@@ -7,7 +7,7 @@ class Goods extends BaseModel {
         return "goods"
     }
     static get relationship() {
-       
+
         return {
             /* area: {
               relationType: "hasMany",
@@ -24,6 +24,26 @@ class Goods extends BaseModel {
               foreignField: "group_id",
             } */
         }
+    }
+
+    async getBadByType(typeGoods, allowFields) {
+        let [error, result] = await to(this.collection.aggregate([
+            {
+                $match: {
+                    typeGoods: typeGoods
+                }
+            },
+            {
+                $sort: {
+                    _id: -1
+                }
+            },
+            {
+                $project: allowFields
+            }
+        ]).toArray());
+        if (error) throw new DatabaseException(error);
+        return result;
     }
 
 }

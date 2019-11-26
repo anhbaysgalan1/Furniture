@@ -48,7 +48,7 @@ class Index extends BaseView {
     }
 
     render() {
-        let { classes, onSubmit, goods } = this.props
+        let { classes, onSubmit, goodsBads = [] } = this.props
         return (
             <div>
                 {/* <Header classes={classes} />
@@ -58,7 +58,7 @@ class Index extends BaseView {
                 <br></br>
                 <Promotion classes={classes} />  
                 <br></br> */}
-                <Tabs classes={classes} onSubmit={onSubmit} goods={goods} />
+                <Tabs classes={classes} onSubmit={onSubmit} goodsBads={goodsBads} />
                 <br></br>
                 {/* <What classes={classes} /> */}
             </div>
