@@ -84,8 +84,8 @@ class Create extends BaseView {
    }
 
    componentWillReceiveProps(nextProps){
-      let moneyIn = _.get(nextProps, 'data.moneyIn', {})
-      let moneyOut = _.get(nextProps, 'data.moneyOut', {})
+      let moneyIn = _.get(nextProps, 'data.moneyIn', [])
+      let moneyOut = _.get(nextProps, 'data.moneyOut', [])
       this.setState({ moneyIn: moneyIn, moneyOut: moneyOut })
       this.setState({ reload: !this.state.reload })
    }
@@ -166,6 +166,9 @@ class Create extends BaseView {
                   <Typography color='primary' variant='h6'> Nội dung thu tiền </Typography>
                   {
                      moneyIn.map((item, index) => {
+                        let user = _.get(item, 'user', '')
+                        let content = _.get(item, 'content', '')
+                        let money = _.get(item, 'money', '')
                         return (
                            <Grid key={index} container direction="row" alignItems="center" spacing={8}>
                               <Grid item xs={3}>
@@ -173,6 +176,7 @@ class Create extends BaseView {
                                     fullWidth
                                     label={I18n.t("Input.finance.date.Người thanh toán tiền")}
                                     onChange={(value) => this.onHandleChange(value, 'user', index)}
+                                    defaultValue={user}
                                     name={`moneyIn[${index}][user]`}
                                  />
                               </Grid>
@@ -180,6 +184,7 @@ class Create extends BaseView {
                                  <TextField
                                     fullWidth
                                     multiline={true}
+                                    defaultValue={content}
                                     label={I18n.t("Input.finance.date.Nội dung thanh toán")}
                                     onChange={(value) => this.onHandleChange(value, 'content', index)}
                                     name={`moneyIn[${index}][content]`}
@@ -188,6 +193,7 @@ class Create extends BaseView {
                               <Grid item xs={2}>
                                  <MoneyField
                                     fullWidth
+                                    defaultValue={money}
                                     label={I18n.t("Input.finance.money.Số tiền")}
                                     onChange={(value) => this.onHandleChange(value, 'money', index)}
                                     name={`moneyIn[${index}][money]`}
