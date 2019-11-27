@@ -161,10 +161,10 @@ class Index extends BaseView {
       }
    }
 
-   renderNature(tabBad, goodsBads = []) {
+   renderNature(tabBad, goods = []) {
       let converGoods = []
       // all, modern, classic, nature, industry
-      goodsBads.map((item, index) => {
+      goods.map((item, index) => {
          let typeItem  = _.get(item, 'typeItem', '')
          switch(tabBad){
             case 'all':
@@ -301,9 +301,9 @@ class Index extends BaseView {
    }
 
    render() {
-      let { classes, tabBad, goodsBads } = this.props 
+      let { classes, tabBad, goods } = this.props 
       let checkArr = false
-      if(Array.isArray(goodsBads) && goodsBads.length){
+      if(Array.isArray(goods) && goods.length){
          checkArr = true
       }
       let title = this.titleBad(tabBad)
@@ -314,12 +314,11 @@ class Index extends BaseView {
                   {title}
                </Typography>
             }
-           
             {
                this.renderDetail()
             }
             {
-               checkArr ? this.renderNature( tabBad, goodsBads) : ''
+               checkArr ? this.renderNature( tabBad, goods) : ''
             }
          </span>
       )

@@ -21,7 +21,7 @@ class Index extends BaseContainer {
       return (
          <View
             posts={this.props.posts}
-            goodsBads={this.props.goodsBads}
+            goods={this.props.goods}
          />
       )
    }
@@ -30,7 +30,7 @@ class Index extends BaseContainer {
 const mapStateToProps = state => {
    return {
       posts: selector(state, "posts.list.data", []),
-      goodsBads: selector(state, "goods.getBadByType", [])
+      goods: selector(state, "goods.getBadByType", [])
    }
 }
 

@@ -21,8 +21,8 @@ import {
    CardActions,
    CardContent
 } from '@material-ui/core'
-import Bad from './Components/Bad'
-import BadHot from './Components/BadHot'
+import ItemTab from './Components/Tab'
+import GoodsHot from './Components/GoodsHot'
 
 import PhoneIcon from '@material-ui/icons/Phone'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -64,7 +64,7 @@ function NavTabs(data) {
    }
    let classes = _.get(data, 'classes', '')
    let onSubmit = _.get(data, 'onSubmit', '')
-   let goodsBads = _.get(data, 'goodsBads', [])
+   let goods = _.get(data, 'goods', [])
    return (
       <div>
          <AppBar position="static" color="default">
@@ -86,11 +86,11 @@ function NavTabs(data) {
             </Paper>
          </AppBar>
          <div>
-            {value === 0 && <TabContainer> <Bad classes={classes} tabBad="all" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
-            {value === 1 && <TabContainer> <Bad classes={classes} tabBad="modern" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
-            {value === 2 && <TabContainer> <Bad classes={classes} tabBad="classic" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
-            {value === 3 && <TabContainer> <Bad classes={classes} tabBad="nature" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
-            {value === 4 && <TabContainer> <Bad classes={classes} tabBad="industry" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 0 && <TabContainer> <ItemTab  classes={classes} tabBad="all" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 1 && <TabContainer> <ItemTab  classes={classes} tabBad="modern" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 2 && <TabContainer> <ItemTab  classes={classes} tabBad="classic" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 3 && <TabContainer> <ItemTab  classes={classes} tabBad="nature" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 4 && <TabContainer> <ItemTab  classes={classes} tabBad="industry" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
          </div>
       </div>
    )
@@ -100,7 +100,7 @@ class Create extends BaseView {
       super(props)
    }
    render() {
-      const { classes, onSubmit, goodsBads } = this.props
+      const { classes, onSubmit, goods } = this.props
       return (
          <PaperFade >
             <Grid container spacing={32}>
@@ -109,7 +109,7 @@ class Create extends BaseView {
                   <NavTabs
                      classes={classes}
                      onSubmit={onSubmit}
-                     goodsBads={goodsBads}
+                     goods={goods}
                   />
                </Grid>
                <Grid item lg={1}></Grid>

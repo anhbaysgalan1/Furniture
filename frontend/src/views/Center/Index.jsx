@@ -30,7 +30,7 @@ import ButtonViews from './Components/ButtonViews'
 import What from '../Public/What'
 import NewHot from './Components/NewHot'
 import Footer from './Components/Footer'
-import Bad from '../Bad/Components/Bad'
+import Bad from '../Bad/Components/Tab'
 import Promotion from '../Public/Promotion'
 import ListGoods from './Components/ListGoods'
 import List from './Components/List'
@@ -56,7 +56,7 @@ class Index extends BaseView {
    }
 
    render() {
-      let { classes, posts, goodsBads = [] } = this.props
+      let { classes, posts, goods = [] } = this.props
       return (
          <div>
             {/* <Header classes={classes} />
@@ -76,7 +76,7 @@ class Index extends BaseView {
                   <ListGoods classes={classes} />
                </Grid>
                <Grid item lg={10}>
-                  <Bad classes={classes} goodsBads={goodsBads} />
+                  <Bad classes={classes} goods={goods} />
                   <br></br>
                </Grid>
                <Grid item lg={1}></Grid>

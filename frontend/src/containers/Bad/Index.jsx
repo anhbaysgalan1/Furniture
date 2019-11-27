@@ -49,7 +49,7 @@ class Index extends BaseContainer {
       return (
          <View
             onSubmit={this.onSubmit}
-            goodsBads={this.props.goodsBads}
+            goods={this.props.goods}
          />
       )
    }
@@ -57,7 +57,7 @@ class Index extends BaseContainer {
 
 const mapStateToProps = state => {
    return {
-      goodsBads: selector(state, "goods.getBadByType", [])
+      goods: selector(state, "goods.getBadByType", [])
    }
 }
 
