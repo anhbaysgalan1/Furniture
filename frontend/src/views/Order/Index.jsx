@@ -39,7 +39,6 @@ import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
-
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 
 const styles = theme => ({
@@ -104,7 +103,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn ăn",
@@ -140,6 +142,9 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
+         }, {
+            name: "Nhựa",
+            value: "3",
          }
       ]
    }, {
@@ -159,12 +164,8 @@ const typeGoods = [
             value: "2"
          },
          {
-            name: "Tủ quần áo 2 cánh",
+            name: "Tủ quần áo nhựa cao cấp",
             value: "3"
-         },
-         {
-            name: "Tủ quần áo 3 cánh",
-            value: "4"
          }
       ],
       typeWoods: [
@@ -177,7 +178,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2"
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -201,7 +205,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ giày",
@@ -225,7 +232,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }
 ]

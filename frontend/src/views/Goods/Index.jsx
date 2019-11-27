@@ -65,7 +65,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn ăn",
@@ -101,7 +104,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ Quần áo",
@@ -120,12 +126,8 @@ const typeGoods = [
             value: "2"
          },
          {
-            name: "Tủ quần áo 2 cánh",
+            name: "Tủ quần áo nhựa cao cấp",
             value: "3"
-         },
-         {
-            name: "Tủ quần áo 3 cánh",
-            value: "4"
          }
       ],
       typeWoods: [
@@ -138,7 +140,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2"
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -162,7 +167,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ giày",
@@ -186,7 +194,10 @@ const typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }
 ]
@@ -251,18 +262,7 @@ class Index extends BaseView {
                },
                formatterComponent: (data) => {
                   let typeItem = _.get(data, 'row.typeItem', '')
-                  switch(typeItem){
-                     case "0":
-                        return "Giường ngủ hiện đại"
-                     case "1":
-                        return "Giường ngủ cổ điển"
-                     case "2":
-                        return "Giường ngủ gỗ tự nhiên cao cấp"
-                     case "3":
-                        return "Giường ngủ gỗ công nghiệp"
-                     default: 
-                        return typeItem
-                  }
+                  return typeItem
                },
             },
             {

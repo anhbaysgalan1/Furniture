@@ -68,7 +68,11 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
+
       ]
    }, {
       name: "Bàn ăn",
@@ -104,7 +108,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ Quần áo",
@@ -123,12 +130,8 @@ let typeGoods = [
             value: "2"
          }, 
          {
-            name: "Tủ quần áo 2 cánh",
+            name: "Tủ quần áo nhựa cao cấp",
             value: "3"
-         }, 
-         {
-            name: "Tủ quần áo 3 cánh",
-            value: "4"
          }
       ],
       typeWoods: [
@@ -141,7 +144,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2"
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -165,7 +171,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ giày",
@@ -189,7 +198,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         },  {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }
 ]
@@ -301,8 +313,8 @@ class Create extends BaseView {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Tủ quần áo gỗ công nghiệp ` + this.state.dataInput.code //////////////////
-      let defaultContent = `Tủ quần áo gỗ công nghiệp ` + this.state.dataInput.code //////////////////
+      let defaultName = `Tủ quần áo nhựa cao cấp ` + this.state.dataInput.code //////////////////
+      let defaultContent = `Tủ quần áo nhựa cao cấp ` + this.state.dataInput.code //////////////////
       let defaultImage = this.state.dataInput.image1
       let typeItems = []
       let typeWoods = []
@@ -358,7 +370,7 @@ class Create extends BaseView {
                                  name="typeItem"
                                  isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
-                                 defaultValue='2' /////////////////////////
+                                 defaultValue='3' /////////////////////////
                                  isClearable={false}
                               >
                                  {
@@ -375,10 +387,10 @@ class Create extends BaseView {
                                  key="3"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
+                                 label={I18n.t("Input.goods.typeWoods.Vật liệu")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue='0'
+                                 defaultValue='3'
                                  isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
                                  isClearable={false}
@@ -397,7 +409,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='TQACN' //////////////////////
+                                 defaultValue='TQAN' //////////////////////
                                  name="code"
                               />
                            </Grid>

@@ -57,7 +57,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn ăn",
@@ -93,7 +96,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ Quần áo",
@@ -110,14 +116,10 @@ let typeGoods = [
          {
             name: "Tủ quần áo gỗ công nghiệp",
             value: "2"
-         }, 
+         },
          {
-            name: "Tủ quần áo 2 cánh",
+            name: "Tủ quần áo nhựa cao cấp",
             value: "3"
-         }, 
-         {
-            name: "Tủ quần áo 3 cánh",
-            value: "4"
          }
       ],
       typeWoods: [
@@ -130,7 +132,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2"
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -154,7 +159,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }, {
       name: "Tủ giày",
@@ -178,7 +186,10 @@ let typeGoods = [
          }, {
             name: "Công nghiệp",
             value: "2",
-         }
+         }, {
+            name: "Nhựa",
+            value: "3",
+         },
       ]
    }
 ]
@@ -367,8 +378,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'typeItem')}
                                  name="typeItem"
-                                 // defaultValue={typeItemServer}
-                                 defaultValue="1"
+                                 defaultValue={typeItemServer}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -386,7 +396,7 @@ class Create extends BaseView {
                                  key="3"
                                  fullWidth
                                  select
-                                 label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
+                                 label={I18n.t("Input.goods.typeWoods.Vật liệu")}
                                  onChange={(value) => this.onHandleChange(value, 'typeWoods')}
                                  name="typeWoods"
                                  defaultValue={typeWoodsServer}
