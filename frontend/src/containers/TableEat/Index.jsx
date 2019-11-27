@@ -14,16 +14,15 @@ class Index extends BaseContainer {
     }
 
     componentDidMount() {
-        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
+        this.props.dispatch(GoodsAction.getBadByType({ typeGoods: '1' }))
     }
 
     onSubmit(values) {
-        console.log('onSubmit Table', values)
         this.props.dispatch(OrderAction.create(values))
         .then(data => {
             if (!data.error) {
                 this.notify(I18n.t('Message.createDataSuccess'))
-                this.goto("/order")
+                // this.goto("/bad")
             }
             else {
                 let err = data.error
@@ -50,7 +49,7 @@ class Index extends BaseContainer {
         return (
             <View 
                 onSubmit={this.onSubmit}
-                goods={this.props.goods}
+                goodsTableEat={this.props.goodsTableEat}
             />
         )
     }
@@ -58,7 +57,7 @@ class Index extends BaseContainer {
 
 const mapStateToProps = state => {
     return {
-        goods: selector(state, "goods.list.data",  []),
+        goodsTableEat: selector(state, "goods.getBadByType", [])
     }
 }
 

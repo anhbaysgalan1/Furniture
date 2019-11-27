@@ -118,6 +118,7 @@ export default {
         submit: "Xác nhận",
     },
     Sidebar: {
+        wardrobe: "Tủ quần áo",
         finance: 'Tài chính',
         client: 'Khách hàng',
         posts: "Tin tức",
@@ -154,7 +155,7 @@ export default {
         financeIndex: 'Tài chính',
         financeCreate: 'Thên thông tin tài chính',
         financeEdit: 'Sửa thông tin tài chính',
-
+        wardrobeIndex: 'Tủ quần áo',
         badIndex: 'Giường ngủ',
         diningRoomIndex: 'Phòng bếp',
         tableEatIndex: 'Bàn ăn',

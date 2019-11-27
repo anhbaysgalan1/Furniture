@@ -10,17 +10,17 @@ import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import {
-    IconButton,
-    Icon,
-    Tooltip,
-    Button,
-    Card,
-    Grid,
-    CardContent,
-    CardActions,
-    Typography,
-    AppBar,
-    Toolbar,
+   IconButton,
+   Icon,
+   Tooltip,
+   Button,
+   Card,
+   Grid,
+   CardContent,
+   CardActions,
+   Typography,
+   AppBar,
+   Toolbar,
 
 } from '@material-ui/core'
 import Header from '../Public/Header/Header'
@@ -30,7 +30,7 @@ import ButtonViews from './Components/ButtonViews'
 import What from '../Public/What'
 import NewHot from './Components/NewHot'
 import Footer from './Components/Footer'
-import Bads from '../Bad/Components/Bad'
+import Bad from '../Bad/Components/Bad'
 import Promotion from '../Public/Promotion'
 import ListGoods from './Components/ListGoods'
 import List from './Components/List'
@@ -40,57 +40,57 @@ import moment from 'moment'
 import _ from 'lodash'
 
 const styles = theme => ({
-    // paddingIndex: {
-    //     [theme.breakpoints.down('sm')]: {
-    //         padding: '8px',
-    //     },
-    // }
+   // paddingIndex: {
+   //     [theme.breakpoints.down('sm')]: {
+   //         padding: '8px',
+   //     },
+   // }
 })
 
 
 class Index extends BaseView {
-    constructor(props) {
-        super(props)
-        this.state = {
-        }
-    }
+   constructor(props) {
+      super(props)
+      this.state = {
+      }
+   }
 
-    render() {
-        let { classes, posts, goods = [] } = this.props
-        return (
-            <div> 
-                {/* <Header classes={classes} />
-                <Home classes={classes} />
-                <ButtonViews classes={classes} />
-                <br></br>
-                <What classes={classes} />
-                <Circle classes={classes} />
-                <br></br>
-                <Partner classes={classes} />
-                <NewHot classes={classes} />
-                <br></br>
-                <Promotion classes={classes} /> */}
-                <br></br>
-                <Grid container spacing={8}>
-                    <Grid item lg={1}>
-                        <ListGoods classes={classes}/>
-                    </Grid>
-                    <Grid item lg={10}>
-                        <Bads classes={classes} goods={goods} />
-                        <br></br>
-                    </Grid>
-                    <Grid item lg={1}></Grid>
-                </Grid>
-                {/* <List classes={classes} /> */}
-                <PostsList posts={posts} classes={classes} />
-                <Footer classes={classes} />
-            </div>
-        )
-    }
+   render() {
+      let { classes, posts, goodsBads = [] } = this.props
+      return (
+         <div>
+            {/* <Header classes={classes} />
+               <Home classes={classes} />
+               <ButtonViews classes={classes} />
+               <br></br>
+               <What classes={classes} />
+               <Circle classes={classes} />
+               <br></br>
+               <Partner classes={classes} />
+               <NewHot classes={classes} />
+               <br></br>
+               <Promotion classes={classes} /> */}
+            <br></br>
+            <Grid container spacing={8}>
+               <Grid item lg={1}>
+                  <ListGoods classes={classes} />
+               </Grid>
+               <Grid item lg={10}>
+                  <Bad classes={classes} goodsBads={goodsBads} />
+                  <br></br>
+               </Grid>
+               <Grid item lg={1}></Grid>
+            </Grid>
+            {/* <List classes={classes} /> */}
+            <PostsList posts={posts} classes={classes} />
+            <Footer classes={classes} />
+         </div>
+      )
+   }
 }
 
 Index.propTypes = {
-    classes: PropTypes.object.isRequired,
+   classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(withRouter(Index))

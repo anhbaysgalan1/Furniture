@@ -161,9 +161,8 @@ class Index extends BaseView {
       }
    }
 
-   renderNature(tabBad, goodsBads) {
+   renderNature(tabBad, goodsBads = []) {
       let converGoods = []
-      console.log("goodsBads", goodsBads )
       // all, modern, classic, nature, industry
       goodsBads.map((item, index) => {
          let typeItem  = _.get(item, 'typeItem', '')
@@ -191,6 +190,8 @@ class Index extends BaseView {
                   converGoods.push(item)
                }
                break
+            default: 
+               converGoods.push(item)
          }
       })
       let { classes } = this.props
@@ -301,6 +302,10 @@ class Index extends BaseView {
 
    render() {
       let { classes, tabBad, goodsBads } = this.props 
+      let checkArr = false
+      if(Array.isArray(goodsBads) && goodsBads.length){
+         checkArr = true
+      }
       let title = this.titleBad(tabBad)
       return (
          <span>
@@ -314,7 +319,7 @@ class Index extends BaseView {
                this.renderDetail()
             }
             {
-               this.renderNature( tabBad, goodsBads)
+               checkArr ? this.renderNature( tabBad, goodsBads) : ''
             }
          </span>
       )

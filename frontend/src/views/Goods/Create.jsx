@@ -301,8 +301,8 @@ class Create extends BaseView {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Giường ngủ ` + this.state.dataInput.code
-      let defaultContent = `Giường ngủ cổ điển ` + this.state.dataInput.code
+      let defaultName = `Tủ quần áo gỗ công nghiệp ` + this.state.dataInput.code //////////////////
+      let defaultContent = `Tủ quần áo gỗ công nghiệp ` + this.state.dataInput.code //////////////////
       let defaultImage = this.state.dataInput.image1
       let typeItems = []
       let typeWoods = []
@@ -316,7 +316,7 @@ class Create extends BaseView {
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             {
-               this.renderDetail()
+               this.renderDetail() 
             }
             <Grid container spacing={32}>
                <Grid item xs={1} lg={1}></Grid>
@@ -358,7 +358,7 @@ class Create extends BaseView {
                                  name="typeItem"
                                  isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
-                                 defaultValue='2'
+                                 defaultValue='2' /////////////////////////
                                  isClearable={false}
                               >
                                  {
@@ -378,7 +378,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeWoods.Loại gỗ")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue='1'
+                                 defaultValue='0'
                                  isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
                                  isClearable={false}
@@ -397,7 +397,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='GTN'
+                                 defaultValue='TQACN' //////////////////////
                                  name="code"
                               />
                            </Grid>

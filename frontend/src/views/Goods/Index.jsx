@@ -427,9 +427,9 @@ class Index extends BaseView {
             <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/goods/${_id}`)}>
                {I18n.t("Button.edit")}
             </Button>
-            {/* <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
-                    {I18n.t('Button.delete')}
-                </Button> */}
+            <Button className={classes.button} variant='contained' color="primary" onClick={() => this.ConfirmDialog.show([_id])}>
+               {I18n.t('Button.delete')}
+            </Button>
          </div>
       )
    }
@@ -565,7 +565,7 @@ class Index extends BaseView {
                   totalCount={data.total}
                   pageSize={data.pageSize}
                   defaultSort={this.table.defaultSort}
-                  showCheckboxColumn={false}
+                  showCheckboxColumn={true}
                   height="auto"
                   selectedActions={this.renderSelectedActions}
                   tableActions={this.renderToolbarActions}

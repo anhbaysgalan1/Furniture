@@ -14,14 +14,14 @@ class Index extends BaseContainer {
 
    componentDidMount() {
       this.props.dispatch(PostsAction.fetchAll({ pageSize: -1 }))
-      this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
+      this.props.dispatch(GoodsAction.getBadByType({ typeGoods: '0' }))
    }
 
    render() {
       return (
          <View
             posts={this.props.posts}
-            goods={this.props.goods}
+            goodsBads={this.props.goodsBads}
          />
       )
    }
@@ -30,7 +30,7 @@ class Index extends BaseContainer {
 const mapStateToProps = state => {
    return {
       posts: selector(state, "posts.list.data", []),
-      goods: selector(state, "goods.list.data", []),
+      goodsBads: selector(state, "goods.getBadByType", [])
    }
 }
 

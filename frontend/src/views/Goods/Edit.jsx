@@ -317,7 +317,6 @@ class Create extends BaseView {
       let promotion = _.get(data, 'promotion', '')
       let typeItems = []
       let typeWoods = []
-      console.log("typeGoodsServer", typeGoodsServer, '------', typeItemServer, ' >>>>>>> ', typeWoodsServer)
       typeGoods.map((item, index) => {
          let typeGoods = _.get(this.state, 'dataInput.typeGoods', '') || typeGoodsServer
          if(item.value == typeGoods){
@@ -368,7 +367,8 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'typeItem')}
                                  name="typeItem"
-                                 defaultValue={typeItemServer}
+                                 // defaultValue={typeItemServer}
+                                 defaultValue="1"
                                  isMulti={false}
                                  isClearable={false}
                               >

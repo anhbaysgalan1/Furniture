@@ -21,9 +21,8 @@ import {
    CardActions,
    CardContent
 } from '@material-ui/core'
-import TableEat from './Components/TableEat'
+import Bad from './Components/Bad'
 import BadHot from './Components/BadHot'
-
 import PhoneIcon from '@material-ui/icons/Phone'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import PersonPinIcon from '@material-ui/icons/PersonPin'
@@ -64,7 +63,7 @@ function NavTabs(data) {
    }
    let classes = _.get(data, 'classes', '')
    let onSubmit = _.get(data, 'onSubmit', '')
-   let goodsTableEat = _.get(data, 'goodsTableEat', [])
+   let goodsBads = _.get(data, 'goodsBads', [])
    return (
       <div>
          <AppBar position="static" color="default">
@@ -78,23 +77,19 @@ function NavTabs(data) {
                   aria-label="icon tabs example"
                >
                   <Tab label={I18n.t("Worker.Tất cả")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn cổ điển")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 4 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 6 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 8 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại tròn")} />
+                  <Tab label={I18n.t("Worker.Giường gỗ hiện đại")} />
+                  <Tab label={I18n.t("Worker.Giường gỗ cổ điển")} />
+                  <Tab label={I18n.t("Worker.Giường gỗ tự tiên")} />
+                  <Tab label={I18n.t("Worker.Giường gỗ công nghiệp")} />
                </Tabs>
             </Paper>
          </AppBar>
          <div>
-            {value === 0 && <TabContainer> <TableEat classes={classes} tabBad="all" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 1 && <TabContainer> <TableEat classes={classes} tabBad="modern" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 2 && <TabContainer> <TableEat classes={classes} tabBad="classic" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 3 && <TabContainer> <TableEat classes={classes} tabBad="fourChair" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 4 && <TabContainer> <TableEat classes={classes} tabBad="sixChairs" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 5 && <TabContainer> <TableEat classes={classes} tabBad="eightChairs" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
-            {value === 6 && <TabContainer> <TableEat classes={classes} tabBad="circle" onSubmit={onSubmit} goodsTableEat={goodsTableEat} /> </TabContainer>}
+            {value === 0 && <TabContainer> <Bad classes={classes} tabBad="all" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 1 && <TabContainer> <Bad classes={classes} tabBad="modern" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 2 && <TabContainer> <Bad classes={classes} tabBad="classic" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 3 && <TabContainer> <Bad classes={classes} tabBad="nature" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
+            {value === 4 && <TabContainer> <Bad classes={classes} tabBad="industry" onSubmit={onSubmit} goodsBads={goodsBads} /> </TabContainer>}
          </div>
       </div>
    )
@@ -104,7 +99,7 @@ class Create extends BaseView {
       super(props)
    }
    render() {
-      const { classes, onSubmit, goodsTableEat } = this.props
+      const { classes, onSubmit, goodsBads } = this.props
       return (
          <PaperFade >
             <Grid container spacing={32}>
@@ -113,7 +108,7 @@ class Create extends BaseView {
                   <NavTabs
                      classes={classes}
                      onSubmit={onSubmit}
-                     goodsTableEat={goodsTableEat}
+                     goodsBads={goodsBads}
                   />
                </Grid>
                <Grid item lg={1}></Grid>

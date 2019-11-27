@@ -19,7 +19,7 @@ const OrderIndex        = lazy(() => import('containers/Order/Index'))
 const OrderCreate    = lazy(() => import('containers/Order/Create'))
 const OrderEdit      = lazy(() => import('containers/Order/Edit'))
 
-const FinanceIndex        = lazy(() => import('containers/Finance/Index'))
+const FinanceIndex     = lazy(() => import('containers/Finance/Index'))
 const FinanceCreate    = lazy(() => import('containers/Finance/Create'))
 const FinanceEdit      = lazy(() => import('containers/Finance/Edit'))
 
@@ -32,6 +32,8 @@ const PostsEdit         = lazy(() => import('containers/Posts/Edit'))
 const PostsDetail       = lazy(() => import('containers/Posts/Detail'))
 
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
+const WardrobeIndex         = lazy(() => import('containers/Wardrobe/Index'))
+
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
 const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
@@ -99,6 +101,22 @@ const routes = [
         exact: true,
         sidebarName: 'bad'
     },
+    {
+        path: "/table-eat",
+        name: 'tableEat',
+        title: () => I18n.t("Breadcrumb.tableEatIndex"),
+        component: () => <TableEatIndex />,
+        exact: true,
+        sidebarName: 'tableEat'
+    },
+    {
+        path: "/wardrobe",
+        name: 'wardrobe',
+        title: () => I18n.t("Breadcrumb.wardrobeIndex"),
+        component: () => <WardrobeIndex />,
+        exact: true,
+        sidebarName: 'wardrobe'
+    },
     //--------------------------------------
     {
         path: "/dining-room",
@@ -107,15 +125,6 @@ const routes = [
         component: () => <DiningRoomIndex />,
         exact: true,
         sidebarName: 'diningRoom'
-    },
-    //--------------------------------------
-    {
-        path: "/table-eat",
-        name: 'tableEat',
-        title: () => I18n.t("Breadcrumb.tableEatIndex"),
-        component: () => <TableEatIndex />,
-        exact: true,
-        sidebarName: 'tableEat'
     },
     //--------------------------------------
     {

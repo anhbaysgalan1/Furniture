@@ -25,12 +25,11 @@ import {
 import Tabs from './Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
-import TableEatHot from './Components/TableEatHot'
-import TableEat from './Components/TableEat'
+import BadHot from './Components/BadHot'
 import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
-import IntroduceTableEat from './Components/IntroduceTableEat'
+import IntroduceBad from './Components/IntroduceBad'
 import moment from 'moment'
 import _ from 'lodash'
 // import "bootstrap/less/bootstrap.less"
@@ -48,17 +47,17 @@ class Index extends BaseView {
     }
 
     render() {
-        let { classes, onSubmit, goods } = this.props
+        let { classes, onSubmit, goodsTableEat = [] } = this.props
         return (
             <div>
                 {/* <Header classes={classes} />
-                <IntroduceTableEat classes={classes} />
+                <IntroduceBad classes={classes} />
                 <br></br>
-                <TableEatHot classes={classes} />
+                <BadHot classes={classes} />
                 <br></br>
-                <Promotion classes={classes} />   */}
-                <br></br>
-                <Tabs classes={classes} onSubmit={onSubmit} goods={goods} />
+                <Promotion classes={classes} />  
+                <br></br> */}
+                <Tabs classes={classes} onSubmit={onSubmit} goodsTableEat={goodsTableEat} />
                 <br></br>
                 {/* <What classes={classes} /> */}
             </div>

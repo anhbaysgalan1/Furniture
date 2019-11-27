@@ -59,7 +59,6 @@ class Index extends BaseView {
                                  let image = _.get(element, 'image', '')
                                  let title = _.get(element, 'title', '')
                                  let summary = _.get(element, 'summary', '')
-                                 console.log('element', element)
                                  let _id = _.get(element, '_id', '')
                                  return (
                                     <Grid item xs={4} key={index} >
@@ -70,14 +69,10 @@ class Index extends BaseView {
                                              width='100%'
                                           />
                                           <b>
-                                             <Typography>
-                                                {title}
-                                             </Typography>
+                                             <Typography> {title} </Typography>
                                           </b>
                                           <i>
-                                             <Typography>
-                                                {summary}
-                                             </Typography>
+                                             <Typography> {summary} </Typography>
                                           </i>
                                        </div>
                                     </Grid>
@@ -101,7 +96,7 @@ class Index extends BaseView {
             <CardContent style={{ textAlign: 'justify' }} >
                <Typography variant='h5' style={{ textTransform: 'uppercase', textAlign: 'center' }}>
                   TIN NỔI BẬT
-                    </Typography>
+               </Typography>
                <Grid container spacing={8}>
                   {
                      posts.map((element, index) => {
@@ -123,13 +118,9 @@ class Index extends BaseView {
                                     </Grid>
                                     <Grid item xs={9}>
                                        <b>
-                                          <Typography>
-                                             {title}
-                                          </Typography>
+                                          <Typography> {title} </Typography>
                                        </b>
-                                       <Typography>
-                                          {summary}
-                                       </Typography>
+                                       <Typography> {summary} </Typography>
                                     </Grid>
                                  </Grid>
                                  <hr></hr>

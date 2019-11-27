@@ -61,7 +61,6 @@ const styles = theme => ({
    },
 })
 
-
 class Index extends BaseView {
    constructor(props) {
       super(props)
@@ -80,80 +79,79 @@ class Index extends BaseView {
       this.onSubmit = this.onSubmit.bind(this)
    }
 
-   onSubmit(values){
+   onShow(element) {
+      this.setState({ open: true, dataGoods: element })
+      this.setState({ reload: !this.state.reload })
+   }
+   onHide() {
+      this.setState({ open: false })
+   }
+   onCancel() {
+      this.onHide()
+   }
+   onSubmit(values) {
       this.props.onSubmit(values)
       this.onHide()
    }
 
-   onShow(element){
-      this.setState({ open: true, dataGoods: element })
-      this.setState({ reload: !this.state.reload })
-   }
-   onHide(){
-      this.setState({ open: false })
-   }
-   onCancel(){
-      this.onHide()
-   }
-
-   setPage(index){
+   setPage(index) {
       this.setState({ itemPrimary: index })
       this.setState({ reload: !this.state.reload })
    }
 
-   additionPage(arrLength){
-      if(this.state.itemPrimary < arrLength - 1){
+   additionPage(arrLength) {
+      if (this.state.itemPrimary < arrLength - 1) {
          this.setState({ itemPrimary: this.state.itemPrimary + 1 })
          this.setState({ reload: !this.state.reload })
       }
    }
 
-   minusPage(){
-      if(this.state.itemPrimary >  0){ 
+   minusPage() {
+      if (this.state.itemPrimary > 0) {
          this.setState({ itemPrimary: this.state.itemPrimary - 1 })
          this.setState({ reload: !this.state.reload })
       }
    }
-   
-   renderPage(numberImg, numberPage){
+
+   renderPage(numberImg, numberPage) {
       let arr = []
-      for ( let e = 0; e < numberPage ; ++e ){
+      for (let e = 0; e < numberPage; ++e) {
          let element = {
             element: '',
          }
          arr.push(element)
       }
       let { itemPrimary } = this.state
-     
+
       return (
          <span>
-            <Button color='primary' variant='outlined' onClick={() => this.minusPage()} > 
-               <Icon>arrow_back_ios</Icon> 
-            </Button> 
+            <Button color='primary' variant='outlined' onClick={() => this.minusPage()} >
+               <Icon>arrow_back_ios</Icon>
+            </Button>
             {
                arr.map((item, index) => {
                   return (
-                     <Button 
-                        key={index} color='primary' 
-                        variant={ itemPrimary == index ? 'contained' : 'outlined'}
+                     <Button
+                        key={index} color='primary'
+                        variant={itemPrimary == index ? 'contained' : 'outlined'}
                         onClick={() => this.setPage(index)}
                      >
-                        {index + 1} 
+                        {index + 1}
                      </Button>
                   )
                })
             }
-            <Button color='primary' variant='outlined' onClick={() => this.additionPage(arr.length)} > 
-               <Icon>arrow_forward_ios</Icon> 
-            </Button> 
+            <Button color='primary' variant='outlined' onClick={() => this.additionPage(arr.length)} >
+               <Icon>arrow_forward_ios</Icon>
+            </Button>
          </span>
       )
    }
 
-   setMinMaxImage(itemPrimary, numberImg){
+   setMinMaxImage(itemPrimary, numberImg) {
       let minImage = 0
       let maxImage = 11
-      if (itemPrimary != 0){
+      if (itemPrimary != 0) {
          minImage = numberImg * itemPrimary
          maxImage = numberImg * (itemPrimary + 1) - 1
       }
@@ -163,21 +161,59 @@ class Index extends BaseView {
       }
    }
 
-   renderNature() {
-      let { classes, goods = [] } = this.props
+   renderNature(tabBad, goodsTableEat = []) {
       let converGoods = []
-      goods.map(item => {
-         let typeGoods = _.get(item, 'typeGoods', '')
-         if(typeGoods == "1"){
-            converGoods.push(item)
+      // all, modern, classic, nature, industry
+      // all, modern, classic, fourChair, sixChairs, eightChairs, circle
+      console.log('>>>>>>>>>', tabBad)
+      goodsTableEat.map((item, index) => {
+         let typeItem = _.get(item, 'typeItem', '')
+         switch (tabBad) {
+            case 'all':
+               converGoods.push(item)
+               break
+            case 'modern':
+               if (typeItem == '0') {
+                  converGoods.push(item)
+               }
+               break
+            case 'classic':
+               if (typeItem == '1') {
+                  converGoods.push(item)
+               }
+               break
+            case 'fourChair':
+               if (typeItem == '2') {
+                  converGoods.push(item)
+               }
+               break
+            case 'sixChairs':
+               if (typeItem == '3') {
+                  converGoods.push(item)
+               }
+               break
+            case 'eightChairs':
+               if (typeItem == '4') {
+                  converGoods.push(item)
+               }
+               break
+            case 'circle':
+               if (typeItem == '5') {
+                  console.log("tròn")
+                  converGoods.push(item)
+               }
+               break
+            default:
+               converGoods.push(item)
          }
       })
+      let { classes } = this.props
       let numberImg = 12 // số ảnh muốn hiện
-      let numberPage = parseInt(converGoods.length/numberImg) // Số trang phân
-      if(converGoods.length%numberImg){
+      let numberPage = parseInt(converGoods.length / numberImg) // Số trang phân
+      if (converGoods.length % numberImg) {
          numberPage = numberPage + 1
       }
-      let button = this.renderPage(numberImg, numberPage)
+      let buttonPage = this.renderPage(numberImg, numberPage)
       let { itemPrimary } = this.state // Số trang 
       let minImage = this.setMinMaxImage(itemPrimary, numberImg).minImage
       let maxImage = this.setMinMaxImage(itemPrimary, numberImg).maxImage
@@ -185,16 +221,13 @@ class Index extends BaseView {
       return (
          <span>
             {/* <img src={tunhien} height='80' width='450' /> */}
-            <Typography variant='h5' className={classes.title}>
-               Bàn ăn tất cả
-            </Typography>
             <br></br>
-            {button}
+            {buttonPage}
             <br></br><br></br>
             <Grid container spacing={16}>
                {
                   converGoods.map((element, index) => {
-                     if((index >= minImage) && (index <= maxImage)) {
+                     if ((index >= minImage) && (index <= maxImage)) {
                         return (
                            <Grid item xs={3} key={index}>
                               <CardActionArea
@@ -226,20 +259,20 @@ class Index extends BaseView {
                               </CardActionArea>
                            </Grid>
                         )
-                     } else 
+                     } else
                         return ''
                   })
                }
-            </Grid> 
+            </Grid>
             <br></br><br></br>
-            {button}
+            {buttonPage}
          </span>
       )
    }
 
    renderDetail() {
       let { dataGoods } = this.state
-      let { classes, onSubmit } = this.props
+      let { classes } = this.props
       return (
          <Dialog
             fullWidth={true}
@@ -249,7 +282,7 @@ class Index extends BaseView {
             aria-labelledby="draggable-dialog-title"
          >
             <DialogContent>
-               <OrderGoods 
+               <OrderGoods
                   dataGoods={dataGoods}
                   // classes={classes}
                   onSubmit={this.onSubmit}
@@ -264,15 +297,45 @@ class Index extends BaseView {
       )
    }
 
+   titleBad = (tabBad) => {
+      let title = ""
+      switch (tabBad) {
+         case "all":
+            return "Tất cả"
+         case "modern":
+            return "Hiện đại"
+         case "classic":
+            return "Cổ điển"
+         case "classic":
+            return "4 ghế"
+         case "classic":
+            return "6 ghế"
+         case "nature":
+            return "8 ghế"
+         case "industry":
+            return "Bàn chòn"
+      }
+   }
+
    render() {
-      let { classes } = this.props 
+      let { classes, tabBad, goodsTableEat } = this.props
+      let checkArr = false
+      if (Array.isArray(goodsTableEat) && goodsTableEat.length) {
+         checkArr = true
+      }
+      let title = this.titleBad(tabBad)
       return (
          <span>
+            {
+               <Typography variant='h5'>
+                  {title}
+               </Typography>
+            }
             {
                this.renderDetail()
             }
             {
-               this.renderNature()
+               checkArr ? this.renderNature(tabBad, goodsTableEat) : ''
             }
          </span>
       )
