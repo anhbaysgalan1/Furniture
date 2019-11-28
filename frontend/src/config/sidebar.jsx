@@ -5,12 +5,17 @@ import UserIndex from 'containers/User/Index'
 import CenterIndex from 'containers/Center/Index'
 import InfoIndex from 'containers/Info/Index'
 import ContactIndex from 'containers/Contact/Index'
+
 import BadIndex from 'containers/Bad/Index'
 import TableEatIndex from 'containers/TableEat/Index'
+import TableRestaurantIndex from 'containers/TableRestaurant/Index'
 import WardrobeIndex from 'containers/Wardrobe/Index'
+import ShoesCabinetIndex from 'containers/ShoesCabinet/Index'
+import TVCabinetIndex from 'containers/TVCabinet/Index'
+import TableLivingRoomIndex from 'containers/TableLivingRoom/Index'
 
 import DiningRoomIndex from 'containers/DiningRoom/Index'
-import TableRestaurantIndex from 'containers/TableRestaurant/Index'
+
 import OrderIndex from 'containers/Order/Index'
 import FinanceIndex from 'containers/Finance/Index'
 import GoodsIndex from 'containers/Goods/Index'
@@ -34,26 +39,48 @@ const sidebar = [
     //     component: () => <InfoIndex />
     // },
     {
-        path: "/bad", 
+        path: "/bad",  // Giường
         name: 'bad',
         title: <Translate value="Sidebar.bad" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <BadIndex />
     },
     {
-        path: "/table-eat", 
+        path: "/table-eat",  // Bàn ăn
         name: 'tableEat',
         title: <Translate value="Sidebar.tableEat" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <TableEatIndex />
     },
     {
-        path: "/wardrobe", 
+        path: "/wardrobe", // Tủ quần áo
         name: 'wardrobe',
         title: <Translate value="Sidebar.wardrobe" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <WardrobeIndex />
     },
+    {
+        path: "/shoes-cabinet",  // Tủ giày
+        name: 'shoesCabinet',
+        title: <Translate value="Sidebar.shoesCabinet" />, 
+        icon: <Icon>account_circle</Icon>,
+        component: () => <ShoesCabinetIndex />
+    },
+    {
+        path: "/tv-cabinet",  // Tủ giày
+        name: 'tvCabinet',
+        title: <Translate value="Sidebar.tvCabinet" />, 
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TVCabinetIndex />
+    },
+    {
+        path: "/table-living-room",  // Tủ giày
+        name: 'tableLivingRoomIndex',
+        title: <Translate value="Sidebar.tableLivingRoom" />, 
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableLivingRoomIndex />
+    },
+    
     // {
     //     path: "/dining-room", 
     //     name: 'diningRoom',

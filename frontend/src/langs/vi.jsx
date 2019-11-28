@@ -118,6 +118,9 @@ export default {
         submit: "Xác nhận",
     },
     Sidebar: {
+        tableLivingRoom: 'Bàn phòng khách',
+        tvCabinet: 'Tủ kệ Tivi',
+        shoesCabinet: 'Tủ giày',
         wardrobe: "Tủ quần áo",
         finance: 'Tài chính',
         client: 'Khách hàng',
@@ -147,7 +150,11 @@ export default {
         postsQuality: 'Tiêu chuẩn xuất khẩu',
         postsGuarantee: 'Bảo hành chu đáo',
         postsQuality: 'Tiêu chuẩn xuất khẩu',
+
         goodsIndex: 'Quan ly hang hoa',
+        goodsCreate: 'Thêm hang hoa',
+        goodsEdit: 'Thêm hang hoa',
+
         orderIndex: 'Quan ly don hang',
         orderCreate: 'Tạo đơn hàng',
         orderEdit: 'Sửa đơn hàng',
@@ -155,11 +162,16 @@ export default {
         financeIndex: 'Tài chính',
         financeCreate: 'Thên thông tin tài chính',
         financeEdit: 'Sửa thông tin tài chính',
-        wardrobeIndex: 'Tủ quần áo',
+
         badIndex: 'Giường ngủ',
-        diningRoomIndex: 'Phòng bếp',
         tableEatIndex: 'Bàn ăn',
         tableRestaurantIndex: 'Bàn nhà hàng',
+        wardrobeIndex: 'Tủ quần áo',
+        shoesCabinetIndex: 'Tủ giày',
+        tvCabinetIndex: 'Tủ kệ Tivi',
+        tableLivingRoomIndex: 'Bàn phòng khách',
+
+        diningRoomIndex: 'Phòng bếp',
         centerIndex: 'Đồ gỗ nội thất Dodo',
         infoIndex: 'Giới thiệu',
         contactIndex: 'Liên hệ',

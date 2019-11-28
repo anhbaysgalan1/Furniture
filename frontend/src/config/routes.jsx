@@ -32,11 +32,15 @@ const PostsEdit         = lazy(() => import('containers/Posts/Edit'))
 const PostsDetail       = lazy(() => import('containers/Posts/Detail'))
 
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
-const WardrobeIndex         = lazy(() => import('containers/Wardrobe/Index'))
-
-const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
 const TableRestaurantIndex  = lazy(() => import('containers/TableRestaurant/Index'))
+const WardrobeIndex         = lazy(() => import('containers/Wardrobe/Index'))
+const ShoesCabinetIndex     = lazy(() => import('containers/ShoesCabinet/Index'))
+const TVCabinetIndex        = lazy(() => import('containers/TVCabinet/Index'))
+const TableLivingRoomIndex  = lazy(() => import('containers/TableLivingRoom/Index'))
+
+const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
+
 const PostsChangeTable      = lazy(() => import('containers/Posts/ChangeTable'))
 const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
 const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
@@ -116,6 +120,30 @@ const routes = [
         component: () => <WardrobeIndex />,
         exact: true,
         sidebarName: 'wardrobe'
+    },
+    {
+        path: "/shoes-cabinet",
+        name: 'shoesCabinet',
+        title: () => I18n.t("Breadcrumb.shoesCabinetIndex"),
+        component: () => <ShoesCabinetIndex />,
+        exact: true,
+        sidebarName: 'shoesCabinet'
+    },
+    {
+        path: "/tv-cabinet",
+        name: 'tvCabinet',
+        title: () => I18n.t("Breadcrumb.tvCabinetIndex"),
+        component: () => <TVCabinetIndex />,
+        exact: true,
+        sidebarName: 'tvCabinet'
+    },
+    {
+        path: "/table-living-room",
+        name: 'tableLivingRoom',
+        title: () => I18n.t("Breadcrumb.tableLivingRoomIndex"),
+        component: () => <TableLivingRoomIndex />,
+        exact: true,
+        sidebarName: 'tableLivingRoom'
     },
     //--------------------------------------
     {
