@@ -8,65 +8,86 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'  
+import FacebookIcon from '@material-ui/icons/Facebook'
 import {
-    IconButton,
-    Icon,
-    Tooltip,
-    Button,
-    Card,
-    Grid,
-    CardContent,
-    CardActions,
-    Typography,
-    AppBar,
-    Toolbar,
+   IconButton,
+   Icon,
+   Tooltip,
+   Button,
+   Card,
+   Grid,
+   CardContent,
+   CardActions,
+   Typography,
+   AppBar,
+   Toolbar,
 } from '@material-ui/core'
-import Tabs from './Tabs'
+import Tabs from '../Tabs/Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
-import GoodsHot from './Components/GoodsHot'
+import GoodsHot from '../Public/GoodsHot'
 import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
-import Tab  from './Components/IntroduceGoods'
+import IntroduceGoods from './Components/IntroduceGoods'
 import moment from 'moment'
 import _ from 'lodash'
 // import "bootstrap/less/bootstrap.less"
-
+// all, modern, classic, nature, industry
+let titleTabs = [
+   {
+      label: "Tất cả",
+      tabBad: 'all'
+   },
+   {
+      label: "Tủ quần áo hiện đại",
+      tabBad: '0'
+   },
+   {
+      label: "Tủ quần áo gỗ tự nhiên",
+      tabBad: '1'
+   },
+   {
+      label: "Tủ quần áo gỗ công nghiệp",
+      tabBad: '2'
+   },
+   {
+      label: "Tủ quần áo nhựa cao cấp",
+      tabBad: '3'
+   },
+]
 const styles = theme => ({
 })
 
-
 class Index extends BaseView {
-    constructor(props) {
-        super(props)
-        this.state = {
-            activePage: 15
-        }
-    }
+   constructor(props) {
+      super(props)
+      this.state = {
+         activePage: 15
+      }
+   }
 
-    render() {
-        let { classes, onSubmit, goods = [] } = this.props
-        return (
-            <div>
-                {/* <Header classes={classes} />
+   render() {
+      let { classes, onSubmit, goods = [] } = this.props
+      return (
+         <div>
+            {/* <Header classes={classes} />
                 <IntroduceGoods classes={classes} />
                 <br></br>
                 <GoodsHot classes={classes} />
                 <br></br>
                 <Promotion classes={classes} />  
                 <br></br> */}
-                <Tabs classes={classes} onSubmit={onSubmit} goods={goods} />
-                <br></br>
-                {/* <What classes={classes} /> */}
-            </div>
-        )
-    }
+            <Tabs titleTabs={titleTabs} classes={classes} onSubmit={onSubmit} goods={goods} />
+            <br></br>
+            {/* <What classes={classes} /> */}
+         </div>
+      )
+   }
 }
 
 Index.propTypes = {
-    classes: PropTypes.object.isRequired,
+   classes: PropTypes.object.isRequired,
 }
 
 export default withStyles(styles)(withRouter(Index))

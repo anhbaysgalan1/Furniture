@@ -34,7 +34,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import Skeleton from '@material-ui/lab/Skeleton'
 import moment from 'moment'
-import OrderGoods from '../../OrderGoods/OrderGoods'
+import OrderGoods from '../../Order/OrderGoods'
 import _ from 'lodash'
 
 const styles = theme => ({
@@ -157,58 +157,14 @@ class Index extends BaseView {
          maxImage: maxImage,
       }
    }
-   // all, modern, classic, nature, industry
-   // all, modern, classic, fourChair, sixChairs, eightChairs, circle
    converGoods(tabBad, goods = []) {
       let converGoods = []
       goods.map((item, index) => {
          let typeItem = _.get(item, 'typeItem', '')
-         switch (tabBad) {
-            case 'all':
-               converGoods.push(item)
-               break
-            case 'modern':
-               if (typeItem == '0') {
-                  converGoods.push(item)
-               }
-               break
-            case 'classic':
-               if (typeItem == '1') {
-                  converGoods.push(item)
-               }
-               break
-            case 'nature':
-               if (typeItem == '2') {
-                  converGoods.push(item)
-               }
-               break
-            case 'fourChair':
-               if (typeItem == '2') {
-                  converGoods.push(item)
-               }
-               break
-            case 'industry':
-               if (typeItem == '3') {
-                  converGoods.push(item)
-               }
-               break
-            case 'sixChairs':
-               if (typeItem == '3') {
-                  converGoods.push(item)
-               }
-               break
-            case 'eightChairs':
-               if (typeItem == '4') {
-                  converGoods.push(item)
-               }
-               break
-            case 'circle':
-               if (typeItem == '5') {
-                  converGoods.push(item)
-               }
-               break
-            default:
-               converGoods.push(item)
+         if(typeItem == tabBad){
+            converGoods.push(item)
+         } else if(tabBad == 'all'){
+            converGoods.push(item)
          }
       })
       return converGoods

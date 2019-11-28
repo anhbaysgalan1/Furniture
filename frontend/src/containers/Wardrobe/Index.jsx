@@ -14,7 +14,7 @@ class Index extends BaseContainer {
    }
 
    componentDidMount() {
-      this.props.dispatch(GoodsAction.getBadByType({ typeGoods: '0' }))
+      this.props.dispatch(GoodsAction.getBadByType({ typeGoods: '2' }))
    }
 
    onSubmit(values) {

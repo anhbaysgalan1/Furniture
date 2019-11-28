@@ -25,7 +25,7 @@ import {
 import Tabs from '../Tabs/Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
-import GoodsHot from './Components/GoodsHot'
+import GoodsHot from '../Public/GoodsHot'
 import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
@@ -45,27 +45,27 @@ let titleTabs = [
     },
     {
         label: "Bàn ăn hiện đại",
-        tabBad: 'modern'
+        tabBad: '0'
     },
     {
         label: "Bàn ăn cổ điển",
-        tabBad: 'classic'
+        tabBad: '1'
     },
     {
         label: "Bàn ăn hiện đại 4 ghế",
-        tabBad: 'fourChair'
+        tabBad: '2'
     },
     {
         label: "Bàn ăn hiện đại 6 ghế",
-        tabBad: 'sixChairs'
+        tabBad: '3'
     },
     {
         label: "Bàn ăn hiện đại 8 ghế",
-        tabBad: 'eightChairs'
+        tabBad: '4'
     },
     {
         label: "Bàn ăn hiện đại tròn",
-        tabBad: 'circle'
+        tabBad: '5'
     },
 ]
 

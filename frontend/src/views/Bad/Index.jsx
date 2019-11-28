@@ -25,7 +25,7 @@ import {
 import Tabs from '../Tabs/Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
-import GoodsHot from './Components/GoodsHot'
+import GoodsHot from '../Public/GoodsHot'
 import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
@@ -33,7 +33,6 @@ import IntroduceGoods from './Components/IntroduceGoods'
 import moment from 'moment'
 import _ from 'lodash'
 // import "bootstrap/less/bootstrap.less"
-// all, modern, classic, nature, industry
 let titleTabs = [
     {
         label: "Tất cả",
@@ -41,19 +40,19 @@ let titleTabs = [
     },
     {
         label: "Giường gỗ hiện đại",
-        tabBad: 'modern'
+        tabBad: '0'
     },
     {
         label: "Giường gỗ cổ điển",
-        tabBad: 'classic'
+        tabBad: '1'
     },
     {
         label: "Giường gỗ tự tiên",
-        tabBad: 'nature'
+        tabBad: '2'
     },
     {
         label: "Giường gỗ công nghiệp",
-        tabBad: 'industry'
+        tabBad: '3'
     },
 ]
 const styles = theme => ({
