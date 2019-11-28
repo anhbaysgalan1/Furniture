@@ -21,7 +21,7 @@ import {
    CardActions,
    CardContent
 } from '@material-ui/core'
-import ItemTab from './Components/Tab'
+import TabGoods from './Components/Tab'
 import GoodsHot from './Components/GoodsHot'
 import PhoneIcon from '@material-ui/icons/Phone'
 import FavoriteIcon from '@material-ui/icons/Favorite'
@@ -85,11 +85,11 @@ function NavTabs(data) {
             </Paper>
          </AppBar>
          <div>
-            {value === 0 && <TabContainer> <ItemTab  classes={classes} tabBad="all" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 1 && <TabContainer> <ItemTab  classes={classes} tabBad="modern" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 2 && <TabContainer> <ItemTab  classes={classes} tabBad="classic" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 3 && <TabContainer> <ItemTab  classes={classes} tabBad="nature" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 4 && <TabContainer> <ItemTab  classes={classes} tabBad="industry" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 0 && <TabContainer> <TabGoods  classes={classes} tabBad="all" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 1 && <TabContainer> <TabGoods  classes={classes} tabBad="modern" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 2 && <TabContainer> <TabGoods  classes={classes} tabBad="classic" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 3 && <TabContainer> <TabGoods  classes={classes} tabBad="nature" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {value === 4 && <TabContainer> <TabGoods  classes={classes} tabBad="industry" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
          </div>
       </div>
    )

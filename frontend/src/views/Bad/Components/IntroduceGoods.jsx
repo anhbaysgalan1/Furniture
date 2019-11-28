@@ -65,7 +65,6 @@ class Index extends BaseView {
         }
     }
 
-
     render() {
         let { classes } = this.props
         return (

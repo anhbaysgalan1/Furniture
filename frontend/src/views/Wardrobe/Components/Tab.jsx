@@ -150,7 +150,7 @@ class Index extends BaseView {
 
    setMinMaxImage(itemPrimary, numberImg){
       let minImage = 0
-      let maxImage = 11
+      let maxImage = numberImg - 1
       if (itemPrimary != 0){
          minImage = numberImg * itemPrimary
          maxImage = numberImg * (itemPrimary + 1) - 1
@@ -161,7 +161,7 @@ class Index extends BaseView {
       }
    }
 
-   renderNature(tabBad, goods = []) {
+   renderGoods(tabBad, goods = []) {
       let converGoods = []
       // all, modern, classic, nature, industry
       goods.map((item, index) => {
@@ -319,7 +319,7 @@ class Index extends BaseView {
                this.renderDetail()
             }
             {
-               checkArr ? this.renderNature( tabBad, goods) : ''
+               checkArr ? this.renderGoods( tabBad, goods) : ''
             }
          </span>
       )

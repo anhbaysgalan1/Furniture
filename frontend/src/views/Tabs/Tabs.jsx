@@ -21,19 +21,12 @@ import {
    CardActions,
    CardContent
 } from '@material-ui/core'
-import ItemTab  from './Components/Tab'
-import PhoneIcon from '@material-ui/icons/Phone'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import PersonPinIcon from '@material-ui/icons/PersonPin'
-
-import moment from 'moment'
+import TabGoods from './Components/Tab'
 import _ from 'lodash'
 
 const styles = theme => ({
 
 })
-
-
 
 function TabContainer(props) {
    return (
@@ -63,46 +56,42 @@ function NavTabs(data) {
    let classes = _.get(data, 'classes', '')
    let onSubmit = _.get(data, 'onSubmit', '')
    let goods = _.get(data, 'goods', [])
+   let titleTabs = _.get(data, 'titleTabs', []) || []
    return (
       <div>
          <AppBar position="static" color="default">
             <Paper square component='div'>
-               <Tabs
-                  textColor="primary"
-                  indicatorColor="primary"
-                  value={value}
-                  variant='fullWidth'
-                  onChange={handleChange}
+               <Tabs 
+                  textColor="primary" 
+                  indicatorColor="primary" 
+                  value={value} variant='fullWidth'
+                  onChange={handleChange} 
                   aria-label="icon tabs example"
                >
-                  <Tab label={I18n.t("Worker.Tất cả")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn cổ điển")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 4 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 6 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại 8 ghế")} />
-                  <Tab label={I18n.t("Worker.Bàn ăn hiện đại tròn")} />
+                  { titleTabs.map((item, index) => <Tab key={index} label={item.label} /> ) }
                </Tabs>
             </Paper>
          </AppBar>
          <div>
-            {value === 0 && <TabContainer> <ItemTab  classes={classes} tabBad="all" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 1 && <TabContainer> <ItemTab  classes={classes} tabBad="modern" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 2 && <TabContainer> <ItemTab  classes={classes} tabBad="classic" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 3 && <TabContainer> <ItemTab  classes={classes} tabBad="fourChair" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 4 && <TabContainer> <ItemTab  classes={classes} tabBad="sixChairs" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 5 && <TabContainer> <ItemTab  classes={classes} tabBad="eightChairs" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
-            {value === 6 && <TabContainer> <ItemTab  classes={classes} tabBad="circle" onSubmit={onSubmit} goods={goods} /> </TabContainer>}
+            {
+               titleTabs.map((item, index) => 
+                  value == index && <TabContainer key={index} > 
+                     <TabGoods classes={classes} tabBad={item.tabBad} onSubmit={onSubmit} goods={goods} /> 
+                  </TabContainer>
+               )
+            }
          </div>
       </div>
    )
 }
+
 class Create extends BaseView {
    constructor(props) {
       super(props)
    }
    render() {
-      const { classes, onSubmit, goods } = this.props
+      const { classes, onSubmit, goods, titleTabs = [] } = this.props
+      console.log("titleTabs", titleTabs)
       return (
          <PaperFade >
             <Grid container spacing={32}>
@@ -112,6 +101,7 @@ class Create extends BaseView {
                      classes={classes}
                      onSubmit={onSubmit}
                      goods={goods}
+                     titleTabs={titleTabs}
                   />
                </Grid>
                <Grid item lg={1}></Grid>

@@ -90,7 +90,7 @@ class Index extends BaseView {
          <div>
             <Typography variant='h4' color='primary' style={{ textAlign: 'center' }}>
                Sản phẩm tiêu biểu
-        </Typography>
+            </Typography>
             <br></br>
             <Grid container spacing={0}>
                {

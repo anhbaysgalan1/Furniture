@@ -22,7 +22,7 @@ import {
     AppBar,
     Toolbar,
 } from '@material-ui/core'
-import Tabs from './Tabs'
+import Tabs from '../Tabs/Tabs'
 import What from '../Public/What'
 import Header from '../Public/Header/Header'
 import GoodsHot from './Components/GoodsHot'
@@ -37,6 +37,37 @@ import _ from 'lodash'
 const styles = theme => ({
 })
 
+// all, modern, classic, fourChair, sixChairs, eightChairs, circle
+let titleTabs = [
+    {
+        label: "Tất cả",
+        tabBad: 'all'
+    },
+    {
+        label: "Bàn ăn hiện đại",
+        tabBad: 'modern'
+    },
+    {
+        label: "Bàn ăn cổ điển",
+        tabBad: 'classic'
+    },
+    {
+        label: "Bàn ăn hiện đại 4 ghế",
+        tabBad: 'fourChair'
+    },
+    {
+        label: "Bàn ăn hiện đại 6 ghế",
+        tabBad: 'sixChairs'
+    },
+    {
+        label: "Bàn ăn hiện đại 8 ghế",
+        tabBad: 'eightChairs'
+    },
+    {
+        label: "Bàn ăn hiện đại tròn",
+        tabBad: 'circle'
+    },
+]
 
 class Index extends BaseView {
     constructor(props) {
@@ -57,7 +88,7 @@ class Index extends BaseView {
                 <br></br>
                 <Promotion classes={classes} />  
                 <br></br> */}
-                <Tabs classes={classes} onSubmit={onSubmit} goods={goods} />
+                <Tabs titleTabs={titleTabs} classes={classes} onSubmit={onSubmit} goods={goods} />
                 <br></br>
                 {/* <What classes={classes} /> */}
             </div>
