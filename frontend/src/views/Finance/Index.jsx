@@ -75,28 +75,6 @@ const status = [
       name: "Thất bại"
    }
 ]
-let typeGoods = [
-   {
-      name: "Giường ngủ",
-      _id: '0'
-   },
-   {
-      name: "Tủ Quần áo",
-      _id: '1'
-   },
-   {
-      name: "Bàn phòng khách",
-      _id: '2'
-   },
-   {
-      name: "Bàn trà",
-      _id: '3'
-   },
-   {
-      name: "Tủ giày",
-      _id: '4'
-   }
-]
 
 class Index extends BaseView {
    constructor(props) {

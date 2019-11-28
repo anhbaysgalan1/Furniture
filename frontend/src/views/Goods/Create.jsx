@@ -39,6 +39,22 @@ let promotions = [
    }
 ]
 
+let typeWoods = [
+   {
+      name: "Sồi nga",
+      value: "0",
+   }, {
+      name: "Xoan đào",
+      value: "1",
+   }, {
+      name: "Công nghiệp",
+      value: "2",
+   }, {
+      name: "Nhựa",
+      value: "3",
+   }
+]
+
 let typeGoods = [
    {
       name: "Giường ngủ",
@@ -58,22 +74,6 @@ let typeGoods = [
             value: "3"
          }
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-
-      ]
    }, {
       name: "Bàn ăn",
       value: "1",
@@ -98,21 +98,6 @@ let typeGoods = [
             value: "5"
          },
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
    }, {
       name: "Tủ Quần áo",
       value: "2",
@@ -133,21 +118,6 @@ let typeGoods = [
             name: "Tủ quần áo nhựa cao cấp",
             value: "3"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0"
-         }, {
-            name: "Xoan đào",
-            value: "1"
-         }, {
-            name: "Công nghiệp",
-            value: "2"
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -160,24 +130,9 @@ let typeGoods = [
             name: "Bàn trà cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
-      name: "Tủ giày",
+      name: "Tủ giày dép",
       value: "4",
       typeItems: [
          {
@@ -187,20 +142,41 @@ let typeGoods = [
             name: "Tủ giày cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
+      ]
+   }, {
+      name: "Tủ kệ tivi",
+      value: "5",
+      typeItems: [
          {
-            name: "Sồi nga",
-            value: "0",
+            name: "Tủ kệ tivi hiện đại",
+            value: "0"
          }, {
-            name: "Xoan đào",
-            value: "1",
+            name: "Tủ kệ tivi cổ điển",
+            value: "1"
+         }
+      ]
+   }, {
+      name: "Bàn ăn nhà hàng",
+      value: "6",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
          }, {
-            name: "Công nghiệp",
-            value: "2",
-         },  {
-            name: "Nhựa",
-            value: "3",
+            name: "Bàn ăn cổ điển",
+            value: "1"
+         }, {
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
          },
       ]
    }
@@ -313,16 +289,14 @@ class Create extends BaseView {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Tủ quần áo nhựa cao cấp ` + this.state.dataInput.code //////////////////
-      let defaultContent = `Tủ quần áo nhựa cao cấp ` + this.state.dataInput.code //////////////////
+      let defaultName = `Bàn trà phòng khách cổ điển ` + this.state.dataInput.code //////////////////
+      let defaultContent = `Bàn trà phòng khách cổ điển  ` + this.state.dataInput.code //////////////////
       let defaultImage = this.state.dataInput.image1
-      let typeItems = []
-      let typeWoods = []
+      let typeItems = typeGoods[3].typeItems
       typeGoods.map((item, index) => {
-         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '')
-         if(item.value == typeGoods){
+         let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '')
+         if(item.value == typeGoodsInput){
             typeItems = item.typeItems
-            typeWoods = item.typeWoods
          }
       })
       return (
@@ -347,7 +321,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
                                  name="typeGoods"
-                                 // defaultValue='0'
+                                 defaultValue='4'
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -368,9 +342,9 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeItem')}
                                  name="typeItem"
-                                 isDisabled={ typeItems.length ? false : true }
+                                 // isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
-                                 defaultValue='3' /////////////////////////
+                                 defaultValue='1' /////////////////////////
                                  isClearable={false}
                               >
                                  {
@@ -390,7 +364,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeWoods.Vật liệu")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue='3'
+                                 defaultValue='1'
                                  isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
                                  isClearable={false}
@@ -409,7 +383,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='TQAN' //////////////////////
+                                 defaultValue='BTPKCD' //////////////////////
                                  name="code"
                               />
                            </Grid>
@@ -441,7 +415,6 @@ class Create extends BaseView {
                               />
                            </Grid>
                         </Grid>
-                       
                         <Grid container spacing={32}>
                            <Grid item xs={6}>
                               <TextField

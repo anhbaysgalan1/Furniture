@@ -28,6 +28,22 @@ import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
+let typeWoods = [
+   {
+      name: "Sồi nga",
+      value: "0",
+   }, {
+      name: "Xoan đào",
+      value: "1",
+   }, {
+      name: "Công nghiệp",
+      value: "2",
+   }, {
+      name: "Nhựa",
+      value: "3",
+   }
+]
+
 let typeGoods = [
    {
       name: "Giường ngủ",
@@ -47,21 +63,6 @@ let typeGoods = [
             value: "3"
          }
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
    }, {
       name: "Bàn ăn",
       value: "1",
@@ -86,21 +87,6 @@ let typeGoods = [
             value: "5"
          },
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
    }, {
       name: "Tủ Quần áo",
       value: "2",
@@ -116,26 +102,11 @@ let typeGoods = [
          {
             name: "Tủ quần áo gỗ công nghiệp",
             value: "2"
-         },
+         }, 
          {
             name: "Tủ quần áo nhựa cao cấp",
             value: "3"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0"
-         }, {
-            name: "Xoan đào",
-            value: "1"
-         }, {
-            name: "Công nghiệp",
-            value: "2"
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -148,24 +119,9 @@ let typeGoods = [
             name: "Bàn trà cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
-      name: "Tủ giày",
+      name: "Tủ giày dép",
       value: "4",
       typeItems: [
          {
@@ -175,20 +131,41 @@ let typeGoods = [
             name: "Tủ giày cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
+      ]
+   }, {
+      name: "Tủ kệ tivi",
+      value: "5",
+      typeItems: [
          {
-            name: "Sồi nga",
-            value: "0",
+            name: "Tủ kệ tivi hiện đại",
+            value: "0"
          }, {
-            name: "Xoan đào",
-            value: "1",
+            name: "Tủ kệ tivi cổ điển",
+            value: "1"
+         }
+      ]
+   }, {
+      name: "Bàn ăn nhà hàng",
+      value: "6",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
          }, {
-            name: "Công nghiệp",
-            value: "2",
+            name: "Bàn ăn cổ điển",
+            value: "1"
          }, {
-            name: "Nhựa",
-            value: "3",
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
          },
       ]
    }
@@ -327,12 +304,10 @@ class Create extends BaseView {
       let content = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
       let typeItems = []
-      let typeWoods = []
       typeGoods.map((item, index) => {
-         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '') || typeGoodsServer
-         if(item.value == typeGoods){
+         let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '') || typeGoodsServer
+         if(item.value == typeGoodsInput){
             typeItems = item.typeItems
-            typeWoods = item.typeWoods
          }
       })
       return (

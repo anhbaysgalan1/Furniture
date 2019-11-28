@@ -118,7 +118,7 @@ export default {
         submit: "Xác nhận",
     },
     Sidebar: {
-        tableLivingRoom: 'Bàn phòng khách',
+        tableLivingRoom: 'Bàn trà phòng khách',
         tvCabinet: 'Tủ kệ Tivi',
         shoesCabinet: 'Tủ giày',
         wardrobe: "Tủ quần áo",
@@ -169,7 +169,7 @@ export default {
         wardrobeIndex: 'Tủ quần áo',
         shoesCabinetIndex: 'Tủ giày',
         tvCabinetIndex: 'Tủ kệ Tivi',
-        tableLivingRoomIndex: 'Bàn phòng khách',
+        tableLivingRoomIndex: 'Bàn trà phòng khách',
 
         diningRoomIndex: 'Phòng bếp',
         centerIndex: 'Đồ gỗ nội thất Dodo',

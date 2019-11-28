@@ -36,7 +36,7 @@ import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
-const typeGoods = [
+let typeGoods = [
    {
       name: "Giường ngủ",
       value: "0",
@@ -55,21 +55,6 @@ const typeGoods = [
             value: "3"
          }
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
    }, {
       name: "Bàn ăn",
       value: "1",
@@ -94,21 +79,6 @@ const typeGoods = [
             value: "5"
          },
       ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
    }, {
       name: "Tủ Quần áo",
       value: "2",
@@ -116,34 +86,19 @@ const typeGoods = [
          {
             name: "Tủ quần áo hiện đại",
             value: "0"
-         },
+         }, 
          {
             name: "Tủ quần áo gỗ tự nhiên",
             value: "1"
-         },
+         }, 
          {
             name: "Tủ quần áo gỗ công nghiệp",
             value: "2"
-         },
+         }, 
          {
             name: "Tủ quần áo nhựa cao cấp",
             value: "3"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0"
-         }, {
-            name: "Xoan đào",
-            value: "1"
-         }, {
-            name: "Công nghiệp",
-            value: "2"
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
       name: "Bàn trà phòng khách",
@@ -156,24 +111,9 @@ const typeGoods = [
             name: "Bàn trà cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
       ]
    }, {
-      name: "Tủ giày",
+      name: "Tủ giày dép",
       value: "4",
       typeItems: [
          {
@@ -183,20 +123,41 @@ const typeGoods = [
             name: "Tủ giày cổ điển",
             value: "1"
          }
-      ],
-      typeWoods: [
+      ]
+   }, {
+      name: "Tủ kệ tivi",
+      value: "5",
+      typeItems: [
          {
-            name: "Sồi nga",
-            value: "0",
+            name: "Tủ kệ tivi hiện đại",
+            value: "0"
          }, {
-            name: "Xoan đào",
-            value: "1",
+            name: "Tủ kệ tivi cổ điển",
+            value: "1"
+         }
+      ]
+   }, {
+      name: "Bàn ăn nhà hàng",
+      value: "6",
+      typeItems: [
+         {
+            name: "Bàn ăn hiện đại",
+            value: "0"
          }, {
-            name: "Công nghiệp",
-            value: "2",
+            name: "Bàn ăn cổ điển",
+            value: "1"
          }, {
-            name: "Nhựa",
-            value: "3",
+            name: "Bàn ăn 4 ghế",
+            value: "2"
+         }, {
+            name: "Bàn ăn 6 ghế",
+            value: "3"
+         }, {
+            name: "Bàn ăn 8 ghế",
+            value: "4"
+         }, {
+            name: "Bàn ăn tròn",
+            value: "5"
          },
       ]
    }
@@ -437,8 +398,8 @@ class Index extends BaseView {
    renderFilter() {
       let typeItems = []
       typeGoods.map((item, index) => {
-         let typeGoods = _.get(this.state, 'dataInput.typeGoods', '')
-         if (item.value == typeGoods) {
+         let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '')
+         if (item.value == typeGoodsInput) {
             typeItems = item.typeItems
          }
       })
