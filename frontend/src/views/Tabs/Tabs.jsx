@@ -59,7 +59,7 @@ function NavTabs(data) {
    let titleTabs = _.get(data, 'titleTabs', []) || []
    return (
       <div>
-         <AppBar position="static" color="default">
+         <AppBar position="sticky" color="default">
             <Paper square component='div'>
                <Tabs 
                   textColor="primary" 
