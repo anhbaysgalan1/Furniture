@@ -29,10 +29,7 @@ class PostsReducer extends BaseReducer {
       },
       "Posts.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "Posts.getTimeList": {
-        path: "getTimeList"
-      },
+      }
     }
   }
 

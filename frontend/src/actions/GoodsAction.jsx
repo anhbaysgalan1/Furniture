@@ -43,11 +43,6 @@ class GoodsAction extends BaseAction {
         url: '/api/v1/goods/getTypeGoods',
         type: 'Goods.getTypeGoods'
       },
-      // getTimeList: {
-      //   method: 'get',
-      //   url: '/api/v1/goods/getTimeList',
-      //   type: 'Goods.getTimeList'
-      // },
     }
   }
 }

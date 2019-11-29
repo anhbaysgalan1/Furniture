@@ -48,7 +48,6 @@ class Create extends BaseContainer {
 
 const mapStateToProps = state => {
     return {
-        getTimeList: selector(state, 'user.getTimeList', []),
         data: selector(state, "user.list", {}),
     }
 }

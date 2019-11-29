@@ -27,7 +27,7 @@ class Http {
         if (status === 401) {
             console.warn("Token expired")
             localStorage.removeItem("token");
-            if (window.location.pathname !== "/login")(this.history || this.Whistory).push('/login')
+            if (window.location.pathname !== "/admin")(this.history || this.Whistory).push('/admin')
         }
 
         if (status === 404) {

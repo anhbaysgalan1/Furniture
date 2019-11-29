@@ -112,7 +112,7 @@ class Main extends React.Component {
 
    onLogout = () => {
       localStorage.clear();
-      this.props.history.push('/login')
+      this.props.history.push('/admin')
    }
 
    handleDrawerToggle = () => {

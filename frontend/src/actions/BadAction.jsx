@@ -38,11 +38,6 @@ class BadAction extends BaseAction {
         url: '/api/v1/bads/getApprover',
         type: 'Bad.getApprover'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/bads/getTimeList',
-        type: 'Bad.getTimeList'
-      },
     }
   }
 }

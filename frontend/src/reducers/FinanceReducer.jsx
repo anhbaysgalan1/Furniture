@@ -29,10 +29,7 @@ class ManageFinanceReducer extends BaseReducer {
       },
       "Finance.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "Finance.getTimeList": {
-        path: "getTimeList"
-      },
+      } 
     }
   }
 

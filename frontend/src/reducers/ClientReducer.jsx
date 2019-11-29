@@ -29,10 +29,7 @@ class ClientReducer extends BaseReducer {
       },
       "Client.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "Client.getTimeList": {
-        path: "getTimeList"
-      },
+      } 
     }
   }
 

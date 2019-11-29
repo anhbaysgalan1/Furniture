@@ -1,9 +1,0 @@
-{
-    "_id": "objectid",
-    "userId": "objectid",
-    "date": "string",
-    "type": "string",
-    "lable": "string",
-    "subtractHour": "number"
-  }
-  

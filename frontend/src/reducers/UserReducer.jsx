@@ -29,10 +29,7 @@ class UserReducer extends BaseReducer {
       },
       "User.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "User.getTimeList": {
-        path: "getTimeList"
-      },
+      }
     }
   }
 

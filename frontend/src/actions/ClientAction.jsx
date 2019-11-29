@@ -38,11 +38,6 @@ class ClientAction extends BaseAction {
         url: '/api/v1/client/getApprover',
         type: 'Client.getApprover'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/client/getTimeList',
-        type: 'Client.getTimeList'
-      },
     }
   }
 }

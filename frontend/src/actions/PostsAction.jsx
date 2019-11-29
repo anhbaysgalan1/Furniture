@@ -38,11 +38,6 @@ class PostsAction extends BaseAction {
         url: '/api/v1/posts/getApprover',
         type: 'Posts.getApprover'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/posts/getTimeList',
-        type: 'Posts.getTimeList'
-      },
     }
   }
 }

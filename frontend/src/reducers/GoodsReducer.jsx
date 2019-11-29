@@ -36,9 +36,6 @@ class GoodsReducer extends BaseReducer {
       // "Goods.updateLineToken": {
       //   path: "data.updateLineToken"
       // },
-      // "Goods.getTimeList": {
-      //   path: "getTimeList"
-      // },
     }
   }
 

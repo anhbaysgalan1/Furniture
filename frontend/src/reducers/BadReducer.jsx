@@ -29,10 +29,7 @@ class BadReducer extends BaseReducer {
       },
       "Bad.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "Bad.getTimeList": {
-        path: "getTimeList"
-      },
+      } 
     }
   }
 

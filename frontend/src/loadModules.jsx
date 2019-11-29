@@ -28,12 +28,12 @@ class Routes extends React.Component {
       <ErrorBoundary>
           <BrowserRouter>
             <Switch>
-              <Route path="/login" name="Login Page" component={Login} />
+              <Route path="/admin" name="Login Page" component={Login} />
               <Route path="/" render={(props) => (
                 this.checkJWTToken()
                   ? (<Main {...props} />)
                   : (<Redirect to={{
-                    pathname: '/login',
+                    pathname: '/admin',
                     state: {
                       from: props.location
                     }

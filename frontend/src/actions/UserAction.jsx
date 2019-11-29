@@ -35,7 +35,7 @@ class UserAction extends BaseAction {
       },
       login: {
         method: 'post',
-        url: '/api/v1/users/login',
+        url: '/api/v1/users/admin',
         type: 'User.login'
       },
       editPassword: {
@@ -52,12 +52,7 @@ class UserAction extends BaseAction {
         method: 'put',
         url: '/api/v1/users/updateLineToken',
         type: 'User.updateLineToken'
-      },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/users/getTimeList',
-        type: 'User.getTimeList'
-      },
+      }
     }
   }
 }

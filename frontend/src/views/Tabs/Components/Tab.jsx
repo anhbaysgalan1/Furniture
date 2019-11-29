@@ -157,16 +157,19 @@ class Index extends BaseView {
          maxImage: maxImage,
       }
    }
+   
    converGoods(tabBad, goods = []) {
       let converGoods = []
-      goods.map((item, index) => {
-         let typeItem = _.get(item, 'typeItem', '')
-         if(typeItem == tabBad){
-            converGoods.push(item)
-         } else if(tabBad == 'all'){
-            converGoods.push(item)
-         }
-      })
+      if(!_.isEmpty(goods, true)){
+         goods.map((item, index) => {
+            let typeItem = _.get(item, 'typeItem', '')
+            if(typeItem == tabBad){
+               converGoods.push(item)
+            } else if(tabBad == 'all'){
+               converGoods.push(item)
+            }
+         })
+      }
       return converGoods
    }
 

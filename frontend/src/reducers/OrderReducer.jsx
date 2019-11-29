@@ -29,10 +29,7 @@ class ManageOrderReducer extends BaseReducer {
       },
       "Order.updateLineToken": {
         path: "data.updateLineToken"
-      },
-      "Order.getTimeList": {
-        path: "getTimeList"
-      },
+      } 
     }
   }
 

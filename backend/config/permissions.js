@@ -18,7 +18,7 @@ module.exports.permits = {
         },
 
         {
-            resources: "/login",
+            resources: "/admin",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
         {
@@ -423,7 +423,7 @@ module.exports.permits = {
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
         {
-            resources: "/login",
+            resources: "/admin",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
         {
@@ -491,7 +491,7 @@ module.exports.permits = {
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
         {
-            resources: "/login",
+            resources: "/admin",
             methods: ['POST', 'GET', 'PUT', 'DELETE']
         },
         {

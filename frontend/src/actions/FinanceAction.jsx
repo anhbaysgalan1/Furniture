@@ -38,11 +38,6 @@ class FinanceAction extends BaseAction {
         url: '/api/v1/finance/getApprover',
         type: 'Finance.getApprover'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/finance/getTimeList',
-        type: 'Finance.getTimeList'
-      },
     }
   }
 }

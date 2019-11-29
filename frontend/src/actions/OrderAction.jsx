@@ -38,11 +38,6 @@ class OrderAction extends BaseAction {
         url: '/api/v1/order/getApprover',
         type: 'Order.getApprover'
       },
-      getTimeList: {
-        method: 'get',
-        url: '/api/v1/order/getTimeList',
-        type: 'Order.getTimeList'
-      },
     }
   }
 }
