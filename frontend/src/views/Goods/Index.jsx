@@ -330,7 +330,7 @@ class Index extends BaseView {
                      </AutoCompleteField>
                   </Grid>
                </Grid>
-               <br /><br /><br /><br /> <br /><br /><br /><br /> <br /><br /> <br /><br />
+               <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br /> <br /><br />
             </DialogContent>
             <DialogActions>
                <Button color='primary' onClick={() => this.onCancel()} >

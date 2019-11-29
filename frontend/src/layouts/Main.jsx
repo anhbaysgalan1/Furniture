@@ -173,7 +173,6 @@ class Main extends React.Component {
                     </div> */}
                </Toolbar>
             </Hidden>
-
          </AppBar>
          {/* <nav className={classes.drawer}>
                 <Hidden xsDown implementation="css">

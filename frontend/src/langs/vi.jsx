@@ -125,8 +125,8 @@ export default {
         finance: 'Tài chính',
         client: 'Khách hàng',
         posts: "Tin tức",
-        order: "Quan ly don hang",
-        goods: "Quan ly hang hoa",
+        order: "Quản lý đơn hàng",
+        goods: "Quản lý hàng hóa",
         bad: 'Giường ngủ',
         diningRoom: 'Phòng bếp',
         tableEat: 'Bàn ăn',
@@ -151,11 +151,11 @@ export default {
         postsGuarantee: 'Bảo hành chu đáo',
         postsQuality: 'Tiêu chuẩn xuất khẩu',
 
-        goodsIndex: 'Quan ly hang hoa',
+        goodsIndex: 'Quản lý hàng hóa',
         goodsCreate: 'Thêm hang hoa',
         goodsEdit: 'Thêm hang hoa',
 
-        orderIndex: 'Quan ly don hang',
+        orderIndex: 'Quản lý đơn hàng',
         orderCreate: 'Tạo đơn hàng',
         orderEdit: 'Sửa đơn hàng',
 
