@@ -39,149 +39,6 @@ let promotions = [
    }
 ]
 
-let typeWoods = [
-   {
-      name: "Sồi nga",
-      value: "0",
-   }, {
-      name: "Xoan đào",
-      value: "1",
-   }, {
-      name: "Công nghiệp",
-      value: "2",
-   }, {
-      name: "Nhựa",
-      value: "3",
-   }
-]
-
-let typeGoods = [
-   {
-      name: "Giường ngủ",
-      value: "0",
-      typeItems: [
-         {
-            name: "Giường ngủ hiện đại",
-            value: "0"
-         }, {
-            name: "Giường ngủ cổ điển",
-            value: "1"
-         }, {
-            name: "Giường ngủ gỗ tự nhiên cao cấp",
-            value: "2"
-         }, {
-            name: "Giường ngủ gỗ công nghiệp",
-            value: "3"
-         }
-      ],
-   }, {
-      name: "Bàn ăn",
-      value: "1",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ],
-   }, {
-      name: "Tủ Quần áo",
-      value: "2",
-      typeItems: [
-         {
-            name: "Tủ quần áo hiện đại",
-            value: "0"
-         }, 
-         {
-            name: "Tủ quần áo gỗ tự nhiên",
-            value: "1"
-         }, 
-         {
-            name: "Tủ quần áo gỗ công nghiệp",
-            value: "2"
-         }, 
-         {
-            name: "Tủ quần áo nhựa cao cấp",
-            value: "3"
-         }
-      ]
-   }, {
-      name: "Bàn trà phòng khách",
-      value: "3",
-      typeItems: [
-         {
-            name: "Bàn trà hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn trà cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ giày dép",
-      value: "4",
-      typeItems: [
-         {
-            name: "Tủ giày hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ giày cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ kệ tivi",
-      value: "5",
-      typeItems: [
-         {
-            name: "Tủ kệ tivi hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ kệ tivi cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Bàn ăn nhà hàng",
-      value: "6",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ]
-   }
-]
-
 const styles = theme => ({
    paper: {
       // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -286,17 +143,22 @@ class Create extends BaseView {
    }
 
    render() {
-      const { classes, onSubmit } = this.props
+      const { classes, onSubmit, typeGoods = [] } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Bàn trà phòng khách cổ điển ` + this.state.dataInput.code //////////////////
-      let defaultContent = `Bàn trà phòng khách cổ điển  ` + this.state.dataInput.code //////////////////
+      let defaultName = `Tủ kệ TV hiện đại ` + this.state.dataInput.code //////////////////
+      let defaultContent = `Tủ kệ TV hiện đại ` + this.state.dataInput.code //////////////////
       let defaultImage = this.state.dataInput.image1
-      let typeItems = typeGoods[3].typeItems
+      let typeItems = []
+      let typeWoods = []
       typeGoods.map((item, index) => {
-         let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '')
-         if(item.value == typeGoodsInput){
-            typeItems = item.typeItems
+         let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '0') 
+         let _typeItems = _.get(item, 'typeItem', [])
+         let _typeWoods = _.get(item, 'typeWoods', [])
+         let value = _.get(item, 'value', [])
+         if(value == typeGoodsInput){
+            typeItems = _typeItems
+            typeWoods = _typeWoods
          }
       })
       return (
@@ -321,7 +183,6 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeGoods.Loại hàng hóa")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
                                  name="typeGoods"
-                                 defaultValue='4'
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -342,7 +203,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeItem')}
                                  name="typeItem"
-                                 // isDisabled={ typeItems.length ? false : true }
+                                 isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
                                  defaultValue='1' /////////////////////////
                                  isClearable={false}
@@ -383,7 +244,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='BTPKCD' //////////////////////
+                                 defaultValue='KTVCD' //////////////////////
                                  name="code"
                               />
                            </Grid>
@@ -497,6 +358,7 @@ class Create extends BaseView {
       )
    }
 }
+
 
 Create.propTypes = {
    classes: PropTypes.object.isRequired,

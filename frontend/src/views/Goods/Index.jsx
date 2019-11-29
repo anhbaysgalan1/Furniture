@@ -36,133 +36,6 @@ import Promotion from '../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 
-let typeGoods = [
-   {
-      name: "Giường ngủ",
-      value: "0",
-      typeItems: [
-         {
-            name: "Giường ngủ hiện đại",
-            value: "0"
-         }, {
-            name: "Giường ngủ cổ điển",
-            value: "1"
-         }, {
-            name: "Giường ngủ gỗ tự nhiên cao cấp",
-            value: "2"
-         }, {
-            name: "Giường ngủ gỗ công nghiệp",
-            value: "3"
-         }
-      ],
-   }, {
-      name: "Bàn ăn",
-      value: "1",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ],
-   }, {
-      name: "Tủ Quần áo",
-      value: "2",
-      typeItems: [
-         {
-            name: "Tủ quần áo hiện đại",
-            value: "0"
-         }, 
-         {
-            name: "Tủ quần áo gỗ tự nhiên",
-            value: "1"
-         }, 
-         {
-            name: "Tủ quần áo gỗ công nghiệp",
-            value: "2"
-         }, 
-         {
-            name: "Tủ quần áo nhựa cao cấp",
-            value: "3"
-         }
-      ]
-   }, {
-      name: "Bàn trà phòng khách",
-      value: "3",
-      typeItems: [
-         {
-            name: "Bàn trà hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn trà cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ giày dép",
-      value: "4",
-      typeItems: [
-         {
-            name: "Tủ giày hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ giày cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ kệ tivi",
-      value: "5",
-      typeItems: [
-         {
-            name: "Tủ kệ tivi hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ kệ tivi cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Bàn ăn nhà hàng",
-      value: "6",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ]
-   }
-]
-
 const GridTable = React.lazy(() => import('components/Table/GridTable'))
 const styles = theme => ({
    gridTable: {
@@ -395,7 +268,7 @@ class Index extends BaseView {
       )
    }
 
-   renderFilter() {
+   renderFilter(typeGoods) {
       let typeItems = []
       typeGoods.map((item, index) => {
          let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '')
@@ -505,14 +378,14 @@ class Index extends BaseView {
    }
 
    render() {
-      const { data, classes } = this.props
+      const { data, classes, typeGoods = [] } = this.props
       return (
          <div className={classes.card}>
             {
                this.renderDetail()
             }
             {
-               this.renderFilter()
+               this.renderFilter(typeGoods)
             }
             <PaperFade showLoading={true} className={classes.card} >
                <GridTable

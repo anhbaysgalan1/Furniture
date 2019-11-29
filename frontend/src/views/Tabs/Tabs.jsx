@@ -91,7 +91,6 @@ class Create extends BaseView {
    }
    render() {
       const { classes, onSubmit, goods, titleTabs = [] } = this.props
-      console.log("titleTabs", titleTabs)
       return (
          <PaperFade >
             <Grid container spacing={32}>

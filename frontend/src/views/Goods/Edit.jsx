@@ -28,149 +28,6 @@ import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
-let typeWoods = [
-   {
-      name: "Sồi nga",
-      value: "0",
-   }, {
-      name: "Xoan đào",
-      value: "1",
-   }, {
-      name: "Công nghiệp",
-      value: "2",
-   }, {
-      name: "Nhựa",
-      value: "3",
-   }
-]
-
-let typeGoods = [
-   {
-      name: "Giường ngủ",
-      value: "0",
-      typeItems: [
-         {
-            name: "Giường ngủ hiện đại",
-            value: "0"
-         }, {
-            name: "Giường ngủ cổ điển",
-            value: "1"
-         }, {
-            name: "Giường ngủ gỗ tự nhiên cao cấp",
-            value: "2"
-         }, {
-            name: "Giường ngủ gỗ công nghiệp",
-            value: "3"
-         }
-      ],
-   }, {
-      name: "Bàn ăn",
-      value: "1",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ],
-   }, {
-      name: "Tủ Quần áo",
-      value: "2",
-      typeItems: [
-         {
-            name: "Tủ quần áo hiện đại",
-            value: "0"
-         }, 
-         {
-            name: "Tủ quần áo gỗ tự nhiên",
-            value: "1"
-         }, 
-         {
-            name: "Tủ quần áo gỗ công nghiệp",
-            value: "2"
-         }, 
-         {
-            name: "Tủ quần áo nhựa cao cấp",
-            value: "3"
-         }
-      ]
-   }, {
-      name: "Bàn trà phòng khách",
-      value: "3",
-      typeItems: [
-         {
-            name: "Bàn trà hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn trà cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ giày dép",
-      value: "4",
-      typeItems: [
-         {
-            name: "Tủ giày hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ giày cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Tủ kệ tivi",
-      value: "5",
-      typeItems: [
-         {
-            name: "Tủ kệ tivi hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ kệ tivi cổ điển",
-            value: "1"
-         }
-      ]
-   }, {
-      name: "Bàn ăn nhà hàng",
-      value: "6",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ]
-   }
-]
-
 let promotions = [
    {
       name: 'Không',
@@ -289,25 +146,31 @@ class Create extends BaseView {
    }
 
    render() {
-      const { classes, onSubmit, data } = this.props
+      const { classes, onSubmit, data, typeGoods = [] } = this.props
+     
       let image1 = _.get(data, 'image1', '')
       let image2 = _.get(data, 'image2', '')
       let image3 = _.get(data, 'image3', '')
       let image4 = _.get(data, 'image4', '')
-      let code = _.get(data, 'code', '')
-      let name = _.get(data, 'name', '')
+      let code   = _.get(data, 'code', '')
+      let name   = _.get(data, 'name', '')
       let typeGoodsServer = _.get(data, 'typeGoods', '')
-      let typeItemServer = _.get(data, 'typeItem', '')
+      let typeItemServer  = _.get(data, 'typeItem', '')
       let typeWoodsServer = _.get(data, 'typeWoods', '')
-      let moneyOld = _.get(data, 'moneyOld', '')
-      let moneyNew = _.get(data, 'moneyNew', '')
-      let content = _.get(data, 'content', '')
+      let moneyOld  = _.get(data, 'moneyOld', '')
+      let moneyNew  = _.get(data, 'moneyNew', '')
+      let content   = _.get(data, 'content', '')
       let promotion = _.get(data, 'promotion', '')
       let typeItems = []
+      let typeWoods = []
       typeGoods.map((item, index) => {
          let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '') || typeGoodsServer
-         if(item.value == typeGoodsInput){
-            typeItems = item.typeItems
+         let _value = _.get(item, 'value', '')
+         let _typeItems = _.get(item, 'typeItem', [])
+         let _typeWoods = _.get(item, 'typeWoods', [])
+         if(_value == typeGoodsInput){
+            typeItems = _typeItems
+            typeWoods = _typeWoods
          }
       })
       return (

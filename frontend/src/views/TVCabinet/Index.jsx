@@ -40,19 +40,19 @@ let titleTabs = [
       tabBad: 'all'
    },
    {
-      label: "Tủ quần áo hiện đại",
+      label: "Tủ kệ Tivi hiện đại",
       tabBad: '0'
    },
    {
-      label: "Tủ quần áo gỗ tự nhiên",
+      label: "Tủ kệ tivi cổ điển",
       tabBad: '1'
    },
    {
-      label: "Tủ quần áo gỗ công nghiệp",
+      label: "Tủ kệ tivi gỗ tự nhiên",
       tabBad: '2'
    },
    {
-      label: "Tủ quần áo nhựa cao cấp",
+      label: "Tủ kệ tivi gỗ công nghiệp",
       tabBad: '3'
    },
 ]

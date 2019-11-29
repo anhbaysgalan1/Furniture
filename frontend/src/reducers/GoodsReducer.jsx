@@ -27,6 +27,9 @@ class GoodsReducer extends BaseReducer {
       "Goods.getBadByType": {
         path: "getBadByType"
       },
+      "Goods.getTypeGoods": {
+        path: 'getTypeGoods'
+      }
       // "Goods.getApprover": {
       //   path: "data.getApprover"
       // },

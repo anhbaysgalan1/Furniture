@@ -38,11 +38,11 @@ class GoodsAction extends BaseAction {
         url: '/api/v1/goods/getBadByType',
         type: 'Goods.getBadByType'
       },
-      // getApprover: {
-      //   method: 'get',
-      //   url: '/api/v1/goods/getApprover',
-      //   type: 'Goods.getApprover'
-      // },
+      getTypeGoods: {
+        method: 'get',
+        url: '/api/v1/goods/getTypeGoods',
+        type: 'Goods.getTypeGoods'
+      },
       // getTimeList: {
       //   method: 'get',
       //   url: '/api/v1/goods/getTimeList',

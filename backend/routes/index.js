@@ -24,12 +24,13 @@ Route.group(() => {
   Route.group(() => {
     // Route.put("/requests/sendMessage", "RequestController.sendMessage")
     Route.get("/goods/getBadByType", "GoodsController.getBadByType")
+    Route.get("/goods/getTypeGoods", "GoodsController.getTypeGoods")
+
     // Route.put("/users/editpassword/:id", "UserController.editPassword")
     // Route.put("/users/updateLineToken", "UserController.updateLineToken")
     
     Route.resource("/users", "UserController")
     Route.resource("/bads", "BadController")
-
     Route.resource("/goods", "GoodsController")
     Route.resource("/order", "OrderController")
     Route.resource("/finance", "FinanceController")

@@ -15,6 +15,10 @@ class Index extends BaseContainer {
         this.onSubmit = this.onSubmit.bind(this)
     }
 
+    componentDidMount(){
+        this.props.dispatch(GoodsAction.getTypeGoods({ pageSize: -1 }))
+    }
+    
     onSubmit(values) {
         this.props.dispatch(GoodsAction.create(values))
             .then(data => {
@@ -48,14 +52,17 @@ class Index extends BaseContainer {
         return (
             <View
                 onSubmit={this.onSubmit}
+                typeGoods={this.props.typeGoods}
             />
         )
     }
 }
 
 const mapStateToProps = state => {
+  
     return {
         data: selector(state, "role.data", {}),
+        typeGoods: selector(state, 'goods.getTypeGoods.data', [])
     }
 }
 
