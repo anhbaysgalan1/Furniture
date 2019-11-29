@@ -1,9 +1,7 @@
 const BaseController = use("./BaseController")
 const UserModel = use("App/Models/User")
 const RoleModel = use('App/Models/Role')
-// const SettingModel = use('App/Models/Setting')
 const PermissionModel = use('App/Models/Permission')
-// const HistoryModel = use('App/Models/History')
 const moment = use("moment")
 
 const Auth = use("Auth")
@@ -19,11 +17,6 @@ class UserController extends BaseController {
         this.Model = new UserModel()
         this.RoleModel = new RoleModel()
         this.PermissionModel = new PermissionModel()
-        // this.HistoryModel = new HistoryModel()
-        // this.SettingModel = new SettingModel()
-    }
-    async getTimeList({}) {
-        // return await this.SettingModel.findByCondition({ key: "time" }, { type: 1 })
     }
     async login({ request, response }) {
         let input = request.body

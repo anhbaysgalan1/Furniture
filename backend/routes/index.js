@@ -7,7 +7,6 @@ const checkManagerMiddleware = use("App/Middleware/checkManagerMiddleware")
 Route.group(() => {
   Route.post("/users/admin", "UserController.login")
   Route.group(() => {
-    // Route.put("/requests/sendMessage", "RequestController.sendMessage")
     Route.get("/goods/getBadByType", "GoodsController.getBadByType")
     Route.get("/goods/getTypeGoods", "GoodsController.getTypeGoods")
     Route.put("/users/editpassword/:id", "UserController.editPassword")
@@ -20,14 +19,9 @@ Route.group(() => {
     Route.resource("/finance",  "FinanceController")
     Route.resource("/client",   "ClientController")
     Route.resource("/posts",    "PostsController")
-    // Route.resource('/groups', 'GroupController')
-    // Route.resource('/areas', 'AreaController')
     Route.resource('/roles', 'RoleController')
     Route.resource('/permissions', 'PermissionController')
     Route.resource('/positions', 'PositionController')
-    // Route.resource('/hours', 'HourController')
-    // Route.resource('/contents', 'ContentsController')
-
   // }).middleware([AuthMiddleware, PermissionMiddleware, checkManagerMiddleware])
   }).middleware([AuthMiddleware])
 }).prefix("/api/v1").middleware([ExtendedResponseMiddleware])
