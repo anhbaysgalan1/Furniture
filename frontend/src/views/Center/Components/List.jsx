@@ -65,7 +65,7 @@ class Actions extends BaseView {
       let { classes } = this.props
       let tileData = [
          {
-            img: 'https://noithatphuongdong.net/wp-content/uploads/2019/05/gi%C6%B0%C6%A1%CC%80ng-s%C3%B4%CC%80i-1m6.jpg',
+            img: 'http://bizweb.dktcdn.net/100/060/966/products/giuong-ngu-go-cao-cap-tai-ha-noi-10.jpg?v=1462982150370',
             title: 'Giường gỗ tự nhiên',
             author: 'Mạnh Nhẫn',
          },
@@ -80,7 +80,7 @@ class Actions extends BaseView {
             author: 'Mạnh Nhẫn',
          },
          {
-            img: 'https://noithatphuongdong.net/wp-content/uploads/2019/05/gi%C6%B0%C6%A1%CC%80ng-s%C3%B4%CC%80i-1m6.jpg',
+            img: 'http://bizweb.dktcdn.net/100/060/966/products/giuong-ngu-go-cao-cap-tai-ha-noi-10.jpg?v=1462982150370',
             title: 'Giường gỗ tự nhiên',
             author: 'Mạnh Nhẫn',
          },
@@ -95,7 +95,7 @@ class Actions extends BaseView {
             author: 'Mạnh Nhẫn',
          },
          {
-            img: 'https://noithatphuongdong.net/wp-content/uploads/2019/05/gi%C6%B0%C6%A1%CC%80ng-s%C3%B4%CC%80i-1m6.jpg',
+            img: 'http://bizweb.dktcdn.net/100/060/966/products/giuong-ngu-go-cao-cap-tai-ha-noi-10.jpg?v=1462982150370',
             title: 'Giường gỗ tự nhiên',
             author: 'Mạnh Nhẫn',
          },
@@ -110,7 +110,7 @@ class Actions extends BaseView {
             author: 'Mạnh Nhẫn',
          },
          {
-            img: 'https://noithatphuongdong.net/wp-content/uploads/2019/05/gi%C6%B0%C6%A1%CC%80ng-s%C3%B4%CC%80i-1m6.jpg',
+            img: 'http://bizweb.dktcdn.net/100/060/966/products/giuong-ngu-go-cao-cap-tai-ha-noi-10.jpg?v=1462982150370',
             title: 'Giường gỗ tự nhiên',
             author: 'Mạnh Nhẫn',
          },
@@ -131,8 +131,8 @@ class Actions extends BaseView {
             <Hidden smUp>
                <GridList className={classes.gridList} cols={2}>
                   {
-                     tileData.map(tile => (
-                        <GridListTile key={tile.img}>
+                     tileData.map((tile, index) => (
+                        <GridListTile key={index}>
                            <img src={tile.img} alt={tile.title} />
                            <GridListTileBar
                               title={tile.title}
@@ -151,8 +151,8 @@ class Actions extends BaseView {
             <Hidden xsDown >
                <Hidden mdUp>
                   <GridList className={classes.gridList} cols={4}>
-                     {tileData.map(tile => (
-                        <GridListTile key={tile.img}>
+                     {tileData.map((tile, index) => (
+                        <GridListTile key={index}>
                            <img src={tile.img} alt={tile.title} />
                            <GridListTileBar
                               title={tile.title}
@@ -172,8 +172,8 @@ class Actions extends BaseView {
                </Hidden>
                <Hidden smDown>
                   <GridList className={classes.gridList} cols={8}>
-                     {tileData.map(tile => (
-                        <GridListTile key={tile.img}>
+                     {tileData.map((tile, index) => (
+                        <GridListTile key={index}>
                            <img src={tile.img} alt={tile.title} />
                            <GridListTileBar
                               title={tile.title}

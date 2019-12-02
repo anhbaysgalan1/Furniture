@@ -279,7 +279,7 @@ class Index extends BaseView {
       let tableRestaurant = this.typeGoods(goods).tableRestaurant
       return (
          <div>
-            <Header classes={classes} />
+            {/* <Header classes={classes} />
             <Home classes={classes} />
             <ButtonViews classes={classes} />
             <br></br>
@@ -290,8 +290,8 @@ class Index extends BaseView {
             <NewHot classes={classes} />
             <br></br>
             <Promotion classes={classes} />
-            <br></br>
-            <Grid container spacing={8}>
+            <br></br> */}
+            {/* <Grid container spacing={8}>
                <Grid item lg={1}>
                   <ListGoods classes={classes} />
                </Grid>
@@ -306,10 +306,10 @@ class Index extends BaseView {
                   <br></br>
                </Grid>
                <Grid item lg={1}></Grid>
-            </Grid>
+            </Grid> */}
             <List classes={classes} />
-            <PostsList posts={posts} classes={classes} />
-            <Footer classes={classes} />
+            {/* <PostsList posts={posts} classes={classes} />
+            <Footer classes={classes} /> */}
          </div>
       )
    }
