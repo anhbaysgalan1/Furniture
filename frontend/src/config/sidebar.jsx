@@ -13,6 +13,7 @@ import WardrobeIndex from 'containers/Wardrobe/Index'
 import ShoesCabinetIndex from 'containers/ShoesCabinet/Index'
 import TVCabinetIndex from 'containers/TVCabinet/Index'
 import TableLivingRoomIndex from 'containers/TableLivingRoom/Index'
+import OfficeIndex from 'containers/Office/Index'
 
 import DiningRoomIndex from 'containers/DiningRoom/Index'
 
@@ -27,7 +28,7 @@ const sidebar = [
     {
         path: "/center", // trang chủ
         name: 'center',
-        title: <Translate value="Sidebar.center" />, 
+        title: <Translate value="Sidebar.center" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <CenterIndex />
     },
@@ -41,46 +42,53 @@ const sidebar = [
     {
         path: "/bad",  // Giường
         name: 'bad',
-        title: <Translate value="Sidebar.bad" />, 
+        title: <Translate value="Sidebar.bad" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <BadIndex />
     },
     {
         path: "/table-eat",  // Bàn ăn
         name: 'tableEat',
-        title: <Translate value="Sidebar.tableEat" />, 
+        title: <Translate value="Sidebar.tableEat" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <TableEatIndex />
     },
     {
         path: "/wardrobe", // Tủ quần áo
         name: 'wardrobe',
-        title: <Translate value="Sidebar.wardrobe" />, 
+        title: <Translate value="Sidebar.wardrobe" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <WardrobeIndex />
     },
     {
         path: "/shoes-cabinet",  // Tủ giày
         name: 'shoesCabinet',
-        title: <Translate value="Sidebar.shoesCabinet" />, 
+        title: <Translate value="Sidebar.shoesCabinet" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <ShoesCabinetIndex />
     },
     {
         path: "/tv-cabinet",  // Tủ giày
         name: 'tvCabinet',
-        title: <Translate value="Sidebar.tvCabinet" />, 
+        title: <Translate value="Sidebar.tvCabinet" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <TVCabinetIndex />
     },
     {
         path: "/table-living-room",  // Tủ giày
-        name: 'tableLivingRoomIndex',
-        title: <Translate value="Sidebar.tableLivingRoom" />, 
+        name: 'tableLivingRoom',
+        title: <Translate value="Sidebar.tableLivingRoom" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <TableLivingRoomIndex />
     },
-    
+    {
+        path: "/office",  // nội thất văn phòng
+        name: 'office',
+        title: <Translate value="Sidebar.office" />,
+        icon: <Icon>account_circle</Icon>,
+        component: () => <OfficeIndex />
+        // 
+    },
     // {
     //     path: "/dining-room", 
     //     name: 'diningRoom',
@@ -89,9 +97,9 @@ const sidebar = [
     //     component: () => <DiningRoomIndex />
     // },
     {
-        path: "/table-restaurant", 
+        path: "/table-restaurant",
         name: 'tableRestaurant',
-        title: <Translate value="Sidebar.tableRestaurant" />, 
+        title: <Translate value="Sidebar.tableRestaurant" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <TableRestaurantIndex />
     },
@@ -103,9 +111,9 @@ const sidebar = [
     //     component: () => <ContactIndex />
     // },
     {
-        path: "/order", 
+        path: "/order",
         name: 'order',
-        title: <Translate value="Sidebar.order" />, 
+        title: <Translate value="Sidebar.order" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <OrderIndex />
     },
@@ -117,9 +125,9 @@ const sidebar = [
     //     component: () => <FinanceIndex />
     // },
     {
-        path: "/goods", 
+        path: "/goods",
         name: 'goods',
-        title: <Translate value="Sidebar.goods" />, 
+        title: <Translate value="Sidebar.goods" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <GoodsIndex />
     },
@@ -144,7 +152,7 @@ const sidebar = [
     //     icon: <Icon>account_circle</Icon>,
     //     component: () => <UserIndex />,
     // },
-    
+
 ]
 
 export default sidebar

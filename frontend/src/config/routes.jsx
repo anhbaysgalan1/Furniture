@@ -38,6 +38,7 @@ const WardrobeIndex         = lazy(() => import('containers/Wardrobe/Index'))
 const ShoesCabinetIndex     = lazy(() => import('containers/ShoesCabinet/Index'))
 const TVCabinetIndex        = lazy(() => import('containers/TVCabinet/Index'))
 const TableLivingRoomIndex  = lazy(() => import('containers/TableLivingRoom/Index'))
+const OfficeIndex         = lazy(() => import('containers/Office/Index'))
 
 const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
 
@@ -145,6 +146,15 @@ const routes = [
         exact: true,
         sidebarName: 'tableLivingRoom'
     },
+    {
+        path: "/office",
+        name: 'office',
+        title: () => I18n.t("Breadcrumb.officeIndex"),
+        component: () => <OfficeIndex />,
+        exact: true,
+        sidebarName: 'office'
+    },
+
     //--------------------------------------
     {
         path: "/dining-room",
