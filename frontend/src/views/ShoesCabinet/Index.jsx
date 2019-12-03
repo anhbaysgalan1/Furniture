@@ -8,7 +8,6 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton,
    Icon,
@@ -40,21 +39,17 @@ let titleTabs = [
       tabBad: 'all'
    },
    {
-      label: "Tủ quần áo hiện đại",
+      label: "Tủ giày hiện đại",
       tabBad: '0'
    },
    {
-      label: "Tủ quần áo gỗ tự nhiên",
+      label: "Tủ giày gỗ tự nhiên",
       tabBad: '1'
    },
    {
-      label: "Tủ quần áo gỗ công nghiệp",
+      label: "Tủ giày gỗ công nghiệp",
       tabBad: '2'
-   },
-   {
-      label: "Tủ quần áo nhựa cao cấp",
-      tabBad: '3'
-   },
+   }
 ]
 const styles = theme => ({
 })

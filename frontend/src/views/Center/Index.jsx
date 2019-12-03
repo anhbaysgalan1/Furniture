@@ -8,7 +8,6 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton, 
    Icon,
@@ -133,21 +132,17 @@ let titleShoesCabinet = [
       tabBad: 'all'
    },
    {
-      label: "Tủ quần áo hiện đại",
+      label: "Tủ giày hiện đại",
       tabBad: '0'
    },
    {
-      label: "Tủ quần áo gỗ tự nhiên",
+      label: "Tủ giày gỗ tự nhiên",
       tabBad: '1'
    },
    {
-      label: "Tủ quần áo gỗ công nghiệp",
+      label: "Tủ giày gỗ công nghiệp",
       tabBad: '2'
-   },
-   {
-      label: "Tủ quần áo nhựa cao cấp",
-      tabBad: '3'
-   },
+   }
 ]
 let titleTVCabinet = [
    {
@@ -202,8 +197,6 @@ let titleTableRestaurant = [
     },
 ]
 
-
-
 const styles = theme => ({
    // paddingIndex: {
    //     [theme.breakpoints.down('sm')]: {
@@ -211,7 +204,6 @@ const styles = theme => ({
    //     },
    // }
 })
-
 
 class Index extends BaseView {
    constructor(props) {
@@ -237,6 +229,7 @@ class Index extends BaseView {
                break
             case '1':
                tableEat.push(item)
+               tableRestaurant.push(item)
                break
             case '2':
                wardrobe.push(item)
@@ -251,7 +244,7 @@ class Index extends BaseView {
                tvCabinet.push(item)
                break
             case '6':
-               tableRestaurant.push(item)
+               // tableRestaurant.push(item)
                break
          }
       })
@@ -272,11 +265,12 @@ class Index extends BaseView {
       let bads = this.typeGoods(goods).bads
       let tableEat = this.typeGoods(goods).tableEat
       let wardrobe = this.typeGoods(goods).wardrobe
-      console.log("wardrobe0", wardrobe)
+     
       let tableLivingRoom = this.typeGoods(goods).tableLivingRoom
       let shoesCabinet = this.typeGoods(goods).shoesCabinet
       let tvCabinet = this.typeGoods(goods).tvCabinet
       let tableRestaurant = this.typeGoods(goods).tableRestaurant
+      // console.log("tableRestaurant >>>> ", tableRestaurant)
       return (
          <div>
             {/* <Header classes={classes} />
@@ -291,23 +285,23 @@ class Index extends BaseView {
             <br></br>
             <Promotion classes={classes} />
             <br></br> */}
-            {/* <Grid container spacing={8}>
+            <Grid container spacing={8}>
                <Grid item lg={1}>
-                  <ListGoods classes={classes} />
+                  {/* <ListGoods classes={classes} /> */}
                </Grid>
                <Grid item lg={10}>
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleBad} goods={bads} />
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableEat} goods={tableEat} />
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleWardrobe} goods={wardrobe} />
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableLivingRoom} goods={tableLivingRoom} />
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleBad} goods={bads} /> */}
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableEat} goods={tableEat} /> */}
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleWardrobe} goods={wardrobe} /> */}
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableLivingRoom} goods={tableLivingRoom} /> */}
                   <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleShoesCabinet} goods={shoesCabinet} />
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTVCabinet} goods={tvCabinet} />
-                  <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableRestaurant} goods={tableRestaurant} />
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTVCabinet} goods={tvCabinet} /> */}
+                  {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableRestaurant} goods={tableRestaurant} /> */}
                   <br></br>
                </Grid>
                <Grid item lg={1}></Grid>
-            </Grid> */}
-            <List classes={classes} />
+            </Grid>
+            {/* <List classes={classes} /> */}
             {/* <PostsList posts={posts} classes={classes} />
             <Footer classes={classes} /> */}
          </div>

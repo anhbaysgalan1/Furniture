@@ -146,8 +146,8 @@ class Create extends BaseView {
       const { classes, onSubmit, typeGoods = [] } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Tủ kệ TV hiện đại ` + this.state.dataInput.code //////////////////
-      let defaultContent = `Tủ kệ TV hiện đại ` + this.state.dataInput.code //////////////////
+      let defaultName = `Tủ giày gỗ tự nhiên ` + this.state.dataInput.code //////////////////
+      let defaultContent = `Tủ giày gỗ tự nhiên ` + this.state.dataInput.code //////////////////
       let defaultImage = this.state.dataInput.image1
       let typeItems = []
       let typeWoods = []
@@ -205,7 +205,7 @@ class Create extends BaseView {
                                  name="typeItem"
                                  isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
-                                 defaultValue='1' /////////////////////////
+                                 defaultValue='0' /////////////////////////
                                  isClearable={false}
                               >
                                  {
@@ -244,7 +244,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='KTVCD' //////////////////////
+                                 defaultValue='TGGTN' //////////////////////
                                  name="code"
                               />
                            </Grid>

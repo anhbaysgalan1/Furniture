@@ -8,7 +8,6 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
-import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton,
    Icon,
@@ -176,7 +175,7 @@ class Index extends BaseView {
    renderGoods(tabBad, goods) {
       let converGoods = this.converGoods(tabBad, goods)
       let { classes } = this.props
-      let numberImg = 12 // số ảnh muốn hiện
+      let numberImg = 4 // số ảnh muốn hiện
       let numberPage = parseInt(converGoods.length / numberImg) // Số trang phân
       if (converGoods.length % numberImg) {
          numberPage = numberPage + 1

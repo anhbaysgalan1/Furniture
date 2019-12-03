@@ -10,7 +10,6 @@ import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
 import RadioGroupField, { Radio } from 'components/Forms/RadioGroupField'
-import FacebookIcon from '@material-ui/icons/Facebook'
 import {
    IconButton,
    Icon,
