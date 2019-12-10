@@ -103,6 +103,7 @@ class Create extends BaseView {
                            label=''
                            name="date"
                            ampm="false"
+                           defaultValue={new Date()}
                            clearable={false}
                            showTime={false}
                            showDate={true}

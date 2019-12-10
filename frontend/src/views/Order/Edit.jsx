@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import { Form, TextField, Validation, MoneyField } from 'components/Forms'
+import { Form, TextField, Validation, MoneyField, DateTimeField } from 'components/Forms'
 import { BaseView } from 'views/BaseView'
 import { I18n } from 'react-redux-i18n'
 import {
@@ -137,6 +137,7 @@ class Create extends BaseView {
       let goodsId = _.get(data, 'goodsId', '')
       let number = _.get(data, 'number', '')
       let money = _.get(data, 'money', '')
+      let date = _.get(data, 'date', '')
       let _status = _.get(data, 'status', '')
       let pay = _.get(data, 'pay', '')
       let note = _.get(data, 'note', '')
@@ -144,7 +145,7 @@ class Create extends BaseView {
       let moneyImportGoods = _.get(data, 'moneyImportGoods', '')
       let cost = _.get(data, 'cost', '')
       let profit = _.get(data, 'profit', '')
-      console.log("Dtae", data)
+
       let moneyNew = ''
       let moneyOld = ''
       let image = ''
@@ -175,6 +176,15 @@ class Create extends BaseView {
                         </center> */}
                      </Grid>
                      <Grid item xs={9}>
+                        <DateTimeField
+                           label='Ngày'
+                           name="date"
+                           ampm="false"
+                           defaultValue={new Date(date)}
+                           clearable={false}
+                           showTime={false}
+                           showDate={true}
+                        />
                         <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={4}>
                               <AutoCompleteField

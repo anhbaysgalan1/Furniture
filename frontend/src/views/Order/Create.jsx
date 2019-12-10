@@ -160,6 +160,15 @@ class Create extends BaseView {
                         </center> */}
                      </Grid>
                      <Grid item xs={9}>
+                        <DateTimeField
+                           label='Ngày'
+                           name="date"
+                           ampm="false"
+                           defaultValue={new Date()}
+                           clearable={false}
+                           showTime={false}
+                           showDate={true}
+                        />
                         <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={4}>
                               <AutoCompleteField
