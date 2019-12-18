@@ -25,6 +25,7 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
+import { typeGoods } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
@@ -146,8 +147,7 @@ class Create extends BaseView {
    }
 
    render() {
-      const { classes, onSubmit, data, typeGoods = [] } = this.props
-     
+      const { classes, onSubmit, data } = this.props
       let image1 = _.get(data, 'image1', '')
       let image2 = _.get(data, 'image2', '')
       let image3 = _.get(data, 'image3', '')

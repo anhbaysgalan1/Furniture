@@ -17,7 +17,6 @@ class Edit extends BaseContainer {
    componentDidMount() {
       this.id = this.props.match.params.id
       this.props.dispatch(GoodsAction.fetch({ _id: this.id }))
-      this.props.dispatch(GoodsAction.getTypeGoods({ pageSize: -1 }))
    }
 
    onSubmit(values) {
@@ -55,7 +54,6 @@ class Edit extends BaseContainer {
          <View
             data={this.props.data || {}}
             onSubmit={this.onSubmit}
-            typeGoods={this.props.typeGoods}
          />
       )
    }
@@ -63,10 +61,8 @@ class Edit extends BaseContainer {
 
 const mapStateToProps = state => {
    return {
-      //sử dụng selector để lấy state từ redux
       lastType: selector(state, "goods.lastType", {}),
       error: selector(state, "goods.error", ""),
-      typeGoods: selector(state, 'goods.getTypeGoods.data', []),
       data: selector(state, "goods.item", {}),
    }
 }

@@ -8,6 +8,7 @@ import { I18n } from 'react-redux-i18n'
 import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
+import { typeGoods } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import {
    IconButton,
@@ -267,7 +268,7 @@ class Index extends BaseView {
       )
    }
 
-   renderFilter(typeGoods) {
+   renderFilter() {
       let typeItems = []
       typeGoods.map((item, index) => {
          let typeGoodsInput = _.get(this.state, 'dataInput.typeGoods', '')
@@ -377,14 +378,14 @@ class Index extends BaseView {
    }
 
    render() {
-      const { data, classes, typeGoods = [] } = this.props
+      const { data, classes } = this.props
       return (
          <div className={classes.card}>
             {
                this.renderDetail()
             }
             {
-               this.renderFilter(typeGoods)
+               this.renderFilter()
             }
             <PaperFade showLoading={true} className={classes.card} >
                <GridTable

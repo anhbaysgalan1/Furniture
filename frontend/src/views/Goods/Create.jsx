@@ -25,6 +25,7 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
+import { typeGoods } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
 
@@ -143,7 +144,7 @@ class Create extends BaseView {
    }
 
    render() {
-      const { classes, onSubmit, typeGoods = [] } = this.props
+      const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
       let defaultName = `Tủ giày gỗ công nghiệp ` + this.state.dataInput.code //////////////////

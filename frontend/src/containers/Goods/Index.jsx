@@ -16,11 +16,6 @@ class Index extends BaseContainer {
         this.onDeleteData = this.onDeleteData.bind(this)
     }
 
-    componentDidMount() {
-        this.props.dispatch(GoodsAction.fetchAll({ pageSize: -1 }))
-        this.props.dispatch(GoodsAction.getTypeGoods({ pageSize: -1 }))
-    }
-    
     onFetchData(state) {
         this.props.dispatch(GoodsAction.fetchAll(state))
     }
@@ -78,7 +73,6 @@ class Index extends BaseContainer {
                     onRefTable={this.onRefTable}
                     onDeleteData={this.onDeleteData}
                     data={this.props.data}
-                    typeGoods={this.props.typeGoods}
                 />
             </div>
         )
@@ -89,7 +83,6 @@ const mapStateToProps = state => {
    
     return {
         data: selector(state, "goods.list", {}),
-        typeGoods: selector(state, 'goods.getTypeGoods.data', [])
     }
 }
 
