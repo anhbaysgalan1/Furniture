@@ -62,8 +62,9 @@ function NavTabs(data) {
          <AppBar position="sticky" color="default">
             <Paper square component='div'>
                <Tabs 
-                  textColor="primary" 
+                  // textColor="inherit" 
                   indicatorColor="primary" 
+                  style={{ backgroundColor: '#e6ee9c' }}
                   value={value} variant='fullWidth'
                   onChange={handleChange} 
                   aria-label="icon tabs example"
