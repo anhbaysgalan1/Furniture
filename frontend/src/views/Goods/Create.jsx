@@ -49,7 +49,6 @@ const styles = theme => ({
    },
    form: {
       padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
-      // padding: '10px 10px 10px 10px'
    },
    imgZoom: {
       transition: "transform .5s, filter 3s ease-in-out",
