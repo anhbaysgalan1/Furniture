@@ -13,6 +13,7 @@ import {
     Icon,
     Tooltip,
     Button,
+    Chip,
     Card,
     Grid,
     CardContent,
@@ -54,50 +55,96 @@ class Index extends BaseView {
         return (
             <Card>
                 <Typography variant='h5' className={classes.title}>
-                    Điền thông tin chúng tôi sẽ hỗ trợ bạn
+                    Gửi thông tin chúng tôi sẽ hỗ trợ bạn
                 </Typography>
                 <CardContent>
-                    <Grid container spacing={32}>
+                    <Grid container spacing={16}>
                         <Grid item xs={12}>
                             <TextField
                                 fullWidth
                                 label='Họ tên của bạn'
                                 name="name"
+                                margin='dense'
                                 variant='outlined'
                             />
                              <TextField
                                 fullWidth
                                 label='SĐT của bạn'
                                 name="name"
+                                margin='dense'
                                 variant='outlined'
                             />
                             <TextField
                                 fullWidth
                                 label='Email của bạn'
                                 name="name"
+                                margin='dense'
                                 variant='outlined'
                             />
                             <TextField
                                 fullWidth
                                 label='Địa chỉ của bạn'
                                 name="name"
+                                margin='dense'
+                                variant='outlined'
+                            />
+                            <TextField
+                                fullWidth
+                                multiline
+                                rows={4}
+                                rowsMax={6}
+                                margin='dense'
+                                label='Nội dung cần hỗ trợ'
+                                name="name"
                                 variant='outlined'
                             />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={32}>
-                        <Grid item xs={3}></Grid>
-                        <Grid item xs={6}>
-                            <Button fullWidth variant='contained' color='primary'>
-                                Gửi thông tin
-                            </Button>
-                        </Grid>
-                        <Grid item xs={3}></Grid>
-                    </Grid>
+                    <Button variant='contained' color='primary'>
+                        Gửi thông tin
+                    </Button>
                 </CardContent>
 
 
             </Card>
+        )
+    }
+
+    renderInfo(classes){
+        return(
+            <div>
+                <Typography variant='h4'>
+                    CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
+                </Typography>
+                <Typography variant='h6'>
+                    Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội
+                </Typography>
+                <Typography variant='h6'>
+                    Phone: 0377 535 717 
+                </Typography>
+                <Typography variant='h6'>
+                    Email: noithat.dodo@gmail.com
+                </Typography>
+            </div>
+        )
+    }
+
+    contactOnline(classes){
+        return (
+            <div>
+                <Typography variant='h5' >
+                    Phản Hồi Trực Tuyến
+                </Typography>
+                <Typography variant='h6'>
+                    Quý khách vui lòng nhấp chuột vào đường dẫn bên dưới để gửi ý kiến phản hồi:
+                </Typography>
+                <Button color='primary' variant='contained'>
+                    <i class="fa fa-facebook-f"></i> Nội thất Dodo
+                </Button>
+                <Button color='primary' variant='contained'>
+                    <i class="fa fa-mail"></i> Mail
+                </Button>
+            </div>
         )
     }
 
@@ -107,24 +154,15 @@ class Index extends BaseView {
             <span>
                 <Grid container spacing={32}>
                     <Grid item xs={1}></Grid>
+                    <Grid item xs={6}>
+                       {this.renderInfo(classes)}
+                       <br />
+                       {this.contactOnline(classes)}
+                    </Grid>
                     <Grid item xs={4}>
                         {
                             this.renderContent(classes)
                         }
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography color='primary' variant='h5'>
-                            CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
-                        </Typography>
-                        <Typography color='primary'>
-                            Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội
-                        </Typography>
-                        <Typography color='primary'>
-                            Phone: 0377 535 717 
-                        </Typography>
-                        <Typography color='primary'>
-                            Email: noithat.dodo@gmail.com
-                        </Typography>
                     </Grid>
                 </Grid>
             </span>

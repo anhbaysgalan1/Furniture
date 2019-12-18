@@ -36,17 +36,17 @@ function TabContainer(props) {
    )
 }
 
-function LinkTab(props) {
-   return (
-      <Tab
-         style={{ background: '#0099ff', color: 'white' }}
-         fullWidth={true}
-         component="a"
-         onClick={event => { event.preventDefault() }}
-         {...props}
-      />
-   )
-}
+// function LinkTab(props) {
+//    return (
+//       <Tab
+//          style={{ background: '#0099ff', color: 'white' }}
+//          fullWidth={true}
+//          component="a"
+//          onClick={event => { event.preventDefault() }}
+//          {...props}
+//       />
+//    )
+// }
 
 function NavTabs(data) {
    const [value, setValue] = React.useState(0)

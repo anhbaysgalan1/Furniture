@@ -29,44 +29,12 @@ import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
 import IntroduceGoods from './Components/IntroduceGoods'
+import { titleTableEat } from '../../config/constant'
 import moment from 'moment'
 import _ from 'lodash'
-// import "bootstrap/less/bootstrap.less"
 
 const styles = theme => ({
 })
-
-// all, modern, classic, fourChair, sixChairs, eightChairs, circle
-let titleTabs = [
-    {
-        label: "Tất cả",
-        tabBad: 'all'
-    },
-    {
-        label: "Bàn ăn hiện đại",
-        tabBad: '0'
-    },
-    {
-        label: "Bàn ăn cổ điển",
-        tabBad: '1'
-    },
-    {
-        label: "Bàn ăn hiện đại 4 ghế",
-        tabBad: '2'
-    },
-    {
-        label: "Bàn ăn hiện đại 6 ghế",
-        tabBad: '3'
-    },
-    {
-        label: "Bàn ăn hiện đại 8 ghế",
-        tabBad: '4'
-    },
-    {
-        label: "Bàn ăn hiện đại tròn",
-        tabBad: '5'
-    },
-]
 
 class Index extends BaseView {
     constructor(props) {
@@ -87,7 +55,7 @@ class Index extends BaseView {
                 <br></br>
                 <Promotion classes={classes} />  
                 <br></br> */}
-                <Tabs titleTabs={titleTabs} classes={classes} onSubmit={onSubmit} goods={goods} />
+                <Tabs titleTabs={titleTableEat} classes={classes} onSubmit={onSubmit} goods={goods} />
                 <br></br>
                 {/* <What classes={classes} /> */}
             </div>

@@ -32,13 +32,13 @@ const sidebar = [
         icon: <Icon>account_circle</Icon>,
         component: () => <CenterIndex />
     },
-    // {
-    //     path: "/info", 
-    //     name: 'info',
-    //     title: <Translate value="Sidebar.info" />, 
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <InfoIndex />
-    // },
+    {
+        path: "/info", 
+        name: 'info',
+        title: <Translate value="Sidebar.info" />, 
+        icon: <Icon>account_circle</Icon>,
+        component: () => <InfoIndex />
+    },
     {
         path: "/bad",  // Giường
         name: 'bad',
@@ -118,8 +118,8 @@ const sidebar = [
         component: () => <OrderIndex />
     },
     {
-        path: "/finance", 
-        name: 'finance',
+        path: "/finance",  // Tài chính
+        name: 'finance',   
         title: <Translate value="Sidebar.finance" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <FinanceIndex />
@@ -132,21 +132,21 @@ const sidebar = [
         component: () => <GoodsIndex />
     },
     {
-        path: "/client", 
+        path: "/client", // Khách hàng
         name: 'client',
         title: <Translate value="Sidebar.client" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <ClientIndex />
     },
     {
-        path: "/posts", 
+        path: "/posts", // Bài viết
         name: 'posts',
         title: <Translate value="Sidebar.posts" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <PostsIndex />
     },
     {
-        path: "/users", 
+        path: "/users", // Tài khoản
         name: 'user',
         title: <Translate value="Sidebar.user" />, 
         icon: <Icon>account_circle</Icon>,

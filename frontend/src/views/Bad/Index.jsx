@@ -29,31 +29,10 @@ import OwlCarousel from 'react-owl-carousel2'
 import 'react-owl-carousel2/lib/styles.css'
 import Promotion from '../Public/Promotion'
 import IntroduceGoods from './Components/IntroduceGoods'
+import { titleBad } from '../../config/constant'
 import moment from 'moment'
 import _ from 'lodash'
-// import "bootstrap/less/bootstrap.less"
-let titleTabs = [
-    {
-        label: "Tất cả",
-        tabBad: 'all'
-    },
-    {
-        label: "Giường gỗ hiện đại",
-        tabBad: '0'
-    },
-    {
-        label: "Giường gỗ cổ điển",
-        tabBad: '1'
-    },
-    {
-        label: "Giường gỗ tự tiên",
-        tabBad: '2'
-    },
-    {
-        label: "Giường gỗ công nghiệp",
-        tabBad: '3'
-    },
-]
+
 const styles = theme => ({
 })
 
@@ -77,7 +56,7 @@ class Index extends BaseView {
                 <br></br>
                 <Promotion classes={classes} />  
                 <br></br>
-                <Tabs titleTabs={titleTabs} classes={classes} onSubmit={onSubmit} goods={goods} />
+                <Tabs titleTabs={titleBad} classes={classes} onSubmit={onSubmit} goods={goods} />
                 <br></br>
                 <What classes={classes} />
             </div>

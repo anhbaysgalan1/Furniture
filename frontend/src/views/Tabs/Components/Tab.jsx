@@ -175,7 +175,7 @@ class Index extends BaseView {
    renderGoods(tabBad, goods) {
       let converGoods = this.converGoods(tabBad, goods)
       let { classes } = this.props
-      let numberImg = 4 // số ảnh muốn hiện
+      let numberImg = 12 // số ảnh muốn hiện
       let numberPage = parseInt(converGoods.length / numberImg) // Số trang phân
       if (converGoods.length % numberImg) {
          numberPage = numberPage + 1
@@ -189,9 +189,7 @@ class Index extends BaseView {
          <span>
             {/* <img src={tunhien} height='80' width='450' /> */}
             <br></br>
-            {buttonPage}
-            <br></br><br></br>
-            <Grid container spacing={16}>
+            <Grid container spacing={8}>
                {
                   converGoods.map((element, index) => {
                      if ((index >= minImage) && (index <= maxImage)) {
@@ -211,14 +209,14 @@ class Index extends BaseView {
                                     <Typography variant='h4' >
                                        {index}
                                     </Typography>
-                                    <Typography style={{ textAlign: 'center' }} color="primary" variant='h6' >
+                                    <Typography align="center" color="primary" variant='h6' >
                                        {element.name}
                                     </Typography>
-                                    <Typography style={{ textAlign: 'center', color: 'red' }}>
+                                    <Typography align='center' style={{ color: 'red' }}>
                                        {element.moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
                                     </Typography>
                                     <del>
-                                       <Typography style={{ textAlign: 'center' }}>
+                                       <Typography align="center">
                                           {element.moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ
                                        </Typography>
                                     </del>
@@ -232,7 +230,7 @@ class Index extends BaseView {
                }
             </Grid>
             <br></br><br></br>
-            {buttonPage}
+            <div style={{ textAlign: 'right' }} >{buttonPage}</div>
          </span>
       )
    }
@@ -267,7 +265,7 @@ class Index extends BaseView {
    render() {
       let { classes, tabBad, goods } = this.props
       return (
-         <span>
+         <div>
             {
                <Typography variant='h5'>
                   {tabBad}
@@ -279,7 +277,7 @@ class Index extends BaseView {
             {
                this.renderGoods(tabBad, goods)
             }
-         </span>
+         </div>
       )
    }
 }
