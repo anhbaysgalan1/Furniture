@@ -29,13 +29,11 @@ class OrderController extends BaseController {
             status: 1,
             pay: 1,
             note: 1,
+            date: 1,
             amount: 1,
             moneyImportGoods: 1,
             cost: 1,
             profit: 1,
-            insert: {
-                when: 1
-            }
         }
         let result = await this.Model.aggregation([{
             $sort: {
@@ -56,6 +54,7 @@ class OrderController extends BaseController {
             money: 1,
             pay: 1,            
             note: 1,
+            date: 1,
             amount: 1,
             moneyImportGoods: 1,
             cost: 1,
@@ -80,6 +79,7 @@ class OrderController extends BaseController {
             status: 'string!',
             pay: "string!",
             note: 'string',
+            date: 'date',
             amount: "string",
             moneyImportGoods: "string",  
             cost: "string",
@@ -120,6 +120,7 @@ class OrderController extends BaseController {
             status: 'string!',
             pay: "string!",
             note: 'string',
+            date: 'date',
             amount: "string",
             moneyImportGoods: 'string',
             cost: "string",

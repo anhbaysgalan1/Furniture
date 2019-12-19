@@ -416,6 +416,44 @@ const typeGoods = [
   }
 ]
 
+const statusOrder = [
+  {
+     _id: '0',
+     name: "Mới"
+  },
+  {
+     _id: '1',
+     name: "Đang giao"
+  },
+  {
+     _id: '2',
+     name: "Hoàn thành"
+  },
+  {
+     _id: '3',
+     name: "Đổi hàng"
+  },
+  {
+     _id: '4',
+     name: "Thất bại"
+  }
+]
+
+const pays = [
+  {
+     name: "Thanh toán khi nhận hàng",
+     _id: '0'
+  },
+  {
+     name: "Chuyển khoản",
+     _id: '1'
+  },
+  {
+     name: "Ví điện tử",
+     _id: '2'
+  }
+]
+
 
 
 export { 
@@ -427,6 +465,9 @@ export {
   titleTableLivingRoom,
   titleShoesCabinet,
   titleTVCabinet,
+  statusOrder,
+  pays,
+  
   
 
 }

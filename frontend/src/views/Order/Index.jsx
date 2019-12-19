@@ -32,6 +32,7 @@ import {
    Dialog,
 
 } from '@material-ui/core'
+import { typeGoods, statusOrder } from '../../config/constant'
 import Header from '../Public/Header/Header'
 import What from '../Public/What'
 import Promotion from '../Public/Promotion'
@@ -51,193 +52,6 @@ const styles = theme => ({
       padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 2}px`,
    }
 })
-const status = [
-   {
-      _id: '0',
-      name: "Mới"
-   },
-   {
-      _id: '1',
-      name: "Đang giao"
-   },
-   {
-      _id: '2',
-      name: "Hoàn thành"
-   },
-   {
-      _id: '3',
-      name: "Đổi hàng"
-   },
-   {
-      _id: '4',
-      name: "Thất bại"
-   }
-]
-const typeGoods = [
-   {
-      name: "Giường ngủ",
-      value: "0",
-      typeItems: [
-         {
-            name: "Giường ngủ hiện đại",
-            value: "0"
-         }, {
-            name: "Giường ngủ cổ điển",
-            value: "1"
-         }, {
-            name: "Giường ngủ gỗ tự nhiên cao cấp",
-            value: "2"
-         }, {
-            name: "Giường ngủ gỗ công nghiệp",
-            value: "3"
-         }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
-   }, {
-      name: "Bàn ăn",
-      value: "1",
-      typeItems: [
-         {
-            name: "Bàn ăn hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn ăn cổ điển",
-            value: "1"
-         }, {
-            name: "Bàn ăn 4 ghế",
-            value: "2"
-         }, {
-            name: "Bàn ăn 6 ghế",
-            value: "3"
-         }, {
-            name: "Bàn ăn 8 ghế",
-            value: "4"
-         }, {
-            name: "Bàn ăn tròn",
-            value: "5"
-         },
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         }
-      ]
-   }, {
-      name: "Tủ Quần áo",
-      value: "2",
-      typeItems: [
-         {
-            name: "Tủ quần áo hiện đại",
-            value: "0"
-         },
-         {
-            name: "Tủ quần áo gỗ tự nhiên",
-            value: "1"
-         },
-         {
-            name: "Tủ quần áo gỗ công nghiệp",
-            value: "2"
-         },
-         {
-            name: "Tủ quần áo nhựa cao cấp",
-            value: "3"
-         }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0"
-         }, {
-            name: "Xoan đào",
-            value: "1"
-         }, {
-            name: "Công nghiệp",
-            value: "2"
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
-   }, {
-      name: "Bàn trà phòng khách",
-      value: "3",
-      typeItems: [
-         {
-            name: "Bàn trà hiện đại",
-            value: "0"
-         }, {
-            name: "Bàn trà cổ điển",
-            value: "1"
-         }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
-   }, {
-      name: "Tủ giày",
-      value: "4",
-      typeItems: [
-         {
-            name: "Tủ giày hiện đại",
-            value: "0"
-         }, {
-            name: "Tủ giày cổ điển",
-            value: "1"
-         }
-      ],
-      typeWoods: [
-         {
-            name: "Sồi nga",
-            value: "0",
-         }, {
-            name: "Xoan đào",
-            value: "1",
-         }, {
-            name: "Công nghiệp",
-            value: "2",
-         }, {
-            name: "Nhựa",
-            value: "3",
-         },
-      ]
-   }
-]
 
 class Index extends BaseView {
    constructor(props) {
@@ -262,12 +76,12 @@ class Index extends BaseView {
                sortable: false,
             },
             {
-               name: 'insert',
+               name: 'date',
                title: I18n.t('Table.header.role.date.Ngày'),
                filterable: false,
                sortable: false,
                formatterComponent: (data) => {
-                  let date = _.get(data, 'row.insert.when', '')
+                  let date = _.get(data, 'row.date', '')
                   return moment(date).format('DD/MM/YYYY')
                },
             },
@@ -360,7 +174,7 @@ class Index extends BaseView {
                width: 80
             },
             {
-               name: 'insert',
+               name: 'date',
                width: 100,
             },
             {
@@ -573,7 +387,7 @@ class Index extends BaseView {
                         isClearable={false}
                      >
                         {
-                           status.map(item => (
+                           statusOrder.map(item => (
                               <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
                                  {item.name}
                               </OptionAuto>

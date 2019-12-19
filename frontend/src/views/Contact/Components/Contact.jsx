@@ -1,177 +1,249 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import withStyles from '@material-ui/core/styles/withStyles'
-import { withRouter } from 'react-router-dom'
-import BaseView from 'views/BaseView'
-import PaperFade from 'components/Main/PaperFade'
-import { I18n } from 'react-redux-i18n'
-import ConfirmDialog from 'components/Dialogs/ConfirmDialog'
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
-import { Form, TextField, DateTimeField, Validation } from 'components/Forms'
+import React from "react";
+import PropTypes from "prop-types";
+import withStyles from "@material-ui/core/styles/withStyles";
+import { withRouter } from "react-router-dom";
+import BaseView from "views/BaseView";
+import PaperFade from "components/Main/PaperFade";
+import { I18n } from "react-redux-i18n";
+import ConfirmDialog from "components/Dialogs/ConfirmDialog";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
+import { Form, TextField, DateTimeField, Validation } from "components/Forms";
 import {
-    IconButton,
-    Icon,
-    Tooltip,
-    Button,
-    Chip,
-    Card,
-    Grid,
-    CardContent,
-    CardActions,
-    Typography,
-    AppBar,
-    Toolbar,
-    CardActionArea,
-    CardMedia,
-    Avatar,
-    Dialog,
-    DialogContent,
-} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import MoreVertIcon from '@material-ui/icons/MoreVert'
-import Skeleton from '@material-ui/lab/Skeleton'
-import moment from 'moment'
-import _ from 'lodash'
+  IconButton,
+  Icon,
+  Tooltip,
+  Button,
+  Chip,
+  Card,
+  Grid,
+  CardContent,
+  CardActions,
+  Typography,
+  AppBar,
+  Toolbar,
+  CardActionArea,
+  CardMedia,
+  Avatar,
+  Dialog,
+  DialogContent
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import Skeleton from "@material-ui/lab/Skeleton";
+import moment from "moment";
+import _ from "lodash";
 
 const styles = theme => ({
-    title: {
-        padding: '5px',
-        backgroundColor: '#039be5',
-        color: 'white',
-        textAlign: 'center'
-    },
-})
-
+  title: {
+    padding: "5px",
+    backgroundColor: "#039be5",
+    color: "white",
+    textAlign: "center"
+  }
+});
 
 class Index extends BaseView {
-    constructor(props) {
-        super(props)
-        this.state = {
-            reload: false
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      reload: false
+    };
+  }
 
-    renderContent(classes) {
-        return (
-            <Card>
-                <Typography variant='h5' className={classes.title}>
-                    Gửi thông tin chúng tôi sẽ hỗ trợ bạn
-                </Typography>
-                <CardContent>
-                    <Grid container spacing={16}>
-                        <Grid item xs={12}>
-                            <TextField
-                                fullWidth
-                                label='Họ tên của bạn'
-                                name="name"
-                                margin='dense'
-                                variant='outlined'
-                            />
-                             <TextField
-                                fullWidth
-                                label='SĐT của bạn'
-                                name="name"
-                                margin='dense'
-                                variant='outlined'
-                            />
-                            <TextField
-                                fullWidth
-                                label='Email của bạn'
-                                name="name"
-                                margin='dense'
-                                variant='outlined'
-                            />
-                            <TextField
-                                fullWidth
-                                label='Địa chỉ của bạn'
-                                name="name"
-                                margin='dense'
-                                variant='outlined'
-                            />
-                            <TextField
-                                fullWidth
-                                multiline
-                                rows={4}
-                                rowsMax={6}
-                                margin='dense'
-                                label='Nội dung cần hỗ trợ'
-                                name="name"
-                                variant='outlined'
-                            />
-                        </Grid>
-                    </Grid>
-                    <Button variant='contained' color='primary'>
-                        Gửi thông tin
-                    </Button>
-                </CardContent>
+  renderContent(classes) {
+    return (
+      <Card>
+        <Typography variant="h5" className={classes.title}>
+          Gửi thông tin chúng tôi sẽ hỗ trợ bạn
+        </Typography>
+        <CardContent>
+          <Grid container spacing={16}>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Họ tên của bạn"
+                name="name"
+                margin="dense"
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                label="SĐT của bạn"
+                name="name"
+                margin="dense"
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                label="Email của bạn"
+                name="name"
+                margin="dense"
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                label="Địa chỉ của bạn"
+                name="name"
+                margin="dense"
+                variant="outlined"
+              />
+              <TextField
+                fullWidth
+                multiline
+                rows={4}
+                rowsMax={6}
+                margin="dense"
+                label="Nội dung cần hỗ trợ"
+                name="name"
+                variant="outlined"
+              />
+            </Grid>
+          </Grid>
+          <Button variant="contained" color="primary">
+            Gửi thông tin
+          </Button>
+        </CardContent>
+      </Card>
+    );
+  }
 
+  renderInfo(classes) {
+    return (
+      <div>
+        <Grid container spacing={8}>
+          <Grid item xs={12}>
+            <Typography variant="h4" color="primary">
+                CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
+            </Typography>
+            <ul>
+                <li>
+                    <Typography>Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội</Typography>
+                </li>
+                <li>
+                    <Typography>Phone: 0377 535 717</Typography>
+                </li>
+                <li>
+                    <Typography>Email: noithat.dodo@gmail.com</Typography>
+                </li>
+            </ul>
+          </Grid>
+          <Grid item xs={12}>
+            <i>
+            <Typography color='primary' >
+                Nội Thất Dodo hoạt động với
+                tiêu chí mang đến lợi ích tối đa cho khách hàng, lấy chữ tín làm
+                tiền để phát triển. Sự hài lòng của khách hàng chính là lý do để
+                chúng tôi tiếp tục hoàn thiện mình.
+            </Typography>
+            </i>
+          </Grid>
+        </Grid>
 
-            </Card>
-        )
-    }
+        <br></br>
 
-    renderInfo(classes){
-        return(
-            <div>
-                <Typography variant='h4'>
-                    CÔNG TY CỔ PHẦN ĐỒ GỖ NỘI THẤT DODO
-                </Typography>
-                <Typography variant='h6'>
-                    Địa chỉ: 108 Trần Phú, Hà Đông, Hà Nội
-                </Typography>
-                <Typography variant='h6'>
-                    Phone: 0377 535 717 
-                </Typography>
-                <Typography variant='h6'>
-                    Email: noithat.dodo@gmail.com
-                </Typography>
-            </div>
-        )
-    }
+        <Typography variant="h6" style={{ color: "#2196f3" }}>
+          Đồ gỗ & thiết kế nội thất – kiến trúc chuyên nghiệp
+        </Typography>
+        <ul>
+          <li>
+            <Typography>
+              Chúng tôi cam kết 100% các dự án thiết kế & thi công nội thất,
+              thiết kế kiến trúc đều đảm bảo đúng quy trình, đúng chất liệu,
+              đúng tiến độ thi công như trong hợp đồng đã đề ra.
+            </Typography>
+          </li>
+          <li>
+            <Typography>
+              ? Nếu quý khách có nhu cầu liên hệ tư vấn thiết kế nội thất thiết
+              kế kiến trúc, hay tìm mua các sản phẩm nội thất, xin vui lòng liên
+              hệ với chúng tôi qua Hotline <b style={{ color: "#2196f3" }}>☎ 0377 535 717</b> hoặc điền vào mẫu liên
+              hệ.
+            </Typography>
+          </li>
+        </ul>
+      </div>
+    );
+  }
 
-    contactOnline(classes){
-        return (
-            <div>
-                <Typography variant='h5' >
-                    Phản Hồi Trực Tuyến
-                </Typography>
-                <Typography variant='h6'>
-                    Quý khách vui lòng nhấp chuột vào đường dẫn bên dưới để gửi ý kiến phản hồi:
-                </Typography>
-                <Button color='primary' variant='contained'>
-                    <i class="fa fa-facebook-f"></i> Nội thất Dodo
-                </Button>
-                <Button color='primary' variant='contained'>
-                    <i class="fa fa-mail"></i> Mail
-                </Button>
-            </div>
-        )
-    }
+  contactPhone(classes) {
+    return (
+      <div>
+        <Grid container spacing={8}>
+          <Grid item xs={4}>
+            <Typography variant="h5" color='primary' >Nhân viên tư vấn</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <Typography>
+              <i>Liên hệ số điệm thoại chúng tôi sẽ hỗ trợ quý khách 24/7</i>
+            </Typography>
+            <br /> <br />
+            <Button color="primary" variant="contained">
+              ☎ 0377 535 717
+            </Button>
+            <br /> <br />
+            <Button color="primary" variant="contained">
+              ☎ 0987 564 856
+            </Button>
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
 
-    render() {
-        let { classes } = this.props
-        return (
-            <span>
-                <Grid container spacing={32}>
-                    <Grid item xs={1}></Grid>
-                    <Grid item xs={6}>
-                       {this.renderInfo(classes)}
-                       <br />
-                       {this.contactOnline(classes)}
-                    </Grid>
-                    <Grid item xs={4}>
-                        {
-                            this.renderContent(classes)
-                        }
-                    </Grid>
-                </Grid>
-            </span>
-        )
-    }
+  contactOnline(classes) {
+    return (
+      <div>
+        <Grid container spacing={8}>
+          <Grid item xs={4}>
+            <Typography variant="h5" color='primary'>Phản Hồi Trực Tuyến</Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <Typography>
+              <i>
+                Quý khách vui lòng nhấp chuột vào đường dẫn bên dưới để gửi ý
+                kiến phản hồi
+              </i>
+            </Typography>
+            <br />
+            <br />
+            <Button color="primary" variant="contained">
+              <i class="fa fa-facebook-f"></i> Nội thất Dodo
+            </Button>
+            <br />
+            <br />
+            <Button color="primary" variant="contained">
+              <i class="fa fa-mail"></i> Mail
+            </Button>
+          </Grid>
+        </Grid>
+      </div>
+    );
+  }
+
+  render() {
+    let { classes } = this.props;
+    return (
+      <span>
+        <Grid container spacing={32}>
+          <Grid item xs={1}></Grid>
+          <Grid item xs={6}>
+            {this.renderInfo(classes)}
+            <br />
+            {this.contactPhone(classes)}
+            <br />
+            {this.contactOnline(classes)}
+          </Grid>
+          <Grid item xs={4}>
+            {this.renderContent(classes)}
+          </Grid>
+        </Grid>
+      </span>
+    );
+  }
 }
 
 Index.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
+  classes: PropTypes.object.isRequired
+};
 
-export default withStyles(styles)(withRouter(Index))
+export default withStyles(styles)(withRouter(Index));

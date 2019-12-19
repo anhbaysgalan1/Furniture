@@ -20,45 +20,9 @@ import {
 } from '@material-ui/core'
 import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
+import { statusOrder, pays } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
-
-const status = [
-   {
-      _id: '0',
-      name: "Mới"
-   },
-   {
-      _id: '1',
-      name: "Đang giao"
-   },
-   {
-      _id: '2',
-      name: "Hoàn thành"
-   },
-   {
-      _id: '3',
-      name: "Đổi hàng"
-   },
-   {
-      _id: '4',
-      name: "Thất bại"
-   }
-]
-let pays = [
-   {
-      name: "Thanh toán khi nhận hàng",
-      _id: '0'
-   },
-   {
-      name: "Chuyển khoản",
-      _id: '1'
-   },
-   {
-      name: "Ví điện tử",
-      _id: '2'
-   }
-]
 
 const styles = theme => ({
    paper: {
@@ -181,6 +145,7 @@ class Create extends BaseView {
                            name="date"
                            ampm="false"
                            defaultValue={new Date(date)}
+                           autoOk={true}
                            clearable={false}
                            showTime={false}
                            showDate={true}
@@ -312,7 +277,7 @@ class Create extends BaseView {
                                  isClearable={false}
                               >
                                  {
-                                    status.map(item => (
+                                    statusOrder.map(item => (
                                        <OptionAuto key={item._id} value={item._id} showCheckbox={false}>
                                           {item.name}
                                        </OptionAuto>

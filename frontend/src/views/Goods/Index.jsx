@@ -101,7 +101,7 @@ class Index extends BaseView {
             },
             {
                name: 'moneyOld',
-               title: I18n.t('Table.header.role.Tiền cũ'),
+               title: I18n.t('Table.header.role.Đơn giá cũ'),
                style: {
                   textAlign: 'center',
                },
@@ -112,7 +112,7 @@ class Index extends BaseView {
             },
             {
                name: 'moneyNew',
-               title: I18n.t('Table.header.role.Tiền mới'),
+               title: I18n.t('Table.header.role.Đơn giá mới'),
                style: {
                   textAlign: 'center',
                },
