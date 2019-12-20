@@ -25,17 +25,12 @@ class Routes extends React.Component {
       <ErrorBoundary>
           <BrowserRouter>
             <Switch>
-              {/* <Route path="/admin" name="Login Page" component={Login} />
+              <Route path="/admin" name="Login Page" component={Login} />
               <Route path="/" render={(props) => (
                   this.checkJWTToken()
                   ? (<Main {...props}/>)
                   : (<Redirect to={{ pathname: '/admin', state: {from: props.location} }}/>)
                 )}
-              /> */}
-              {/* <Route path="/admin" name="Login Page" component={Login} /> */}
-              <Route 
-                path="/" 
-                render={ (props) => ((<Main {...props}/>)) }
               />
             </Switch>
           </BrowserRouter>
