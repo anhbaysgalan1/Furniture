@@ -9,17 +9,17 @@ class Routes extends React.Component {
   checkJWTToken() {
     try {
       let token = localStorage.getItem('token')
-      var base64Url = token.split('.')[1];
-      var base64 = base64Url.replace('-', '+').replace('_', '/');
-      let decodedToken = JSON.parse(window.atob(base64));
-      var dateNow = new Date();
+      var base64Url = token.split('.')[1]
+      var base64 = base64Url.replace('-', '+').replace('_', '/')
+      let decodedToken = JSON.parse(window.atob(base64))
+      var dateNow = new Date()
       let user = localStorage.getItem('user')
       // if (decodedToken.exp && decodedToken.exp < dateNow.getTime())
         //return false
       if (user) return true 
       return false
     } catch (e) {
-      //return false;
+      //return false
     }
     return false
   }

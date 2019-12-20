@@ -2,18 +2,18 @@ import React from 'react'
 import { I18n } from 'react-redux-i18n'
 class ErrorBoundary extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { hasError: false };
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(error) {
     // Update state so the next render will show the fallback UI.
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error, info) {
     // You can also log the error to an error reporting service
-    //logErrorToMyService(error, info);
+    //logErrorToMyService(error, info)
     console.log(error, info)
   }
 
@@ -31,7 +31,7 @@ class ErrorBoundary extends React.Component {
      
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 

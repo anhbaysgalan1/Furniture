@@ -30,7 +30,7 @@ SelectField.propTypes = {
   onBlur: PropTypes.func,
   className: PropTypes.string,
   margin: PropTypes.string
-};
+}
 
 export default withStyles(styles)(SelectField)
 

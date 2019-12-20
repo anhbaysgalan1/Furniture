@@ -8,7 +8,7 @@ class Modal extends React.Component {
     super(props)
     this.state = {
       open: props.open || false,
-    };
+    }
   }
 
 
@@ -43,8 +43,8 @@ class Modal extends React.Component {
               {content}
           </DialogContent>
         </Dialog>
-    );
+    )
   }
 }
 
-export default Modal;
+export default Modal

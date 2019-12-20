@@ -8,23 +8,23 @@ class BaseContainer extends Component {
     if (!window.navigator.onLine) {
       window.location.reload(true)
     }
-    super(props);
-    this.deleteQuery();
+    super(props)
+    this.deleteQuery()
   }
 
   //dùng để delete query khi chuyển sidebar
   deleteQuery() {
-    const items = { ...localStorage };
-    let { pathname = "-1" } = window.location || {};
+    const items = { ...localStorage }
+    let { pathname = "-1" } = window.location || {}
     // lấy name ra để xem màn nào
-    let [, name] = pathname.split('/');
-    name = name.substring(0, name.length - 1);
+    let [, name] = pathname.split('/')
+    name = name.substring(0, name.length - 1)
     Object.keys(items).map(prop => {
       //xóa filter trong table khi chuyển menu màn khác
       if (prop.includes("gridTable")) {
-        items[prop] = JSON.parse(items[prop]);
+        items[prop] = JSON.parse(items[prop])
         if (prop.search(new RegExp(name, "i")) === -1 && typeof items[prop] === "object") {
-          this.resetSettingByName(prop, items[prop]);
+          this.resetSettingByName(prop, items[prop])
         }
       }
 
@@ -39,8 +39,8 @@ class BaseContainer extends Component {
 
   //reset các thuộc tính lưu trong localStorage
   resetSettingByName(name, setting = {}) {
-    setting.filters = [];
-    setting.currentPage = 0;
+    setting.filters = []
+    setting.currentPage = 0
     setting.sorting = []
     window.localStorage.setItem(name, JSON.stringify(setting))
   }

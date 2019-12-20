@@ -19,11 +19,11 @@ const styles = theme => ({
       marginRight: 'auto',
     },
   },
-});
+})
 
 class Forbidden extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props
 
     return (
       <div className={classes.root}>
@@ -31,12 +31,12 @@ class Forbidden extends React.Component {
           {I18n.t("Forbidden.title")}
         </main>
       </div>
-    );
+    )
   }
 }
 
 Forbidden.propTypes = {
   classes: PropTypes.object.isRequired
-};
+}
 
-export default withStyles(styles, { withTheme: true })(Forbidden);
+export default withStyles(styles, { withTheme: true })(Forbidden)

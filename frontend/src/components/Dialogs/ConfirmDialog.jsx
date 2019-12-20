@@ -12,7 +12,7 @@ class ConfirmDialog extends React.Component {
     super()
     this.state = {
       open: false,
-    };
+    }
     this.onCancel = this.onCancel.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -72,8 +72,8 @@ class ConfirmDialog extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-    );
+    )
   }
 }
 
-export default ConfirmDialog;
+export default ConfirmDialog

@@ -20,7 +20,7 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import TextField1 from '@material-ui/core/TextField'
 import { withRouter } from 'react-router-dom'
-import _ from 'lodash';
+import _ from 'lodash'
 
 
 const styles = theme => ({
@@ -99,7 +99,7 @@ class Create extends BaseView {
     }
     handlePassword = (event) => {
         let value = event.target.value
-        value = value.replace(/\s/g, "");
+        value = value.replace(/\s/g, "")
         //throw error
         if (!value) {
             this.setState({ password: "", passwordError: I18n.t("Form.required") })
@@ -123,7 +123,7 @@ class Create extends BaseView {
     }
     handleRePassword(event) {
         let value = event.target.value
-        value = value.replace(/\s/g, "");
+        value = value.replace(/\s/g, "")
         //throw error
         if (!value) {
             this.setState({ rePassword: "", rePasswordError: I18n.t("Form.required") })

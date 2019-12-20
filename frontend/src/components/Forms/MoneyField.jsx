@@ -21,28 +21,28 @@ class MoneyField extends BaseField {
         this.state = {
             ...this.state,
             defaultValue: this.formatMoney(props.defaultValue)
-        };
+        }
         this._value = this.formatMoney(props.defaultValue)
     }
 
     onChange = (value) => {
-        this._value = this.formatMoney(value);
+        this._value = this.formatMoney(value)
         value = this.validateLength(value)
         super.onChange(value)
     }
     //chỉ nhận 12 chữ số
     validateLength  = (number) => {
-        number = String(number).replace(/[^0-9]/g, "");
+        number = String(number).replace(/[^0-9]/g, "")
         if(!number) return ''
-        number = String(parseInt(number, 10));
+        number = String(parseInt(number, 10))
         if(number === '0') return ''
-        number = number.substring(0, 12);
+        number = number.substring(0, 12)
         return number
     }
     formatMoney = (_value) => {
         if(!_value) return ''
         _value = this.validateLength(_value)
-        return String(_value).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+        return String(_value).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
     }
 
     setDefaultValue(defaultValue, modifiedAt) {

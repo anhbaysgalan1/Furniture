@@ -38,7 +38,7 @@ class BaseReducer {
       //nếu được khai báo trong actionsAllow
       if (typeof this.actionsAllow[action.type] == "function") {
         //nếu kiểu dữ liệu là function thì gọi vào trong function
-        return this.actionsAllow[action.type](state, action);
+        return this.actionsAllow[action.type](state, action)
       }
       else {
         //nếu kiểu dữ liệu là object thì tự động chèn dữ liệu vào đúng path đã setting

@@ -22,6 +22,7 @@ Route.group(() => {
     Route.resource('/roles', 'RoleController')
     Route.resource('/permissions', 'PermissionController')
     Route.resource('/positions', 'PositionController')
+    Route.resource('/contact', 'ContactController')
   // }).middleware([AuthMiddleware, PermissionMiddleware, checkManagerMiddleware])
   }).middleware([AuthMiddleware])
 }).prefix("/api/v1").middleware([ExtendedResponseMiddleware])

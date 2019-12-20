@@ -177,7 +177,7 @@ class Actions extends BaseView {
         const events = {
             // onDragged: function(event) {...},
             // onChanged: function(event) {...}
-        };
+        }
         return (
             <div>
                 <Typography variant='h6' className={classes.title} color='primary'>

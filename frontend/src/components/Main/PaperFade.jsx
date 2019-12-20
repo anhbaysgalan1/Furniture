@@ -64,7 +64,7 @@ class PaperFade extends BaseContainer {
       >
         {this.renderComponent()}
       </Paper>
-    );
+    )
   }
 }
 

@@ -47,7 +47,7 @@ class FormCustom extends Component {
     for (let field in registedField) {
       if(registedField[field]){
         const input = registedField[field]
-        if(input.getValue() === '' || input.getValue() == null) continue; //dùng để không gửi dữ liệu trống lên server
+        if(input.getValue() === '' || input.getValue() == null) continue //dùng để không gửi dữ liệu trống lên server
         _.set(result, input.props.name, input.getValue()) //sẽ dữ liệu vào object
       }
     }

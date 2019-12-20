@@ -95,12 +95,12 @@ class PrintTable extends React.Component {
           </tbody>
         </table>
       </div>
-    );
+    )
   }
 }
 PrintTable.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.object),
   columnWidths: PropTypes.arrayOf(PropTypes.object),
   data: PropTypes.arrayOf(PropTypes.object)
-};
+}
 export default PrintTable

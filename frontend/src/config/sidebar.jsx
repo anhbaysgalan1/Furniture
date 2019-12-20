@@ -14,9 +14,7 @@ import ShoesCabinetIndex from 'containers/ShoesCabinet/Index'
 import TVCabinetIndex from 'containers/TVCabinet/Index'
 import TableLivingRoomIndex from 'containers/TableLivingRoom/Index'
 import OfficeIndex from 'containers/Office/Index'
-
 import DiningRoomIndex from 'containers/DiningRoom/Index'
-
 import OrderIndex from 'containers/Order/Index'
 import FinanceIndex from 'containers/Finance/Index'
 import GoodsIndex from 'containers/Goods/Index'
@@ -25,13 +23,13 @@ import ClientIndex from 'containers/Client/Index'
 import PostsIndex from 'containers/Posts/Index'
 
 const sidebar = [
-    {
-        path: "/center", // trang chủ
-        name: 'center',
-        title: <Translate value="Sidebar.center" />,
-        icon: <Icon>account_circle</Icon>,
-        component: () => <CenterIndex />
-    },
+    // {
+    //     path: "/center", // trang chủ
+    //     name: 'center',
+    //     title: <Translate value="Sidebar.center" />,
+    //     icon: <Icon>account_circle</Icon>,
+    //     component: () => <CenterIndex />
+    // },
     {
         path: "/info", 
         name: 'info',
@@ -39,13 +37,13 @@ const sidebar = [
         icon: <Icon>account_circle</Icon>,
         component: () => <InfoIndex />
     },
-    {
-        path: "/bad",  // Giường
-        name: 'bad',
-        title: <Translate value="Sidebar.bad" />,
-        icon: <Icon>account_circle</Icon>,
-        component: () => <BadIndex />
-    },
+    // {
+    //     path: "/bad",  // Giường
+    //     name: 'bad',
+    //     title: <Translate value="Sidebar.bad" />,
+    //     icon: <Icon>account_circle</Icon>,
+    //     component: () => <BadIndex />
+    // },
     // {
     //     path: "/table-eat",  // Bàn ăn
     //     name: 'tableEat',
@@ -96,13 +94,13 @@ const sidebar = [
     //     icon: <Icon>account_circle</Icon>,
     //     component: () => <DiningRoomIndex />
     // },
-    {
-        path: "/table-restaurant",
-        name: 'tableRestaurant',
-        title: <Translate value="Sidebar.tableRestaurant" />,
-        icon: <Icon>account_circle</Icon>,
-        component: () => <TableRestaurantIndex />
-    },
+    // {
+    //     path: "/table-restaurant",
+    //     name: 'tableRestaurant',
+    //     title: <Translate value="Sidebar.tableRestaurant" />,
+    //     icon: <Icon>account_circle</Icon>,
+    //     component: () => <TableRestaurantIndex />
+    // },
     {
         path: "/contact", 
         name: 'contact',

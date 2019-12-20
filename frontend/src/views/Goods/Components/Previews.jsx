@@ -43,7 +43,7 @@ const styles = theme => ({
 
 class App extends Component {
    constructor(props) {
-      super(props);
+      super(props)
       this.state = {
          reload: false,
          indexButton: 0,

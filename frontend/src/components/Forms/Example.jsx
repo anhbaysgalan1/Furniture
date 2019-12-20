@@ -35,7 +35,7 @@ const styles = theme => ({
   submit: {
     marginTop: theme.spacing.unit * 3,
   },
-});
+})
 const required = function (value) {
   if (!value || value.length === 0) {
     return "required!"
@@ -63,7 +63,7 @@ const currencies = [
     value: 'JPY',
     label: '¥',
   },
-];
+]
 
 class Login extends Component {
   constructor(props) {
@@ -278,6 +278,6 @@ class Login extends Component {
 
 Login.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Login)

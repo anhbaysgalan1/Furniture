@@ -4,10 +4,10 @@ import './App.css'
 class App extends React.Component {
  
   constructor(props){
-    super(props);
-    this.state = {...props};
-    this.changePage = this.changePage.bind(this);
-    this.renderBtnNumber = this.renderBtnNumber.bind(this);
+    super(props)
+    this.state = {...props}
+    this.changePage = this.changePage.bind(this)
+    this.renderBtnNumber = this.renderBtnNumber.bind(this)
   }
  
   changePage(id){
@@ -16,26 +16,26 @@ class App extends React.Component {
         ...prevState,
         selectedPageId: id 
        }
-    });    
+    })    
   }
  
   buttonPageClick(id){
-    let {selectedPageId} = this.state;
+    let {selectedPageId} = this.state
     switch (id) {
         case 'PRE':
-        this.changePage(selectedPageId - 1);
-        break;
+        this.changePage(selectedPageId - 1)
+        break
       case 'NEXT':
-        this.changePage(selectedPageId + 1);
-        break;
+        this.changePage(selectedPageId + 1)
+        break
       default:
-        this.changePage(id);
-        break;
+        this.changePage(id)
+        break
     }
   }
  
   renderBtnNumber(id){
-    let {selectedPageId} = this.state;
+    let {selectedPageId} = this.state
     return(
       <button
         onClick = {this.buttonPageClick.bind(this, id)}
@@ -44,14 +44,14 @@ class App extends React.Component {
       >
         {id}
       </button>
-    );
+    )
   }
   render() {
-    let {selectedPageId, list} = this.state;
-    const itemPerPage = 5;
-    const maxBtnNumbers = 6;
-    let listShow = [...list];
-    listShow = listShow.splice((selectedPageId - 1) * itemPerPage, itemPerPage);
+    let {selectedPageId, list} = this.state
+    const itemPerPage = 5
+    const maxBtnNumbers = 6
+    let listShow = [...list]
+    listShow = listShow.splice((selectedPageId - 1) * itemPerPage, itemPerPage)
     return (
       <div>
         <ul>

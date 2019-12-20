@@ -66,16 +66,16 @@ const TableComponentBase = ({ classes, ...restProps }) => (
     {...restProps}
     className={classes.tableStriped}
   />
-);
+)
 
-export const TableComponent = withStyles(styles, { name: 'TableComponent' })(TableComponentBase);
+export const TableComponent = withStyles(styles, { name: 'TableComponent' })(TableComponentBase)
 
 //change no data text
 const noDataRow = ({ colSpan }) => (
   <td style={{ textAlign: "center" }} colSpan={colSpan}>
     {I18n.t("Exception.noData")}
   </td>
-);
+)
 
 const CustomTableRowBase = ({ row, classes, ...restProps }) => {
   let style = {}
@@ -91,8 +91,8 @@ const CustomTableRowBase = ({ row, classes, ...restProps }) => {
     }}
   />
 
-};
-export const TableRow = withStyles(styles, { name: 'CustomTableRow' })(CustomTableRowBase);
+}
+export const TableRow = withStyles(styles, { name: 'CustomTableRow' })(CustomTableRowBase)
 
 const filterByType = {
   text: {
@@ -166,18 +166,18 @@ const filterByType = {
 }
 
 const FilterIcon = ({ type, ...restProps }) => {
-  //if (type === 'month') return <DateRange {...restProps} />;
-  return <TableFilterRow.Icon type={type} {...restProps} />;
-};
+  //if (type === 'month') return <DateRange {...restProps} />
+  return <TableFilterRow.Icon type={type} {...restProps} />
+}
 
 //dùng để xét css cho header
 const CustomTableHeaderCell = ({ classes, ...restProps }) => {
-  restProps.value = restProps.column.title || restProps.column.name;
+  restProps.value = restProps.column.title || restProps.column.name
   restProps.style = restProps.column.style
   return <TableHeaderRow.Cell {...restProps} />
 }
 
-const Root = props => <Grid.Root {...props} style={{ height: '100%' }} />;
+const Root = props => <Grid.Root {...props} style={{ height: '100%' }} />
 const ToolbarRoot = (tableProps, tableState) => (props) => {
   let leftChildren = ""
   let rightChildren = ""
@@ -201,7 +201,7 @@ const ToolbarRoot = (tableProps, tableState) => (props) => {
 }
 class GridTable extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
     let defaultState = {
       id: props.id || undefined,
@@ -227,7 +227,7 @@ class GridTable extends PureComponent {
       currentPage: 0,
       totalCount: 0,
       pageSizes: [100, 200, 300, 400, 500, 1000]
-    };
+    }
 
     this.state = defaultState
     this.selection = []
@@ -246,11 +246,11 @@ class GridTable extends PureComponent {
    * lưu lại toàn bộ setting của table
    */
   backupSetting() {
-    if (!this.props.id) return;
-    let setting = Object.assign({}, this.state);
-    // setting.currentPage = 0;
-    delete setting["columnOptions"]["dataTypeProvider"];
-    localStorage.setItem(`gridTable.${this.props.id}`, JSON.stringify(setting));
+    if (!this.props.id) return
+    let setting = Object.assign({}, this.state)
+    // setting.currentPage = 0
+    delete setting["columnOptions"]["dataTypeProvider"]
+    localStorage.setItem(`gridTable.${this.props.id}`, JSON.stringify(setting))
   }
 
   restoreSetting() {
@@ -269,7 +269,7 @@ class GridTable extends PureComponent {
   }
 
   formatDefaultWidth(defaultColumnWidths, widthTable) {
-    const totalWidth = defaultColumnWidths.reduce((total, column) => total + (column.width || 0), 0);
+    const totalWidth = defaultColumnWidths.reduce((total, column) => total + (column.width || 0), 0)
     const fullWidth = widthTable - 68
     let defaultResizing = []
     //nếu tổng lớn hơn kích thước bảng thì tính theo excel
@@ -487,7 +487,7 @@ class GridTable extends PureComponent {
       let { columnOptions } = setting
       if (typeof columnOptions === 'object') {
         setting.columnOptions.hiddens = data
-        localStorage.setItem(`gridTable.${this.props.id}`, JSON.stringify(setting));
+        localStorage.setItem(`gridTable.${this.props.id}`, JSON.stringify(setting))
       }
     }
   }
@@ -541,13 +541,13 @@ class GridTable extends PureComponent {
     switch (type) {
       case "text":
         value = String(value)
-        break;
+        break
       case "number":
         value = Number(value)
-        break;
+        break
 
       default:
-        break;
+        break
     }
     return value
   }

@@ -16,15 +16,15 @@ class MonthPicker extends Component {
     }
 
     getListMonth() {
-        let datestart = this.state.datestart;
-        let dateend = this.state.dateend;
+        let datestart = this.state.datestart
+        let dateend = this.state.dateend
 
-        var interim = datestart.clone();
-        var timeValues = [];
+        var interim = datestart.clone()
+        var timeValues = []
 
         while (dateend > interim || interim.format('M') === dateend.format('M')) {
-            timeValues.unshift(interim.format('YYYY.MM'));
-            interim.add(1, 'month');
+            timeValues.unshift(interim.format('YYYY.MM'))
+            interim.add(1, 'month')
         }
 
         return timeValues

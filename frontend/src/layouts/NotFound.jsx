@@ -11,7 +11,7 @@ const styles = theme => ({
         paddingTop: '30vh',
         textAlign: 'center'
     }
-});
+})
 class NotFound extends Component {
     constructor(props) {
         super(props)
@@ -46,5 +46,5 @@ class NotFound extends Component {
     }
 
 }
-export default withStyles(styles, { withTheme: true })(NotFound);
+export default withStyles(styles, { withTheme: true })(NotFound)
 

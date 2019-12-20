@@ -135,29 +135,29 @@ export default class ExportExcel extends Component {
         let wscols = this.getWidths(columns, columnWidths)
 
         rows.unshift(header)
-        const ws = XLSX.utils.aoa_to_sheet(rows);
-        ws['!cols'] = wscols;
-        ws['!merges'] = merge;
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+        const ws = XLSX.utils.aoa_to_sheet(rows)
+        ws['!cols'] = wscols
+        ws['!merges'] = merge
+        const wb = XLSX.utils.book_new()
+        XLSX.utils.book_append_sheet(wb, ws, "SheetJS")
 
         /* generate XLSX file and send to client */
         XLSX.writeFile(wb, name + "." + type, { type: "array", bookType: type })
     }
     handleClick = (event) => {
-        this.setState({ anchorEl: event.currentTarget });
+        this.setState({ anchorEl: event.currentTarget })
     }
 
     handleClose = () => {
-        this.setState({ anchorEl: null });
+        this.setState({ anchorEl: null })
     }
     exportCSV = () => {
         this.export('csv')
-        this.handleClose();
+        this.handleClose()
     }
     exportXlsx = () => {
         this.export('xlsx')
-        this.handleClose();
+        this.handleClose()
     }
     render() {
         return (

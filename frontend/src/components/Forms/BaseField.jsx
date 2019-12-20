@@ -71,7 +71,7 @@ class BaseField extends PureComponent {
     //for mảng các hàm validate, cho dữ liệu qua từng hàm để kiểm tra validate
     for (let func of validate) {
       error = func(value) //trả về nội dung lỗi nếu có
-      if (error) break;
+      if (error) break
     }
     
     if (error !== this.state.error) {
@@ -177,6 +177,6 @@ BaseField.propTypes = {
   onBlur: PropTypes.func,
   className: PropTypes.string,
   margin: PropTypes.string
-};
+}
 
 export default BaseField

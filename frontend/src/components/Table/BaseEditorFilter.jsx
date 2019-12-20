@@ -8,12 +8,12 @@ class BaseEditorFilter extends Component {
 
   handleChange(event) {
     const { onValueChange } = this.props
-    const newValue = event.target.value;
+    const newValue = event.target.value
     if (newValue.trim() === '') {
-      onValueChange();
-      return;
+      onValueChange()
+      return
     }
-    onValueChange(targetValue);
+    onValueChange(targetValue)
   }
 
   render() {

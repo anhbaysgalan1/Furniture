@@ -7,7 +7,7 @@ class AccessDenied extends React.Component {
       <Paper>
         AccessDenied
       </Paper>
-    );
+    )
   }
 }
 

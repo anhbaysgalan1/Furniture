@@ -111,12 +111,12 @@ class Main extends React.Component {
    }
 
    onLogout = () => {
-      localStorage.clear();
+      localStorage.clear()
       this.props.history.push('/admin')
    }
 
    handleDrawerToggle = () => {
-      this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+      this.setState(state => ({ mobileOpen: !state.mobileOpen }))
    }
 
    renderRoutes(routes) {
@@ -141,7 +141,7 @@ class Main extends React.Component {
    }
 
    renderComponent(route) {
-      const { classes, theme } = this.props;
+      const { classes, theme } = this.props
       const title = typeof route.title === "function" ? route.title() : ""
       const Component = permission.hasPermission(route.role) ? route.component : AccessDenied
       const user = JSON.parse(localStorage.getItem('user'))
@@ -216,4 +216,4 @@ Main.propTypes = {
    theme: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles, { withTheme: true })(withRouter(Main));
+export default withStyles(styles, { withTheme: true })(withRouter(Main))

@@ -42,7 +42,7 @@ const styles = (theme => ({
     },
 
     
-}));
+}))
 
 class AutoSuggestField extends BaseField {
     constructor(props) {
@@ -57,15 +57,15 @@ class AutoSuggestField extends BaseField {
     }
 
     renderInputComponent = (inputProps) => {
-        const { classes, inputRef = () => { }, ref, ...other } = inputProps;
+        const { classes, inputRef = () => { }, ref, ...other } = inputProps
 
         return (
             <TextField
                 fullWidth
                 InputProps={{
                     inputRef: node => {
-                        ref(node);
-                        inputRef(node);
+                        ref(node)
+                        inputRef(node)
                     },
                     classes: {
                         input: classes.input,
@@ -73,32 +73,32 @@ class AutoSuggestField extends BaseField {
                 }}
                 {...other}
             />
-        );
+        )
     }
 
     getSuggestions = (value) => {
         const { suggestions = [] } = this.props
-        const inputValue = deburr(value.trim()).toLowerCase();
-        const inputLength = inputValue.length;
-        let count = 0;
+        const inputValue = deburr(value.trim()).toLowerCase()
+        const inputLength = inputValue.length
+        let count = 0
 
         return inputLength === 0
             ? []
             : suggestions.filter(suggestion => {
                 const keep =
-                    count < 5 && suggestion.label.slice(0, inputLength).toLowerCase() === inputValue;
+                    count < 5 && suggestion.label.slice(0, inputLength).toLowerCase() === inputValue
 
                 if (keep) {
-                    count += 1;
+                    count += 1
                 }
 
-                return keep;
-            });
+                return keep
+            })
     }
 
     renderSuggestion = (suggestion, { query, isHighlighted }) => {
-        const matches = match(suggestion.label, query);
-        const parts = parse(suggestion.label, matches);
+        const matches = match(suggestion.label, query)
+        const parts = parse(suggestion.label, matches)
 
         return (
             <MenuItem selected={isHighlighted} component="div">
@@ -110,27 +110,27 @@ class AutoSuggestField extends BaseField {
                     ))}
                 </div>
             </MenuItem>
-        );
+        )
     }
 
     getSuggestionValue = (suggestion) => {
-        return suggestion.label;
+        return suggestion.label
     }
 
     handleSuggestionsFetchRequested = ({ value }) => {
         if (this.hideDropdown) {
-            this.setState({ suggestions: [] });
+            this.setState({ suggestions: [] })
             this.hideDropdown = false
             return
         }
         const { suggestions = [] } = this.props
         if (!value) {
-            this.setState({ suggestions: suggestions });
+            this.setState({ suggestions: suggestions })
         } else {
-            let suggests = this.getSuggestions(value);
-            this.setState({ suggestions: suggests });
+            let suggests = this.getSuggestions(value)
+            this.setState({ suggestions: suggests })
         }
-    };
+    }
 
     onSuggestionSelected = (event, { suggestion }) => {
         this.hideDropdown = true
@@ -141,12 +141,12 @@ class AutoSuggestField extends BaseField {
     }
 
     handleSuggestionsClearRequested = () => {
-        this.setState({ suggestions: [] });
-    };
+        this.setState({ suggestions: [] })
+    }
 
     handleChange = (event, { newValue }) => {
-        this.onChange(newValue);
-    };
+        this.onChange(newValue)
+    }
 
     render() {
         const { classes = {} } = this.props
@@ -158,7 +158,7 @@ class AutoSuggestField extends BaseField {
             getSuggestionValue: this.getSuggestionValue,
             renderSuggestion: this.renderSuggestion,
             onSuggestionSelected: this.onSuggestionSelected
-        };
+        }
         return (
             // <div className={classes.root}>
 
@@ -173,7 +173,7 @@ class AutoSuggestField extends BaseField {
                     value: this.state.value,
                     onChange: this.handleChange,
                     inputRef: node => {
-                        this.setState({ anchorEl: node });
+                        this.setState({ anchorEl: node })
                     },
                     error: this.state.error ? true : false, //error=true text sẽ là màu đỏ
                     helperText: this.state.error, //nội dung lỗi phía dưới input
@@ -198,7 +198,7 @@ class AutoSuggestField extends BaseField {
                 )}
             />
             // </div>
-        );
+        )
     }
 }
 export default withStyles(styles)(connectField(AutoSuggestField)) 

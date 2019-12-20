@@ -51,7 +51,7 @@ SwitchField.propTypes = {
   margin: PropTypes.string,
   showTime: PropTypes.bool,
   showDate: PropTypes.bool,
-};
+}
 
 
 export default withStyles(styles)(connectField(SwitchField))

@@ -126,7 +126,7 @@ class Index extends BaseView {
    }
    customActionColumn(data) {
       let _id = this.getData(data, "value", '')
-      const { classes } = this.props;
+      const { classes } = this.props
       return (
          <div>
             <Button className={classes.button} variant='contained' color="primary" onClick={() => this.goto(`/users/${_id}`)}>

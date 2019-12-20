@@ -58,12 +58,12 @@ class Loading extends Component {
       this.setState({
         show: true
       }, () =>{
-        clearInterval(this.timer);
-        this.timer = setInterval(this.progress, 200);
+        clearInterval(this.timer)
+        this.timer = setInterval(this.progress, 200)
       })
     }
     else {
-      clearInterval(this.timer);
+      clearInterval(this.timer)
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
         this.setState({
@@ -74,11 +74,11 @@ class Loading extends Component {
   }
 
   progress = () => {
-    const { completed } = this.state;
-    const diff = Math.random() * 10;
-    this.setState({ completed: Math.min(completed + diff, 100) });
+    const { completed } = this.state
+    const diff = Math.random() * 10
+    this.setState({ completed: Math.min(completed + diff, 100) })
 
-  };
+  }
 
   render() {
     const { show, classes } = this.props

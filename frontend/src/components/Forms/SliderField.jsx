@@ -6,8 +6,8 @@ import { connectField } from './Connect'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css'
 
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
+const createSliderWithTooltip = Slider.createSliderWithTooltip
+const Range = createSliderWithTooltip(Slider.Range)
 
 const debug = require("debug")("mq:form:TextField")
 const styles = theme => ({
@@ -53,6 +53,6 @@ SliderField.propTypes = {
   onBlur: PropTypes.func,
   className: PropTypes.string,
   margin: PropTypes.string
-};
+}
 
 export default withStyles(styles)(connectField(SliderField))

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const debug = require("debug")("mq:form:Connect")
-const FormContext = React.createContext();
+const FormContext = React.createContext()
 /**
  * Class chức năng của form
  * sử dụng để tạo ra sự liên kết giữa form và các input trong form
@@ -33,13 +33,13 @@ class FormProvider extends React.Component {
       >
         {this.props.children}
       </FormContext.Provider>
-    );
+    )
   }
 }
 
 class FormConsumer extends React.Component {
   render() {
-    const { children, name } = this.props;
+    const { children, name } = this.props
     return (
       <FormContext.Consumer>
         {({ registedField, registerField } = {}) =>
@@ -53,7 +53,7 @@ class FormConsumer extends React.Component {
           )
         }
       </FormContext.Consumer>
-    );
+    )
   }
 }
 
@@ -71,11 +71,11 @@ const connectField = (Component) => (props) => {
 
 FormProvider.propTypes = {
   form: PropTypes.object.isRequired
-};
+}
 
 FormConsumer.propTypes = {
   name: PropTypes.string.isRequired
-};
+}
 
 export {
   FormProvider,

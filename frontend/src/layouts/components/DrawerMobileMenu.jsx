@@ -40,7 +40,7 @@ class DrawerMobileMenu extends React.Component {
     }
 
     handleDrawerToggle = () => {
-        this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+        this.setState(state => ({ mobileOpen: !state.mobileOpen }))
     }
     render() {
         let { route, classes, theme } = this.props
@@ -81,5 +81,5 @@ class DrawerMobileMenu extends React.Component {
 DrawerMobileMenu.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
-};
-export default withStyles(styles, { withTheme: true })(DrawerMobileMenu);
+}
+export default withStyles(styles, { withTheme: true })(DrawerMobileMenu)

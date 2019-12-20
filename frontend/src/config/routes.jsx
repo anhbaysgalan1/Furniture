@@ -11,6 +11,8 @@ const UserEdit          = lazy(() => import('containers/User/Edit'))
 const CenterIndex       = lazy(() => import('containers/Center/Index'))
 const InfoIndex         = lazy(() => import('containers/Info/Index'))
 const ContactIndex      = lazy(() => import('containers/Contact/Index'))
+const ListContact       = lazy(() => import('containers/Contact/ListContact'))
+
 const GoodsIndex        = lazy(() => import('containers/Goods/Index'))
 const GoodsCreate       = lazy(() => import('containers/Goods/Create'))
 const GoodsEdit         = lazy(() => import('containers/Goods/Edit'))
@@ -179,6 +181,14 @@ const routes = [
         name: 'contact',
         title: () => I18n.t("Breadcrumb.contactIndex"),
         component: () => <ContactIndex />,
+        exact: true,
+        sidebarName: 'contact'
+    },
+    {
+        path: "/contact/list",
+        name: 'list.contact',
+        title: () => I18n.t("Breadcrumb.contactListIndex"),
+        component: () => <ListContact />,
         exact: true,
         sidebarName: 'contact'
     },

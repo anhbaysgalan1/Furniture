@@ -20,11 +20,11 @@ const styles = theme => ({
          marginRight: 'auto',
       },
    },
-});
+})
 
 class LoginLayout extends React.Component {
    render() {
-      const { classes } = this.props;
+      const { classes } = this.props
       return (
          <div className={classes.root}>
             <CssBaseline />
@@ -34,7 +34,7 @@ class LoginLayout extends React.Component {
             <Loading />
             <Notistack />
          </div>
-      );
+      )
    }
 }
 
@@ -42,6 +42,6 @@ LoginLayout.propTypes = {
    classes: PropTypes.object.isRequired,
    container: PropTypes.object,
    theme: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles, { withTheme: true })(LoginLayout);
+export default withStyles(styles, { withTheme: true })(LoginLayout)

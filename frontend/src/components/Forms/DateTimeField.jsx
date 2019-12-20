@@ -26,7 +26,7 @@ class LocalizedUtils extends DateFnsUtils {
       return "am" === hour ? I18n.t("DateTimeField.AM") : I18n.t("DateTimeField.PM")
    }
    getCalendarHeaderText(date) {
-      return moment(date).locale(I18n.t("DateTimeField.locale")).format('YYYY' + I18n.t("DateTimeField.year") + 'MMM');
+      return moment(date).locale(I18n.t("DateTimeField.locale")).format('YYYY' + I18n.t("DateTimeField.year") + 'MMM')
    }
 }
 
@@ -91,7 +91,7 @@ DateTimeField.propTypes = {
    margin: PropTypes.string,
    showTime: PropTypes.bool,
    showDate: PropTypes.bool,
-};
+}
 
 DateTimeField.defaultProps = {
    showTime: true,

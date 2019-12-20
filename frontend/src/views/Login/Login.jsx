@@ -28,7 +28,7 @@ const styles = theme => ({
     fixLoginBtn: {
         marginTop: theme.spacing.unit * 3,
     }
-});
+})
 
 class Login extends Component {
     constructor(props) {
@@ -98,6 +98,6 @@ class Login extends Component {
 Login.propTypes = {
     classes: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired
-};
+}
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Login)

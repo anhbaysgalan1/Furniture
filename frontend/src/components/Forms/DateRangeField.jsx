@@ -69,7 +69,7 @@ class DateRangeField extends BaseField {
   }
   //hiển thị diaLog chọn thời gian
   handleClickOpen() {
-    if (this.props.disabled === true) return;
+    if (this.props.disabled === true) return
     this.setState({ openDialog: true })
   }
   //đóng dialog thì đồng thời gọi callback onChange
@@ -138,7 +138,7 @@ class DateRangeField extends BaseField {
     // let DateComponent = DateRangePicker
     //tính toán việc hiển thị khi responsive cho hợp lý.
     // if (fullScreen === true) DateComponent = DateRange
-    let months = 2, direction = 'horizontal', scrollEnabled = false;
+    let months = 2, direction = 'horizontal', scrollEnabled = false
     if (width === 'xs') {
       direction = "vertical"
       scrollEnabled = true
@@ -148,12 +148,12 @@ class DateRangeField extends BaseField {
     switch (checkLocale) {
       case "vi":
         changeLocale = myLocale.vi
-        break;
+        break
       case "ja":
         changeLocale = myLocale.ja
-        break;
+        break
       default: changeLocale = myLocale.ja
-        break;
+        break
     }
     return (
       <DateRange
@@ -227,7 +227,7 @@ DateRangeField.propTypes = {
   margin: PropTypes.string,
   showTime: PropTypes.bool,
   showDate: PropTypes.bool,
-};
+}
 
 //withMobileDialog để tính toán responsive cho dialog
 export default withStyles(styles)(withMobileDialog({ breakpoint: 'sm' })(connectField(DateRangeField)))

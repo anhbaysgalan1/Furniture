@@ -27,14 +27,14 @@ class BaseAction {
   }
 
   makeActionFromList() {
-    let listAction = Object.keys(this.actions);
+    let listAction = Object.keys(this.actions)
     listAction.forEach((action) => {
       this[action] = (params) => {
         let { method, url, type } = this.actions[action]
         //build url từ partern khai báo trong actions
         var pattern = new UrlPattern(url, {
           segmentNameCharset: 'a-zA-Z0-9_-'
-        });
+        })
         url = pattern.stringify(params)
         return this.requestApi(method, url, params, type)
       }
@@ -48,14 +48,14 @@ class BaseAction {
         type: "loading",
         data: true
       })
-      let result;
+      let result
       try {
         //await new Promise(r => setTimeout(r, 3000))
         let response = await this.http[method](url, params)
-        result = this.formatResponse(response, actionType);
+        result = this.formatResponse(response, actionType)
       }
       catch (e) {
-        result = this.formatResponse(e.response, actionType);
+        result = this.formatResponse(e.response, actionType)
       }
       dispatch(result)
       dispatch({
@@ -77,7 +77,7 @@ class BaseAction {
       data: {},
       error: null 
 
-    };
+    }
     if (!response) {
       result.error = {
         status: -1,
@@ -88,7 +88,7 @@ class BaseAction {
 
     let isSuccess = [200, 201].indexOf(response.status) !== -1 ? true : false
     if (isSuccess) {
-      result.data = response.data || `${response.status} ${response.statusText}`;
+      result.data = response.data || `${response.status} ${response.statusText}`
     }
     else {
       result.error = {
@@ -97,7 +97,7 @@ class BaseAction {
         data: _.get(response, "data.data", response.statusText)
       }
     }
-    return result;
+    return result
   }
 }
-export default BaseAction;
+export default BaseAction

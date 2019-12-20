@@ -72,11 +72,11 @@ function NoOptionsMessage(props) {
     >
       {I18n.t("Form.noOption")}
     </Typography>
-  );
+  )
 }
 
 function inputComponent({ inputRef, ...props }) {
-  return <div ref={inputRef} {...props} />;
+  return <div ref={inputRef} {...props} />
 }
 
 function Control(props) {
@@ -102,7 +102,7 @@ function Control(props) {
         shrink: props.isFocused || props.selectProps.textFieldProps.InputLabelProps.shrink,
       }}
     />
-  );
+  )
 }
 
 function Options(props) {
@@ -119,7 +119,7 @@ function Options(props) {
       {props.selectProps.showOptionCheckbox ? <Checkbox checked={props.isSelected} /> : ''}
       <ListItemText primary={props.children} />
     </MenuItem>
-  );
+  )
 }
 
 function Placeholder(props) {
@@ -132,7 +132,7 @@ function Placeholder(props) {
     >
       {props.children}
     </Typography>
-  );
+  )
 }
 
 function SingleValue(props) {
@@ -140,11 +140,11 @@ function SingleValue(props) {
     <Typography className={props.selectProps.classes.singleValue} {...props.innerProps}>
       {props.children}
     </Typography>
-  );
+  )
 }
 
 function ValueContainer(props) {
-  return <div className={props.selectProps.classes.valueContainer} >{props.children}</div>;
+  return <div className={props.selectProps.classes.valueContainer} >{props.children}</div>
 }
 
 function handleDelete(data) {
@@ -174,7 +174,7 @@ function MultiValue(props) {
       onDelete={handleDelete(props)}
       deleteIcon={<CancelIcon {...props.removeProps} />}
     />
-  );
+  )
 }
 
 function Menu(props) {
@@ -182,7 +182,7 @@ function Menu(props) {
     <Paper square className={props.selectProps.classes.paper} {...props.innerProps}>
       {props.children}
     </Paper>
-  );
+  )
 }
 
 const components = {
@@ -194,7 +194,7 @@ const components = {
   Placeholder,
   SingleValue,
   ValueContainer,
-};
+}
 
 class AutocompleteField extends BaseField {
   constructor(props) {
@@ -222,7 +222,7 @@ class AutocompleteField extends BaseField {
       this.setState({
         reload: !this.state.reload,
         value: this.setValue(props)
-      });
+      })
     }
   }
 
@@ -296,7 +296,7 @@ class AutocompleteField extends BaseField {
         label: child.props.children
       }
     })
-    let value = this.state.value || [];
+    let value = this.state.value || []
 
     return (
       <Select
@@ -345,7 +345,7 @@ AutocompleteField.propTypes = {
   onBlur: PropTypes.func,
   className: PropTypes.string,
   margin: PropTypes.string
-};
+}
 
 /**
  * Option cho select phía trên

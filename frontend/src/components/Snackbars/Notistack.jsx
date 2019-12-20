@@ -6,13 +6,13 @@ import _ from 'lodash'
 
 class NotistackConsumer extends React.Component {
   handleClick = () => {
-    this.props.enqueueSnackbar('I love snacks.');
-  };
+    this.props.enqueueSnackbar('I love snacks.')
+  }
 
   handleClickVariant = variant => () => {
     // variant could be success, error, warning or info
-    this.props.enqueueSnackbar('This is a warning message!', { variant });
-  };
+    this.props.enqueueSnackbar('This is a warning message!', { variant })
+  }
   componentDidUpdate(prevProps) {
     if (this.props.notify) {
       if(_.isEmpty(this.props.notify) || this.props.notify.message.includes('invalid Token') || this.props.notify.message.includes('no msg')) return false
@@ -23,7 +23,7 @@ class NotistackConsumer extends React.Component {
           horizontal: 'right',
         } ,
         autoHideDuration: 2000
-      });
+      })
     }
   }
 
@@ -34,14 +34,14 @@ class NotistackConsumer extends React.Component {
 
 NotistackConsumer.propTypes = {
   enqueueSnackbar: PropTypes.func.isRequired,
-};
+}
 
 const mapStateToProps = state => {
   return {
     notify: state.utility.notify
   }
 }
-NotistackConsumer = withSnackbar(connect(mapStateToProps)(NotistackConsumer));
+NotistackConsumer = withSnackbar(connect(mapStateToProps)(NotistackConsumer))
 
 class Notistack extends React.Component {
   render() {

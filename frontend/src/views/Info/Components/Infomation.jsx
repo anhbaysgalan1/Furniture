@@ -85,10 +85,10 @@ class Index extends BaseView {
                     quý khách hàng hiểu hơn và tin tưởng hơn về sản phẩm,
                     dịch vụ của chúng tôi.
                 </Typography>
-                <Typography variant='h5'>
+                <Typography variant='h5' color='primary' >
                     SỨ MỆNH:
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     Đối với thị trường: NHÀ BÁN LẺ NỘI THẤT GỖ HÀNG ĐẦU
                 </Typography>
                 <Typography style={{ textIndent: '30px' }}>
@@ -98,7 +98,7 @@ class Index extends BaseView {
                     lõi nhất của sản phẩm, mang lại sự tiện nghi trong từng phút
                     giây sử dụng.
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     Đối với xã hội: HÀI HÒA LỢI ÍCH
                 </Typography>
                 <Typography style={{ textIndent: '30px' }}>
@@ -112,7 +112,7 @@ class Index extends BaseView {
                 <p>
                     <strong></strong>
                 </p>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     Đối với nhân sự: THU NHẬP XỨNG ĐÁNG VỚI ĐÓNG GÓP
                 </Typography>
                 <Typography style={{ textIndent: '30px' }}>
@@ -120,7 +120,7 @@ class Index extends BaseView {
                     và đậm chất nhân văn, Chúng tôi có nghĩa vụ đền đáp xứng đáng cho
                     những đóng góp sức lao động to lớn của họ.
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     Đối với đối tác: LỢI NHUẬN LUÔN ĐỒNG HÀNH CÙNG CHẤT LƯỢNG
                 </Typography>
                 <Typography style={{ textIndent: '30px' }}>
@@ -128,14 +128,14 @@ class Index extends BaseView {
                     Chúng tôi có trách nhiệm kiểm soát chất lượng cùng đối tác và chịu trách
                     nhiệm đến cùng đối với từng sản phẩm bán ra.
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     TẦM NHÌN: ĐỒ GỖ NỘI THẤT DODO
                 </Typography>
                 <Typography style={{ textIndent: '30px' }}>
                     Chúng tôi khát vọng trở thành ĐỒ GỖ NỘI THẤT ĐÔ DÔ để có thể
                     cung cấp sỉ và lẻ cho thị trường các tỉnh từ miền bắc đến miền trung.
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='h6' color='primary'>
                     GIÁ TRỊ CỐT LÕI:
                 </Typography>
                 <ul>
@@ -168,7 +168,7 @@ class Index extends BaseView {
                             các nhà phân phối khác.
                         </Typography>
                     </li>
-                    <Typography variant='h6' >
+                    <Typography variant='h6' color='primary'>
                         GIỚI THIỆU CHUNG:
                     </Typography>
                     <li>
