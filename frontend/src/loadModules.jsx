@@ -13,31 +13,30 @@ class Routes extends React.Component {
       var base64 = base64Url.replace('-', '+').replace('_', '/')
       let decodedToken = JSON.parse(window.atob(base64))
       var dateNow = new Date()
-      let user = localStorage.getItem('user')
-      // if (decodedToken.exp && decodedToken.exp < dateNow.getTime())
-        //return false
-      if (user) return true 
-      return false
+      if (decodedToken.exp && decodedToken.exp < dateNow.getTime())
+        return true
     } catch (e) {
       //return false
     }
-    return false
+    return true
   }
   render() {
     return (
       <ErrorBoundary>
           <BrowserRouter>
             <Switch>
-              <Route path="/admin" name="Login Page" component={Login} />
+              {/* <Route path="/admin" name="Login Page" component={Login} />
               <Route path="/" render={(props) => (
-                this.checkJWTToken()
-                  ? (<Main {...props} />)
-                  : (<Redirect to={{
-                    pathname: '/admin',
-                    state: {
-                      from: props.location
-                    }
-                  }} />))} />
+                  this.checkJWTToken()
+                  ? (<Main {...props}/>)
+                  : (<Redirect to={{ pathname: '/admin', state: {from: props.location} }}/>)
+                )}
+              /> */}
+              {/* <Route path="/admin" name="Login Page" component={Login} /> */}
+              <Route 
+                path="/" 
+                render={ (props) => ((<Main {...props}/>)) }
+              />
             </Switch>
           </BrowserRouter>
       </ErrorBoundary>

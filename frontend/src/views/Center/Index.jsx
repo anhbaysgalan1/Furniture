@@ -119,7 +119,7 @@ class Index extends BaseView {
       let shoesCabinet = this.typeGoods(goods).shoesCabinet
       let tvCabinet = this.typeGoods(goods).tvCabinet
       let tableRestaurant = this.typeGoods(goods).tableRestaurant
-      console.log("tableRestaurant >>>> ", tableRestaurant)
+      // console.log("tableRestaurant >>>> ", tableRestaurant)
       return (
          <div>
             {/* <Header classes={classes} />
