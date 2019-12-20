@@ -163,10 +163,8 @@ class UserController extends BaseController {
     }
 
     async editPassword({ request, response }) {
-        console.log("id >>>>>")
         let id = request.params.id
         if (!id) throw new ApiException(422, "Id_Required")
-
         let exist = await this.Model.getById(id)
         if (!exist) throw new ApiException(404, "No_Object")
 
