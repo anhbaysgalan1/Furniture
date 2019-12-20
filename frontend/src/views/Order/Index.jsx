@@ -32,6 +32,7 @@ import {
    Dialog,
 
 } from '@material-ui/core'
+import Utility from '../../helpers/utility' 
 import { typeGoods, statusOrder } from '../../config/constant'
 import Header from '../Public/Header/Header'
 import What from '../Public/What'
@@ -141,7 +142,7 @@ class Index extends BaseView {
                filterable: false,
                formatterComponent: (data) => {
                   let status = _.get(data, 'row.status', '')
-                  return this.formatStatus(status)
+                  return Utility.formatStatus(status)
                }
             },
             {
@@ -244,22 +245,7 @@ class Index extends BaseView {
       this.onHide()
       this.ConfirmDialog.show([_id])
    }
-   formatStatus(status) {
-      switch (status) {
-         case '0':
-            return <Button color="primary" >Mới</Button>
-         case '1':
-            return <Button color="primary" >Đang giao</Button>
-         case '2':
-            return <Button color="primary" >Hoàn thành</Button>
-         case '3':
-            return <Button color="primary" >Đổi hàng</Button>
-         case '4':
-            return <Button color="primary" >Thất bại</Button>
-         default:
-            return ''
-      }
-   }
+
    customUserColumn(data) {
       data = this.getData(data, "value", [])
       return data.length
@@ -463,7 +449,7 @@ class Index extends BaseView {
                         </TableRow>
                         <TableRow>
                            <TableCell> Trạng thái đơn hàng </TableCell>
-                           <TableCell>{this.formatStatus(status)}</TableCell>
+                           <TableCell>{Utility.formatStatus(status)}</TableCell>
                         </TableRow>
                      </TableBody>
                   </Table>

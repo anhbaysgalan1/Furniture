@@ -2,7 +2,7 @@
 const _ = use('lodash')
 const debug = require('debug')('mqcontroller')
 const ApiException = use("App/Exceptions/ApiException")
-const { ObjectId } = use('mongodb');
+const { ObjectId } = use('mongodb')
 const moment = require("moment")
 class BaseController {
   constructor() {
@@ -85,11 +85,11 @@ class BaseController {
     return result.data
   }
   validateError(errorType, data) {
-    let message = "unknown";
+    let message = "unknown"
     switch (errorType) {
       case "Invalid Type":
         message = `Datatype of ${data.path} is incorrect. Expected: ${data.typeOfField} but got: ${data.realType}`
-        break;
+        break
       case "required":
         message = `${data.path} is required. But not found.`
     }
@@ -120,7 +120,7 @@ class BaseController {
       error: false,
       message: "OK",
     }
-    let root = false;
+    let root = false
     if (newData == null) {
       root = true
       newData = removeNotAllow ? {} : data
@@ -146,7 +146,7 @@ class BaseController {
         //nếu không đúng kiểu dữ liệu mong muốn, thì cố gắng convert về đúng kiểu.
         if (!typeAllowed) {
           if (typeOfField == "any") {
-            typeAllowed = true;
+            typeAllowed = true
           } else if (typeOfField == "number") {
             typeAllowed = !isNaN(data)
             if (typeAllowed) _.set(newData, path, Number(data))
@@ -158,8 +158,8 @@ class BaseController {
             typeAllowed = new Date(data) != "Invalid Date" || !data
             if (typeAllowed) {
               let IsoDate = moment(new Date(data))
-              IsoDate.set('second', 0);
-              IsoDate.set('millisecond', 0);
+              IsoDate.set('second', 0)
+              IsoDate.set('millisecond', 0)
               _.set(newData, path, new Date(IsoDate))
             }
           } else if (typeOfField == "objectid") {

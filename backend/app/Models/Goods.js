@@ -41,9 +41,9 @@ class Goods extends BaseModel {
             {
                 $project: allowFields
             }
-        ]).toArray());
-        if (error) throw new DatabaseException(error);
-        return result;
+        ]).toArray())
+        if (error) throw new DatabaseException(error)
+        return result
     }
 
 }

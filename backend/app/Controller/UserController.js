@@ -7,8 +7,8 @@ const moment = use("moment")
 const Auth = use("Auth")
 const ApiException = use("App/Exceptions/ApiException")
 const { ObjectId } = require("mongodb")
-var _request = require('request');
-const Env = use('Env');
+var _request = require('request')
+const Env = use('Env')
 const Common = use("App/Common/common")
 
 class UserController extends BaseController {

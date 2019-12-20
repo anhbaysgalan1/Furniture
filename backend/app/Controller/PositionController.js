@@ -1,7 +1,7 @@
 const BaseController = use("./BaseController")
 const PositionModel = use("App/Models/Position")
 const UserModel = use("App/Models/User")
-const { ObjectId } = use('mongodb'); // or ObjectID 
+const { ObjectId } = use('mongodb') // or ObjectID 
 const Common = use("App/Common/common")
 
 const Auth = use("Auth")

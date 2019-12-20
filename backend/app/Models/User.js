@@ -2,7 +2,7 @@ const BaseModel = use("./BaseModel")
 const bcrypt = use("bcrypt")
 const authConfig = use("config/auth")
 const DatabaseException = use("App/Exceptions/DatabaseException")
-const { ObjectId } = use('mongodb');
+const { ObjectId } = use('mongodb')
 
 class User extends BaseModel {
   constructor() {
@@ -46,13 +46,13 @@ class User extends BaseModel {
   }
 
   async countUser(condition) {
-    let [error, result] = await to(this.collection.find(condition).count());
-    if (error) throw new DatabaseException(error);
-    return result;
+    let [error, result] = await to(this.collection.find(condition).count())
+    if (error) throw new DatabaseException(error)
+    return result
   }
   async getApproverByRole(roleIds) {
     if (!Array.isArray(roleIds)) {
-      throw 'need array';
+      throw 'need array'
     }
     let [error, result] = await to(this.collection.find({
       roleId: {
@@ -62,18 +62,18 @@ class User extends BaseModel {
       _id: 1,
       name: 1,
       code: 1
-    }).toArray());
-    if (error) throw new DatabaseException(error);
-    return result;
+    }).toArray())
+    if (error) throw new DatabaseException(error)
+    return result
   }
 
   async getAllUsers() {
     let [error, result] = await to(this.collection.find({}, {
       name: 1,
       code: 1
-    }).sort({ $natural: 1 }).toArray());
-    if (error) throw new DatabaseException(error);
-    return result;
+    }).sort({ $natural: 1 }).toArray())
+    if (error) throw new DatabaseException(error)
+    return result
   }
 
   //lấy all user trừ những user nghỉ 
@@ -87,9 +87,9 @@ class User extends BaseModel {
       {
         name: 1,
         code: 1
-      }).sort({ $natural: 1 }).toArray());
-    if (error) throw new DatabaseException(error);
-    return result;
+      }).sort({ $natural: 1 }).toArray())
+    if (error) throw new DatabaseException(error)
+    return result
   }
   
   // lay ra user da den ngay de update ngay nghi
@@ -103,9 +103,9 @@ class User extends BaseModel {
       {
         $project: allowfields
       }
-    ]).toArray());
-    if (error) throw new DatabaseException(error);
-    return result;
+    ]).toArray())
+    if (error) throw new DatabaseException(error)
+    return result
   }
 
   async getLineTokensByAreaId(areaId, area_all_id) {
@@ -113,13 +113,13 @@ class User extends BaseModel {
       $or: [{ areaId: ObjectId(area_all_id) }, { areaId: ObjectId(areaId) }]
     }, {
       access_token_line: 1
-    }).toArray());
-    if (error) throw new DatabaseException(error);
+    }).toArray())
+    if (error) throw new DatabaseException(error)
     let access_tokens = result.filter(item => {
       return item.access_token_line
     })
     access_tokens = access_tokens.map(item => item.access_token_line)
-    return access_tokens;
+    return access_tokens
   }
 }
 

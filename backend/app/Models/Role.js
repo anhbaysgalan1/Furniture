@@ -19,11 +19,11 @@ class Role extends BaseModel {
   }
   async getRoleByPermissions(permissionId) {
     // if(!Array.isArray(permissionIds)){
-    //   throw 'need array';
+    //   throw 'need array'
     // }
-    let [error, result] = await to(this.collection.find({permissionIds: ObjectId(permissionId)}, {password: 0}).toArray());
-    if (error) throw new DatabaseException(error);
-    return result;
+    let [error, result] = await to(this.collection.find({permissionIds: ObjectId(permissionId)}, {password: 0}).toArray())
+    if (error) throw new DatabaseException(error)
+    return result
   }
 }
 

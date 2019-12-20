@@ -9,6 +9,7 @@ import ConfirmDialog from "components/Dialogs/ConfirmDialog"
 import withWidth, { isWidthUp } from "@material-ui/core/withWidth"
 import { Form, TextField, DateTimeField, Validation } from "components/Forms"
 import RadioGroupField, { Radio } from "components/Forms/RadioGroupField"
+import Utility from '../../helpers/utility'
 import AutoCompleteField, {
   Option as OptionAuto
 } from "components/Forms/AutoCompleteField"
@@ -175,22 +176,6 @@ class Index extends BaseView {
   onDelete(_id) {
     this.onHide()
     this.ConfirmDialog.show([_id])
-  }
-  formatStatus(status) {
-    switch (status) {
-      case "0":
-        return <Button color="primary">Mới</Button>
-      case "1":
-        return <Button color="primary">Đang giao</Button>
-      case "2":
-        return <Button color="primary">Hoàn thành</Button>
-      case "3":
-        return <Button color="primary">Đổi hàng</Button>
-      case "4":
-        return <Button color="primary">Thất bại</Button>
-      default:
-        return ""
-    }
   }
   customUserColumn(data) {
     data = this.getData(data, "value", [])
@@ -427,7 +412,7 @@ class Index extends BaseView {
                 </TableRow>
                 <TableRow>
                   <TableCell> Trạng thái đơn hàng </TableCell>
-                  <TableCell>{this.formatStatus(status)}</TableCell>
+                  <TableCell>{Utility.formatStatus(status)}</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

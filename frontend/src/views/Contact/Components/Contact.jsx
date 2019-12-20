@@ -161,8 +161,8 @@ class Index extends BaseView {
     return (
       <Form onSubmit={onSubmit}>
         <Card>
-          <Typography variant="h5" className={classes.title}>
-            Gửi thông tin chúng tôi sẽ hỗ trợ bạn
+          <Typography variant="h6" className={classes.title}>
+            Điền thông tin chúng tôi sẽ hỗ trợ bạn
           </Typography>
           <CardContent>
             <Grid container spacing={16}>

@@ -7,7 +7,7 @@ const Auth = use("Auth")
 const Common = use("App/Common/common")
 
 const ApiException = use("App/Exceptions/ApiException")
-const { ObjectId } = use('mongodb'); // or ObjectID 
+const { ObjectId } = use('mongodb') // or ObjectID 
 /*
   Xem hàm mẫu BaseController nếu muốn viết lại các action
 */
@@ -38,7 +38,7 @@ class RoleController extends BaseController {
     ]).getForGridTable(request.query, allowFields)
     for (let i in result.data) {
       let id = result.data[i]._id
-      result.data[i].userNumber = await this.UserModel.countUser({ roleId: ObjectId(id) });
+      result.data[i].userNumber = await this.UserModel.countUser({ roleId: ObjectId(id) })
     }
     return result
   }

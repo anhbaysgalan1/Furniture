@@ -79,24 +79,24 @@ class BaseModel {
   // Thêm điều kiện để bỏ ra những bản ghi đã bị xóa mềm rồi
   excludeSoftDelete(query) {
     if (typeof query !== 'object') {
-      console.error(TAG + '[adjustQuery] invalid query, expect object but it is ' + typeof query);
-      query = undefined;
+      console.error(TAG + '[adjustQuery] invalid query, expect object but it is ' + typeof query)
+      query = undefined
     }
-    var tmp = undefined;
+    var tmp = undefined
     if (query && Object.keys(query).length == 0) {
-      query = undefined;
+      query = undefined
     }
     if (!query) {
       query = {
         '$and': []
-      };
+      }
     }
     if (!query['$and']) {
-      tmp = query;
+      tmp = query
       query = {
         '$and': []
-      };
-      query['$and'].push(tmp);
+      }
+      query['$and'].push(tmp)
     }
     query['$and'].push({
       '$or': [{
@@ -108,8 +108,8 @@ class BaseModel {
         'delete': null
       }
       ]
-    });
-    return query;
+    })
+    return query
   }
 
   // limit = -1 thì sẽ ko phân trang mà lấy hết
@@ -121,9 +121,9 @@ class BaseModel {
 
   // includeSoftDelete: có đếm cả các bản ghi đã bị xóa mềm rồi hay ko, mặc định false là ko đếm
   async count(condition, includeSoftDelete = false) {
-    condition = condition || {};
+    condition = condition || {}
     if (!includeSoftDelete) {
-      condition = this.excludeSoftDelete(condition);
+      condition = this.excludeSoftDelete(condition)
     }
     let [error, count] = await to(this.collection.count(condition))
     if (error) throw new DatabaseException(error)
@@ -132,13 +132,13 @@ class BaseModel {
   }
 
   async getById(id, project = {}) {
-    return await this.getOne({ _id: this.ObjectId(id) }, project);
+    return await this.getOne({ _id: this.ObjectId(id) }, project)
   }
 
   async findByCondition(conditions, project = {}) {
     let [error, result] = await to(this.collection.find(
       conditions, project
-    ).toArray());
+    ).toArray())
     if (error) throw new DatabaseException(error)
     return result
   }
@@ -151,9 +151,9 @@ class BaseModel {
   }
 
   async insertOne(fields) {
-    const doer = Auth.user ? Auth.user._id || Auth.user.email : '';
-    fields.insert = { when: new Date(), by: doer };
-    fields.update = { when: fields.insert.when, by: fields.insert.by };
+    const doer = Auth.user ? Auth.user._id || Auth.user.email : ''
+    fields.insert = { when: new Date(), by: doer }
+    fields.update = { when: fields.insert.when, by: fields.insert.by }
     let [error, result] = await to(this.collection.insert(fields))
     if (error) throw new DatabaseException(error)
 
@@ -162,10 +162,10 @@ class BaseModel {
 
   async insertMany(items) {
     if (Auth.user) {
-      const doer = Auth.user ? Auth.user._id || Auth.user.email : '';
+      const doer = Auth.user ? Auth.user._id || Auth.user.email : ''
       for (let item of items) {
-        item.insert = { when: new Date(), by: doer };
-        item.update = { when: item.insert.when, by: item.insert.by };
+        item.insert = { when: new Date(), by: doer }
+        item.update = { when: item.insert.when, by: item.insert.by }
       }
     }
     let [error, result] = await this.collection.insertMany(items)
@@ -175,22 +175,22 @@ class BaseModel {
   }
 
   async update(id, fields) {
-    const _id = this.ObjectId(id);
+    const _id = this.ObjectId(id)
     delete fields['_id'] //xóa fields _id nếu có trong data update
     await this.updateByCondition({ _id: _id }, fields)
 
-    return await this.getById(_id);
+    return await this.getById(_id)
   }
 
   async updateMany(condition, fields) {
-    return await this.updateByCondition(condition, fields, { multi: true });
+    return await this.updateByCondition(condition, fields, { multi: true })
   }
 
   // Tìm và update theo điều kiện condition
   // Trả về 1 object WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
   async updateByCondition(condition, params = {}, opt = { multi: false }) {
     const operators = ["$set", "$unset", "$push", "$pull"]
-    let doer = Auth.user ? Auth.user._id || Auth.user.email : '';
+    let doer = Auth.user ? Auth.user._id || Auth.user.email : ''
 
     let fields = {}
     let hasOperator = false
@@ -202,14 +202,14 @@ class BaseModel {
     }
 
     if (!hasOperator) {
-      fields["$set"] = params;
+      fields["$set"] = params
     }
     for (let operator in fields) {
       if (!fields[operator]) delete fields[operator]
     }
 
     if (!fields['$set']) fields['$set'] = {}
-    fields['$set'].update = { when: new Date(), by: doer };
+    fields['$set'].update = { when: new Date(), by: doer }
     let [error, result] = await to(this.collection.update(condition, fields, opt))
     // console.log("432423",result)
     if (error) throw new DatabaseException(error)
@@ -233,34 +233,34 @@ class BaseModel {
     actionBeforeDelete: null,
     actionAfterDelete: null
   }) {
-    const doer = Auth.user ? Auth.user._id || Auth.user.email : '';
-    const id = doc._id;
+    const doer = Auth.user ? Auth.user._id || Auth.user.email : ''
+    const id = doc._id
     try {
       if (typeof canDelete === 'function') {
-        const errMsg = await options.canDelete(doc);
+        const errMsg = await options.canDelete(doc)
       }
       if (typeof actionBeforeDelete === "function") {
-        await options.actionBeforeDelete(doc);
+        await options.actionBeforeDelete(doc)
       }
       if (options.softDelete) {
         // xóa mềm
-        let fields = null;
+        let fields = null
         if (typeof actionSoftDelete === "function") {
-          fields = await options.actionSoftDelete(doc);
+          fields = await options.actionSoftDelete(doc)
         }
-        fields = fields || {};
-        fields.delete = fields.delete || {};
-        fields.delete.when = new Date();
-        fields.delete.by = doer;
-        console.log('[' + this.collectionName + '] Soft Delete by ' + doer + ' -- deleted document _id: ', id);
+        fields = fields || {}
+        fields.delete = fields.delete || {}
+        fields.delete.when = new Date()
+        fields.delete.by = doer
+        console.log('[' + this.collectionName + '] Soft Delete by ' + doer + ' -- deleted document _id: ', id)
         await this.collection.update({ _id: this.ObjectId(id) }, { $set: fields })
       } else {
         // xóa cứng
-        console.log('[' + this.collectionName + '] Hard Delete by ' + doer + ' -- deleted document _id: ', id);
+        console.log('[' + this.collectionName + '] Hard Delete by ' + doer + ' -- deleted document _id: ', id)
         await this.collection.remove({ _id: this.ObjectId(id) })
       }
       if (typeof actionAfterDelete === "function") {
-        await options.actionAfterDelete(doc);
+        await options.actionAfterDelete(doc)
       }
     }
     catch (error) {
@@ -309,11 +309,11 @@ class BaseModel {
   // Mặc định softDelete = true để tránh rủi ro
   async delByCondition(condition, softDelete = true) {
     if (!condition || typeof condition !== "object" || Object.keys(condition).length == 0) {
-      throw new DatabaseException('delete condition is required, and must be an object');
+      throw new DatabaseException('delete condition is required, and must be an object')
     }
-    let error, result;
+    let error, result
     if (options.softDelete) {
-      let fields = { delete: { when: new Date(), by: Auth.user._id || Auth.user.email } };
+      let fields = { delete: { when: new Date(), by: Auth.user._id || Auth.user.email } }
       [error, result] = await to(this.collection.update(condition, { $set: fields }))
       if (error) throw new DatabaseException(error)
       return result
@@ -334,33 +334,33 @@ class BaseModel {
   //   - mảng được tạo trước, và phải có sẵn _id
   //   - nếu items chưa có sẵn _id, thì mỗi item sẽ phải có điều kiện tìm kiếm (e.g item.findCondition = {...})
   async upsertList(items) {
-    let doer = Auth.user ? Auth.user._id || Auth.user.email : '';
-    let dtNow = new Date();
-    let err, collection, results;
-    let arrBulks = [];
-    let arrPrms = [];
-    let BULK_NUM = 500;
+    let doer = Auth.user ? Auth.user._id || Auth.user.email : ''
+    let dtNow = new Date()
+    let err, collection, results
+    let arrBulks = []
+    let arrPrms = []
+    let BULK_NUM = 500
     for (let i = 0; i < items.length; i++) {
       if (i % BULK_NUM == 0) {
-        arrBulks.push(this.collection.initializeUnorderedBulkOp());
+        arrBulks.push(this.collection.initializeUnorderedBulkOp())
       }
-      let fields = items[i];
-      fields.insert = { when: dtNow, by: doer };
-      let findCondition = {};
+      let fields = items[i]
+      fields.insert = { when: dtNow, by: doer }
+      let findCondition = {}
       if (fields.findCondition) {
-        findCondition = fields.findCondition;
-        delete fields.findCondition;
+        findCondition = fields.findCondition
+        delete fields.findCondition
       } else if (fields._id) {
-        findCondition = { _id: fields._id };
+        findCondition = { _id: fields._id }
       } else {
-        throw new DatabaseException('Nếu ko có _id, và cũng ko có findCondition thì phải dùng hàm insertMany chứ ko phải dùng upsertList');
+        throw new DatabaseException('Nếu ko có _id, và cũng ko có findCondition thì phải dùng hàm insertMany chứ ko phải dùng upsertList')
       }
-      arrBulks[arrBulks.length - 1].find(findCondition).upsert().updateOne({ $set: fields });
+      arrBulks[arrBulks.length - 1].find(findCondition).upsert().updateOne({ $set: fields })
     }
     for (let i = 0; i < arrBulks.length; i++) {
       arrPrms.push(arrBulks[i].execute())
     }
-    [error, results] = await to(Promise.all(arrPrms));
+    [error, results] = await to(Promise.all(arrPrms))
     if (error) throw new DatabaseException(error)
     return results
   } // upsertList
@@ -377,7 +377,7 @@ class BaseModel {
   }
 
   static getTypeofField(fieldName, model) {
-    if (!model) model = this;
+    if (!model) model = this
     let fieldElement = fieldName.split(".")
     for (let i = 0; i < fieldElement.length - 1; i++) {
       let subModelName = fieldElement[i]
@@ -394,7 +394,7 @@ class BaseModel {
         let type = _.get(schema, path, undefined)
         if (!type) {
           console.error(`not found ${fieldName} in Models ${subModelName}`)
-          return "";
+          return ""
         }
         return type
       }
@@ -408,7 +408,7 @@ class BaseModel {
   }
 
   static getModelByField(fieldName, model) {
-    if (!model) model = this;
+    if (!model) model = this
     let fieldElement = fieldName.split(".")
     for (let i = 0; i < fieldElement.length; i++) {
       let subModelName = fieldElement[i]

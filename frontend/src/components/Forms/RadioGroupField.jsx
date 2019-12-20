@@ -6,7 +6,6 @@ import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import RadioUI from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
-
 import BaseField from './BaseField'
 import { connectField } from './Connect'
 const debug = require("debug")("mq:form:RadioGroupField")
