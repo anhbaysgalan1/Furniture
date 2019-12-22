@@ -8,7 +8,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import StarBorder from '@material-ui/icons/StarBorder'
 import { withStyles } from '@material-ui/core/styles'
-import { sidebar } from 'config/sidebar'
+import sidebar from '../../config/sidebar'
 import routes from 'config/routes'
 import permission from 'helpers/permission'
 import Divider from '@material-ui/core/Divider'
@@ -128,20 +128,6 @@ class Sidebar extends React.Component {
       )
    }
 
-   // checkManage(){
-   //    try {
-   //       let token = localStorage.getItem('token')
-   //       var base64Url = token.split('.')[1]
-   //       var base64 = base64Url.replace('-', '+').replace('_', '/')
-   //       let decodedToken = JSON.parse(window.atob(base64))
-   //       var dateNow = new Date()
-   //       if (decodedToken.exp && decodedToken.exp < dateNow.getTime())
-   //         return true
-   //    } catch (e) {
-   //       // return false
-   //    }
-   //    return true
-   // }
 
    renderMenu(sidebar) {
       let result = []
@@ -161,4 +147,4 @@ class Sidebar extends React.Component {
    }
 }
 
-export default withStyles(styles)(withRouter(sidebar))
+export default withStyles(styles)(withRouter(Sidebar))
