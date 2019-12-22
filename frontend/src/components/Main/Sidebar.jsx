@@ -147,4 +147,4 @@ class Sidebar extends React.Component {
    }
 }
 
-export default withStyles(styles)(withRouter(Sidebar))
+export default withStyles(styles)(withRouter(Sidebar)) 
