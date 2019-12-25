@@ -141,11 +141,17 @@ class Index extends BaseView {
             </Typography>
             <br />
             <br />
+            <Typography style={{ display: "block" }} >
+              Facebook
+            </Typography>
             <Button color="primary" variant="contained">
-              <i className="fa fa-facebook-f"></i> Nội thất Dodo
+              Nội thất Dodo
             </Button>
             <br />
             <br />
+            <Typography style={{ display: "block" }} >
+              Mail
+            </Typography>
             <Button color="primary" variant="contained">
               <i className="fa fa-mail"></i> Mail
             </Button>

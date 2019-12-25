@@ -11,7 +11,6 @@ import Loading from 'containers/Loading/Loading'
 import LoadingComponent from 'components/Progress/Loading'
 import Notistack from 'components/Snackbars/Notistack'
 import http from 'helpers/http'
-import permission from 'helpers/permission'
 import AccessDenied from 'components/Pages/AccessDenied'
 import LogOut from './components/LogOut'
 import ProfileMenu from './components/ProfileMenu'
@@ -115,6 +114,7 @@ class Main extends React.Component {
          result.push(<Route
             key={index++}
             path={route.path}
+            hidden={route.hidden}
             exact={route.exact || route.children ? true : false}
             name={route.name}
             component={() => this.renderComponent(route)}
@@ -132,7 +132,7 @@ class Main extends React.Component {
    renderComponent(route) {
       const { classes, theme } = this.props
       const title = typeof route.title === "function" ? route.title() : ""
-      const Component = permission.hasPermission(route.role) ? route.component : AccessDenied
+      const Component = route.component
       const user = JSON.parse(localStorage.getItem('user'))
       document.title = title
       return <div className={classes.root}>

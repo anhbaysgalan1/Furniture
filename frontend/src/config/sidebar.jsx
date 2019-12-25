@@ -33,6 +33,7 @@ const sidebar = [
     {
         path: "/info", 
         name: 'info',
+        hidden: false,
         title: <Translate value="Sidebar.info" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <InfoIndex />
@@ -104,12 +105,14 @@ const sidebar = [
     {
         path: "/contact", 
         name: 'contact',
+        hidden: false,
         title: <Translate value="Sidebar.contact" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <ContactIndex />
     },
     {
         path: "/order",
+        hidden: false,
         name: 'order',
         title: <Translate value="Sidebar.order" />,
         icon: <Icon>account_circle</Icon>,
@@ -118,6 +121,7 @@ const sidebar = [
     {
         path: "/finance",  // Tài chính
         name: 'finance',   
+        hidden: false,
         title: <Translate value="Sidebar.finance" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <FinanceIndex />
@@ -125,6 +129,7 @@ const sidebar = [
     {
         path: "/goods",
         name: 'goods',
+        hidden: false,
         title: <Translate value="Sidebar.goods" />,
         icon: <Icon>account_circle</Icon>,
         component: () => <GoodsIndex />
@@ -132,6 +137,7 @@ const sidebar = [
     {
         path: "/client", // Khách hàng
         name: 'client',
+        hidden: false,
         title: <Translate value="Sidebar.client" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <ClientIndex />
@@ -139,6 +145,7 @@ const sidebar = [
     {
         path: "/posts", // Bài viết
         name: 'posts',
+        hidden: false,
         title: <Translate value="Sidebar.posts" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <PostsIndex />
@@ -146,6 +153,7 @@ const sidebar = [
     {
         path: "/users", // Tài khoản
         name: 'user',
+        hidden: false,
         title: <Translate value="Sidebar.user" />, 
         icon: <Icon>account_circle</Icon>,
         component: () => <UserIndex />,
