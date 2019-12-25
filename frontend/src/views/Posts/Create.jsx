@@ -222,8 +222,8 @@ class Create extends BaseView {
                   <Grid item xs={4}>
                      <TextField
                         multiline
-                        rows={6}
-                        rowsMax={8}
+                        rows={4}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         label={I18n.t("Input.goods.Tóm tắt nội dung")}
@@ -234,8 +234,8 @@ class Create extends BaseView {
                   <Grid item xs={8}>
                      <TextField
                         multiline
-                        rows={6}
-                        rowsMax={8}
+                        rows={4}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         label={I18n.t("Input.goods.content.Lời dẫn giới thiệu")}
@@ -285,7 +285,7 @@ class Create extends BaseView {
                                                 <TextField
                                                    multiline
                                                    rows={4}
-                                                   rowsMax={8}
+                                                   rowsMax={20}
                                                    variant="outlined"
                                                    fullWidth
                                                    value={element.listConten}
@@ -322,7 +322,7 @@ class Create extends BaseView {
                      <TextField
                         multiline
                         rows={4}
-                        rowsMax={8}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         label={I18n.t("Input.goods.Lời dẫn kết thúc")}

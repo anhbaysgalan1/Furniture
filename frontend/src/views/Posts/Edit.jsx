@@ -157,7 +157,7 @@ class Create extends BaseView {
                      <TextField
                         multiline
                         rows={6}
-                        rowsMax={8}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         value={summary}
@@ -170,7 +170,7 @@ class Create extends BaseView {
                      <TextField
                         multiline
                         rows={6}
-                        rowsMax={8}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         label={I18n.t("Input.goods.content.Lời dẫn giới thiệu")}
@@ -228,7 +228,7 @@ class Create extends BaseView {
                                                 <TextField
                                                    multiline
                                                    rows={4}
-                                                   rowsMax={8}
+                                                   rowsMax={20}
                                                    variant="outlined"
                                                    fullWidth
                                                    label={I18n.t("Input.goods.List Item nội dung")}
@@ -266,7 +266,7 @@ class Create extends BaseView {
                      <TextField
                         multiline
                         rows={4}
-                        rowsMax={8}
+                        rowsMax={20}
                         variant="outlined"
                         fullWidth
                         label={I18n.t("Input.goods.Lời dẫn kết thúc")}

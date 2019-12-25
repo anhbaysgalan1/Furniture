@@ -126,7 +126,7 @@ class Index extends BaseView {
             },
             {
                name: 'summary',
-               width: 300
+               width: 250
             },
             {
                name: '_id',

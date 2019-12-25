@@ -73,7 +73,7 @@ class Footer extends BaseView {
                                 <TextField
                                     margin='none'
                                     fullWidth
-                                    label='Gmail'
+                                    label='Email'
                                     name="mail"
                                 />
                                 <TextField
@@ -82,12 +82,21 @@ class Footer extends BaseView {
                                     label='Địa chỉ'
                                     name="address"
                                 />
+                                <TextField
+                                    fullWidth
+                                    multiline
+                                    rows={2}
+                                    rowsMax={6}
+                                    margin="dense"
+                                    label="Nội dung cần hỗ trợ, tư vấn"
+                                    name="content"
+                                />
                             </Grid>
                         </Grid>
                         <CardActions>
                             <Button variant='contained' color='primary'>
                                 Gửi
-                        </Button>
+                            </Button>
                         </CardActions>
                     </Form>
                 </Hidden>
@@ -117,6 +126,15 @@ class Footer extends BaseView {
                                     fullWidth
                                     label='Địa chỉ'
                                     name="address"
+                                />
+                                <TextField
+                                    fullWidth
+                                    multiline
+                                    rows={2}
+                                    rowsMax={6}
+                                    margin="dense"
+                                    label="Nội dung cần hỗ trợ, tư vấn"
+                                    name="content"
                                 />
                             </Grid>
                         </Grid>

@@ -42,6 +42,7 @@ class Index extends BaseView {
 
    renderRelateTo(classes) {
       let { posts = [] } = this.props
+      posts = posts.reverse()
       return (
          <div>
             <Grid container spacing={8}>
@@ -50,7 +51,7 @@ class Index extends BaseView {
                   <Card>
                      <CardContent style={{ textAlign: 'justify' }} >
                         <Typography variant='h5' style={{ textTransform: 'uppercase', textAlign: 'center' }}>
-                           TIN LIÊN QUAN
+                           TIN TỨC
                         </Typography>
                         <Grid container spacing={16}>
                            {
@@ -101,7 +102,7 @@ class Index extends BaseView {
                      posts.map((element, index) => {
                         let image = _.get(element, 'image', '')
                         let summary = _.get(element, 'summary', '')
-                        let title = _.get(title, 'title', '')
+                        let title = _.get(element, 'title', '')
                         let _id = _.get(element, '_id', '')
                         return (
                            <Grid item xs={6} key={index} >
