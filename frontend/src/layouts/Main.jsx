@@ -21,7 +21,6 @@ import HomeIcon from '@material-ui/icons/Home'
 import { I18n } from 'react-redux-i18n'
 import _ from 'lodash'
 
-
 const styles = theme => ({
    root: {
       display: 'flex',
@@ -137,11 +136,7 @@ class Main extends React.Component {
       const user = JSON.parse(localStorage.getItem('user'))
       document.title = title
       return <div className={classes.root}>
-         <AppBar
-            position="fixed"
-            className={classes.appBar}
-            color="primary"
-         >
+         <AppBar  position="fixed" className={classes.appBar} color="primary" >
             <Hidden smUp>
                <Toolbar variant='dense'>
                   <DrawerMobileMenu route={route} />
@@ -180,7 +175,6 @@ class Main extends React.Component {
             <Suspense fallback={this.renderLoading()}>
                <Component route={route} />
             </Suspense>
-
             <br></br>
             <br></br>
             <Footer/>

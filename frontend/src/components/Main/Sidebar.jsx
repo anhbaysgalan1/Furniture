@@ -85,7 +85,8 @@ class Sidebar extends React.Component {
       return routes.filter(route => route.name === routeName)[0]
    }
 
-   renderMenuLink(menu, key, classesDefault) {
+
+   renderMenuLink(menu, index, classesDefault) {
       const { classes, route } = this.props
       let isActive = (route.sidebarName === menu.name)
       let menuRoute = this.findRouteByName(menu.route)
@@ -95,13 +96,13 @@ class Sidebar extends React.Component {
       menuRoute = menuRoute || {} //handle undefined
       const path = menuRoute.path || menu.path
       return (
-         <span key={key} >
+         <span key={index} >
             <Hidden smUp>
                <ListItem
                   button
                   component={NavLink}
                   to={path}
-                  key={key}
+                  key={index}
                   className={`${classesDefault} ${classes.listItem} ${isActive ? classes.listItemActive : ''}`}
                >
                   <ListItemText
@@ -115,7 +116,7 @@ class Sidebar extends React.Component {
             </Hidden>
             <Hidden xsDown>
                <Typography
-                  key={key}
+                  key={index}
                   to={path}
                   className={classes.buttonSidebar}
                   component={NavLink}
@@ -135,6 +136,7 @@ class Sidebar extends React.Component {
       for (let item of sidebar) {
          result.push(this.renderMenuLink(item, index++))
       }
+      // console.log("result", result, "\nsidebar", sidebar)
       return result
    }
 
