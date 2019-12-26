@@ -110,29 +110,33 @@ class Footer extends BaseView {
                                 <TextField
                                     fullWidth
                                     label='Tên'
+                                    margin='none'
                                     name="name"
                                 />
                                 <TextField
                                     fullWidth
                                     label='SĐT'
+                                    margin='none'
                                     name="phone"
                                 />
                                 <TextField
                                     fullWidth
+                                    margin='none'
                                     label='Gmail'
                                     name="mail"
                                 />
                                 <TextField
                                     fullWidth
                                     label='Địa chỉ'
+                                    margin='none'
                                     name="address"
                                 />
                                 <TextField
                                     fullWidth
                                     multiline
                                     rows={2}
+                                    margin='none'
                                     rowsMax={6}
-                                    margin="dense"
                                     label="Nội dung cần hỗ trợ, tư vấn"
                                     name="content"
                                 />
@@ -180,19 +184,19 @@ class Footer extends BaseView {
                     </Typography>
                     <hr></hr>
                     <Typography component="h6" >
-                        <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
+                        <i className="fa fa-home" style={{ fontSize: '30px', color: "#90caf9" }}></i>
                         &nbsp; ĐỒ GỖ NỘI THẤT DODO
                     </Typography>
                     <Typography component="h6" >
-                        <i className="fa fa-home" style={{ fontSize: '40px', color: "#90caf9" }}></i>
+                        <i className="fa fa-home" style={{ fontSize: '30px', color: "#90caf9" }}></i>
                         &nbsp; Hồ Gươm Plaza 108 Trần Phú Hà Đông Hà Nội
                     </Typography>
                     <Typography component="h6" >
-                        <i className="fa fa-envelope" style={{ fontSize: '35px', color: "#90caf9" }}></i>
+                        <i className="fa fa-envelope" style={{ fontSize: '25px', color: "#90caf9" }}></i>
                         &nbsp; noithat.dodo@gmail.com
                     </Typography>
                     <Typography component="h6" >
-                        <i className="fa fa-phone" style={{ fontSize: '40px', color: "#90caf9" }}></i>
+                        <i className="fa fa-phone" style={{ fontSize: '25px', color: "#90caf9" }}></i>
                         &nbsp; 0377 535 717
                     </Typography>
                 </Hidden>

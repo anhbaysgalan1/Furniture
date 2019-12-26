@@ -225,7 +225,6 @@ export default {
             role: {
                 code: 'Mã Vai Trò',
                 name: 'Tên Vai Trò',
-                permission: 'Khả Năng Access',
                 userCount: 'Số lượng user',
             },
             position: {
@@ -340,7 +339,6 @@ export default {
         },
         User: {
             User_Code_Exist: "Tên đăng nhập hoặc mã nhân viên đã tồn tại. \nVui lòng nhập tên hoặc mã khác",
-            User_Permission: "Bạn không có quyền quản lý người dùng",
             Del_User_Warn: "Bạn không thể xóa người dùng đã có lịch sử đi làm"
         },
         Recruiment: {

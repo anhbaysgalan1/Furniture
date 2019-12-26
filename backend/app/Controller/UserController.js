@@ -1,7 +1,5 @@
 const BaseController = use("./BaseController")
 const UserModel = use("App/Models/User")
-const RoleModel = use('App/Models/Role')
-const PermissionModel = use('App/Models/Permission')
 const moment = use("moment")
 
 const Auth = use("Auth")
@@ -15,8 +13,6 @@ class UserController extends BaseController {
     constructor() {
         super()
         this.Model = new UserModel()
-        this.RoleModel = new RoleModel()
-        this.PermissionModel = new PermissionModel()
     }
     async login({ request, response }) {
         let input = request.body
@@ -25,28 +21,15 @@ class UserController extends BaseController {
             password: "string!",
         }
         const data = this.validate(input, allowFields, { removeNotAllow: true })
-
         const { username, password } = request.body
         let useLoggedin = await this.Model.checkLogin({ username, password })
         if (!useLoggedin) {
             return response.error(401, "Login_Failed")
         }
-        let permissions = []
-        try {
-            let { roleId } = await this.Model.getById(useLoggedin._id, { _id: 0, roleId: 1 })
-            let { permissionIds } = await this.RoleModel.getById(roleId, { permissionIds: 1 })
-            for (let i in permissionIds) {
-                let { key } = await this.PermissionModel.getById(permissionIds[i], { key: 1 })
-                permissions.push(key)
-            }
-        } catch (error) {
-            throw new Error("You don't have ability to access this system!")
-        }
         let token = Auth.generateJWT({
             _id: useLoggedin._id,
             username: useLoggedin.username,
             name: useLoggedin.name,
-            permissions: permissions
         })
         return response.success({
             token: token
@@ -107,8 +90,6 @@ class UserController extends BaseController {
     }
 
     async update({ request, response }) {
-        // const { mana_user } = request.permissions
-        // if (!mana_user) throw new ApiException(403, "No_User_Permission")
         let id = request.params.id
         if (!id) throw new ApiException(422, "Id_Required")
         let exist = await this.Model.getById(id)

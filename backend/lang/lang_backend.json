@@ -47,18 +47,6 @@
     "message": "role invalid",
     "vi": "Role không hợp lệ. (%0)"
   },
-  "Permission_Denied": {
-    "message": "permission denied",
-    "vi": "Bạn không có quyền thực hiện thao tác này."
-  },
-  "User_Existed": {
-    "message": "user already existed",
-    "vi": "Account này đã tồn tại rồi (%0)."
-  },
-  "Require_Permission_Root": {
-    "message": "require root permission",
-    "vi": "Chỉ có quyền root mới thực hiện được."
-  },
   "Activation_Not_Start": {
     "message": "activation not start",
     "vi": "Phải điền email, request mã kích hoạt trước rồi mới thực hiện kích hoạt được."

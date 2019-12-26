@@ -75,7 +75,6 @@ module.exports = {
     } else {
       HttpUtil.apiError(req.headers.lang_code, res, {
         code: HttpUtil.FORBIDDEN,
-        msgKey: 'Permission_Denied'
       });
     }
   },

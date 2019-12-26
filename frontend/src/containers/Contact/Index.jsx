@@ -27,12 +27,6 @@ class Index extends BaseContainer {
                      }
                      break
                   }
-                  case 404: {
-                     if (err.message === "Permission_Not_Exist") {
-                        this.notify(I18n.t('Backend.Role.Permission_Not_Exist'), 'error')
-                     }
-                     break
-                  }
                   default: this.notify(`Response: [${err.status}] ${err.message}`, 'error')
                }
             }

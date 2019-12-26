@@ -180,7 +180,6 @@ export default {
         },
         role: {
             name: '役割',
-            permission: 'アクセス許可'
         },
         position: {
             code: '役職コード',
@@ -431,7 +430,6 @@ export default {
             role: {
                 code: '役割コード',
                 name: '役割',
-                permission: 'アクセス許可',
                 userCount: 'ユーザー人数'
             },
             position: {
@@ -660,7 +658,6 @@ export default {
         },
         User: {
             User_Code_Exist: "ユーザー名または社員コードが存在しました。\n他のユーザー名または社員コードを入力してください。",
-            User_Permission: "ユーザー管理の権限がありません！",
             Del_User_Warn: "出勤履歴があった社員を削除できません。"
 
         },
@@ -671,7 +668,6 @@ export default {
         },
         Role: {
             Role_Name_Exist: "役割の名称が存在しました。他の名称を入力してください。",
-            Permission_Not_Exist: "No permission existed",
             Role_Has_User: "割り当てられているユーザーがある役割を削除できません。"
 
         },
@@ -701,20 +697,15 @@ export default {
             Update_Check_Out_Warning: "入力する時間は実際の労働時間を超えることができません。"
         },
         DayOff: {
-            No_Add_Permission: "休暇を追加する権限を持っていません。",
             DayOff_Exist: "この日は既にある休日なので、他の日を選択してください。",
             Out_Of_DayOff: "有給休暇残日数が切りました。有給休暇を選択できません。",
             Out_Of_DayOff_By_Working_On_DayOff: "Số giờ nghỉ bù còn lại ít hơn số giờ nhập vào. Vui lòng chọn lại",
             DayOff_Warning: "この日は既にある休日なので、他の日を選択してください。",
             Holiday_Warning: "この日は既にある休日なので、他の日を選択してください。",
             Type_Not_Exist: "Loại ngày nghỉ không tồn tại. Vui lòng kiểm tra lại",
-
-            No_Del_Permission: "休暇を削除する権限を持っていません。"
         },
         Construction: {
-            No_Add_Permission: "工事現場を追加する権限を持っていません。",
             Construction_Code_Exist: "工事現場コードは存在しました。他の現場コードを入力してください。",
-            No_Del_Permission: "工事現場を削除する権限を持っていません。",
             Del_Construction_Warn: "出勤・退勤のデータがあったり、出勤予定があったりする工事現場を削除できません。",
         },
         History: {

@@ -40,12 +40,6 @@ class Edit extends BaseContainer {
                             }
                             break
                         }
-                        case 403: {
-                            if (err.message === "No_User_Permission") {
-                                this.notify(I18n.t('Backend.User.User_Permission'), 'error')
-                            }
-                            break
-                        }
                         case 404: {
                             if (err.message === "No_Object") {
                                 this.notify(I18n.t('Backend.DbObject.No_Object'), 'error')

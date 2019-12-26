@@ -10,16 +10,11 @@ class Index extends BaseContainer {
     constructor(props) {
         super(props)
         this.state = {
-            permission: []
         }
         this.onSubmit = this.onSubmit.bind(this)
     }
 
     componentWillReceiveProps(nextProps) {
-    }
-
-    componentDidMount() {
-        // this.props.dispatch(PermissionAction.fetchAll({ pageSize: -1 }))
     }
 
     onSubmit(values) {
@@ -38,12 +33,6 @@ class Index extends BaseContainer {
                             }
                             break
                         }
-                        case 404: {
-                            if (err.message === "Permission_Not_Exist") {
-                                this.notify(I18n.t('Backend.Role.Permission_Not_Exist'), 'error')
-                            }
-                            break
-                        }
                         default: this.notify(`Response: [${err.status}] ${err.message}`, 'error')
                     }
                 }
@@ -54,7 +43,6 @@ class Index extends BaseContainer {
         return (
             <View
                 onSubmit={this.onSubmit}
-                permission={this.props.permission}
             />
         )
     }
@@ -63,7 +51,6 @@ class Index extends BaseContainer {
 const mapStateToProps = state => {
     return {
         data: selector(state, "role.data", {}),
-        permission: selector(state, "permission.list.data", []),
     }
 }
 

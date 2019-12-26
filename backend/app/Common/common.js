@@ -31,15 +31,6 @@ module.exports = {
             return downRoundingTime
         }
     },
-    is_allow_level_2: function () {
-        let { permissions = [] } = Auth.user
-        if (permissions.includes('allow_level_2')) {
-            return true
-        } else {
-            return false
-        }
-
-    },
     string_to_ISO(date) {
         let day = this.checkFormatDate(date)
         day = day + 'T00:00:00.000Z'

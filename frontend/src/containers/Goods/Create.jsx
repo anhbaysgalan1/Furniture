@@ -10,7 +10,6 @@ class Index extends BaseContainer {
     constructor(props) {
         super(props)
         this.state = {
-            permission: []
         }
         this.onSubmit = this.onSubmit.bind(this)
     }
@@ -28,12 +27,6 @@ class Index extends BaseContainer {
                         case 400: {
                             if (err.message === "Role_Name_Exist") {
                                 this.notify(I18n.t('Backend.Role.Role_Name_Exist'), 'error')
-                            }
-                            break
-                        }
-                        case 404: {
-                            if (err.message === "Permission_Not_Exist") {
-                                this.notify(I18n.t('Backend.Role.Permission_Not_Exist'), 'error')
                             }
                             break
                         }

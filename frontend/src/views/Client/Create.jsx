@@ -85,9 +85,6 @@ class Create extends BaseView {
             Validation.required(I18n.t("Form.required")),
             Validation.maxLength(255, I18n.t("Form.maxLeng255"))
          ],
-         permission: [
-            Validation.required(I18n.t("Form.required"))
-         ],
       }
    }
 

@@ -223,10 +223,10 @@ class GridTable extends PureComponent {
         },
       },
 
-      pageSize: 100,
+      pageSize: 10,
       currentPage: 0,
       totalCount: 0,
-      pageSizes: [100, 200, 300, 400, 500, 1000]
+      pageSizes: [10, 20, 30, 50, 100]
     }
 
     this.state = defaultState

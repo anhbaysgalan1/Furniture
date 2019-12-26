@@ -1,8 +1,6 @@
 import React from 'react'
 import View from 'views/Finance/Edit'
 import FinanceAction from '../../actions/FinanceAction'
-// import RoleAction from '../../actions/RoleAction'
-// import PermissionAction from '../../actions/PermissionAction'
 import GoodsAction from '../../actions/GoodsAction'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
@@ -38,12 +36,6 @@ class Edit extends BaseContainer {
                case 400: {
                   if (err.message === "Role_Name_Exist") {
                      this.notify(I18n.t('Backend.Role.Role_Name_Exist'), 'error')
-                  }
-                  break
-               }
-               case 404: {
-                  if (err.message === "Permission_Not_Exist") {
-                     this.notify(I18n.t('Backend.Role.Permission_Not_Exist'), 'error')
                   }
                   break
                }

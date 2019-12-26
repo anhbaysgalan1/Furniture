@@ -7,10 +7,6 @@
       "message": "You do not have ability to access this system",
       "vi": "Bạn không có quyền truy cập vào hệ thống."
     },
-    "No_Mana_User_Permission": {
-        "message": "You do not have permission to manage user",
-        "vi": "Bạn không có quyền quản lý người dùng."
-    },
     "User_Not_Exist": {
         "message": "User not exist in database",
         "vi": "Không tồn tại người dùng trong hệ thống. \nVui lòng kiểm tra lại"
@@ -63,25 +59,9 @@
         "message": "Construction code already existed",
         "vi": "Mã công trường đã tồn tại. \nVui lòng nhập mã khác."
     },
-    "No_Add_Construction_Permission": {
-        "message": "You do not have permission to add new construction",
-        "vi": "Bạn không có quyền thêm mới công trường."
-    },
-    "No_Delete_Construction_Permission": {
-        "message": "You do not have permission to delete construction",
-        "vi": "Bạn không có quyền xóa công trường."
-    },
     "Delete_Construct_Warning": {
         "message": "You can not delete this construction",
         "vi": "Bạn không thể xóa công trường đang được sử dụng."
-    },
-    "No_Add_DayOff_Permission": {
-        "message": "You do not have permission to add new day off",
-        "vi": "Bạn không có quyền thêm ngày nghỉ."
-    },
-    "No_Delete_DayOff_Permission": {
-        "message": "You do not have permission to delete day off",
-        "vi": "Bạn không có quyền xóa ngày nghỉ."
     },
     "DayOff_Exist": {
         "message": "DayOff already existed",
@@ -114,10 +94,6 @@
     "Data_Constrution_Warning": {
         "message": "Your construction data is missing",
         "vi": "Dữ liệu gửi thiếu hoặc thừa công trường. \nVui lòng kiểm tra lại"
-    },
-    "No_Mana_Timekeeping_Permission": {
-        "message": "You do not have permission to manage timekeeping",
-        "vi": "Bạn không có quyền quản lý chấm công."
     },
    "Position_Code_Exist": {
         "message": "Position code already existed",
