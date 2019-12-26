@@ -49,15 +49,15 @@ class Create extends BaseView {
     this.validate = {
       username: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(10, I18n.t("Form.maxLeng10"))
       ],
       password: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(10, I18n.t("Form.maxLeng10"))
       ],
       name: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(30, I18n.t("Form.maxLeng30"))
       ]
     };
     this.handleRePassword = this.handleRePassword.bind(this);
@@ -213,8 +213,8 @@ class Create extends BaseView {
     let name = _.get(data, "name", "");
     return (
       <Grid container spacing={32}>
-        <Grid item xs={3}></Grid>
-        <Grid item xs={9}>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={8}>
           <PaperFade className={classes.paper}>
             <Form className={classes.form} onSubmit={onSubmit}>
               <Grid container spacing={32}>
@@ -243,19 +243,10 @@ class Create extends BaseView {
                 </Grid>
               </Grid>
               <CardActions>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => this.goto(`/users`)}
-                >
-                  <Icon>keyboard_arrow_left</Icon>
-                  {I18n.t("Button.back")}
+                <Button variant="contained" color="primary" onClick={() => this.goto(`/users`)} >
+                  <Icon>keyboard_arrow_left</Icon> {I18n.t("Button.back")}
                 </Button>
-                <Button
-                  onClick={this.handleOpen}
-                  variant="contained"
-                  color="primary"
-                >
+                <Button onClick={this.handleOpen} variant="contained" color="primary" >
                   {I18n.t("Button.changePassword")}
                 </Button>
                 <Button type="submit" variant="contained" color="primary">
@@ -266,6 +257,7 @@ class Create extends BaseView {
             </Form>
           </PaperFade>
         </Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
     );
   }

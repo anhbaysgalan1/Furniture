@@ -1,6 +1,20 @@
 import moment from "moment"
 import { I18n } from 'react-redux-i18n'
 
+let typeClient = [
+  {
+     title: "Khách lẻ",
+     value: '0',
+  },
+  {
+     title: "Khách buôn",
+     value: '1',
+  },
+  {
+     title: "Đối tác",
+     value: '2',
+  }
+]
 const titleBad = [
     {
         label: "Tất cả",
@@ -454,6 +468,17 @@ const pays = [
   }
 ]
 
+const promotions = [
+  {
+     name: 'Không',
+     value: '0'
+  },
+  {
+     name: 'Có',
+     value: '1'
+  }
+]
+
 
 
 export { 
@@ -467,7 +492,8 @@ export {
   titleTVCabinet,
   statusOrder,
   pays,
-  
+  typeClient,
+  promotions,
   
 
 }

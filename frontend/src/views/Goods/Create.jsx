@@ -25,20 +25,9 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
-import { typeGoods } from '../../config/constant'
+import { typeGoods, promotions } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
-
-let promotions = [
-   {
-      name: 'Không',
-      value: '0'
-   },
-   {
-      name: 'Có',
-      value: '1'
-   }
-]
 
 const styles = theme => ({
    paper: {
@@ -91,9 +80,24 @@ class Create extends BaseView {
       this.onHide = this.onHide.bind(this)
       this.onHandleChange = this.onHandleChange.bind(this)
       this.validate = {
+         code: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(10, I18n.t("Form.maxLeng10"))
+         ], 
+         required: [
+            Validation.required(I18n.t("Form.required")),
+         ],
          name: [
             Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         image: [
+            Validation.required(I18n.t("Form.required")),
             Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+         ],
+         content: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(1000, I18n.t("Form.maxLeng1000"))
          ],
       }
    }
@@ -143,9 +147,6 @@ class Create extends BaseView {
       const { classes, onSubmit } = this.props
       let { dataInput } = this.state
       let disabledPreview = dataInput.image1 && dataInput.image2 && dataInput.image3 && dataInput.image4 ? false : true
-      let defaultName = `Tủ giày gỗ công nghiệp ` + this.state.dataInput.code //////////////////
-      let defaultContent = `Tủ giày gỗ công nghiệp ` + this.state.dataInput.code //////////////////
-      let defaultImage = this.state.dataInput.image1
       let typeItems = []
       let typeWoods = []
       typeGoods.map((item, index) => {
@@ -181,6 +182,7 @@ class Create extends BaseView {
                                  onChange={(data) => this.onHandleChange(data.value, 'typeGoods')}
                                  name="typeGoods"
                                  isMulti={false}
+                                 validate={this.validate.required}
                                  isClearable={false}
                               >
                                  {
@@ -202,7 +204,7 @@ class Create extends BaseView {
                                  name="typeItem"
                                  isDisabled={ typeItems.length ? false : true }
                                  isMulti={false}
-                                 defaultValue='2' /////////////////////////
+                                 validate={this.validate.required}
                                  isClearable={false}
                               >
                                  {
@@ -222,9 +224,9 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.typeWoods.Vật liệu")}
                                  onChange={(data) => this.onHandleChange(data.value, 'typeWoods')}
                                  name="typeWoods"
-                                 defaultValue='1'
                                  isDisabled={ typeWoods.length ? false : true }
                                  isMulti={false}
+                                 validate={this.validate.required}
                                  isClearable={false}
                               >
                                  {
@@ -241,7 +243,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.code.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data, 'code')}
-                                 defaultValue='TGGCN' //////////////////////
+                                 validate={this.validate.code}
                                  name="code"
                               />
                            </Grid>
@@ -249,8 +251,8 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.name.Tên Hàng")}
+                                 validate={this.validate.name}
                                  onChange={(data) => this.onHandleChange(data, 'name')}
-                                 defaultValue={defaultName}
                                  name="name"
                               />
                            </Grid>
@@ -259,7 +261,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
                                  name="moneyOld"
-                                 defaultValue="4500000"
+                                 validate={this.validate.required}
                                  onChange={(data) => this.onHandleChange(data, 'moneyOld')}
                               />
                            </Grid>
@@ -268,7 +270,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
                                  name="moneyNew"
-                                 defaultValue="3500000"
+                                 validate={this.validate.required}
                                  onChange={(data) => this.onHandleChange(data, 'moneyNew')}
                               />
                            </Grid>
@@ -279,6 +281,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.image1")}
                                  onChange={(data) => this.onHandleChange(data, 'image1')}
+                                 validate={this.validate.image}
                                  name="image1"
                               />
                               <TextField
@@ -286,21 +289,21 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.image2")}
                                  onChange={(data) => this.onHandleChange(data, 'image2')}
                                  name="image2"
-                                 defaultValue={defaultImage}
+                                 validate={this.validate.image}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image3")}
                                  onChange={(data) => this.onHandleChange(data, 'image3')}
                                  name="image3"
-                                 defaultValue={defaultImage}
+                                 validate={this.validate.image}
                               />
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image4")}
                                  onChange={(data) => this.onHandleChange(data, 'image4')}
                                  name="image4"
-                                 defaultValue={defaultImage}
+                                 validate={this.validate.image}
                               />
                               <AutoCompleteField
                                  key="1"
@@ -329,8 +332,8 @@ class Create extends BaseView {
                                  rowsMax={25}
                                  variant="outlined"
                                  fullWidth
-                                 defaultValue={defaultContent}
                                  label={I18n.t("Input.goods.content.Nội dung miêu tả")}
+                                 validate={this.validate.content}
                                  onChange={(data) => this.onHandleChange(data, 'content')}
                                  name="content"
                               />

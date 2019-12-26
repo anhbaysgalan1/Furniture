@@ -18,24 +18,12 @@ import {
    CardActions,
 
 } from '@material-ui/core'
+import { typeClient } from '../../config/constant'
 import PaperFade from "components/Main/PaperFade"
 import { withRouter } from 'react-router-dom'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 
-let typeClient = [
-   {
-      title: "Khách lẻ",
-      value: '0',
-   },
-   {
-      title: "Khách buôn",
-      value: '1',
-   },
-   {
-      title: "Đối tác",
-      value: '2',
-   }
-]
+
 const styles = theme => ({
    paper: {
       // padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit * 4}px`,
@@ -66,25 +54,22 @@ class Create extends BaseView {
       super(props)
       this.state = {
          dataInput: {
-            name: '',
-            code: '',
-            image1: '',
-            image2: '',
-            image2: '',
-            image4: '',
-            moneyOld: '',
-            moneyNew: '',
-            typeGoods: '',
-            typeWoods: '',
-            content: ''
          }
       }
       this.onHandleChange = this.onHandleChange.bind(this)
       this.validate = {
+         code: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(10, I18n.t("Form.maxLeng10"))
+         ], 
          name: [
             Validation.required(I18n.t("Form.required")),
-            Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+            Validation.maxLength(30, I18n.t("Form.maxLeng30"))
          ],
+         phone: [ Validation.required(I18n.t("Form.required")) ],
+         address: [ Validation.maxLength(100, I18n.t("Form.maxLeng100"))],
+         mail: [ Validation.maxLength(30, I18n.t("Form.maxLeng30")) ],
+         note: [ Validation.maxLength(255, I18n.t("Form.maxLeng255")) ]
       }
    }
 
@@ -125,7 +110,6 @@ class Create extends BaseView {
 
    render() {
       const { classes, onSubmit, goods = [] } = this.props
-      let { dataInput } = this.state
       return (
          <Form className={classes.form} onSubmit={onSubmit}>
             <Grid container spacing={32}>
@@ -143,9 +127,8 @@ class Create extends BaseView {
                                  fullWidth
                                  select
                                  label={I18n.t("Input.goods.Loại khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'typeGoods')}
+                                 onChange={(value) => this.onHandleChange(value, 'type')}
                                  name="type"
-                                 validate={this.validate.area}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -162,8 +145,9 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.Mã khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 onChange={(value) => this.onHandleChange(value, 'code')}
                                  name="code"
+                                 validate={this.validate.code}
                               />
                            </Grid>
                            <Grid item xs={6}>
@@ -172,6 +156,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.Tên khách hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
                                  name="name"
+                                 validate={this.validate.name}
                               />
                            </Grid>
                            <Grid item xs={3}>
@@ -180,6 +165,8 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.Số điện thoại")}
                                  onChange={(value) => this.onHandleChange(value, 'phone')}
                                  formatData={(value) => this.formatPhoneNumber(value)}
+                                 name="phone"
+                                 validate={this.validate.phone}
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
                                        e.preventDefault()
@@ -190,14 +177,15 @@ class Create extends BaseView {
                                        }
                                     }
                                  }}
-                                 name="phone"
+                                 
                               />
                            </Grid>
                            <Grid item xs={3}>
                               <TextField
                                  fullWidth
-                                 label={I18n.t("Input.goods.Email")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 label={I18n.t("Input.goods.Mail")}
+                                 onChange={(value) => this.onHandleChange(value, 'mail')}
+                                 validate={this.validate.mail}
                                  name="mail"
                               />
                            </Grid>
@@ -206,6 +194,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.Địa chỉ")}
                                  onChange={(value) => this.onHandleChange(value, 'address')}
+                                 validate={this.validate.address}
                                  name="address"
                               />
                            </Grid>
@@ -213,13 +202,13 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.Số lần mua hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'img')}
+                                 onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
                                        e.preventDefault()
                                     }
-                                    if (e.target.value.length >= 3) {
+                                    if (e.target.value.length >= 4) {
                                        if (['Backspace', 'Tab'].indexOf(e.key) < 0) {
                                           e.preventDefault()
                                        }
@@ -232,7 +221,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.goods.Tổng tiền")}
                                  name="money"
-                                 onChange={(value) => this.onHandleChange(value, 'name')}
+                                 onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>
                            <Grid item xs={6}>
@@ -267,7 +256,8 @@ class Create extends BaseView {
                                  variant="outlined"
                                  fullWidth
                                  label={I18n.t("Input.goods.content.Ghi chú khách hàng")}
-                                 onChange={(value) => this.onHandleChange(value, 'content')}
+                                 onChange={(value) => this.onHandleChange(value, 'note')}
+                                 validate={this.validate.note}
                                  name="note"
                               />
                            </Grid>

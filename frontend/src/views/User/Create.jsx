@@ -41,15 +41,15 @@ class Create extends BaseView {
     this.validate = {
       username: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(10, I18n.t("Form.maxLeng10"))
       ],
       password: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(10, I18n.t("Form.maxLeng10"))
       ],
       name: [
         Validation.required(I18n.t("Form.required")),
-        Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+        Validation.maxLength(30, I18n.t("Form.maxLeng30"))
       ]
     };
     this.onChangePassword = this.onChangePassword.bind(this);
@@ -111,7 +111,7 @@ class Create extends BaseView {
     return (
       // xs sm md lg xl
       <Grid container spacing={16}>
-        <Grid item xs={3}></Grid>
+        <Grid item xs={2}></Grid>
         <Grid item xs={8}>
           <Card className={classes.paper}>
             <Form onSubmit={value => this.onSubmit(value)}>
@@ -199,7 +199,7 @@ class Create extends BaseView {
             </Form>
           </Card>
         </Grid>
-        <Grid item xs={1}></Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
     );
   }

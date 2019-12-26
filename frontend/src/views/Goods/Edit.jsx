@@ -25,20 +25,9 @@ import {
 import PaperFade from "components/Main/PaperFade"
 import Previews from './Components/Previews'
 import { withRouter } from 'react-router-dom'
-import { typeGoods } from '../../config/constant'
+import { typeGoods, promotions } from '../../config/constant'
 import AutoCompleteField, { Option as OptionAuto } from 'components/Forms/AutoCompleteField'
 import _ from 'lodash'
-
-let promotions = [
-   {
-      name: 'Không',
-      value: '0'
-   },
-   {
-      name: 'Có',
-      value: '1'
-   }
-]
 
 const styles = theme => ({
    paper: {
@@ -92,9 +81,24 @@ class Create extends BaseView {
       this.onHide = this.onHide.bind(this)
       this.onHandleChange = this.onHandleChange.bind(this)
       this.validate = {
+         code: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(10, I18n.t("Form.maxLeng10"))
+         ], 
+         required: [
+            Validation.required(I18n.t("Form.required")),
+         ],
          name: [
             Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         image: [
+            Validation.required(I18n.t("Form.required")),
             Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+         ],
+         content: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(1000, I18n.t("Form.maxLeng1000"))
          ],
       }
    }
@@ -111,7 +115,6 @@ class Create extends BaseView {
    }
 
    onHandleChange(value, name) {
-      let { dataInput } = this.state
       this.setState({
          dataInput: { ...this.state.dataInput, [name]: value }
       })
@@ -193,6 +196,7 @@ class Create extends BaseView {
                                  onChange={(value) => this.onHandleChange(value, 'typeGood')}
                                  name="typeGoods"
                                  isMulti={false}
+                                 validate={this.validate.required}
                                  defaultValue={typeGoodsServer}
                                  isClearable={false}
                               >
@@ -210,6 +214,7 @@ class Create extends BaseView {
                                  key="2"
                                  fullWidth
                                  select
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.goods.typeItem.Kiểu hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'typeItem')}
                                  name="typeItem"
@@ -231,6 +236,7 @@ class Create extends BaseView {
                                  key="3"
                                  fullWidth
                                  select
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.goods.typeWoods.Vật liệu")}
                                  onChange={(value) => this.onHandleChange(value, 'typeWoods')}
                                  name="typeWoods"
@@ -253,6 +259,7 @@ class Create extends BaseView {
                                  label={I18n.t("Input.goods.code")}
                                  onChange={(value) => this.onHandleChange(value, 'code')}
                                  value={code}
+                                 validate={this.validate.code}
                                  name="code"
                               />
                            </Grid>
@@ -260,6 +267,7 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.name")}
+                                 validate={this.validate.name}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
                                  name="name"
                                  value={name}
@@ -268,6 +276,7 @@ class Create extends BaseView {
                            <Grid item xs={2}>
                               <MoneyField
                                  fullWidth
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.goods.moneyOld.Giá bán cũ")}
                                  name="moneyOld"
                                  defaultValue={moneyOld}
@@ -277,6 +286,7 @@ class Create extends BaseView {
                            <Grid item xs={2}>
                               <MoneyField
                                  fullWidth
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.goods.moneyNew.Giá bán mới")}
                                  name="moneyNew"
                                  defaultValue={moneyNew}
@@ -286,23 +296,26 @@ class Create extends BaseView {
                         </Grid>
                         <Grid container spacing={32}>
                            <Grid item xs={6}>
-                                 <TextField
-                                    fullWidth
-                                    label={I18n.t("Input.goods.image1")}
-                                    onChange={(value) => this.onHandleChange(value, 'image1')}
-                                    value={image1}
-                                    name="image1"
-                                 />
-                                 <TextField
-                                    fullWidth
-                                    label={I18n.t("Input.goods.image2")}
-                                    onChange={(value) => this.onHandleChange(value, 'image2')}
-                                    value={image2}
-                                    name="image2"
-                                 />
-                                 <TextField
+                              <TextField
+                                 fullWidth
+                                 validate={this.validate.image}
+                                 label={I18n.t("Input.goods.image1")}
+                                 onChange={(value) => this.onHandleChange(value, 'image1')}
+                                 value={image1}
+                                 name="image1"
+                              />
+                              <TextField
+                                 fullWidth
+                                 label={I18n.t("Input.goods.image2")}
+                                 validate={this.validate.image}
+                                 onChange={(value) => this.onHandleChange(value, 'image2')}
+                                 value={image2}
+                                 name="image2"
+                              />
+                              <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image3")}
+                                 validate={this.validate.image}
                                  onChange={(value) => this.onHandleChange(value, 'image3')}
                                  value={image3}
                                  name="image3"
@@ -310,11 +323,12 @@ class Create extends BaseView {
                               <TextField
                                  fullWidth
                                  label={I18n.t("Input.goods.image4")}
+                                 validate={this.validate.image}
                                  onChange={(value) => this.onHandleChange(value, 'image4')}
                                  value={image4}
                                  name="image4"
                               />
-                                 <AutoCompleteField
+                              <AutoCompleteField
                                  key="1"
                                  fullWidth
                                  select
@@ -335,8 +349,9 @@ class Create extends BaseView {
                               </AutoCompleteField>
                            </Grid>
                            <Grid item xs={6}>
-                           <TextField
+                              <TextField
                                  multiline
+                                 validate={this.validate.content}
                                  rows={16}
                                  rowsMax={25}
                                  variant="outlined"
