@@ -122,7 +122,7 @@ class Index extends BaseView {
       // console.log("tableRestaurant >>>> ", tableRestaurant)
       return (
          <div>
-            {/* <Header classes={classes} />
+            <Header classes={classes} />
             <Home classes={classes} />
             <ButtonViews classes={classes} />
             <br></br>
@@ -132,15 +132,15 @@ class Index extends BaseView {
             <Partner classes={classes} />
             <NewHot classes={classes} />
             <br></br>
-            <Promotion classes={classes} /> */}
+            <Promotion classes={classes} />
             <br></br>
             <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleBad} goods={bads} />
-            {/* <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableEat} goods={tableEat} />
+            <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableEat} goods={tableEat} />
             <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleWardrobe} goods={wardrobe} />
             <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableLivingRoom} goods={tableLivingRoom} />
             <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleShoesCabinet} goods={shoesCabinet} />
             <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTVCabinet} goods={tvCabinet} />
-            <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableRestaurant} goods={tableRestaurant} /> */}
+            <Tabs classes={classes} onSubmit={onSubmit} titleTabs={titleTableRestaurant} goods={tableRestaurant} />
             <br></br>
             <List classes={classes} />
             <PostsList posts={posts} classes={classes} />

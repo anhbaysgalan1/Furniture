@@ -40,12 +40,14 @@ const WardrobeIndex         = lazy(() => import('containers/Wardrobe/Index'))
 const ShoesCabinetIndex     = lazy(() => import('containers/ShoesCabinet/Index'))
 const TVCabinetIndex        = lazy(() => import('containers/TVCabinet/Index'))
 const TableLivingRoomIndex  = lazy(() => import('containers/TableLivingRoom/Index'))
-const OfficeIndex         = lazy(() => import('containers/Office/Index'))
+const OfficeIndex           = lazy(() => import('containers/Office/Index'))
+const DiningRoomIndex         = lazy(() => import('containers/DiningRoom/Index'))
 
-const DiningRoomIndex       = lazy(() => import('containers/DiningRoom/Index'))
+const PostsSizeBad            = lazy(() => import('containers/Posts/FengShui/SizeBad'))
+const PostsChangeTable        = lazy(() => import('containers/Posts/FengShui/ChangeTable'))
+const PostsChangeSizeTableEat = lazy(() => import('containers/Posts/FengShui/ChangeSizeTableEat'))
 
-const PostsChangeTable      = lazy(() => import('containers/Posts/ChangeTable'))
-const PostsSizeBad          = lazy(() => import('containers/Posts/SizeBad'))
+
 const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
 const PostsExport           = lazy(() => import('containers/Posts/Export'))
 const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
@@ -54,6 +56,7 @@ const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend'
 const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart'))
 const PostsTableEatHot      = lazy(() => import('containers/Posts/TableEatHot'))
 const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions'))
+
 
 const routes = [
     {
@@ -198,6 +201,14 @@ const routes = [
         name: 'changetable',
         title: () => I18n.t("Breadcrumb.postsChangeTable"),
         component: () => <PostsChangeTable />,
+        exact: true,
+        sidebarName: 'post'
+    },
+    {
+        path: "/change-size-table-eat",
+        name: 'changetable',
+        title: () => I18n.t("Breadcrumb.postsChangeTable"),
+        component: () => <PostsChangeSizeTableEat />,
         exact: true,
         sidebarName: 'post'
     },

@@ -52,13 +52,19 @@ class Index extends BaseView {
             {
                 img: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_600/https://thachthatdecor.com.vn/wp-content/uploads/2019/06/kich-thuoc-giuong-ngu-theo-lo-ban-5.jpg',
                 title: 'Kích thước giường ngủ theo lỗ ban hợp phong thủy',
-                content: 'Nếu muốn lựa chọn được chiếc giường ngủ hợp phong thủy thì ...'
+                content: 'Bàn ghế ăn cho gia đình hiện nay được thiết kế với kiểu dáng và ...'
             },
             {
                 img: 'https://gotrangtri.vn/wp-content/uploads/2016/03/ban-an-go-tu-nhien-phong-cach-hien-dai-GHS-4122-5-1.jpg',
                 title: 'Cách chọn vị trí đặt bàn ăn theo phong thủy',
                 content: 'Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong'
             },
+            {
+                img: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300/https://thachthatdecor.com.vn/wp-content/uploads/2019/11/kich-thuoc-ban-an-theo-phong-thuy-1-1-300x200.jpg',
+                title: 'Chọn kích thước bàn ăn theo phong thủy mang tài lộc vào',
+                content: 'Bàn ghế ăn là một trong những món đồ nội thất quan trọng trong'
+            },
+
         ]
         return (
             <span>
@@ -68,6 +74,9 @@ class Index extends BaseView {
                         switch (index) {
                             case 1:
                                 link = '/change-table'
+                                break
+                            case 2:
+                                link = '/change-size-table-eat'
                                 break
                         }
                         return (

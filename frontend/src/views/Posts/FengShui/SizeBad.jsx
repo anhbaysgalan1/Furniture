@@ -23,10 +23,10 @@ import {
    Toolbar,
 
 } from '@material-ui/core'
-import Header from '../Public/Header/Header'
-import Home from '../Public/Home'
-import What from '../Public/What'
-import Promotion from '../Public/Promotion'
+import Header from '../../Public/Header/Header'
+import Home from '../../Public/Home'
+import What from '../../Public/What'
+import Promotion from '../../Public/Promotion'
 import moment from 'moment'
 import _ from 'lodash'
 

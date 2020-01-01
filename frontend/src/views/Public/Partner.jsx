@@ -152,7 +152,7 @@ class Actions extends BaseView {
         return (
             <div>
                 <Typography variant='h4' style={{textAlign: 'center'}} color='primary'>
-                   Khách hàng đối tác
+                   Khách hàng - đối tác
                 </Typography>
                 <OwlCarousel ref="car" options={options} events={events}>
                     {

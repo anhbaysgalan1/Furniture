@@ -23,13 +23,13 @@ import ClientIndex from 'containers/Client/Index'
 import PostsIndex from 'containers/Posts/Index'
 
 const sidebar = [
-    // {
-    //     path: "/center", // trang chủ
-    //     name: 'center',
-    //     title: <Translate value="Sidebar.center" />,
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <CenterIndex />
-    // },
+    {
+        path: "/center", // trang chủ
+        name: 'center',
+        title: <Translate value="Sidebar.center" />,
+        icon: <Icon>account_circle</Icon>,
+        component: () => <CenterIndex />
+    },
     {
         path: "/info", 
         name: 'info',
@@ -38,20 +38,20 @@ const sidebar = [
         icon: <Icon>account_circle</Icon>,
         component: () => <InfoIndex />
     },
-    // {
-    //     path: "/bad",  // Giường
-    //     name: 'bad',
-    //     title: <Translate value="Sidebar.bad" />,
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <BadIndex />
-    // },
-    // {
-    //     path: "/table-eat",  // Bàn ăn
-    //     name: 'tableEat',
-    //     title: <Translate value="Sidebar.tableEat" />,
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <TableEatIndex />
-    // },
+    {
+        path: "/bad",  // Giường
+        name: 'bad',
+        title: <Translate value="Sidebar.bad" />,
+        icon: <Icon>account_circle</Icon>,
+        component: () => <BadIndex />
+    },
+    {
+        path: "/table-eat",  // Bàn ăn
+        name: 'tableEat',
+        title: <Translate value="Sidebar.tableEat" />,
+        icon: <Icon>account_circle</Icon>,
+        component: () => <TableEatIndex />
+    },
     // {
     //     path: "/wardrobe", // Tủ quần áo
     //     name: 'wardrobe',
@@ -81,14 +81,6 @@ const sidebar = [
     //     component: () => <TableLivingRoomIndex />
     // },
     // {
-    //     path: "/office",  // nội thất văn phòng
-    //     name: 'office',
-    //     title: <Translate value="Sidebar.office" />,
-    //     icon: <Icon>account_circle</Icon>,
-    //     component: () => <OfficeIndex />
-    //     // 
-    // },
-    // {
     //     path: "/dining-room", 
     //     name: 'diningRoom',
     //     title: <Translate value="Sidebar.diningRoom" />, 
@@ -102,6 +94,14 @@ const sidebar = [
     //     icon: <Icon>account_circle</Icon>,
     //     component: () => <TableRestaurantIndex />
     // },
+    {
+        path: "/office",  // nội thất văn phòng
+        name: 'office',
+        title: <Translate value="Sidebar.office" />,
+        icon: <Icon>account_circle</Icon>,
+        component: () => <OfficeIndex />
+        // 
+    },
     {
         path: "/contact", 
         name: 'contact',
