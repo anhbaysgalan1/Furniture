@@ -24,9 +24,6 @@ const styles = theme => ({
    root: {
       display: 'flex',
    },
-   grow: {
-      flexGrow: 1,
-   },
    toolbarMenu: {
       marginLeft: '100px',
       [theme.breakpoints.down('md')]: {
@@ -75,6 +72,7 @@ const styles = theme => ({
       },
    },
    Typography: {
+      flexGrow: 1,
       paddingRight: `${theme.spacing.unit * 3}px`,
       marginLeft: `${theme.spacing.unit * 2}px`
    },
@@ -149,13 +147,17 @@ class Main extends React.Component {
             </Hidden>
             <Hidden xsDown>
                <Toolbar variant='dense' className={classes.toolbarMenu}>
-                  <Sidebar route={route} />
+                  <Sidebar route={route}/>
                   {/* <DrawerMobileMenu route={route} />
                     <div id='top-buttom_image'>
                         <a href='javascript:top.window.scrollTo(0,0)' title='Lên đầu trang'>
                             <HomeIcon className={classes.top_buttom_image} style={{ fontSize: '40px' }} />
                         </a><br />
                     </div> */}
+                    <Typography variant="subtitle1" color="inherit" className={classes.Typography} >
+                           {/* {user.name} */}
+                     </Typography>
+                  <LogOut onLogout={this.onLogout}/>
                </Toolbar>
             </Hidden>
          </AppBar>

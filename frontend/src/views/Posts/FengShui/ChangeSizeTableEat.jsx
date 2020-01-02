@@ -71,14 +71,11 @@ class Index extends BaseView {
                                     </Typography>
                                     <li>
                                         <Typography>
-                                        Ngoài việc lựa chọn kích thước bàn ghế phòng ăn phù hợp với diện tích của ngôi nhà, 
-                                        phù hợp với nhu cầu sử dụng của gia đình thì bạn nên lựa chọn phù hợp với 
-                                        phong thủy. Bởi những lý do sau đây:
+                                            Ngoài việc lựa chọn kích thước bàn ghế phòng ăn phù hợp với diện tích của ngôi nhà, 
+                                            phù hợp với nhu cầu sử dụng của gia đình thì bạn nên lựa chọn phù hợp với 
+                                            phong thủy. Bởi những lý do sau đây:
                                         </Typography>
                                     </li>
-
-
-                                     
                                         <Typography variant='h6'>
                                             Lựa chọn hướng tối để đặt bàn ăn
                                         </Typography>

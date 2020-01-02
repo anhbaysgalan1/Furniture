@@ -89,6 +89,7 @@ class Sidebar extends React.Component {
       const { classes, route } = this.props
       let isActive = (route.sidebarName === menu.name)
       let menuRoute = this.findRouteByName(menu.route)
+     
       if (!menuRoute && !menu.path) {
          throw Error(`Not found Route: menu.route in config/routes.jsx`)
       }
