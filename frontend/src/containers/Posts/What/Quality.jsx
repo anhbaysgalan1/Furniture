@@ -1,5 +1,5 @@
 import React from 'react'
-import View from 'views/Posts/TableEatHot'
+import View from 'views/Posts/What/Quality'
 import BaseContainer, { selector } from 'containers/BaseContainer'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'

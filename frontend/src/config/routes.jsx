@@ -28,10 +28,7 @@ const FinanceEdit      = lazy(() => import('containers/Finance/Edit'))
 const ClientIndex       = lazy(() => import('containers/Client/Index'))
 const ClientCreate      = lazy(() => import('containers/Client/Create'))
 const ClientEdit        = lazy(() => import('containers/Client/Edit'))
-const PostsIndex        = lazy(() => import('containers/Posts/Index'))
-const PostsCreate       = lazy(() => import('containers/Posts/Create'))
-const PostsEdit         = lazy(() => import('containers/Posts/Edit'))
-const PostsDetail       = lazy(() => import('containers/Posts/Detail'))
+
 
 const BadIndex              = lazy(() => import('containers/Bad/Index'))
 const TableEatIndex         = lazy(() => import('containers/TableEat/Index'))
@@ -43,19 +40,20 @@ const TableLivingRoomIndex  = lazy(() => import('containers/TableLivingRoom/Inde
 const OfficeIndex           = lazy(() => import('containers/Office/Index'))
 const DiningRoomIndex         = lazy(() => import('containers/DiningRoom/Index'))
 
+const PostsIndex        = lazy(() => import('containers/Posts/Index'))
+const PostsCreate       = lazy(() => import('containers/Posts/Create'))
+const PostsEdit         = lazy(() => import('containers/Posts/Edit'))
+const PostsDetail       = lazy(() => import('containers/Posts/Detail'))
+
 const PostsSizeBad            = lazy(() => import('containers/Posts/FengShui/SizeBad'))
 const PostsChangeTable        = lazy(() => import('containers/Posts/FengShui/ChangeTable'))
 const PostsChangeSizeTableEat = lazy(() => import('containers/Posts/FengShui/ChangeSizeTableEat'))
 
+const PostsConvenient       = lazy(() => import('containers/Posts/What/Convenient'))
+const PostsExport           = lazy(() => import('containers/Posts/What/Export'))
+const PostsGuarantee        = lazy(() => import('containers/Posts/What/Guarantee'))
+const PostsQuality          = lazy(() => import('containers/Posts/What/Quality'))
 
-const PostsConvenient       = lazy(() => import('containers/Posts/Convenient'))
-const PostsExport           = lazy(() => import('containers/Posts/Export'))
-const PostsGuarantee        = lazy(() => import('containers/Posts/Guarantee'))
-const PostsQuality          = lazy(() => import('containers/Posts/Quality'))
-const PostsInteriorTrend    = lazy(() => import('containers/Posts/InteriorTrend'))
-const PostsBadSmart         = lazy(() => import('containers/Posts/BadSmart'))
-const PostsTableEatHot      = lazy(() => import('containers/Posts/TableEatHot'))
-const PostsFrequentlyQuestions = lazy(() => import('containers/Posts/FrequentlyQuestions'))
 
 
 const routes = [
@@ -217,38 +215,6 @@ const routes = [
         name: 'sizebad',
         title: () => I18n.t("Breadcrumb.postsSizebad"),
         component: () => <PostsSizeBad />,
-        exact: true,
-        sidebarName: 'post'
-    },
-    {
-        path: '/5-cau-hoi-thuong-gap',
-        name: 'frequently.questions',
-        title: () => I18n.t("Breadcrumb.postsFrequentlyQuestions"),
-        component: () => <PostsFrequentlyQuestions />,
-        exact: true,
-        sidebarName: 'post'
-    },
-    {
-        path: '/xu-huong-noi-that-2020',
-        name: 'interior.trend',
-        title: () => I18n.t("Breadcrumb.postsPostsInteriorTrend"),
-        component: () => <PostsInteriorTrend />,
-        exact: true,
-        sidebarName: 'post'
-    },
-    {
-        path: '/giuong-ngu-thong-minh',
-        name: 'bad.smart',
-        title: () => I18n.t("Breadcrumb.postsBadSmart"),
-        component: () => <PostsBadSmart />,
-        exact: true,
-        sidebarName: 'post'
-    },
-    {
-        path: '/ban-an-hot',
-        name: 'table-eat-hot',
-        title: () => I18n.t("Breadcrumb.postsTableEatHot"),
-        component: () => <PostsTableEatHot />,
         exact: true,
         sidebarName: 'post'
     },
