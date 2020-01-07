@@ -52,6 +52,28 @@ class Create extends BaseView {
             Validation.required(I18n.t("Form.required")),
             Validation.maxLength(255, I18n.t("Form.maxLeng255"))
          ],
+         money: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         usersName: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         phone: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         address: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         note: [
+            Validation.maxLength(1000, I18n.t("Form.maxLeng1000"))
+         ],
+         required: [
+            Validation.required(I18n.t("Form.required")),
+         ]
       }
    }
 
@@ -110,13 +132,13 @@ class Create extends BaseView {
                <CardContent>
                   <Grid container spacing={32}>
                      <Grid item xs={3} lg={3}>
-                        {/* <center>
+                        <center>
                            { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
                            { image ? <img src={image} height='350' width='280' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
                            { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
                            { moneyNew ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography> : '' }
                            { moneyOld ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}</Typography></del> : '' }
-                        </center> */}
+                        </center>
                      </Grid>
                      <Grid item xs={9}>
                         <DateTimeField
@@ -128,12 +150,14 @@ class Create extends BaseView {
                            showTime={false}
                            autoOk={true}
                            showDate={true}
+                           validate={this.validate.required}
                         />
                         <Grid container direction="row" justify="center" alignItems="center" spacing={16}>
                            <Grid item xs={4}>
                               <AutoCompleteField
                                  key="1"
                                  fullWidth
+                                 validate={this.validate.required}
                                  select
                                  label={I18n.t("Input.order.goodsId.Tên Hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
@@ -155,6 +179,7 @@ class Create extends BaseView {
                               <AutoCompleteField
                                  key="2"
                                  fullWidth
+                                 validate={this.validate.required}
                                  select
                                  label={I18n.t("Input.order.goodsId.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
@@ -173,11 +198,12 @@ class Create extends BaseView {
                               </AutoCompleteField>
                            </Grid>
                            <Grid item xs={3}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
                                  label={I18n.t("Input.order.number.Số lượng")}
                                  onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
+                                 validate={this.validate.required}
                                  defaultValue={`${number}`}
                                  onKeyDown={(e) => {
                                     if (["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 'Backspace', 'Tab'].indexOf(e.key) < 0) {
@@ -196,6 +222,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.order.money.Tiền hàng")}
                                  name="money"
+                                 validate={this.validate.money}
                                  defaultValue={`${number * Number(moneyNew)}`}
                                  onChange={(value) => this.onHandleChange(value, 'money')}
                               />
@@ -204,6 +231,7 @@ class Create extends BaseView {
                         <Grid container direction="row" justify="center" alignItems="center" spacing={16}> 
                            <Grid item xs={4}>
                               <TextField
+                                 validate={this.validate.usersName}
                                  fullWidth
                                  label={I18n.t("Input.order.name.Tên khách hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
@@ -213,6 +241,7 @@ class Create extends BaseView {
                            <Grid item xs={2}>
                               <TextField
                                  fullWidth
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.order.phone.SĐT")}
                                  onChange={(value) => this.onHandleChange(value, 'phone')}
                                  formatData={(value) => this.phoneFormatter(value)}
@@ -232,6 +261,7 @@ class Create extends BaseView {
                            <Grid item xs={6}>
                               <TextField
                                  fullWidth
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.order.address.Địa chỉ")}
                                  onChange={(value) => this.onHandleChange(value, 'address')}
                                  name="address"
@@ -287,6 +317,7 @@ class Create extends BaseView {
                                  variant="outlined"
                                  fullWidth
                                  label={I18n.t("Input.order.note.Ghi chú")}
+                                 validate={this.validate.note}
                                  onChange={(value) => this.onHandleChange(value, 'note')}
                                  name="note"
                               />
@@ -320,7 +351,6 @@ class Create extends BaseView {
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 // disabled
                                  label={I18n.t("Input.order.profit.Lợi nhuận")}
                                  name="profit"
                                  onChange={(value) => this.onHandleChange(value, 'profit')}

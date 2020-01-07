@@ -39,7 +39,7 @@ import {
    titleWardrobe,
    titleTableLivingRoom,
    titleShoesCabinet,
-   titleTVCabinet,
+   titleTVCabinet, 
    titleTableRestaurant,
 } from '../../config/constant'
 import Tabs from '../Tabs/Tabs'

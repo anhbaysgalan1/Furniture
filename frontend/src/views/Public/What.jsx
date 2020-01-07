@@ -101,7 +101,7 @@ class Index extends BaseView {
    render() {
       let { classes } = this.props
       // let img = "url('http://noithatdangcap.vn/app/webroot/uploads/files/1-phong-khach-noi-that-co-dien-chau-au-dinh-thu-tai-Nam-Dinh.jpg')"
-      let img = "url('https://huge.vn/wp-content/uploads/2016/10/go-tu-nhien-phong-khach.jpg')"
+      let img = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuUdQSvSrGwfA1ATgX4LgizzClGH-SO-jj4k_vMZOk2hgq5Jzf&s')"
       // let img = "url('https://png.pngtree.com/58pic/32/49/67/20U58PICI9dWcd7X7yX8e_PIC2018.jpg')"
       return (
          <span>

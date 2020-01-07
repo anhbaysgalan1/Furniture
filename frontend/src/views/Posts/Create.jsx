@@ -85,8 +85,6 @@ class Create extends BaseView {
       this.signItem = this.signItem.bind(this)
       this.addContent = this.addContent.bind(this)
       this.signContent = this.signContent.bind(this)
-      this.onShow = this.onShow.bind(this)
-      this.onHide = this.onHide.bind(this)
    }
 
    addItem() {
@@ -146,13 +144,14 @@ class Create extends BaseView {
       this.setState({ reload: !this.state.reload })
    }
 
-   onShow(){
+   onShow = () => {
       this.setState({open: true})
    }
-   onCancel(){
+   onCancel = () => {
       this.onHide()
    }
-   onHide(){
+
+   onHide = () => {
       this.setState({open: false})
    }
 
@@ -175,7 +174,7 @@ class Create extends BaseView {
                       <Previews data={dataRow}/>
                   </DialogContent>
                   <DialogActions>
-                     <Button className={classes.button} variant='contained' color="primary" onClick={() => this.onHide()}>
+                     <Button className={classes.button} variant='contained' color="primary" onClick={this.onHide}>
                         {I18n.t("Button.exit")}
                      </Button>
                   </DialogActions>
@@ -336,7 +335,7 @@ class Create extends BaseView {
                      <Icon>keyboard_arrow_left</Icon>{I18n.t("Button.back")}
                   </Button>
                   <Button type="submit" variant="contained" color="primary">{I18n.t("Button.submit")}</Button>
-                  <Button variant="contained" onClick={() => this.onShow()} color="primary">{I18n.t("Button.previews.Xem trước")}</Button>
+                  <Button variant="contained" onClick={this.onShow} color="primary">{I18n.t("Button.previews.Xem trước")}</Button>
                </CardActions>
             </Card>
          </Form>

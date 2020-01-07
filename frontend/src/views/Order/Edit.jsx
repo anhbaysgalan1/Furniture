@@ -49,10 +49,28 @@ class Create extends BaseView {
       }
       this.onHandleChange = this.onHandleChange.bind(this)
       this.validate = {
-         name: [
+         money: [
             Validation.required(I18n.t("Form.required")),
-            Validation.maxLength(255, I18n.t("Form.maxLeng255"))
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
          ],
+         usersName: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         phone: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         address: [
+            Validation.required(I18n.t("Form.required")),
+            Validation.maxLength(50, I18n.t("Form.maxLeng50"))
+         ],
+         note: [
+            Validation.maxLength(1000, I18n.t("Form.maxLeng1000"))
+         ],
+         required: [
+            Validation.required(I18n.t("Form.required")),
+         ]
       }
       this.phoneFormatter = this.phoneFormatter.bind(this)
    }
@@ -90,22 +108,12 @@ class Create extends BaseView {
    render() {
       const { classes, onSubmit, goods = [], data } = this.props
       let { dataInput } = this.state
-      let goodsIdState = _.get(dataInput, 'goodsId', '')
-      let numberState = _.get(dataInput, 'number', '')
-      let name = _.get(data, 'name', '')
-      let phone = _.get(data, 'phone', '')
-      let address = _.get(data, 'address', '')
-      let goodsId = _.get(data, 'goodsId', '')
-      let number = _.get(data, 'number', '')
-      let money = _.get(data, 'money', '')
-      let date = _.get(data, 'date', '')
-      let _status = _.get(data, 'status', '')
-      let pay = _.get(data, 'pay', '')
-      let note = _.get(data, 'note', '')
-      let amount = _.get(data, 'amount', '')
-      let moneyImportGoods = _.get(data, 'moneyImportGoods', '')
-      let cost = _.get(data, 'cost', '')
-      let profit = _.get(data, 'profit', '')
+      let goodsIdState = this.getData(dataInput, 'goodsId', '')
+      let numberState = this.getData(dataInput, 'number', '')
+      let phone = this.getData(data, 'phone', '')
+      let goodsId = this.getData(data, 'goodsId', '')
+      let number = this.getData(data, 'number', '')
+      let moneyImportGoods = this.getData(data, 'moneyImportGoods', '')
 
       let moneyNew = ''
       let moneyOld = ''
@@ -114,11 +122,11 @@ class Create extends BaseView {
       let codeGoods = ''
       goods.map(item => {
          if (item._id == goodsId) {
-            moneyOld = _.get(item, 'moneyOld', '')
-            moneyNew = _.get(item, 'moneyNew', '')
-            nameGoods = _.get(item, 'name', '')
-            codeGoods = _.get(item, 'code', '')
-            image = _.get(item, 'image1', '')
+            moneyOld = this.getData(item, 'moneyOld', '')
+            moneyNew = this.getData(item, 'moneyNew', '')
+            nameGoods = this.getData(item, 'name', '')
+            codeGoods = this.getData(item, 'code', '')
+            image = this.getData(item, 'image1', '')
          }
       })
       number = numberState ? numberState : number
@@ -128,20 +136,20 @@ class Create extends BaseView {
                <CardContent>
                   <Grid container spacing={32}>
                      <Grid item xs={3} lg={3}>
-                        {/* <center>
+                        <center>
                            { image ? <Typography color='primary'> Đơn hàng </Typography> : '' }
                            { image ? <img src={image} height='350' width='280' alt="Nội thất Dodo" title={`${nameGoods} - ${codeGoods}`}/> : '' }
                            { nameGoods ? <Typography color='primary' >{nameGoods} - {codeGoods}</Typography> : '' }
                            { moneyNew  ? <Typography style={{ color: 'red' }}>{moneyNew.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography> : '' }
                            { moneyOld  ? <del><Typography>{moneyOld.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} đ</Typography></del> : '' }
-                        </center> */}
+                        </center>
                      </Grid>
                      <Grid item xs={9}>
                         <DateTimeField
                            label='Ngày'
                            name="date"
                            ampm="false"
-                           defaultValue={new Date(date)}
+                           defaultValue={ new Date(this.getData(data, 'date', ''))}
                            autoOk={true}
                            clearable={false}
                            showTime={false}
@@ -157,6 +165,7 @@ class Create extends BaseView {
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
                                  name="goodsId"
                                  value={goodsIdState || goodsId}
+                                 validate={this.validate.required}
                                  isMulti={false}
                                  isClearable={false}
                               >
@@ -174,6 +183,7 @@ class Create extends BaseView {
                                  key="2"
                                  fullWidth
                                  select
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.order.goodsId.Mã hàng")}
                                  onChange={(data) => this.onHandleChange(data.value, 'goodsId')}
                                  name="goodsCode"
@@ -191,8 +201,9 @@ class Create extends BaseView {
                               </AutoCompleteField>
                            </Grid>
                            <Grid item xs={3}>
-                              <TextField
+                              <MoneyField
                                  fullWidth
+                                 validate={this.validate.required}
                                  label={I18n.t("Input.order.number.Số lượng")}
                                  onChange={(value) => this.onHandleChange(value, 'number')}
                                  name="number"
@@ -212,10 +223,10 @@ class Create extends BaseView {
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 label={I18n.t("Input.order.money.Tổng tiền")}
+                                 label={I18n.t("Input.order.money.Tiền hàng")}
                                  name="money"
                                  disabled={true}
-                                 defaultValue={`${Number(number) * Number(moneyNew)}` || `${money}`}
+                                 defaultValue={`${Number(number) * Number(moneyNew)}` || `${this.getData(data, 'money', '')}`}
                                  onChange={(value) => this.onHandleChange(value, 'money')}
                               />
                            </Grid>
@@ -224,15 +235,17 @@ class Create extends BaseView {
                            <Grid item xs={4}>
                               <TextField
                                  fullWidth
+                                 validate={this.validate.usersName}
                                  label={I18n.t("Input.order.name.Tên khách hàng")}
                                  onChange={(value) => this.onHandleChange(value, 'name')}
-                                 value={name}
+                                 value={this.getData(data, 'name', '')}
                                  name="name"
                               />
                            </Grid>
                            <Grid item xs={2}>
                               <TextField
                                  fullWidth
+                                 validate={this.validate.phone}
                                  label={I18n.t("Input.order.phone.SĐT")}
                                  onChange={(value) => this.onHandleChange(value, 'phone')}
                                  defaultValue={this.phoneFormatter(phone)}
@@ -253,9 +266,10 @@ class Create extends BaseView {
                            <Grid item xs={6}>
                               <TextField
                                  fullWidth
+                                 validate={this.validate.address}
                                  label={I18n.t("Input.order.address.Địa chỉ")}
                                  onChange={(value) => this.onHandleChange(value, 'address')}
-                                 value={address}
+                                 value={this.getData(data, 'address', '')}
                                  name="address"
                               />
                            </Grid>
@@ -270,7 +284,7 @@ class Create extends BaseView {
                                  onChange={(data) => this.onHandleChange(data.value, 'status')}
                                  name="status"
                                  isMulti={false}
-                                 defaultValue={_status}
+                                 defaultValue={this.getData(data, 'status', '')}
                                  isClearable={false}
                               >
                                  {
@@ -289,7 +303,7 @@ class Create extends BaseView {
                                  onChange={(data) => this.onHandleChange(data.value, 'pay')}
                                  name="pay"
                                  isMulti={false}
-                                 defaultValue={pay}
+                                 defaultValue={this.getData(data, 'pay', '')}
                                  isClearable={false}
                               >
                                  {
@@ -308,7 +322,8 @@ class Create extends BaseView {
                                  rowsMax={8}
                                  variant="outlined"
                                  fullWidth
-                                 defaultValue={note}
+                                 validate={this.validate.note}
+                                 defaultValue={this.getData(data, 'note', '')}
                                  label={I18n.t("Input.order.note.Ghi chú")}
                                  onChange={(value) => this.onHandleChange(value, 'note')}
                                  name="note"
@@ -321,7 +336,7 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.order.amount.Tiền thu về thực tế")}
                                  name="amount"
-                                 defaultValue={amount}
+                                 defaultValue={this.getData(data, 'amount', '')}
                                  onChange={(value) => this.onHandleChange(value, 'amount')}
                               />
                            </Grid>
@@ -339,17 +354,16 @@ class Create extends BaseView {
                                  fullWidth
                                  label={I18n.t("Input.order.cost.Chi phí")}
                                  name="cost"
-                                 defaultValue={cost}
+                                 defaultValue={this.getData(data, 'cost', '')}
                                  onChange={(value) => this.onHandleChange(value, 'cost')}
                               />
                            </Grid>
                            <Grid item xs={3}>
                               <MoneyField
                                  fullWidth
-                                 // disabled
                                  label={I18n.t("Input.order.profit.Lợi nhuận")}
                                  name="profit"
-                                 defaultValue={profit}
+                                 defaultValue={this.getData(data, 'profit', '')}
                                  onChange={(value) => this.onHandleChange(value, 'profit')}
                               />
                            </Grid>
